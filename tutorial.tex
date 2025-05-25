@@ -135,7 +135,7 @@
 	
 	% 英文关键字
 	\enkeywords{Martial arts, apostasy, revenge, fighting against the enemy, martial arts, apostasy, revenge, fighting against the enemy}
-	% \forceblankpage % 当前英文摘要以单行（Keywords内容置于parbox中，逻辑上算一行）奇数页结束，印刷模式无法捕获此极端情况（与LaTeX的输出原理有关），所以未在此处插入偶数空白页。遇到这种情况，\forceblankpage命令用于在此处强制追加空白页。除此之外，不要随意使用该命令
+
 	
 	\tableofcontents  % 主目录，必要
 	
@@ -153,7 +153,7 @@
 	
 	若非必要，用户不应指定\shad{symbtable}环境的可选参数。但若出于对排版美观性的考虑，可适当调整主要符号表各列的宽度。注意，按照学位论文撰写规范中的示例，\textbf{主要符号表有且仅有三列}。因此，切勿对第二项可选参数设置其他列数。
 	
-	\textbf{重要提醒}：\shadcmd{listofsymbs}命令和\shad{symbtable}环境必须同时出现或消失。消失好理解，不需要主要符号表的时候，通通注释掉即可；需要的时候，必须使用\shad{symbtable}环境生成表格内容，因为在印刷模式下，这部分结束时是否需要添加左手空白页的判断逻辑放在了\shad{symbtable}环境结束时（自动）执行。
+	\textbf{重要提醒}：\shadcmd{listofsymbs}命令和\shad{symbtable}环境必须同时出现或消失。不需要主要符号表时，通通注释掉即可；需要时，必须使用\shad{symbtable}环境生成表格内容。
 	
 	\begin{symbtable}
 		a & 加速度（acceleration） & 1 \\
@@ -326,14 +326,12 @@
 		\item 然后在正文中出现缩略词的位置使用命令\\\shadcmd{nomchn[<排序前缀>]\{<缩略词>\}\{<英文全称>\}\{<中文全称>\}}添加该缩略词条目。其中\shad{排序前缀}是可选参数，仅在对特定条目有特殊排序需求时才使用。具体细节参考\href{https://mirrors.hust.edu.cn/CTAN/macros/latex/contrib/nomencl/nomencl.pdf}{\shad{\color{DarkRed}nomencl}}宏包对\shadcmd{nomenclature}命令的参数说明。
 	\end{enumerate}
 	
-	另外，本地用户需要先编译生成缩略词表的辅助文件，再编译完整文档才能获得正确的结果，辅助文件编译教程参见\href{https://zhuanlan.zhihu.com/p/46442713}{\color{DarkRed}编译缩略词表} 或 \href{https://github.com/MGG1996/DissertationUESTC?tab=readme-ov-file#6-%E7%9B%AE%E5%BD%95%E5%9B%BE%E7%9B%AE%E5%BD%95%E8%A1%A8%E7%9B%AE%E5%BD%95%E4%B8%BB%E8%A6%81%E7%AC%A6%E5%8F%B7%E8%A1%A8%E7%BC%A9%E7%95%A5%E8%AF%8D%E8%A1%A8}{\color{DarkRed}项目readme第6节}给出的操作图示，对应本文档中的图\ref{fig: TeXstudio编译缩略词表}和图\ref{fig: VScode编译缩略词表}。图中用到的命令分别为：
+	另外，本地用户需要先编译生成缩略词表的辅助文件，再编译完整文档才能获得正确的结果，辅助文件编译教程参见\href{https://zhuanlan.zhihu.com/p/46442713}{\color{DarkRed}编译缩略词表} 或 \href{https://github.com/MGG1996/DissertationUESTC?tab=readme-ov-file#6-%E7%9B%AE%E5%BD%95%E5%9B%BE%E7%9B%AE%E5%BD%95%E8%A1%A8%E7%9B%AE%E5%BD%95%E4%B8%BB%E8%A6%81%E7%AC%A6%E5%8F%B7%E8%A1%A8%E7%BC%A9%E7%95%A5%E8%AF%8D%E8%A1%A8}{\color{DarkRed}项目readme第6节}给出的操作图示，对应本文档中的图\ref{fig: VScode编译缩略词表}和图\ref{fig: TeXstudio编译缩略词表}。图中用到的命令分别为：
 	\begin{itemize}
 		\item \shad{makeindex \%.nlo -s nomencl.ist -o \%.nls}
 		\item \shad{makeindex \%.nlo -s nomencl.ist -o \%.nls | txs:///compile | makeindex \%.nlo -s nomencl.ist -o \%.nls | txs:///compile}
 	\end{itemize}
 	Overleaf用户则可以一键搞定，无需额外操作。
-	
-	细心的朋友可能会发现，在印刷模式下，当前段落所在的页并未标注任何页眉与页脚，猜猜为什么。提示一下，当你正式使用本模板撰写论文时，肯定不需要此页的内容。
 
 	\begin{figure}[!htb]
 		\centering
@@ -350,8 +348,8 @@
 		\caption{TeXstudio编译缩略词表的操作步骤} \label{fig: TeXstudio编译缩略词表}
 	\end{figure}
 	
-
 	
+
 	\chapter{模板使用说明}
 
 	\section{前言}
@@ -385,8 +383,6 @@
 
 		\begin{itemize}
 			\item \shad{print}/\shad{nonprint}：该选项控制是否以印刷模式生成文档，印刷模式会自动在论文的前置部分添加必要的空白页，默认为\shad{print}。
-			
-			\textcolor{red}{当某一前置部分以单行奇数页结束时，印刷模式无法捕获该极端情况（与LaTeX的输出原理有关），无法正确插入偶数空白页（2025.05.01）。}\textbf{遇到这种情况，用户需要在该前置部分的结尾处使用\shadcmd{forceblankpage}命令，手动插入空白页，参见本文档\shad{英文摘要结尾处}的做法（默认为注释状态，以防误用）；或最后使用第三方PDF软件插入空白页（2025.05.25）。}
 
 			\item \shad{doctor}/\shad{prodoctor}/\shad{intdoctor}/\shad{master}/\shad{promaster}/\shad{intmaster}/\shad{bachelor}/ \shad{doublebachelor}：该选项设置学位论文类型，分别对应学术学位博士、专业学位博士、International Doctor、学术学位硕士、专业学位硕士、International Master、学士学位以及双学士学位。默认为“\shad{doctor}”。
    

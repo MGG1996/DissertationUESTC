@@ -10,7 +10,6 @@
 \newcommand{\dissertationtype}{graduate}  % 用于后续判断文档类型
 \newcommand{\insertblankpage}{}
 \newcommand{\insertevenblankpage}{}
-\newcommand{\forceblankpage}{}
 \newcommand{\evenpagemark}{}
 \newcommand{\achievementtext}{}
 \newcommand{\covertitletext}{}
@@ -325,17 +324,16 @@
 		\null%
 	}%
 
-	% 该命令用于在前置部分以单行奇数页结束时，手动追加空白页
-	\renewcommand{\forceblankpage}{%
-		\insertblankpage%
-		\addtocounter{page}{-1}%
-		\addtocounter{pseudopage}{1}%
-	}%
-
-	% 该命令在当前位置处于奇数页时插入一空白页作为左手边的页面
+	% 该命令在当前位置的下一页为偶数页时，再插入一空白页以填补缺失的左手页
 	\renewcommand{\insertevenblankpage}{%
 		\addtocounter{pseudopage}{\value{page}}%
-		\ifthenelse{\isodd{\value{pseudopage}}}{\forceblankpage}{}%
+		\ifthenelse{\isodd{\value{pseudopage}}}{}{%
+			\thispagestyle{empty}%
+			\null%
+			\newpage%
+			\addtocounter{page}{-1}%
+			\addtocounter{pseudopage}{1}%
+		}%
 		\addtocounter{pseudopage}{-\value{page}}%
 	}%
 }
@@ -512,7 +510,7 @@
 
 %%%%%%----------------- execution of options -----------------
 
-\ExecuteOptions{print,doctor,subfigparens,cmmmath}
+\ExecuteOptions{print, doctor, subfigparens, cmmmath}
 \ProcessOptions\relax
 
 %%%%%%----------------- package loading -----------------
@@ -1632,7 +1630,6 @@
 		\endlastfoot
 	}{
 	\end{longtable}%
-	\insertevenblankpage%
 }
 
 \newlength{\CPcapwidth}  % 记录长表格跨页表题的宽度
@@ -1714,8 +1711,10 @@
 			{\stepcounter{pagereset}}%
 			{}%
 		\ifthenelse{\equal{\value{pagereset}}{1}}  % 从第一章开始页码变更为罗马数字
-			{\pagenumbering{arabic}\stepcounter{pagereset}}%
-			{}%
+			{%
+				\pagenumbering{arabic}%
+				\stepcounter{pagereset}%
+			}{}%
 	}%
 \titleformat{\section}[block]%
 	{%
@@ -1742,6 +1741,22 @@
 	{\wordsep}%
 	{}%
 
+
+%% 对原始\chapter进行修改，在正文第一章开始前，检查“前置部分”结尾处是否需要插入偶数空白页。来自DeepSeek
+\let\oldchapter\chapter
+% 处理不带星号的原始\chapter
+\newcommand{\oldnormalchapter}[2][]{\oldchapter[#1]{#2}}
+% 处理带星号的原始\chapter*
+\newcommand{\oldstarchapter}[1]{\oldchapter*{#1}}
+% 重定义\chapter，支持带星号和不带星号
+\renewcommand{\chapter}{\@ifstar{\oldstarchapter}{%
+	\ifthenelse{\equal{\value{chapter}}{0} \and \equal{\value{pagereset}}{0}}%
+		{\newpage\insertevenblankpage}{}%
+	\@dblarg{\oldnormalchapter}% \@dblarg{\cmd} 会检查是否有可选参数：如果有（如\chapter[Short]{Long}），则调用\cmd[Short]{Long}。如果没有（如\chapter{Long}），则调用\cmd[Long]{Long}，即用必选参数填充可选参数。来自DeepSeek
+}}
+
+
+
 % 标准\chapter似乎会在标题上方默认添加大小为\baselineskip的垂直空间
 \titlespacing{\chapter}{0bp}{28bp-\baselineskip}{15bp}
 \titlespacing{\section}{0pt}{18bp}{6bp}
@@ -1764,12 +1779,12 @@
 	\pdfbookmark[0]{摘\hspace{1em}要}{bookmarkzhabstract\thepage}%
 	\chapter*{摘\hspace{1em}要}%
 	\markboth{摘\hspace{1em}要}{摘\hspace{1em}要}%
-	% \setcounter{chineseabstractstartpage}{\value{page}}%
 	\zlabel{page: zhabstract begin}%
 	\setcounter{chineseabstractstartpage}{\rawabspageref{page: zhabstract begin}}%
 }
 \newcommand{\enabstract}{%
-	\newpage%
+	\newpage% 首先是为了分页以便准确判断奇偶页，再者为了让书签能够准确定位
+	\insertevenblankpage% 检查“英文摘要”的前序内容是否需要补充偶数空白页
 	\pdfbookmark[0]{ABSTRACT}{bookmarkabstract\thepage}%
 	\chapter*{\bfseries ABSTRACT}%
 	\markboth{ABSTRACT}{ABSTRACT}%
@@ -1777,7 +1792,6 @@
 \newcommand\zhkeywords[1]{%
 	\par\vspace{\baselineskip}\noindent%
 	\parbox[t]{4em}{\textbf{关键词：}}\parbox[t]{\textwidth-4em}{#1}%
-	% \setcounter{chineseabstractpagespan}{\value{page}}%
 	\zlabel{page: zhkeywords end}%
 	\setcounter{chineseabstractpagespan}{\rawabspageref{page: zhkeywords end}}%
 	\addtocounter{chineseabstractpagespan}{1}%
@@ -1788,12 +1802,10 @@
 			\par\noindent\textbf{\textcolor{DarkRed}{The length of the \textit{Chinese Abstract} has exceeded the maximum limit of \chineseabstractpagelimit~page(s).}}%
 			\par\noindent\textbf{\textcolor{DarkRed}{The length of the \textit{Chinese Abstract} has exceeded the maximum limit of \chineseabstractpagelimit~page(s).}}%
 		}{}%
-	\insertevenblankpage%
 }%
 \newcommand\enkeywords[1]{%
 	\par\vspace{\baselineskip}\noindent%
 	\parbox[t]{5em}{\textbf{Keywords:}}\parbox[t]{\textwidth-5em}{#1}%
-	\insertevenblankpage%
 }%
 
 \setcounter{secnumdepth}{5}
@@ -1829,10 +1841,10 @@
 
 \let\oldtableofcontents\tableofcontents
 \renewcommand{\tableofcontents}{%
-	\newpage%
+	\newpage% 首先是为了分页以便准确判断奇偶页，再者为了让书签能够准确定位
+	\insertevenblankpage% 检查“目录”的前序内容是否需要补充偶数空白页
 	\pdfbookmark[0]{\uestctocname}{bookmarktoc\thepage}%
 	\oldtableofcontents%
-	\insertevenblankpage% 为目录部分添加偶空白页
 }
 
 \renewcommand{\listfigurename}{\uestclofname}  % 修改图目录标题
@@ -1846,10 +1858,10 @@
 	\setlength{\cftfigindent}{0em}% 取消图目录条目左边距
 	\addtolength{\cftfignumwidth}{\uestclofnumwidth}% 调整图目录条目悬挂缩进量
 	\renewcommand{\cftdotsep}{0.8}% 调整页码前导航线的疏密
-	\newpage%
+	\newpage% 首先是为了分页以便准确判断奇偶页，再者为了让书签能够准确定位
+	\insertevenblankpage% 检查“图目录”的前序内容是否需要补充偶数空白页
 	\pdfbookmark[0]{\uestclofname}{bookmarklof\thepage}%
 	\oldlistoffigures%
-	\insertevenblankpage%
 }}
 \let\oldlistoftables\listoftables
 \renewcommand{\listoftables}{{
@@ -1860,17 +1872,18 @@
 	\setlength{\cfttabindent}{0em}  % 取消表目录条目左边距，参考tocloft宏包文档
 	\addtolength{\cfttabnumwidth}{\uestclotnumwidth}% 调整表目录条目悬挂缩进量
 	\renewcommand{\cftdotsep}{0.8}% 调整页码前导航线的疏密
-	\newpage%
+	\newpage% 首先是为了分页以便准确判断奇偶页，再者为了让书签能够准确定位
+	\insertevenblankpage%
 	\pdfbookmark[0]{\uestclotname}{bookmarklot\thepage}%
 	\oldlistoftables%
-	\insertevenblankpage%
 }}
 
 
 
 %%%%%% 主要符号表
 \newcommand{\listofsymbs}{%
-	\newpage%
+	\newpage% 首先是为了分页以便准确判断奇偶页，再者为了让书签能够准确定位
+	\insertevenblankpage% 检查“主要符号表”的前序内容是否需要补充偶数空白页
 	\pdfbookmark[0]{\uestclosname}{bookmarklistofsymbs\thepage}%
 	\chapter*{\uestclosname}%
 	\markboth{\uestclosname}{\uestclosname}%
@@ -1904,7 +1917,8 @@
 %%% 重定义缩略词表打印命令，加入书签，并设置单面印刷
 \let\oldprintnomenclature\printnomenclature
 \RenewDocumentCommand{\printnomenclature}{O{5em} D(){7.5em}}{{% 多加一层{}限制\longtableprop的作用域
-	\newpage%
+	\newpage% 首先是为了分页以便准确判断奇偶页，再者为了让书签能够准确定位
+	\insertevenblankpage% 检查“缩略词表”的前序内容是否需要补充偶数空白页
 	\markboth{\uestcloaname}{\uestcloaname}%
 	\pdfbookmark[0]{\uestcloaname}{bookmarknomenclature\thepage}%
 	\renewcommand{\longtableprop}{%
@@ -1917,7 +1931,6 @@
 	\renewcommand{\nomheadparttwo}{{\noindent \bfseries \makebox[\linewidth-#2-\tabcolsep][l]{英文全称}\hspace*{\tabcolsep}\makebox[#2][l]{中文全称}}}%
 	\setlength{\nomdescrchnwidth}{#2}%
 	\oldprintnomenclature[#1]%
-	\insertevenblankpage%
 }}%
 
 %% 修改nomemcl宏包定义的\thenomenclature，让缩略词表在每一页都显示表头
@@ -1959,7 +1972,6 @@
       \let\makelabel\nomlabel}%
   \fi
 }
-
 
 \makenomenclature
 
