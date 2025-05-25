@@ -130,7 +130,9 @@
 
 2. `\documentclass[<选项列表>]{DissertUESTC}`表示加载名为`DissertUESTC`的文档类，该文档类基于LaTeX的`book`类编写。此文档类新增**七种**选项：
 
-   - `print`/`nonprint`：该选项控制是否以印刷模式生成文档，印刷模式会自动在论文的前置部分添加必要的空白页，默认为`print`。 :warning: **<font color=#8b0000>当前置部分以单行奇数页结束时，印刷模式无法正确识别此极端情况，需要后期手动追加偶数空白页</font>。（2025.05.01）**
+   - `print`/`nonprint`：该选项控制是否以印刷模式生成文档，印刷模式会自动在论文的前置部分添加必要的空白页，默认为`print`。 
+     :warning: **<font color=#8b0000>当某一前置部分以单行奇数页结束时，印刷模式无法捕获该极端情况（与LaTeX的输出原理有关），因而无法正确插入偶数空白页（2025.05.01）。</font>** 此时， :warning: **<font color=#8b0000>不要使用`\newpage`！不要使用`\newpage`！不要使用`\newpage`！</font>**，这会造成前置部分页码跳号。
+     :sparkles: :sparkles: 遇到这种情况，用户**需要在该前置部分的结尾处使用模板提供的`\forceblankpage`命令，手动插入空白页**，参见示例文档`英文摘要结尾处`的做法（默认处于注释状态，以防误用）；或最后使用第三方PDF软件插入空白页（2025.05.25）。
 
    - `doctor`/`prodoctor`/`intdoctor`/`master`/`promaster`/`intmaster`/`bachelor`/`doublebachelor`：该选项设置学位论文类型，分别对应学术学位博士、专业学位博士、International Doctor、学术学位硕士、专业学位硕士、International Master、学士学位以及双学士学位。默认为`doctor`。
    
@@ -247,7 +249,7 @@
 
    * 另外，本地用户需要先编译生成缩略词表的辅助文件，再编译完整文档才能获得正确的结果，教程参见[编译缩略词表](https://zhuanlan.zhihu.com/p/46442713 "本地缩略词表编译教程")或**下方操作截图** :point_down:。Overleaf用户则可以一键搞定，无需额外操作。
 
-        * :bulb: 使用Texstudio时，按下图中步骤配置用户命令：`makeindex %.nlo -s nomencl.ist -o %.nls | txs:///compile | makeindex %.nlo -s nomencl.ist -o %.nls | txs:///compile`，然后在工具栏执行该命令（一次），后续不再需要编译整个文档：
+        * :bulb: 使用TeXstudio时，按下图中步骤配置用户命令：`makeindex %.nlo -s nomencl.ist -o %.nls | txs:///compile | makeindex %.nlo -s nomencl.ist -o %.nls | txs:///compile`，然后在工具栏执行该命令（一次），后续不再需要编译整个文档：
           <p align = "center">
           <img src="fig/TeXstudio-nomenclature1.jpg"  width="700" />
           <img src="fig/TeXstudio-nomenclature2.jpg"  width="700" />

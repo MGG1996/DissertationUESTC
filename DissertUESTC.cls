@@ -8,8 +8,9 @@
 \RequirePackage{ifthen}  % \ifthenelse、\whiledo命令
 
 \newcommand{\dissertationtype}{graduate}  % 用于后续判断文档类型
-\newcommand{\insertemptypage}{}
-\newcommand{\insertevenemptypage}{}
+\newcommand{\insertblankpage}{}
+\newcommand{\insertevenblankpage}{}
+\newcommand{\forceblankpage}{}
 \newcommand{\evenpagemark}{}
 \newcommand{\achievementtext}{}
 \newcommand{\covertitletext}{}
@@ -317,30 +318,32 @@
 
 \DeclareOption{print}{
 	% 该命令插入无任何内容的空白页
-	\renewcommand{\insertemptypage}{%
+	\renewcommand{\insertblankpage}{%
 		\null%
 		\newpage%
 		\thispagestyle{empty}%
 		\null%
 	}%
-	
+
+	% 该命令用于在前置部分以单行奇数页结束时，手动追加空白页
+	\renewcommand{\forceblankpage}{%
+		\insertblankpage%
+		\addtocounter{page}{-1}%
+		\addtocounter{pseudopage}{1}%
+	}%
+
 	% 该命令在当前位置处于奇数页时插入一空白页作为左手边的页面
-	\renewcommand{\insertevenemptypage}{%
+	\renewcommand{\insertevenblankpage}{%
 		\addtocounter{pseudopage}{\value{page}}%
-		\ifthenelse{\isodd{\value{pseudopage}}}%
-			{%
-				\insertemptypage%
-				\addtocounter{page}{-1}%
-				\addtocounter{pseudopage}{1}%
-			}{}%
+		\ifthenelse{\isodd{\value{pseudopage}}}{\forceblankpage}{}%
 		\addtocounter{pseudopage}{-\value{page}}%
 	}%
 }
 
 
 \DeclareOption{nonprint}{
-	\renewcommand{\insertemptypage}{}
-	\renewcommand{\insertevenemptypage}{}
+	\renewcommand{\insertblankpage}{}
+	\renewcommand{\insertevenblankpage}{}
 }
 
 
@@ -824,7 +827,7 @@
 					\noindent\hspace*{4.5cm}%
 					\rule[-4.5bp]{9cm+1.5bp}{0.5bp}%
 				}%
-			\par\vspace*{-\baselineskip}\insertemptypage}%
+			\par\vspace*{-\baselineskip}\insertblankpage}%
 	}%
 }{%
 	\ifthenelse{\equal{\dissertationtype}{bachelor}}{% 学士封面
@@ -935,7 +938,7 @@
 				\par\vspace*{0bp}\noindent
 				\hspace*{1.5cm}\makebox[3cm][c]{\hwzs 指导教师}%
 				\CJKunderline*[thickness=0.5bp, depth=4bp]{\makebox[9cm][c]{\ifreview{#6}\hspace{2em}\ifreview{#7}}}%
-				\par\vspace*{-\baselineskip}\insertemptypage%
+				\par\vspace*{-\baselineskip}\insertblankpage%
 			}%
 		}%
 	}{% 双学位学士封面
@@ -1021,7 +1024,7 @@
 				\par\vspace*{0bp}\noindent
 				\hspace*{1.5em}\makebox[3.8cm][l]{第\hspace*{4bp}二\hspace*{4bp}导\hspace*{4bp}师}%
 				\CJKunderline*[thickness=0.5bp, depth=4bp]{\makebox[9.5cm][c]{\ifreview{#8}}}%
-				\par\vspace*{-\baselineskip}\insertemptypage%
+				\par\vspace*{-\baselineskip}\insertblankpage%
 			}%
 		}%
 	}%
@@ -1241,7 +1244,7 @@
 	}%
 	\par\vspace*{-2bp}
 	\parbox[b][1.5cm][b]{15cm}{注1：注明《国际十进分类法UDC》的类号。}
-	\par\vspace*{-\baselineskip}\insertemptypage%
+	\par\vspace*{-\baselineskip}\insertblankpage%
 }}
 
 
@@ -1358,7 +1361,7 @@
 				}%
 		}%
 	}%
-	\par\vspace*{-\baselineskip}\insertemptypage%
+	\par\vspace*{-\baselineskip}\insertblankpage%
 }}
 
 %% 声明页
@@ -1438,7 +1441,7 @@
 			{\makebox[4.25cm][r]{#2}}%
 		\par
 	}
-	\par\vspace*{-\baselineskip}\insertemptypage%
+	\par\vspace*{-\baselineskip}\insertblankpage%
 }
 
 
@@ -1629,7 +1632,7 @@
 		\endlastfoot
 	}{
 	\end{longtable}%
-	\insertevenemptypage%
+	\insertevenblankpage%
 }
 
 \newlength{\CPcapwidth}  % 记录长表格跨页表题的宽度
@@ -1785,12 +1788,12 @@
 			\par\noindent\textbf{\textcolor{DarkRed}{The length of the \textit{Chinese Abstract} has exceeded the maximum limit of \chineseabstractpagelimit~page(s).}}%
 			\par\noindent\textbf{\textcolor{DarkRed}{The length of the \textit{Chinese Abstract} has exceeded the maximum limit of \chineseabstractpagelimit~page(s).}}%
 		}{}%
-	\insertevenemptypage%
+	\insertevenblankpage%
 }%
 \newcommand\enkeywords[1]{%
 	\par\vspace{\baselineskip}\noindent%
 	\parbox[t]{5em}{\textbf{Keywords:}}\parbox[t]{\textwidth-5em}{#1}%
-	\insertevenemptypage%
+	\insertevenblankpage%
 }%
 
 \setcounter{secnumdepth}{5}
@@ -1829,7 +1832,7 @@
 	\newpage%
 	\pdfbookmark[0]{\uestctocname}{bookmarktoc\thepage}%
 	\oldtableofcontents%
-	\insertevenemptypage% 为目录部分添加偶空白页
+	\insertevenblankpage% 为目录部分添加偶空白页
 }
 
 \renewcommand{\listfigurename}{\uestclofname}  % 修改图目录标题
@@ -1846,7 +1849,7 @@
 	\newpage%
 	\pdfbookmark[0]{\uestclofname}{bookmarklof\thepage}%
 	\oldlistoffigures%
-	\insertevenemptypage%
+	\insertevenblankpage%
 }}
 \let\oldlistoftables\listoftables
 \renewcommand{\listoftables}{{
@@ -1860,7 +1863,7 @@
 	\newpage%
 	\pdfbookmark[0]{\uestclotname}{bookmarklot\thepage}%
 	\oldlistoftables%
-	\insertevenemptypage%
+	\insertevenblankpage%
 }}
 
 
@@ -1914,7 +1917,7 @@
 	\renewcommand{\nomheadparttwo}{{\noindent \bfseries \makebox[\linewidth-#2-\tabcolsep][l]{英文全称}\hspace*{\tabcolsep}\makebox[#2][l]{中文全称}}}%
 	\setlength{\nomdescrchnwidth}{#2}%
 	\oldprintnomenclature[#1]%
-	\insertevenemptypage%
+	\insertevenblankpage%
 }}%
 
 %% 修改nomemcl宏包定义的\thenomenclature，让缩略词表在每一页都显示表头
