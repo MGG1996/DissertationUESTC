@@ -388,7 +388,7 @@
    
 			\item \shad{subfigsimple}/\shad{subfigparens}：该选项用于调整正文中对子图标签进行引用生成的编号样式，\shad{subfigsimple}对应样式为\shad{1-1a}，\shad{subfigparens}对应样式为\shad{1-1(a)}，默认为\shad{subfigparens}。
    
-			\item \shad{draftfig}：LaTeX标准文档类提供的\shad{draft}选项在排版草稿时不会生成交叉引用链接、超链接、书签，图片也会被替换为尺寸与之相同的方框+文本，并且会在超出表格、页面边界的位置标注粗框线。\shad{draftfig}选项则仅将图片替换为方框+文本，而不修改标准\shad{draft}选项涉及的其他内容。其主要用处是在自行查重时便捷地隐去论文中的图片，而不影响排版。
+			\item \shad{draftfig}：LaTeX标准文档类提供的\shad{draft}选项在排版草稿时不会生成交叉引用链接、超链接、书签，图片也会被替换为尺寸与之相同的方框+文本，并且会在超出表格、页面边界的位置标注粗框线。\shad{draftfig}选项则仅将图片替换为\fbox{外框+文本}，而不修改标准\shad{draft}选项涉及的其他内容。其主要用处是在自行查重时便捷地隐去论文中的图片，而不影响排版。
 			
 			\item \shad{review}：此选项将以评审模式排版论文的封面及中英文扉页，届时所有能确定个人身份的信息都将被隐去，包括导师信息以及独创性声明中的签名和日期（虽然在送审的时候也不会有这两个信息）。当然，你也可以采用本文档后续介绍的设置空参数的方法来隐去对应信息，但此选项能让你在不调整命令参数内容的情况下实现同样的效果，更为方便。
 			
@@ -468,6 +468,8 @@
 		\caption{找其他红颜知己嘻嘻。\subref{fig: 陆无双2}眼睛像姑姑；\subref{fig: 程英3}举止像姑姑} \label{fig: 红颜知己}
 	\end{figure}
 	
+	研究生和本科生学位论文规范对多行图题左右侧缩进距离的要求不同，前者为单侧\shad{4em}，后者为单侧\shad{2em}。此参数由论文类型选项控制，无需用户过问。各位可以试试看，图\ref{fig: 被动技能}的主图题在\shad{bachelor}和\shad{doublebachelor}选项下能单行排版，而在其他类型选项下会换行。
+
 	\begin{figure}[!htb]
 		\centering
 		\subfloat[]{
@@ -486,8 +488,6 @@
 		}
 		\caption{撩妹是我杨过的被动技能。\subref{fig: 绿萼2}好腼腆的姑娘；\subref{fig: 杨过绿萼}你终于肯笑了；\subref{fig: GG}哦吼} \label{fig: 被动技能}
 	\end{figure}
-
-	研究生和本科生学位论文规范对多行图题左右侧缩进距离的要求不同，前者为单侧\shad{4em}，后者为单侧\shad{2em}。此参数由论文类型选项控制，无需用户过问。各位可以试试看，图\ref{fig: 被动技能}的主图题在\shad{bachelor}和\shad{doublebachelor}选项下能单行排版，而在其他类型选项下会换行。
 	
 	\begin{figure}[!htb]
 		\centering
@@ -617,7 +617,7 @@
 	
 	原则上，长度不足一页的表格不应跨页。而对于本身超过一页的表格，本模板使用\href{https://mirrors.tuna.tsinghua.edu.cn/CTAN/macros/latex/required/tools/longtable.pdf}{\shad{\color{DarkRed}longtable}}宏包提供的\shad{longtable}环境实现。用户需要了解\shad{longtable}环境的基本使用方法，它与\shad{tabular}环境的最大区别在于需要用户自行定义分页后的表题、表头以及表尾。本模板提供了命令\shadcmd{CPcaption\{<当前表格总列数>\}\{<跨页表题>\}}来正确排版跨页之后的表题\textcolor{red}{（2025.01.05日更新该命令的使用方式）}。\textbf{务必使用此命令}，否则跨页后的表题将会与表格内容采用相同的行距和段前段后，而非与规范中要求的表题格式保持一致；并且在跨页表题长度超过表宽时，无法产生预期的排版结果。
 	
-	此外，不应将\shad{longtable}环境嵌套在\shad{table}等浮动环境中，否则长表格将无法正常跨页。具体细节参见本小节示例表\ref{tab: 中国计算机学会部分推荐期刊及会议}和表\ref{tab: 中国计算机学会部分推荐期刊及会议简表}。
+	此外，\textbf{\textcolor{DarkRed}{不应将\shad{longtable}环境嵌套在\shad{table}等浮动环境中}}，否则长表格将无法正常跨页。具体细节参见本小节示例表\ref{tab: 中国计算机学会部分推荐期刊及会议}和表\ref{tab: 中国计算机学会部分推荐期刊及会议简表}。
 	
 	% \newpage
 
@@ -1464,7 +1464,7 @@
 	
 	这些\shad{.bib}数据依次编译后的结果见本文档中附上的参考文献列表，用户可对应查看。感兴趣的朋友可与\href{https://gr.uestc.edu.cn/xiazai/114/3917}{\shad{\color{DarkRed}研究生学位论文撰写规范}}中给出的结果进行对比，看看是否做到了完全复刻。
 
-	另外，\textbf{\textcolor{DarkRed}{学士学位论文在大部分参考文献类型上采用了与研究生学位论文不同的排版风格}}。其中大部分文献类型只不过是各项内容的排布顺序和其后的标点符号不同，而这些由模板负责处理。换句话说，上述大多数\shad{bib}条目同样适用于学士学位论文。但是，对\textbf{“专利”}而言，学士学位论文还需要新的域：nation（专利国别）和type（专利种类）。以下是本科生需要为\textbf{“专利”}维护的\shad{bib}信息：
+	另外，\textbf{\textcolor{DarkRed}{学士学位论文在大部分参考文献类型上采用了与研究生学位论文不同的排版风格}}。其中大部分文献类型只不过是各项内容的排布顺序和其后的标点符号不同，而这些由模板负责处理。换句话说，上述大多数\shad{bib}条目同样适用于学士学位论文。但是，对\textbf{“专利”}而言，学士学位论文还需要新的域：nation（专利国别）和type（专利种类）。\textcolor{DarkRed}{以下是本科生需要为\textbf{“专利”}维护的\shad{bib}信息}：
 	\begin{verbatim}
 	@patent{肖珍新2012,
 	    author={肖珍新},
@@ -1477,6 +1477,7 @@
 	    type={发明专利},
 	}
 	\end{verbatim}
+
 	类似的，学士学位论文在引用\textbf{“电子文献”}时，“出版地”和“获取地址”只取其一、“发表更新日期”和“引用日期”同样只取其一，所以本科生只需要用\shad{address}域为之提供“出版地”\textcolor{DarkRed}{或}“获取地址”；用\shad{modifydate}域为之提供“发表更新日期”\textcolor{DarkRed}{或}“引用日期”即可。如下所示：
 	\begin{verbatim}
 	@digital{电子文献1,
@@ -1491,14 +1492,14 @@
 
 	
 
-	当用户漏掉了参考文献需要的强制域时，BibTeX编译会报错。在VScode中，编译将直接中断；在TeXstudio中，编译不会中断，但log窗口会打印错误信息。这是一种规范控制手段，并非模板bug。遇到这类问题，用户应该自行筛查漏掉了哪些信息。
+	当用户漏掉了参考文献需要的强制域时，BibTeX编译会报错。在VScode中，编译将直接中断；在TeXstudio中，编译不会中断，但log窗口会打印错误信息。这是一种规范控制手段，并非模板bug。遇到这类问题，用户应该自行筛查疏漏。
 	
 	生成参考文献最耗费精力的是维护正确的\shad{ref.bib}数据库。在这之后，只需要在正文的对应位置使用以下单行代码即可插入完整的参考文献列表：
 	\begin{verbatim}
 		\bibliography{ref}
 	\end{verbatim}
 	
-	\textbf{\textcolor{DarkRed}{特别提醒：示例文档在上述命令之前使用了命令\shadcmd{nocite\{*\}}，其作用是在参考文献列表中列出\shad{.bib}数据库中的所有参考文献条目，以便用作示例。因此，各位在正式撰写论文时一定要确保该条命令处于被注释状态！！！}}
+	\textbf{\textcolor{DarkRed}{特别提醒}：出于演示方便，示例文档在上述命令之前使用了命令\shadcmd{nocite\{*\}}，该命令现处于注释状态。其作用是在参考文献列表中列出\shad{.bib}数据库中的所有参考文献条目，不论是否在文中有引用。因此，\textcolor{DarkRed}{各位在正式撰写论文时一定要确保该条命令处于注释状态！！！}}
 	
 	尽管研究生和学士学位论文对参考文献的排版风格有不同要求，\textbf{\textcolor{DarkRed}{用户在开头通过文档类选项指定学位论文类型后，模板将自动确定并应用相应的\shad{.bst}风格文件}}，无需像之前那样通过\shadcmd{bibliographystyle\{DissertUESTC\}}来显式设置。（2025.03.12）
 	
@@ -1553,12 +1554,12 @@
 	\chapter{九阴真经原本}
 	\section{气沉丹田}
 	\newpage
-	\section{多页测试}
+	\section{多页页眉测试}
 	
 	\chapter{黯然销魂掌秘籍}
 	\section{真气运转}
 	\newpage
-	\section{多页测试}
+	\section{多页页眉测试}
 	
 	\achievement % 仅研究生用
 	
@@ -1588,7 +1589,7 @@
 	\end{itemize}
 
 	\newpage
-	\section*{多页测试}
+	\section*{多页页眉测试}
 
 	%%%%%% 开启“外文资料原文”
 	%% \originalliterature{<外文标题>}{<外文作者>}

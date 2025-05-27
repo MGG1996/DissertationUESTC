@@ -1,4 +1,22 @@
 <h1 align="center"> 电子科技大学学位论文模板2024 </h1>
+<div align="center">
+  <a href="https://www.latex-project.org/lppl/">
+    <img src="https://img.shields.io/badge/license-LPPL-blue?style=for-the-badge&logo=latex&label=License&logoColor=white&color=008080" alt="License">
+  </a>
+  <a href="https://github.com/MGG1996/DissertationUESTC/stargazers">
+    <img src="https://img.shields.io/github/stars/MGG1996/DissertationUESTC?style=for-the-badge&logo=gleam&label=Stars&logoColor=white&color=22c55e" alt="GitHub stars">
+  </a>
+  <a href="https://github.com/MGG1996/DissertationUESTC/issues">
+    <img src="https://img.shields.io/github/issues/MGG1996/DissertationUESTC?style=for-the-badge&logo=openbugbounty&label=Issues&logoColor=white&color=D9B125" alt="Issues">
+  </a>
+  <a href="https://github.com/MGG1996/DissertationUESTC/releases">
+    <img src="https://img.shields.io/github/downloads/MGG1996/DissertationUESTC/total?style=for-the-badge&logo=transmission&label=Downloads&logoColor=white&color=E05D44" alt="Downloads">
+  </a>
+  <a href="https://github.com/MGG1996/DissertationUESTC/releases/latest">
+    <img src="https://img.shields.io/github/v/release/MGG1996/DissertationUESTC?style=for-the-badge&logo=github&label=Release&logoColor=white&color=1a67af" alt="GitHub latest release">
+  </a>
+</div>
+
 
 - [1. 前言](#1-前言)
   - [1.1 适用对象](#11-适用对象)
@@ -71,13 +89,13 @@
 
 ### 1.3 模板完成度
 
-本模板目前已基本实现了学位论文撰写规范中的要求。但有两处并未实现 :sweat_smile:：
+本模板目前已基本实现了学位论文撰写规范中的要求。但有两处并未实现且暂无计划 :sweat_smile:：
 
 :anger: 未实现将图片中的附注排版在图题之下的功能。原因是并未查找到实现该操作的LaTeX宏包，且个人能力不足，没有实现该功能的思路。替代方法是使用脚注，即通过`\footnotemark`和`\footnotetext`相互配合，细节参见[https://blog.csdn.net/xovee/article/details/127563209](https://blog.csdn.net/xovee/article/details/127563209 "\footnotemark、\footnotetext配合使用")。或者，干脆不要在图中添加附注，改为在文中解释。
 
 :anger: 伪代码环境无法跨页。本模板排版伪代码使用的宏包是`algorithm2e`，无法跨页排版伪码。注：通常来说，过长的伪码会增加阅读难度，我更建议根据算法逻辑将之拆分成多个子算法或子过程，分别进行排版，最后汇总。
 
-此外，不排除模板存在一些细节上的疏漏。本人尚在撰写学位论文的过程中，如发现或遇到问题仍会修复并更新。请各位使用本模板的同学时常来看看 :point_right: [项目发布页](https://github.com/MGG1996/DissertationUESTC):anchor:，确保自己处于最新版本 :satisfied:。
+此外，不排除模板存在一些细节上的疏漏，各位在使用中如发现或遇到问题可来 :gift: [项目发布页](https://github.com/MGG1996/DissertationUESTC):gift: 发起`Issue`。若排查后属于模板瑕疵，我会在闲暇时尽量修复问题并进行更新。 :sparkles: 但在此之前，请使用本模板（尤其是从学长处继承本模板）的同学先来、常来[项目发布页](https://github.com/MGG1996/DissertationUESTC)看看，确保自己使用的是最新版本 :satisfied:。
 
 ### 1.4 模板的更新方法
 
@@ -87,7 +105,7 @@
 
 距离**王稳**学长发布[thesisuestc](https://github.com/bdebye/thesisuestc "王稳成电模板")已经过去几年了，学校的撰写规范时有调整，**我的本意是按照最新的撰写规范设计与之相对应的LaTeX模板，而非复刻[thesisuestc](https://github.com/bdebye/thesisuestc "王稳成电模板")**。在封面页、扉页等部分，旧模板的排布结构大体与新规范一致，但部分页面元素的相对距离、大小等细节却与新规范有不少出入。本模板的目标是毫米级复刻新规范。
 
-另外，本模板希望进一步减少用户的工作量，为此加入了一些人性化功能 :gift:。比如：
+另外，本模板希望进一步减少用户的工作量，为此加入了一些人性化功能 :sparkles:。比如：
 
 1. 本模板提供了印刷模式，该模式会根据学校的印刷规范自动在论文前置部分的必要位置插入空白页，无需用户人为处理编译后的文档，彻底避免出错。
 
@@ -110,9 +128,7 @@
 
 ### 1.6 鸣谢
 
-非常感谢**王稳**学长设计的[thesisuestc](https://github.com/bdebye/thesisuestc "王稳成电模板")，它一直是成电毕业生撰写学位论文的首选。也因为该模板，本人产生了自行设计学位论文模板的想法并将之付诸行动。
-
-在设计模板的过程中，本人也借鉴了**王稳**学长的诸多设计思路，属于是站在前人的肩膀上，才能在磕磕绊绊中完成现在的雏形结果。
+非常感谢**王稳**学长设计的[thesisuestc](https://github.com/bdebye/thesisuestc "王稳成电模板")，它一直是成电毕业生撰写学位论文的首选。也因为该模板，本人产生了自行设计学位论文模板的想法并将之付诸行动。在设计模板的过程中，本人也借鉴了**王稳**学长的诸多设计思路，属于是站在前人的肩膀上，才能在磕磕绊绊中完成现在的雏形结果。
 
 此外，非常感谢广大网友在各种网站（StackExchange，知乎、CSDN、博客园等）上分享的LaTeX相关知识，以我个人的能力，断不可能设计出完整可运行的LaTeX模板。甚至可以说，这个模板并非由我设计，我只是收集了信息，并对它们进行了筛选和汇总。
 
