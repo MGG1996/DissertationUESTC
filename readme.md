@@ -6,9 +6,14 @@
   <a href="https://github.com/MGG1996/DissertationUESTC/stargazers">
     <img src="https://img.shields.io/github/stars/MGG1996/DissertationUESTC?style=for-the-badge&logo=gleam&label=Stars&logoColor=white&color=22c55e" alt="GitHub stars">
   </a>
+  <a href="https://github.com/MGG1996/DissertationUESTC/forks">
+    <img src="https://img.shields.io/github/forks/MGG1996/DissertationUESTC?style=for-the-badge&logo=git&logoColor=white&label=Forks&color=995DFF" alt="GitHub forks">
+  </a>
   <a href="https://github.com/MGG1996/DissertationUESTC/issues">
     <img src="https://img.shields.io/github/issues/MGG1996/DissertationUESTC?style=for-the-badge&logo=openbugbounty&label=Issues&logoColor=white&color=D9B125" alt="Issues">
   </a>
+</div>
+<div align="center">
   <a href="https://github.com/MGG1996/DissertationUESTC/releases">
     <img src="https://img.shields.io/github/downloads/MGG1996/DissertationUESTC/total?style=for-the-badge&logo=transmission&label=Downloads&logoColor=white&color=E05D44" alt="Downloads">
   </a>
