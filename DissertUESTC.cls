@@ -539,7 +539,6 @@
 ]{hyperref}
 \RequirePackage{graphicx}
 \RequirePackage[font=small]{subfig}
-%\RequirePackage{soul}
 \RequirePackage[numbers,sort&compress]{natbib}  % 排版参考文献和文献引用样式需要
 \RequirePackage[nomentbl]{nomencl}
 \RequirePackage{amssymb, amsmath, amsthm}
@@ -586,6 +585,7 @@
 \RequirePackage{xstring}% 在字符串中搜索子串需要
 \RequirePackage{listings}% 代码块风格化排版需要
 \RequirePackage{zref-user, zref-abspage}% 获取绝对页码需要，用来实现“摘要”和“致谢”超页提醒
+\RequirePackage{mhchem, chemfig}% 排版化学方程式、结构式和键线式需要的两个宏包
 
 % 该命令获取参数标签所在页面的实际绝对页码，可赋值给计数器（来自DeepSeek）
 \newcommand{\rawabspageref}[1]{\zref@extractdefault{#1}{abspage}{0}}
@@ -1374,7 +1374,7 @@
 	\vspace*{18bp}
 	
 	{\zihao{4}\setlength{\baselineskip}{30bp}\selectfont
-		本人声明所呈交的学位论文是本人在导师指导下进行的研究工作及取得的研究成果。据我所知，除了文中特别加以标注和致谢的地方\makebox[1em][l]{外，} 论文中不包含其他人已经发表或撰写过的研究成果，也不包含为获得电子科技大学或其它教育机构的学位或证书而使用过的材料。与我一同工作的同志对本研究所做的任何贡献均已在论文中作了明确的说明并表示谢意。\par
+		本人声明所呈交的学位论文是本人在导师指导下进行的研究工作及取得的研究成果。据我所知，除了文中特别加以标注和致谢的地方\makebox[1.3em][l]{外，} 论文中不包含其他人已经发表或撰写过的研究成果，也不包含为获得电子科技大学或其它教育机构的学位或证书而使用过的材料。与我一同工作的同志对本研究所做的任何贡献均已在论文中作了明确的说明并表示谢意。\par
 	}
 	
 	\vspace*{16bp}
@@ -1404,7 +1404,7 @@
 	\vspace*{18bp}
 	
 	{\zihao{4}\setlength{\baselineskip}{30bp}\selectfont
-		本学位论文作者完全了解电子科技大学有关保留、使用学位论文的规定，同意学校有权保留并向国家有关部门或机构送交论文的复印件和数字文档，允许论文被查阅。本人授权电子科技大学可以将学位论文的全部或部分内容编入有关数据库进行检索及下载，可以采用影\makebox[1em][l]{印、} 扫描等复制手段保存、汇编学位论文。
+		本学位论文作者完全了解电子科技大学有关保留、使用学位论文的规定，同意学校有权保留并向国家有关部门或机构送交论文的复印件和数字文档，允许论文被查阅。本人授权电子科技大学可以将学位论文的全部或部分内容编入有关数据库进行检索及下载，可以采用影\makebox[1.3em][l]{印、} 扫描等复制手段保存、汇编学位论文。
 		
 		（涉密的学位论文须按照国家及学校相关规定管理，在解密后适用于本授权。） \par}
 	

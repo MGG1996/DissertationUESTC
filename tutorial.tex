@@ -1283,6 +1283,24 @@
 	有两点需要提醒，\shadcmd{subeqtag[<子公式编号标签>]}的可选参数全文不可重复定义，因为它本质上还是调用的\shadcmd{label\{<编号标签>\}}，不用多说。另外，尽管使用\shadcmd{subeqtag[<子公式编号标签>]}的可选参数指定的标签本质上是基于\shadcmd{label\{<编号标签>\}}进行的封装，在TexStudio这样的编辑器上使用\shadcmd{ref\{<编号标签>\}}或\shadcmd{eqref\{<编号标签>\}}却不会自动弹出这些标签的选项，需要用户手动输入；而如果是直接用\shadcmd{label\{<编号标签>\}}指定的标签，引用时会出现在提醒选项中，用户可以直接选择，这算是\shadcmd{subeqtag[<子公式编号标签>]}不太方便的点，可惜我并不知道该如何解决。
 	
 	
+	\section{排版化学方程式}
+
+	本模板基于\href{https://mirrors.cloud.tencent.com/CTAN/macros/latex/contrib/mhchem/mhchem.pdf}{\shad{\color{DarkRed}mhchem}}和\href{https://mirrors.bfsu.edu.cn/CTAN/macros/generic/chemfig/chemfig-en.pdf}{\shad{\color{DarkRed}chemfig}}宏包来排版化学方程式、结构式和键线式等。相关命令的使用可参考宏包的官方文档或\href{https://www.luogu.com.cn/user/45443}{\shad{\color{DarkRed}@codesonic}}的文章：\href{https://www.luogu.com.cn/article/o7mlv3w8}{\shad{\color{DarkRed}用LaTeX写化学方程式}}。下方示例取自该文章，感谢。
+
+	\ce{2H2 + O2 ->T[点燃] 2H2O}，\quad \ce{N2 + 3H2 <=>T[高温、加压][催化剂] 2NH3}
+	
+	\ce{SO4^2- + Ba^2+ -> BaSO4 v}，\quad \ce{2HCl + Na2CO3 -> H2O + CO2 ^ + 2NaCl}
+
+	\ce{^{227}_{90}Th+}，\quad \ce{KCr(SO4)2 * 12H2O}，\quad \ce{C6H5-CHO}，\quad \ce{X=Y#Z}
+
+	\ce{\chemfig{CH_3C(=[1]O)(-[7]CH_3)} + \chemfig{CN(-[2]H)} ->T[催化剂] \chemfig{CH_3(-[0]C(-[2]OH)(-[0]CN)(-[6]CH3))}}
+
+	\ce{\chemfig{CH_3C(=[1,0.7]O)(-[7,0.7]CH_3)} + \chemfig{CN(-[2,0.7]H)} ->T[催化剂] \chemfig{CH_3(-[0,0.7]C(-[2,0.7]OH)(-[0,0.7]CN)(-[6,0.7]CH3))}}
+
+	\chemfig{[,0.7]*6(-=(*5(-N(-H)-=(-[:30]CH_2CH_2NHCOCH_3)--))-=-(-H_3CO)=)}
+
+	\chemfig{[,0.7]*6(-=(*5(-[0.7]N(-H)-=(-[:30,0.7](-[:330,0.7](-[:30,0.7]N(-[2,0.7]H)(-[:330,0.7](=[6,0.7]O)(-[:30,0.7])))))--))-=-(-[,0.7]O(-[1,0.7]))=)}
+
 	\section{在标题中排版数学符号\texorpdfstring{$\tilde{r}^t_{u,b}, \acute{\alpha}^t_v, \check{\boldsymbol{C}}^t_n$}{示例}}
 
 	尽管我不建议各位在标题中排版数学符号（因为规范甚至不建议在标题中排版英文缩略词），但如果你非排版不可，那可参考本节标题的做法，使用\href{https://mirrors.tuna.tsinghua.edu.cn/CTAN/macros/latex/contrib/hyperref/doc/hyperref-doc.pdf}{\shad{\color{DarkRed}hyperref}}宏包（模板已载入该宏包）提供的\shadcmd{texorpdfstring\{<TeXstring>\}\{<PDFstring>\}}命令，该命令的具体用法参考这个帖子：\href{https://blog.csdn.net/qq_42679415/article/details/139592054}{\shad{\color{DarkRed}texorpdfstring使用方法}}。

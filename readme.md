@@ -56,8 +56,9 @@
   - [7.6 定义、公理、定理、命题、推论、引理、示例、假设、证明](#76-定义公理定理命题推论引理示例假设证明)
   - [7.7 脚注](#77-脚注)
   - [7.8 模板中的各种编号](#78-模板中的各种编号)
-  - [7.9 在标题中排版数学符号](#79-在标题中排版数学符号)
-  - [7.10 引用](#710-引用)
+  - [7.9 排版化学方程式](#79-排版化学方程式)
+  - [7.10 在标题中排版数学符号](#710-在标题中排版数学符号)
+  - [7.11 引用](#711-引用)
 - [8. 致谢](#8-致谢)
 - [9. 参考文献](#9-参考文献)
 - [10. 附录](#10-附录)
@@ -427,12 +428,16 @@
 2. 尽管`\subeqtag[<子公式编号标签>]`在底层是调用`\label{<编号标签>}`来添加标签，TeXstudio这样的编辑器在使用`\ref{<编号标签>}`或`\eqref{<编号标签>}`时却不会自动弹出这些标签的选项，需要用户手动输入；而如果是直接用`\label{<编号标签>}`指定的标签，它们在引用时会出现在提醒选项中，用户可以直接选择。这算是`\subeqtag[<子公式编号标签>]`不太方便的点，可惜我并不知道该如何解决。
 
 
-### 7.9 在标题中排版数学符号
+### 7.9 排版化学方程式
+
+本模板基于[mhchem](https://mirrors.cloud.tencent.com/CTAN/macros/latex/contrib/mhchem/mhchem.pdf)和[chemfig](https://mirrors.bfsu.edu.cn/CTAN/macros/generic/chemfig/chemfig-en.pdf)宏包来排版化学方程式、结构式和键线式等。相关命令的使用可参考宏包的官方文档或[@codesonic](https://www.luogu.com.cn/user/45443)的文章：[用LaTeX写化学方程式](https://www.luogu.com.cn/article/o7mlv3w8)。`tutorial.tex`引用了该文章中的部分示例以做演示，感谢。
+
+### 7.10 在标题中排版数学符号
 
 尽管我不建议各位在标题中排版数学符号（因为规范甚至不建议在标题中排版英文缩略词），但如果你非排版不可，那可使用[hyperref](https://mirrors.tuna.tsinghua.edu.cn/CTAN/macros/latex/contrib/hyperref/doc/hyperref-doc.pdf)宏包（模板已载入该宏包）提供的`\texorpdfstring{<TeXstring>}{<PDFstring>}`命令，该命令的具体用法参考这个帖子：[texorpdfstring使用方法](https://blog.csdn.net/qq_42679415/article/details/139592054)。`tutorial.tex`中也有对应的使用示例。
 
 
-### 7.10 引用
+### 7.11 引用
 
 引用公式、图片、表格、伪码、定义、定理、命题、推论、引理、证明等环境的编号直接用`\ref{<编号label>}`即可，其中生成带括号公式编号则使用`\eqref{<公式label>}`。
 
