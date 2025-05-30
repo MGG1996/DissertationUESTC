@@ -146,7 +146,13 @@
 
 ### 1.8 项目统计
 
-[![Star增长统计](https://starchart.cc/MGG1996/DissertationUESTC.svg?variant=adaptive)](https://starchart.cc/MGG1996/DissertationUESTC)
+<a href="https://www.star-history.com/#MGG1996/DissertationUESTC&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=MGG1996/DissertationUESTC&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=MGG1996/DissertationUESTC&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=MGG1996/DissertationUESTC&type=Date" />
+ </picture>
+</a>
 
 
 ## 2. 导言区
