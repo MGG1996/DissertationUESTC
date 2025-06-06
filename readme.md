@@ -73,10 +73,10 @@
 ### 1.1 适用对象
 
 本模板基于电子科技大学[2024年研究生学位论文撰写规范](https://gr.uestc.edu.cn/xiazai/114/3917)、通院[关于启动2021级本科毕业设计（论文）工作的通知](https://www.sice.uestc.edu.cn/info/1140/14689.htm)以及[交叉复合型毕业设计](https://www.jwc.uestc.edu.cn/info/1507170256521551874)编写，适用对象包括：
-> - [x] 学术学位博士、专业学位博士 :mortar_board:
-> - [x] 学术学位硕士、专业学位硕士 :mortar_board:
-> - [x] 普通学士、**双学位学士（2025.04.21新增）** :mortar_board:
-> - [x] **来华留学生International Students（2025.01.07新增）** :mortar_board:
+> :white_check_mark: 学术学位博士 :mortar_board: 、专业学位博士 :mortar_board:
+> :white_check_mark: 学术学位硕士 :mortar_board: 、专业学位硕士 :mortar_board:
+> :white_check_mark: 普通学士 :mortar_board: 、**双学位学士（2025.04.21新增）** :mortar_board:
+> :white_check_mark: **来华留学生International Students（2025.01.07新增）** :mortar_board:
 
 使用本模板的用户需要具备基本的LaTeX排版技能，后续不会对常见命令和环境的使用进行说明。
 
@@ -134,9 +134,9 @@
 
 ### 1.6 鸣谢
 
-非常感谢**王稳**学长设计的[thesisuestc](https://github.com/bdebye/thesisuestc "王稳成电模板")，它一直是成电毕业生撰写学位论文的首选。也因为该模板，本人产生了自行设计学位论文模板的想法并将之付诸行动。在设计模板的过程中，本人也借鉴了**王稳**学长的诸多设计思路，属于是站在前人的肩膀上，才能在磕磕绊绊中完成现在的雏形结果。
+非常感谢**王稳**学长设计的[thesisuestc](https://github.com/bdebye/thesisuestc "王稳成电模板")，它一直是成电毕业生撰写学位论文的首选。也因为该模板，本人产生了自行设计学位论文模板的想法并将之付诸行动。在设计模板的过程中，本人也借鉴了**王稳**学长的部分设计思路，实属站在前人的肩膀上，才在磕磕绊绊中将模板迭代到现今的程度。
 
-此外，非常感谢广大网友在各种网站（StackExchange，知乎、CSDN、博客园等）上分享的LaTeX相关知识，以我个人的能力，断不可能设计出完整可运行的LaTeX模板。甚至可以说，这个模板并非由我设计，我只是收集了信息，并对它们进行了筛选和汇总。
+此外，非常感谢广大网友在各种网站（StackExchange，知乎、CSDN、博客园等）上分享的LaTeX相关知识。仅以我个人的能力，要设计出完备的LaTeX模板定然困难重重、周期漫长。
 
 
 ### 1.7 免责声明
