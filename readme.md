@@ -74,8 +74,11 @@
 
 本模板基于电子科技大学[2024年研究生学位论文撰写规范](https://gr.uestc.edu.cn/xiazai/114/3917)、通院[关于启动2021级本科毕业设计（论文）工作的通知](https://www.sice.uestc.edu.cn/info/1140/14689.htm)以及[交叉复合型毕业设计](https://www.jwc.uestc.edu.cn/info/1507170256521551874)编写，适用对象包括：
 > :white_check_mark: 学术学位博士 :mortar_board: 、专业学位博士 :mortar_board:
+> 
 > :white_check_mark: 学术学位硕士 :mortar_board: 、专业学位硕士 :mortar_board:
+> 
 > :white_check_mark: 普通学士 :mortar_board: 、**双学位学士（2025.04.21新增）** :mortar_board:
+> 
 > :white_check_mark: **来华留学生International Students（2025.01.07新增）** :mortar_board:
 
 使用本模板的用户需要具备基本的LaTeX排版技能，后续不会对常见命令和环境的使用进行说明。
