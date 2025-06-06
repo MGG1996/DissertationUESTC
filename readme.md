@@ -72,7 +72,7 @@
 
 ### 1.1 适用对象
 
-本模板基于电子科技大学[2024年研究生学位论文撰写规范](https://gr.uestc.edu.cn/xiazai/114/3917)、通院[关于启动2021级本科毕业设计（论文）工作的通知](https://www.sice.uestc.edu.cn/info/1140/14689.htm)以及[交叉复合型毕业设计](https://www.jwc.uestc.edu.cn/info/1507170256521551874)编写，适用对象包括：
+本模板基于电子科技大学[研究生学位论文撰写规范（最后修订：2024.01.17）](https://gr.uestc.edu.cn/xiazai/114/3917)、通院[关于启动2021级本科毕业设计（论文）工作的通知（发布时间：2024.10.09）](https://www.sice.uestc.edu.cn/info/1140/14689.htm)以及[交叉复合型毕业设计（发布时间：2022.03.25）](https://www.jwc.uestc.edu.cn/info/1507170256521551874)编写，适用对象包括：
 > :white_check_mark: 学术学位博士 :mortar_board: 、专业学位博士 :mortar_board:
 > 
 > :white_check_mark: 学术学位硕士 :mortar_board: 、专业学位硕士 :mortar_board:
