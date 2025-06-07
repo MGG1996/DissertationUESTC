@@ -1774,6 +1774,7 @@
 
 \newcommand{\zhabstract}{%
 	\newpage% 这里是为了让书签能够准确定位到“摘要”所在的行
+	\insertevenblankpage% 检查“中文摘要”的前序内容是否需要补充偶数空白页
 	\pagenumbering{Roman}%
 	% 参考hyperref宏包文档，手动添加书签，part属于-1级，chapter属于0级，section属于1级
 	\pdfbookmark[0]{摘\hspace{1em}要}{bookmarkzhabstract\thepage}%
