@@ -1,3 +1,5 @@
+**简体中文** | [English](./readme_en.md)
+
 <h1 align="center"> 电子科技大学学位论文模板2024 </h1>
 <div align="center">
   <a href="https://www.latex-project.org/lppl/">
@@ -72,7 +74,13 @@
 
 ### 1.1 适用对象
 
-本模板参照电子科技大学[研究生学位论文撰写规范（最后修订：2024.01.17）](https://gr.uestc.edu.cn/xiazai/114/3917)、通院[关于启动2021级本科毕业设计（论文）工作的通知（发布时间：2024.10.09）](https://www.sice.uestc.edu.cn/info/1140/14689.htm)以及[交叉复合型毕业设计（发布时间：2022.03.25）](https://www.jwc.uestc.edu.cn/info/1507170256521551874)编写，适用对象包括：
+本模板参照以下电子科技大学官方规范编写：
+
+* [研究生学位论文撰写规范（最后修订：2024.01.17）](https://gr.uestc.edu.cn/xiazai/114/3917)
+* [关于启动2021级本科毕业设计（论文）工作的通知（发布时间：2024.10.09）](https://www.sice.uestc.edu.cn/info/1140/14689.htm)
+* [交叉复合型毕业设计（发布时间：2022.03.25）](https://www.jwc.uestc.edu.cn/info/1507170256521551874)
+
+适用对象包括：
 > :white_check_mark: 学术学位博士 :mortar_board: 、专业学位博士 :mortar_board:
 > 
 > :white_check_mark: 学术学位硕士 :mortar_board: 、专业学位硕士 :mortar_board:
@@ -91,6 +99,9 @@
 
 :warning: 本地用户请务必将LaTeX环境更新到[TeXLive2024及以上](https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/texlive/)或[MacTeX2024及以上](https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/mactex/)，以避免兼容性问题。
 
+* [:link: TeXLive安装教程](https://zhuanlan.zhihu.com/p/389394015)、[:link: MacTeX安装教程](https://blog.csdn.net/ChrisP_333/article/details/82943508)
+* [:link: TeXstudio下载地址](https://texstudio.sourceforge.net/#download)、[:link: VSCode下载地址](https://code.visualstudio.com/Download)、[:link: VSCode配置LaTeX环境](https://zhuanlan.zhihu.com/p/166523064)
+
 :warning: 模板需要使用`XeLaTeX`引擎进行编译：
 
 * 若使用TeXstudio编辑器，则不需要进行额外设置：`tutorial.tex`文件在首行设置了`% !TEX Program = xelatex`，该指令指定使用`XeLaTeX`引擎编译该文档；
@@ -104,9 +115,9 @@
 
 模板已经实现了学位论文撰写规范中近乎全部的排版要求，仅有两处并未实现且暂无计划 :sweat_smile:：
 
-:anger: 未实现将图片附注排版在图题之下的功能。原因是未能找到实现该操作的LaTeX宏包，且本人能力有限，缺少实现该功能的思路。 :bulb: 替代方案是使用脚注，即通过`\footnotemark`和`\footnotetext`相互配合，细节参见[https://blog.csdn.net/xovee/article/details/127563209](https://blog.csdn.net/xovee/article/details/127563209 "\footnotemark、\footnotetext配合使用")。或者，干脆避免在图中使用附注，改为在文中解释。
+:anger: 未实现将图片附注排版在图题之下的功能。原因是未能找到实现该操作的LaTeX宏包，且本人能力有限，缺少实现该功能的思路。 :bulb: 替代方案是使用脚注，即通过`\footnotemark`和`\footnotetext`相互配合，细节参见[LaTeX脚注@Xovee](https://blog.csdn.net/xovee/article/details/127563209 "\footnotemark、\footnotetext配合使用")。或者，干脆避免在图中使用附注，改为在文中解释。
 
-:anger: 伪代码环境不支持跨页排版。本模板排版伪代码使用的宏包是`algorithm2e`，它无法跨页排版伪码。 :bulb: 通常来说，伪码跨页会增加阅读难度。反之，根据算法逻辑将之拆分成数个子算法或子过程，分别进行排版，最后再汇总，这可能是更合适的做法。
+:anger: 伪代码环境不支持跨页排版。本模板排版伪代码使用的宏包是[algorithm2e](https://mirrors.sustech.edu.cn/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf)，它无法跨页排版伪码。 :bulb: 通常来说，伪码跨页会增加阅读难度。反之，根据算法逻辑将之拆分成数个子算法或子过程，分别进行排版，最后再汇总，这可能是更合适的做法。
 
 此外，不排除模板存在一些细节上的疏漏，各位在使用中若发现或遇到问题，欢迎来 :bug: [项目Issue页](https://github.com/MGG1996/DissertationUESTC/issues):bug: 进行反馈。若确为模板问题，我会在闲暇时尽量修复并进行更新。 :sparkles: 在此之前，请使用本模板（尤其是从学长处继承本模板）的同学先来、常来 :gift: [项目发布页](https://github.com/MGG1996/DissertationUESTC) :gift: 看看，确保自己使用的是最新版本 :satisfied:。
 
@@ -128,7 +139,7 @@
 
 3. 本模板提供了查重模式。该模式将使用等尺寸的矩形框线替换论文中的所有图片，以在个人查重时尽可能保证数据安全性。
 
-4. 本模板可显式提醒超页问题。规范对中文摘要和致谢的篇幅做出了限制，当这些内容超出了对应的篇幅限制时，模板将通过打印信息来提醒使用者。
+4. 本模板可显式提醒超页问题。规范对“中文摘要”和“致谢”的篇幅做出了限制，当这些内容超出了对应的篇幅限制时，模板将通过打印信息来提醒使用者。
 
 5. 在“封面”和“英文扉页”中，本模板可根据输入内容的实际长度自动确定需生成的下划线数量，灵活性和适应性较强。
 
@@ -159,11 +170,11 @@
 
 ### 1.8 项目统计
 
-<a href="https://www.star-history.com/#MGG1996/DissertationUESTC&Date">
+<a href="https://www.star-history.com/#MGG1996/DissertationUESTC&bdebye/thesisuestc&shifujun/UESTCthesis&Date">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=MGG1996/DissertationUESTC&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=MGG1996/DissertationUESTC&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=MGG1996/DissertationUESTC&type=Date" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=MGG1996/DissertationUESTC,bdebye/thesisuestc,shifujun/UESTCthesis&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=MGG1996/DissertationUESTC,bdebye/thesisuestc,shifujun/UESTCthesis&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=MGG1996/DissertationUESTC,bdebye/thesisuestc,shifujun/UESTCthesis&type=Date" />
  </picture>
 </a>
 
@@ -171,13 +182,13 @@
 ## 2. 导言区
 
 模板的导言区只有两行：
-1. `% !TEX Program = xelatex`在Texstudio中表示指定使用XeLaTeX编译该文档，对其他编辑器，可能需要手动设置编译引擎。
+1. `% !TEX Program = xelatex`在TeXstudio编辑器中表示指定使用`XeLaTeX`引擎编译该文档，对其他编辑器，可能需要手动设置编译引擎。
 
 2. `\documentclass[<选项列表>]{DissertUESTC}`表示加载名为`DissertUESTC`的文档类，该文档类基于LaTeX的`book`类编写。此文档类可设置**八种**选项：
 
    1. `print`/`nonprint`：该选项控制是否以印刷模式生成文档，印刷模式会自动在论文的前置部分添加必要的空白页，默认为`print`。
 
-   2. `doctor`/`prodoctor`/`intdoctor`/`master`/`promaster`/`intmaster`/`bachelor`/`doublebachelor`：该选项设置学位论文类型，分别对应学术学位博士、专业学位博士、International Doctor、学术学位硕士、专业学位硕士、International Master、学士学位以及双学士学位。默认为`doctor`。
+   2. `doctor`/`prodoctor`/`intdoctor`/`master`/`promaster`/`intmaster`/`bachelor`/`doublebachelor`：该选项设置学位论文类型，分别对应学术学位博士、专业学位博士、International Doctor、学术学位硕士、专业学位硕士、International Master、学士以及双学位学士。默认为`doctor`。
    
    3. [**新增**]`subfigsimple`/`subfigparens`：该选项用于调整正文中对子图标签进行引用生成的编号样式，`subfigsimple`对应样式为`1-1a`，`subfigparens`对应样式为`1-1(a)`，默认为`subfigparens`。
    
@@ -185,29 +196,29 @@
    
    5. [**新增**]`review`：该选项将以评审模式排版论文的“封面”及“中英文扉页”，届时所有有关个人身份的信息都将被隐去，包括导师信息以及独创性声明中的签名和日期。当然，也可以通过设置空参数来隐去对应信息，但`review`选项能在不调整命令参数内容的情况下实现同样的效果。
    
-      另外，模板支持将`review`的作用范围扩展到其他内容。例如，送审前需要抹除“致谢”和“成果”中的个人身份信息，使用者可将相应内容置于`\ifreview[<替换文本>]{<原内容>}`命令。若未指定该命令的第一项可选参数，`review`选项将以两字宽的水平空白替换原内容；否则，`review`选项将以指定的参数替换原内容。[**2025.03.06补充**]
+      另外，模板支持将`review`的作用范围扩展到其他内容。例如，送审前需要抹除“致谢”和“成果”中的个人身份信息，使用者可将相应内容置于`\ifreview[<替换文本>]{<原内容>}`命令。若未指定该命令的第一项可选参数，`review`选项将以两字宽的水平空白替换原内容；否则，`review`选项将以指定的参数替换原内容。(2025.03.06)
    
-   6. [**新增**]`noreminder`：默认情况下，当**中文摘要**和**致谢**的篇幅超出规范的最大页数限制时，模板（**经过两次编译后**）将在对应内容的结尾显式打印提醒信息。若使用者在知悉这些内容的长度超出规范限制后仍希望保持原样，则可使用`noreminder`选项禁用提醒信息。（2025.02.22）
+   6. [**新增**]`noreminder`：默认情况下，当“**中文摘要**”和“**致谢**”的篇幅超出规范的最大页数限制时，模板（**经过两次编译后**）将在对应内容的结尾显式打印提醒信息。若使用者在知悉这些内容的长度超出规范限制后仍希望保持原样，则可使用`noreminder`选项禁用提醒信息。（2025.02.22）
    
    7. [**新增**]`cmmmath`/`timesmathnogreek`/`timesmath`：该选项用于选择渲染公式使用的字体。其中，`cmmmath`即对应LaTeX默认使用的Computer Modern Math，也是此类选项的默认值；`timesmathnogreek`指定使用Times New Roman来渲染公式中的英文字母和数字，但不影响希腊字母、手写体和双线体；`timesmath`则继续将希腊字母也设置成Times New Roman（个人觉得希腊字符用这个字体有些违和），手写体和双线体仍保持原样。
      
-      追求公式字体均为Times New Roman的使用者可采用`timesmath`选项。后两种选项均基于`mathspec`宏包实现，在本人有限的测试实践中，只有它能做到真正意义上的Times New Roman。（2025.01.31）
+      追求公式字体均为Times New Roman的使用者可采用`timesmath`选项。后两种选项均基于[mathspec](https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf)宏包实现，在本人有限的测试实践中，只有它能做到真正意义上的Times New Roman。（2025.01.31）
 
       :exclamation: 需要注意，Times New Roman字体原不支持在公式中排版粗斜体，所以后两种选项将使`\boldsymbol{}`命令失效。为了解决该问题，模板（仅在后两种选项下）对这条命令进行了粗糙的重定义，使之能像原版那样生成粗斜体符号。但是，由于本人技术水平不足，重定义后的`\boldsymbol{}`命令需要遵循一条额外的使用规则：**其输入参数必须是最原始的数学符号**。比如你想排版`\boldsymbol{\hat{\alpha}}`（这在`cmmmath`下是没有问题的），那此时正确的源码应该是`\hat{\boldsymbol{\alpha}}`，**即将`\boldsymbol{}`置于嵌套的最内层**。如若不然，模板轻则无法渲染出预期的数学符号（在`timesmath`选项下），重则直接报`! Internal error: bad native font flag in 'map_char_to_glyph'`错误（在`timesmathnogreek`选项下）。大概是涉及了一些底层问题，我也不懂，无法解决。
      
-      :exclamation: 因为`mathspec`宏包本身的特性，使用Times New Roman作为公式字体需要付出更多精力。举个例子，你想排版`$f^t$`，那么你会发现`f`和`t`之间的间隔很小，两者发生了重叠。此时需要手动用`"`插入空格，即`$f^{"t}$`。因此，`timesmathnogreek`和`timesmath`选项均存在类似瑕疵，届时请仔细查阅`mathspec`的宏包文档。
+      :exclamation: 因为[mathspec](https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf)宏包本身的特性，使用Times New Roman作为公式字体需要付出更多精力。举个例子，你想排版`$f^t$`，那么你会发现`f`和`t`之间的间隔很小，两者发生了重叠。此时需要手动用`"`插入空格，即`$f^{"t}$`。因此，`timesmathnogreek`和`timesmath`选项均存在类似瑕疵，届时请仔细查阅[mathspec](https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf)的宏包文档。
      
       :four_leaf_clover: 其实，规范并未对公式字体作强制要求，即便审查系统识别到公式字体不是Times New Roman，它也只是抛出提醒而非错误，不会造成格式审查不通过。只是实在有太多人问怎么公式字体不是Times New Roman，既然有部分同学喜欢Times New Roman，那本模板秉承兼容并包的原则，将选择权交给使用者。
 
-   8. 另外，`algorithm2e`宏包的`vlined`和`boxruled`选项也可以在加载文档类时设置。
+   8. 另外，[algorithm2e](https://mirrors.sustech.edu.cn/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf)宏包的`vlined`和`boxruled`选项也可以在加载文档类时设置。
 
 ## 3. 论文封面及扉页
 
 这部分主要通过模板提供的各项命令来填充论文封面和扉页中的内容。
 
-送审时，只需将本小节涉及的相应命令参数留空，即可生成对应位置为空的封面和扉页。 :warning: 注意，参数留空表示`{}`，而非彻底删除。
+送审时，只需将本小节涉及的相应命令参数留空，即可生成对应位置为空的封面和扉页。 :warning: 注意，**<font color=#8b0000>参数留空表示`{}`，而非彻底删除</font>**。
 
-**当然，更便捷的方法是使用文档类的`review`选项，无需调整命令参数设置即可隐去与个人身份有关的信息**。若要隐去其他信息，则需要将对应参数留空（2024.12.15）。
+当然，**更便捷的方法是使用文档类的`review`选项，无需调整命令参数设置即可隐去与个人身份有关的信息**。若要隐去其他信息，则需要将对应参数留空（2024.12.15）。
 
 ### 3.1 保密标识（2025.01.07）
 
@@ -229,21 +240,21 @@
 
 * 对于研究生封面，`学院名称`所在的位置已经触及页面下边缘。为了让**过长**的`学院名称`顺利换行且不挤压下边界，*`par`选项会借用`论文题目`尾行与`学科专业`间的部分垂直间距*。说人话就是：为了保持规范的页边距，不得不减小上述垂直间距，这是无可奈何的。
 
-* 对于学士论文封面，其`学院`紧跟`论文题目`。在两行学院名称下，两者间的垂直间距也会缩小。具体结果可参见`tutorial.pdf`文档给出的两种排版样例。
+* 对于学士论文封面，其`学院`紧跟`论文题目`。在两行学院名称下，两者间的垂直间距也会缩小。具体结果可参见`tutorial.pdf`文档给出的排版样例。
 
 切记， :warning: **最多完美支持两行**。如果电子科大真的存在名称超过两行的学院，那很抱歉，本模板实在无法为你生成完美的封面。尤其是学士学位论文，三行及以上的`学院名称`肯定会跟下方内容发生重叠；而对研究生学位论文，虽然不存在与下方文字重叠的问题，但学院名称的尾行也一定会突破页面边界，导致整个页面看起来上下很不协调。对这类用户，如果你们还愿意使用本模板撰写其他内容，最后可以使用学校官方提供的Word文档生成论文封面，然后替换。除此之外，我没有想到其他更方便、更不容易出错的方案。（2024.12.10）
 
-:warning: **注意：`\uestccover`命令的参数顺序是根据研究生学位论文封面而设计的，学士学位论文封面的内容排布与之不同。<font color=#8b0000>本科生务必按照命令要求的顺序填写，而不是看着封面示例pdf填写</font>。**
+:exclamation: **注意：`\uestccover`命令的参数顺序是根据研究生学位论文封面而设计的，学士学位论文封面的内容排布与之不同。<font color=#8b0000>本科生务必按照命令要求的顺序填写，而不是看着封面示例pdf填写</font>。**
 
 #### 3.2.2 “双学位学士”论文封面
 
 生成双学位学士论文封面使用：`\uestccover{<论文题目>}{<学院>}{<第一专业>}{<第二专业>}{<学号>}{<作者姓名>}{<第一导师及职称>}{<第二导师及职称>}`。（2025.04.21）
 
-:warning: **注意，上述命令与其他论文类型所采用的定义不同，<font color=#8b0000>共有8项强制参数，无可选参数，且参数顺序和意义也有变化</font>。用时务必仔细。**
+:exclamation: **注意，上述命令与其他论文类型所采用的定义不同，<font color=#8b0000>共有8项强制参数，无可选参数，且参数顺序和意义也有变化</font>。用时务必仔细。**
 
 ### 3.3 中文扉页（仅研究生）
 
-中文扉页需要填写的内容过多，超过了LaTeX对命令最多支持9个参数的限制，因此需要先设置各项宏：
+“中文扉页”需要填写的内容过多，超过了LaTeX对命令最多支持9个参数的限制，因此需要先设置各项宏：
 
 1. `\ClsNum{<分类号>}`；
 2. `\ClsLv{<密级>}`；
@@ -251,21 +262,21 @@
 4. `\DissertationTitle{<题名>}`；
 5. `\Author{<作者姓名>}`；
 6. `\Supervisor{<指导教师>}{<职称>}{<单位名称>}{<单位地址>}`；
-7. `\AssociateSupervisor{<副导师名称>}{<职称}>{<单位名称>}{<单位地址>}`，设置副导师信息，若无则注释即可；
+7. `\AssociateSupervisor{<副导师名称>}{<职称>}{<单位名称>}{<单位地址>}`，设置副导师信息，若无则注释即可；
 8. `\DegLv{<申请学位级别>}`，该信息由文档类选项自动确定，需修改默认内容时使用，否则注释即可；
 9. `\Major{<学科专业>}`；
-10. `\Profield{专业学位领域代码}`，此为<font color=#8b0000>专业学位独有</font>，学术学位用户注释即可；
+10. `\Profield{<专业学位领域代码>}`，此为<font color=#8b0000>专业学位独有</font>，学术学位用户注释即可；
 11. `\Date{<论文提交日期>}{<论文答辩日期>}`；
 12. `\Grant{<学位授予单位>}{<学位授予日期>}`；
-13. `\Reviewer{<答辩委员为主席>}{<评阅人>}`；
+13. `\Reviewer{<答辩委员会主席>}{<评阅人>}`；
 
-然后使用`\uestczhtitlepage`生成中文扉页。
+然后使用`\uestczhtitlepage`生成“中文扉页”。
 
-`\uestczhtitlepage`命令可接受一项可选参数`[compress]`。在默认情况下（即不指定该可选参数，或指定为其他内容），如果遇到超长的导师`职称`，比如“教授级高级工程师”，本模板会以其实际长度进行排版，同时让其所在列的其他内容与之保持左对齐。这意味着`职称`的实际占位长度肯定突破了官方在规范中设置的`3.25cm`，尽管我个人觉得这样做并无不妥，但确实不确定是否合规。为此，模板为`\uestczhtitlepage`命令提供了`[compress]`可选参数，设置该参数后，长度超过`3.25cm`的`职称`将被自动压缩字宽，以严格适应学校官方为该内容预留的长度，实际效果参看`tutorial.tex`的编译结果。怎么选择，由你决定。**（2025.03.04新增）**
+`\uestczhtitlepage`命令可接受一项可选参数`[compress]`。在默认情况下（即不指定该可选参数，或指定为其他内容），如果遇到超长的导师`职称`，比如“教授级高级工程师”，本模板会以其实际长度进行排版，同时让其所在列的其他内容与之保持左对齐。这意味着`职称`的实际占位长度肯定突破了官方在规范中设置的`3.25cm`，尽管我个人觉得这样做并无不妥，但确实不确定是否合规。为此，模板为`\uestczhtitlepage`命令提供了`[compress]`可选参数，设置该参数后，长度超过`3.25cm`的`职称`将被自动压缩字宽，以严格适应学校官方为该内容预留的长度，实际效果参看`tutorial.tex`的编译结果。怎么选择，由你决定。（2025.03.04）
 
 ### 3.4 英文扉页（仅研究生）
 
-生成英文扉页使用命令：`\uestcentitlepage{<文题>}{<专业>}{<学号>}{<作者>}{<导师>}{<副导师>}{<学院>}`。若无副导师，则将`<副导师>`参数留空`{}`即可。
+生成“英文扉页”使用命令：`\uestcentitlepage{<文题>}{<专业>}{<学号>}{<作者>}{<导师>}{<副导师>}{<学院>}`。若无副导师，则将`<副导师>`参数留空`{}`即可。
 
 
 ## 4. 独创性声明（仅研究生）
@@ -294,7 +305,7 @@
 3. 表目录：`\listoftables`；
 4. 主要符号表：`\listofsymbs`命令+`symbtable`环境；
    * 在需要插入主要符号表的位置使用`\listofsymbs`命令生成主要符号表的章标题；
-   * 紧接着使用`symbtable`环境排版主要符号表的内容。该环境基于`longtable`环境进行封装，依次接受两项可选参数：`\begin{symbtable}[<表格整体位置>](<主要符号表的列控制参数>)`。
+   * 紧接着使用`symbtable`环境排版主要符号表的内容。该环境基于[`longtable`](https://mirrors.tuna.tsinghua.edu.cn/CTAN/macros/latex/required/tools/longtable.pdf)环境进行封装，依次接受两项可选参数：`\begin{symbtable}[<表格整体位置>](<主要符号表的列控制参数>)`。
      - 第一项可选参数用于设置`longtable`环境的可选参数，其默认值与`longtable`环境保持一致；
      - 第二项可选参数用于设置`longtable`环境的必选参数，其默认值设置为`p{3.5em} p{\linewidth-9em} p{3em}<{\centering}`。
 
@@ -327,7 +338,9 @@
 
 ### 7.1 写在最前面（2025.01.07）
 
-曾经频繁收到同一类问题：**为什么文中的段间距过大？为什么行间公式前的空间过大？**
+曾经频繁收到同一类问题：
+* **为什么文中的段间距过大？**
+* **为什么行间公式前的空间过大？**
 
 当论文中某节的内容接近填满页面且其后紧随几项标题时，LaTeX更倾向于在后续的标题前分页，并且纵向拉伸当前页内容的段间距，以实现纵向分散对齐，也就是很多人在问的现象。这并不是模板bug，而是LaTeX特性。
 
@@ -350,7 +363,7 @@
 
 ### 7.3 图片
 
-本模板使用`graphicx`和`subfig`宏包来处理插入的图片及子图。细节请参考`tutorial.tex`中的源码。
+本模板使用[graphicx](https://mirror.nyist.edu.cn/CTAN/macros/latex/required/graphics/grfguide.pdf)和[subfig](https://mirrors.bfsu.edu.cn/CTAN/macros/latex/contrib/subfig/subfig.pdf)宏包来处理插入的图片及子图。细节请参考`tutorial.tex`中的源码。
 
 需要将待排版图片文件放入项目目录`./fig/`中。
 
@@ -372,7 +385,7 @@
 
 #### 7.4.2 带附注表格
 
-更需要说明的是该如何生成带附注的表格。本模板采用`threeparttable`宏包实现将表格中的附注内容顶格排版在表格底部：
+更需要说明的是该如何生成带附注的表格。本模板采用[threeparttable](https://mirrors.cqu.edu.cn/CTAN/macros/latex/contrib/threeparttable/threeparttable.pdf)宏包提供的`threeparttable`环境实现将表格中的附注内容顶格排版在表格底部：
 
 1. 使用`\tnote{<label>}`在表格中插入上标编号；
 2. 使用`tablenotes`环境在表格底部排版附注。该环境提供选项`online`用于将附注文本前的标号从默认的上标样式更改为同行样式。
@@ -443,12 +456,12 @@
 * 在正文中，插入脚注只需要在相应位置使用`\footnote{<脚注内容>}`命令；
 
 * 在其他环境中，如表格，用户需要组合使用`\footnotemark`+`\footnotetext{<脚注文本>}`命令来排版脚注：
-   1. 首先在需要插入脚注标签的位置使用`\footnotemark`；
+   1. 首先在需要插入脚注标号的位置使用`\footnotemark`；
    2. 然后在环境外使用`\footnotetext{<脚注文本>}`指明脚注内容。更详细的使用方法参考[LaTeX脚注](https://blog.csdn.net/xovee/article/details/127563209 "\footnotemark+\footnotetext配合生成脚注")。
 
 ### 7.8 模板中的各种编号
 
-“标题”、“图片”、“表格”、“伪码”、“公式”、“定义”、“定理”、“命题”、“推论”、“引理”、“证明”、“脚注”这些文档元素均可自行计算并生成编号，无需使用者费心。**但形如(1-1a)的子公式编号不能全自动生成**，为此，模板提供了`\subeqtag[<子公式编号标签>]`命令。
+“标题”、“图片”、“表格”、“伪码”、“公式”、“定义”、“公理”、“定理”、“命题”、“推论”、“引理”、“示例”、“假设”、“证明”、“脚注”这些文档元素均可自行计算并生成编号，无需使用者费心。**但形如(1-1a)的子公式编号不能全自动生成**，为此，模板提供了`\subeqtag[<子公式编号标签>]`命令。
 
 在为数学模型的约束创建编号时，常见的方式可能是使用`\tag{}`命令直接指定编号内容。但是，该方式操作繁琐，且在后续需要调换或增删约束时很容易漏改某些tag，导致子公式编号混乱，而又不容易察觉。
 
@@ -479,7 +492,7 @@
 
 对参考文献的行内引用直接使用`\cite{<参考文献label>}`，以上标形式引用则使用`\citess{<参考文献label>}`。
 
-引用参考文献是基于`natbib`宏包实现，可单次引用多篇参考文献（即`\cite{<参考文献label1, 参考文献label2, 参考文献label3>}`或`\citess{<参考文献label1, 参考文献label2, 参考文献label3>}`），届时序号会被排序并压缩（如果可以的话）。
+引用参考文献是基于[natbib](https://mirrors.zju.edu.cn/CTAN/macros/latex/contrib/natbib/natbib.pdf)宏包实现，可单次引用多篇参考文献（即`\cite{<参考文献label1, 参考文献label2, 参考文献label3>}`或`\citess{<参考文献label1, 参考文献label2, 参考文献label3>}`），届时序号会被排序并压缩（如果可以的话）。
 
 另外，研究生论文规范要求正文中引用的公式编号样式采用英文括号，即`(1-1)`，而本科论文规范中则要求是中文括号，即`（1-1）`。在公式右侧的编号中，两者均采用英文括号。此间差异完全由相应的选项（`doctor`/`prodoctor`/`intdoctor`/`master`/`promaster`/`intmaster`/`bachelor`/`doublebachelor`）控制，所以一定要确保设置了正确的选项。
 
@@ -720,7 +733,7 @@
 
 3. 对电子文献，其类型众多，因此需要用户通过`type={}`域显式指定其具体类型，如上图中的[9]和[10]；而对其他的文献类型，只要在`@`符号后输入了正确的类型标识，对应的类型标签会自动生成，无需手动逐条添加。
 
-4. （2025.01.02）需要特别说明的参考文献类型是`mastersthesis/phdthesis`，即学位论文。学校在撰写规范中提到参考文献排版应该遵循国标[GB/T 7714-2015](https://lib.tsinghua.edu.cn/wj/GBT7714-2015.pdf)，在此国标中，对学位论文的引用不需要页码信息。但是，**学校的规范中又明确为学位论文引用添加了页码信息**。为此，我询问了学位办的相关老师，得到的答复大致是：“*我翻阅了手边信通学院学生的论文，他们是写了页码信息的。但是这个要求并没有那么严格，不会说你没写就评审不过，历年也没有出现因为这个没写就不过的情况，评审老师也没有严格挑这个。学位论文的质量并不是通过这个来评判的，不过我们这边还是建议写上*”。
+4. 需要特别说明的参考文献类型是`mastersthesis/phdthesis`，即学位论文。学校在撰写规范中提到参考文献排版应该遵循国标[GB/T 7714-2015](https://lib.tsinghua.edu.cn/wj/GBT7714-2015.pdf)，在此国标中，对学位论文的引用不需要页码信息。但是，**学校的规范中又明确为学位论文引用添加了页码信息**。为此，我询问了学位办的相关老师，得到的答复大致是：“*我翻阅了手边信通学院学生的论文，他们是写了页码信息的。但是这个要求并没有那么严格，不会说你没写就评审不过，历年也没有出现因为这个没写就不过的情况，评审老师也没有严格挑这个。学位论文的质量并不是通过这个来评判的，不过我们这边还是建议写上*”。（2025.01.02）
    
    本模板原本的实现方式是遵循学校的撰写规范，将学位论文的页码信息设置为了强制域。如果缺少该信息，使用VSCode作为编辑器时将报错而无法完成编译；TeXstudio则能跳过这种小问题继续编译，但BibTeX仍会输出错误提醒。GitHub用户[@zealrussell](https://github.com/zealrussell)在使用VSCode撰写论文时，发现不为学位论文这类参考文献添加页码信息将无法顺利编译，遂发起了issue。
    
@@ -751,7 +764,7 @@
 
 在这部分内容中排版图、表时需要在`figure`、`table`环境内使用`\captionsetup{list=no}`来阻止对应的图题和表题出现在图目录和表目录中。
 
-这部分内容中的“定义”、“公理”、“定理”、“命题”、“推论”、“引理”、“示例”、“假设”、“证明”对应 **<font color=#8b0000>首字母大写的环境</font>**：`Definition`、`Axiom`、`Theorem`、`Proposition`、`Corollary`、`Lemma`、`Example`、`Assumption`。`proof`环境保持不变。
+这部分内容中的“定义”、“公理”、“定理”、“命题”、“推论”、“引理”、“示例”、“假设”对应 **<font color=#8b0000>首字母大写的环境</font>**：`Definition`、`Axiom`、`Theorem`、`Proposition`、`Corollary`、`Lemma`、`Example`、`Assumption`。`proof`环境保持不变。
 
 更多细节可参考`tutorial.tex`示例文档。
 

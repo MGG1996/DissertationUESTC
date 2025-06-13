@@ -366,6 +366,11 @@
 	\section{使用环境}
 
 	本模板兼容Windows、MacOS以及Overleaf等主流平台，其开发测试环境为TeXLive2024+TeXstudio，以及TeXLive2024+VSCode。\textbf{请所有本地用户将LaTeX环境更新到\href{https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/texlive/}{\color{DarkRed}TeXLive2024及以上}或\href{https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/mactex/}{\color{DarkRed}MacTeX2024及以上}}，以避免兼容性问题。
+
+	\begin{itemize}
+		\item \href{https://zhuanlan.zhihu.com/p/389394015}{\color{DarkRed}TeXLive安装教程}、\href{https://blog.csdn.net/ChrisP_333/article/details/82943508}{\color{DarkRed}MacTeX安装教程}
+		\item \href{https://texstudio.sourceforge.net/#download}{\color{DarkRed}TeXstudio下载地址}、\href{https://code.visualstudio.com/Download}{\color{DarkRed}VSCode下载地址}、\href{https://zhuanlan.zhihu.com/p/166523064}{\color{DarkRed}VSCode配置LaTeX环境}
+	\end{itemize}
 	
 	模板需要使用\shad{XeLaTeX}引擎编译：
 	\begin{itemize}
@@ -420,11 +425,11 @@
 			
 			\item \shad{cmmmath}/\shad{timesmathnogreek}/\shad{timesmath}：该选项用于选择渲染公式使用的字体。其中，\shad{cmmmath}即对应LaTeX默认使用的Computer Modern Math，也是此类选项的默认值；\shad{timesmathnogreek}指定使用Times New Roman来渲染公式中的英文字母和数字，但不影响希腊字母、手写体和双线体；\shad{timesmath}则继续将希腊字母也设置成Times New Roman（个人觉得希腊字符用该字体有些违和），手写体和双线体仍保持原样。
 			
-			追求公式字体均为Times New Roman的使用者可采用\shad{timesmath}选项。后两种选项均基于\href{https://mirrors.nju.edu.cn/CTAN/macros/xetex/latex/mathspec/mathspec.pdf}{\shad{\color{DarkRed}mathspec}}宏包实现，在本人有限的测试实践中，只有它能做到真正意义上的Times New Roman。（2025.01.31）
+			追求公式字体均为Times New Roman的使用者可采用\shad{timesmath}选项。后两种选项均基于\href{https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf}{\shad{\color{DarkRed}mathspec}}宏包实现，在本人有限的测试实践中，只有它能做到真正意义上的Times New Roman。（2025.01.31）
 			
 			\textbf{P.s. 1：}需要注意，Times New Roman字体原不支持在公式中排版粗斜体，所以后两种选项将使\shad{$\backslash$boldsymbol\{\}}命令失效。为了解决该问题，模板（仅在后两种选项下）对这条命令进行了粗糙的重定义，使之能像原版那样生成粗斜体符号。但是，由于本人技术水平不足，重定义后的\shad{$\backslash$boldsymbol\{\}}命令需要遵循一条额外的使用规则：\textbf{其输入参数必须是最原始的数学符号}。比如你想排版\shad{$\backslash$boldsymbol\{$\backslash$hat\{$\backslash$alpha\}\}}（这在\shad{cmmmath}下是没有问题的），那此时正确的源码应该是\shad{$\backslash$hat\{$\backslash$boldsymbol\{$\backslash$alpha\}\}}，\textbf{即将\shad{$\backslash$boldsymbol\{\}}置于嵌套的最内层}。如若不然，模板轻则无法渲染出预期的数学符号（在\shad{timesmath}选项下），重则直接报错（在\shad{timesmathnogreek}选项下）。大概是涉及了一些底层问题，我也不懂，无法解决。
 
-			\textbf{P.s. 2：}因为\href{https://mirrors.nju.edu.cn/CTAN/macros/xetex/latex/mathspec/mathspec.pdf}{\shad{\color{DarkRed}mathspec}}宏包本身的特性，使用Times New Roman作为公式字体需要用户付出更多精力。举个例子，你想排版\shad{\$f\^{}t\$}，那么你会发现\shad{f}和\shad{t}之间的间隔很小，两者发生了重叠，这时候需要你手动用\shad{"}插入空格，变成\shad{\$f\^{}\{"t\}\$}。因此，\shad{timesmathnogreek}和\shad{timesmath}选项均存在类似瑕疵，届时就需要仔细查阅\href{https://mirrors.nju.edu.cn/CTAN/macros/xetex/latex/mathspec/mathspec.pdf}{\shad{\color{DarkRed}mathspec}}的宏包文档。
+			\textbf{P.s. 2：}因为\href{https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf}{\shad{\color{DarkRed}mathspec}}宏包本身的特性，使用Times New Roman作为公式字体需要用户付出更多精力。举个例子，你想排版\shad{\$f\^{}t\$}，那么你会发现\shad{f}和\shad{t}之间的间隔很小，两者发生了重叠，这时候需要你手动用\shad{"}插入空格，变成\shad{\$f\^{}\{"t\}\$}。因此，\shad{timesmathnogreek}和\shad{timesmath}选项均存在类似瑕疵，届时就需要仔细查阅\href{https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf}{\shad{\color{DarkRed}mathspec}}的宏包文档。
 
 			\textbf{P.s. 3：}其实，规范并未对公式字体作强制要求，即便审查系统识别到公式字体不是Times New Roman，它也只是抛出提醒而非错误，不会造成格式审查不通过。只是实在有太多人问怎么公式字体不是Times New Roman，既然有部分同学喜欢Times New Roman，那本模板秉承兼容并包的原则，将选择权交给使用者。
 
