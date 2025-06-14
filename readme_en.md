@@ -172,13 +172,7 @@ In addition, I would like to thank all the netizens for sharing their LaTeX know
 
 ### 1.8 Statistics
 
-<a href="https://www.star-history.com/#MGG1996/DissertationUESTC&bdebye/thesisuestc&shifujun/UESTCthesis&Date">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=MGG1996/DissertationUESTC,bdebye/thesisuestc,shifujun/UESTCthesis&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=MGG1996/DissertationUESTC,bdebye/thesisuestc,shifujun/UESTCthesis&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=MGG1996/DissertationUESTC,bdebye/thesisuestc,shifujun/UESTCthesis&type=Date" />
- </picture>
-</a>
+[![Star History Chart](https://api.star-history.com/svg?repos=MGG1996/DissertationUESTC,bdebye/thesisuestc,shifujun/UESTCthesis&type=Date)](https://www.star-history.com/#MGG1996/DissertationUESTC&bdebye/thesisuestc&shifujun/UESTCthesis&Date)
 
 
 ## 2. Preamble of the Template
