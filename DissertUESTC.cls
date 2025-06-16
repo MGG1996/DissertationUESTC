@@ -427,6 +427,20 @@
 	\changetointernational
 }
 
+\DeclareOption{ipmaster}{
+	\renewcommand{\evenpagemark}{Master Thesis of University of Electronic Science and Technology of China}
+	\renewcommand{\achievementtext}{Research Results Obtained During the Study for Master's Degree}
+	\renewcommand{\covertitletext}{专业学位硕士学位论文}
+	\renewcommand{\covertitleentext}{MASTER THESIS FOR PROFESSIONAL DEGREE}
+	\renewcommand{\majlabel}{\scalebox{0.66}[1.0]{专业学位类别}}
+	\setlength{\nametitleorgskip}{-8bp}
+	\renewcommand{\majorlabel}{专业学位类别}
+	\renewcommand{\entitlepagemidtext}{A Master Thesis Submitted to \\ University of Electronic Science and Technology of China}
+	\DegLv{硕士}
+	\renewcommand{\chineseabstractpagelimit}{1}
+	\changetointernational
+}
+
 \DeclareOption{doctor}{
 	\renewcommand{\evenpagemark}{电子科技大学博士学位论文}
 	\renewcommand{\achievementtext}{攻读博士学位期间取得的成果}
@@ -459,6 +473,19 @@
 	\renewcommand{\majlabel}{学科专业}
 	\setlength{\nametitleorgskip}{6bp}
 	\renewcommand{\majorlabel}{学科专业}
+	\renewcommand{\entitlepagemidtext}{A Doctoral Dissertation Submitted to \\ University of Electronic Science and Technology of China}
+	\DegLv{博士}
+	\changetointernational
+}
+
+\DeclareOption{ipdoctor}{
+	\renewcommand{\evenpagemark}{Doctoral Dissertation of University of Electronic Science and Technology of China}
+	\renewcommand{\achievementtext}{Research Results Obtained During the Study for Doctoral Degree}
+	\renewcommand{\covertitletext}{专业学位博士学位论文}
+	\renewcommand{\covertitleentext}{DOCTORAL DISSERTATION FOR PROFESSIONAL DEGREE}
+	\renewcommand{\majlabel}{\scalebox{0.66}[1.0]{专业学位类别}}
+	\setlength{\nametitleorgskip}{-8bp}
+	\renewcommand{\majorlabel}{专业学位类别}
 	\renewcommand{\entitlepagemidtext}{A Doctoral Dissertation Submitted to \\ University of Electronic Science and Technology of China}
 	\DegLv{博士}
 	\changetointernational
@@ -510,7 +537,7 @@
 
 %%%%%%----------------- execution of options -----------------
 
-\ExecuteOptions{print, doctor, subfigparens, cmmmath}
+\ExecuteOptions{nonprint, doctor, subfigparens, cmmmath}
 \ProcessOptions\relax
 
 %%%%%%----------------- package loading -----------------

@@ -180,9 +180,21 @@
 
 2. `\documentclass[<选项列表>]{DissertUESTC}`表示加载名为`DissertUESTC`的文档类，该文档类基于LaTeX的`book`类编写。此文档类可设置**八种**选项：
 
-   1. `print`/`nonprint`：该选项控制是否以印刷模式生成文档，印刷模式会自动在论文的前置部分添加必要的空白页，默认为`print`。
+   1. `print`/`nonprint`：该选项控制是否以印刷模式生成文档，印刷模式会自动在论文的前置部分添加必要的空白页，默认为`nonprint`。
 
-   2. `doctor`/`prodoctor`/`intdoctor`/`master`/`promaster`/`intmaster`/`bachelor`/`doublebachelor`：该选项设置学位论文类型，分别对应学术学位博士、专业学位博士、International Doctor、学术学位硕士、专业学位硕士、International Master、学士以及双学位学士。默认为`doctor`。
+   2. `doctor`/`prodoctor`/`intdoctor`/`ipdoctor`/`master`/`promaster`/`intmaster`/`ipmaster`/`bachelor`/`doublebachelor`：该选项设置学位论文类型，对应关系如下，默认为`doctor`。
+      |选项|对应学位类型|
+      |---|---|
+      |`doctor`|学术学位博士|
+      |`prodoctor`|专业学位博士|
+      |`intdoctor`|International Doctor|
+      |`ipdoctor`|International Doctor with Professional Degree|
+      |`master`|学术学位硕士|
+      |`promaster`|专业学位硕士|
+      |`intmaster`|International Master|
+      |`ipmaster`|International Master with Professional Degree|
+      |`bachelor`|学士|
+      |`doublebachelor`|双学位学士|
    
    3. [**新增**]`subfigsimple`/`subfigparens`：该选项用于调整正文中对子图标签进行引用生成的编号样式，`subfigsimple`对应样式为`1-1a`，`subfigparens`对应样式为`1-1(a)`，默认为`subfigparens`。
    
@@ -224,7 +236,7 @@
 
 ### 3.2 封面
 
-要生成正确的论文封面，首先必须要在文档类中指定与之对应的`doctor`/`prodoctor`/`intdoctor`/`master`/`promaster`/`intmaster`/`bachelor`/`doublebachelor`选项。
+要生成正确的论文封面，首先必须要在文档类中指定与之对应的`doctor`/`prodoctor`/`intdoctor`/`ipdoctor`/`master`/`promaster`/`intmaster`/`ipmaster`/`bachelor`/`doublebachelor`选项。
 
 #### 3.2.1 “双学位学士”以外的论文封面
 
@@ -488,7 +500,7 @@
 
 引用参考文献是基于[natbib](https://mirrors.zju.edu.cn/CTAN/macros/latex/contrib/natbib/natbib.pdf)宏包实现，可单次引用多篇参考文献（即`\cite{<参考文献label1, 参考文献label2, 参考文献label3>}`或`\citess{<参考文献label1, 参考文献label2, 参考文献label3>}`），届时序号会被排序并压缩（如果可以的话）。
 
-另外，研究生论文规范要求正文中引用的公式编号样式采用英文括号，即`(1-1)`，而本科论文规范中则要求是中文括号，即`（1-1）`。在公式右侧的编号中，两者均采用英文括号。此间差异完全由相应的选项（`doctor`/`prodoctor`/`intdoctor`/`master`/`promaster`/`intmaster`/`bachelor`/`doublebachelor`）控制，所以一定要确保设置了正确的选项。
+另外，研究生论文规范要求正文中引用的公式编号样式采用英文括号，即`(1-1)`，而本科论文规范中则要求是中文括号，即`（1-1）`。在公式右侧的编号中，两者均采用英文括号。此间差异完全由相应的选项（`doctor`/`prodoctor`/`intdoctor`/`ipdoctor`/`master`/`promaster`/`intmaster`/`ipmaster`/`bachelor`/`doublebachelor`）控制，所以一定要确保设置了正确的选项。
 
 ## 8. 致谢
 

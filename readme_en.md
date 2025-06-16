@@ -182,9 +182,21 @@ The template's preamble area has only two lines:
 
 2. `\documentclass[<options>]{DissertUESTC}`: Indicates loading a document class named `DissertUESTC`, which is based on the LaTeX `book` class. This document class can accept **eight kinds** of options:
 
-   1. `print`/`nonprint`: This option controls whether to generate the document in printing mode. Printing mode will automatically add necessary blank pages to the front of the thesis. The default is `print`.
+   1. `print`/`nonprint`: This option controls whether to generate the document in printing mode. Printing mode will automatically add necessary blank pages to the front of the thesis. The default is `nonprint`.
 
-   2. `doctor`/`prodoctor`/`intdoctor`/`master`/`promaster`/`intmaster`/`bachelor`/`doublebachelor`: This option sets the type of thesis, which corresponds to Academic Doctor, Professional Doctor, International Doctor, Academic Master, Professional Master, International Master, Bachelor, and Double Degree Bachelor. The default is `doctor`.
+   2. `doctor`/`prodoctor`/`intdoctor`/`ipdoctor`/`master`/`promaster`/`intmaster`/`ipmaster`/`bachelor`/`doublebachelor`: This option sets the type of thesis, and the corresponding relationships are shown below. The default value is `doctor`.
+      |Option|Corresponding Degree Type|
+      |---|---|
+      |`doctor`|Academic Doctor|
+      |`prodoctor`|Professional Doctor|
+      |`intdoctor`|International Doctor|
+      |`ipdoctor`|International Doctor with Professional Degree|
+      |`master`|Academic Master|
+      |`promaster`|Professional Master|
+      |`intmaster`|International Master|
+      |`ipmaster`|International Master with Professional Degree|
+      |`bachelor`|Bachelor|
+      |`doublebachelor`|Double Degree Bachelor|
    
    3. [**Added**]`subfigsimple`/`subfigparens`: This option is used to adjust the numbering style generated for subfigure labels. The corresponding style for `subfigsimple` is `1-1a`, and the corresponding style for `subfigparens` is `1-1(a)`. The default is `subfigparens`.
    
@@ -226,7 +238,7 @@ This command provides two optional parameters to adjust the placement and font f
 
 ### 3.2 Cover
 
-To generate a correct thesis cover, you must first specify the corresponding `doctor`/`prodoctor`/`intdoctor`/`master`/`promaster`/`intmaster`/`bachelor`/`doublebachelor` options correctly in the document class.
+To generate a correct thesis cover, you must first specify the corresponding `doctor`/`prodoctor`/`intdoctor`/`ipdoctor`/`master`/`promaster`/`intmaster`/`ipmaster`/`bachelor`/`doublebachelor` options correctly in the document class.
 
 #### 3.2.1 Cover of Thesis Other Than "Double Degree Bachelor"
 
@@ -490,7 +502,7 @@ For inline citations of references, use `\cite{<label>}` directly, and for super
 
 References are cited based on the [natbib](https://mirrors.zju.edu.cn/CTAN/macros/latex/contrib/natbib/natbib.pdf) macro package, and multiple references can be cited at one time (i.e. `\cite{<label1, label2, label3>}` or `\citess{<label1, label2, label3>}`). These numbers will be sorted and compressed (if possible).
 
-In addition, the graduate thesis specification requires that the formula numbering style used in citations should be in English brackets, i.e. `(1-1)`, while the undergraduate thesis specification requires that it be in Chinese brackets, i.e. `（1-1）`. As for the numbers on the right side of formulas, both use English brackets. This difference is completely controlled by the corresponding options (`doctor`/`prodoctor`/`intdoctor`/`master`/`promaster`/`intmaster`/`bachelor`/`doublebachelor`), so be sure to set the correct options.
+In addition, the graduate thesis specification requires that the formula numbering style used in citations should be in English brackets, i.e. `(1-1)`, while the undergraduate thesis specification requires that it be in Chinese brackets, i.e. `（1-1）`. As for the numbers on the right side of formulas, both use English brackets. This difference is completely controlled by the corresponding options (`doctor`/`prodoctor`/`intdoctor`/`ipdoctor`/`master`/`promaster`/`intmaster`/`ipmaster`/`bachelor`/`doublebachelor`), so be sure to set the correct options.
 
 ## 8. Acknowledgement
 
