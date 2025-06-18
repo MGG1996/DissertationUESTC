@@ -58,9 +58,10 @@
   - [7.6 Definition, Axiom, Theorem, Proposition, Corollary, Lemma, Example, Assumption, Proof](#76-definition-axiom-theorem-proposition-corollary-lemma-example-assumption-proof)
   - [7.7 Footnote](#77-footnote)
   - [7.8 Various Numbers in the Template](#78-various-numbers-in-the-template)
-  - [7.9 Typesetting Chemical Equations](#79-typesetting-chemical-equations)
+  - [7.9 Typesetting and fine-tuning mathematical formulas](#79-typesetting-and-fine-tuning-mathematical-formulas)
   - [7.10 Typesetting Mathematical Symbols in Titles](#710-typesetting-mathematical-symbols-in-titles)
-  - [7.11 Cite](#711-cite)
+  - [7.11 Typesetting Chemical Equations](#711-typesetting-chemical-equations)
+  - [7.12 Cite](#712-cite)
 - [8. Acknowledgement](#8-acknowledgement)
 - [9. References](#9-references)
 - [10. Appendix](#10-appendix)
@@ -189,11 +190,11 @@ The template's preamble area has only two lines:
       |---|---|
       |`doctor`|Academic Doctor|
       |`prodoctor`|Professional Doctor|
-      |`intdoctor`|International Doctor|
+      |`intdoctor`|International Doctor with Academic Degree|
       |`ipdoctor`|International Doctor with Professional Degree|
       |`master`|Academic Master|
       |`promaster`|Professional Master|
-      |`intmaster`|International Master|
+      |`intmaster`|International Master with Academic Degree|
       |`ipmaster`|International Master with Professional Degree|
       |`bachelor`|Bachelor|
       |`doublebachelor`|Double Degree Bachelor|
@@ -477,22 +478,32 @@ The `\subeqtag[<number label>]` command provided by this template completely avo
 
 If you need to refer to a sub-formula number in the text, you can use `\label{<number label>}` after `\subeqtag` as usual, or you can directly specify the optional parameter `\subeqtag[<sub-formula number label>]`, which is very user-friendly. For details, please refer to the examples given in `tutorial.tex`.
 
-:exclamation: There are two points to remind you:
+:pushpin: There are two points to remind you:
 1. The optional parameter of `\subeqtag[<number label>]` cannot be dumplicated as it is essentially a call to `\label{<number label>}`.
 
 2. Although `\subeqtag[<number label>]` calls `\label{<number label>}` to add labels, the TeXstudio editor does not pop up the options for these labels when using `\ref{<number label>}` or `\eqref{<number label>}`, and they need to be entered manually; while the labels specified directly with `\label{<number label>}` will appear in the option prompt when citing, and can be directly selected. This is the inconvenience of `\subeqtag[<number label>]` after accepting optional parameters, but unfortunately I don't know how to solve it. :sob: :sob:
 
 
-### 7.9 Typesetting Chemical Equations
+### 7.9 Typesetting and fine-tuning mathematical formulas
 
-This template is based on the [mhchem](https://mirrors.cloud.tencent.com/CTAN/macros/latex/contrib/mhchem/mhchem.pdf) and [chemfig](https://mirrors.bfsu.edu.cn/CTAN/macros/generic/chemfig/chemfig-en.pdf) packages to typeset chemical equations, structural formulas, and bond lines. For the use of related commands, please refer to the official documentation of the macro package or [@codesonic's](https://www.luogu.com.cn/user/45443) article: [Writing Chemical Equations with LaTeX](https://www.luogu.com.cn/article/o7mlv3w8). `tutorial.tex` quotes some examples from the article for demonstration, thanks.
+For users who are not familiar with the correspondence between mathematical symbols and LaTeX source code, please refer to the [LaTeX Formula Manual @樱花赞](https://www.cnblogs.com/1024th/p/11623258.html), and it will not be elaborated here.
+
+When a mathematical model or a group of formulas containing many equations appears in the thesis, and the remaining layout space on the page cannot accommodate them completely, the user can use `\allowdisplaybreaks[<cross-page tendency>]` in the Preamable or at the beginning of the document to allow the group of formulas to be laid out across pages, thereby avoiding a large blank space at the bottom of the page. The optional parameters of this command can take values ​​of 1, 2, 3, and 4. The larger the value, the higher the tendency of laying out across pages.
+
+When some formulas are too long to exceed the page boundary, users can nest `aligned` environment in `equation` environment to adjust them to multiple lines. In addition, if the part of the formula that exceeds the page boundary is not much, the length of the formula can be slightly compressed by adjusting the spacings between mathematical symbols in the formula through the three commands `\thinmuskip`, `\medmuskip`, and `\thickmuskip` within `equation` environment. The units of the three spacings can only be `mu`. The corresponding examples are given in `tutorial.tex`.
+
 
 ### 7.10 Typesetting Mathematical Symbols in Titles
 
 Although I do not recommend typeset math symbols in titles (because the specification does not even recommend typeset English abbreviations in titles), if you must, you can use the `\texorpdfstring{<TeXstring>}{<PDFstring>}` command provided by the [hyperref](https://mirrors.tuna.tsinghua.edu.cn/CTAN/macros/latex/contrib/hyperref/doc/hyperref-doc.pdf) package (which has been loaded in the template). For details on how to use this command, please refer to: [How to use texorpdfstring](https://blog.csdn.net/qq_42679415/article/details/139592054). There are also corresponding usage examples in `tutorial.tex`.
 
 
-### 7.11 Cite
+### 7.11 Typesetting Chemical Equations
+
+This template is based on the [mhchem](https://mirrors.cloud.tencent.com/CTAN/macros/latex/contrib/mhchem/mhchem.pdf) and [chemfig](https://mirrors.bfsu.edu.cn/CTAN/macros/generic/chemfig/chemfig-en.pdf) packages to typeset chemical equations, structural formulas, and bond lines. For the use of related commands, please refer to the official documentation of the macro package or [@codesonic's](https://www.luogu.com.cn/user/45443) article: [Writing Chemical Equations with LaTeX](https://www.luogu.com.cn/article/o7mlv3w8). `tutorial.tex` quotes some examples from the article for demonstration, thanks.
+
+
+### 7.12 Cite
 
 To cite numbers of "equation", "figure", "table", "algorithm", "definition", "axiom", "theorem", "proposition", "corollary", "lemma", "example", "assumption", and "proof", you can use `\ref{<label>}` directly. To generate formula numbers with brackets, use `\eqref{<label>}`.
 
@@ -733,7 +744,7 @@ The most labor-intensive part of generating a bibliography is maintaining the co
 
 Although graduate and bachelor theses have different requirements for the typesetting style of references, **<font color=#8b0000>once the user specifies the thesis type through the document class option at the beginning, the template will automatically determine and apply the corresponding `.bst` style file</font>**, without the need to use `\bibliographystyle{<.bst file name>}` to explicitly set it. (2025.03.12)
 
-:sunflower: **Additional Notes**: 
+:pushpin: **Additional Notes**: 
 
 1. For some references that lack non-essential information, the `.bst` file provided by this template can still be processed correctly. For example, the journal article [3] in the figure above lacks the volume information, but it can still only typeset the number information, which is in compliance with the standard. For another example, reference [10] lacks information such as **the place of publication** and **publisher** compared to reference [9], but it can still be typeset normally; but please note that [10] is already the simplest form of this type of reference and no more information can be missing.
 
@@ -762,7 +773,7 @@ To add an appendix, you need to first use `\appendix` at the beginning of the ap
 
 To generate an **Achievement** chapter, use `\achievement`, and then edit the content. Its implementation principle is the same as `\acknowledgement`.
 
-*P.s.: UESTC officially only has this content requirement for graduate theses, but it seems that many undergraduates are also producing impressive results, so the template also provides this command for undergraduates.*
+:pushpin: *UESTC officially only has this content requirement for graduate theses, but it seems that many undergraduates are also producing impressive results, so the template also provides this command for undergraduates.*
 
 ## 12. Original Foreign Language Materials (Undergraduate Students only)
 

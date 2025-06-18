@@ -58,9 +58,10 @@
   - [7.6 定义、公理、定理、命题、推论、引理、示例、假设、证明](#76-定义公理定理命题推论引理示例假设证明)
   - [7.7 脚注](#77-脚注)
   - [7.8 模板中的各种编号](#78-模板中的各种编号)
-  - [7.9 排版化学方程式](#79-排版化学方程式)
+  - [7.9 排版及微调数学公式](#79-排版及微调数学公式)
   - [7.10 在标题中排版数学符号](#710-在标题中排版数学符号)
-  - [7.11 引用](#711-引用)
+  - [7.11 排版化学方程式](#711-排版化学方程式)
+  - [7.12 引用](#712-引用)
 - [8. 致谢](#8-致谢)
 - [9. 参考文献](#9-参考文献)
 - [10. 附录](#10-附录)
@@ -187,11 +188,11 @@
       |---|---|
       |`doctor`|学术学位博士|
       |`prodoctor`|专业学位博士|
-      |`intdoctor`|International Doctor|
+      |`intdoctor`|International Doctor with Academic Degree|
       |`ipdoctor`|International Doctor with Professional Degree|
       |`master`|学术学位硕士|
       |`promaster`|专业学位硕士|
-      |`intmaster`|International Master|
+      |`intmaster`|International Master with Academic Degree|
       |`ipmaster`|International Master with Professional Degree|
       |`bachelor`|学士|
       |`doublebachelor`|双学位学士|
@@ -475,22 +476,30 @@
 
 如果需要在正文中引用某个子公式编号，既可以像往常一样在`\subeqtag`之后使用`\label{<编号标签>}`，也可以直接指定`\subeqtag[<子公式编号标签>]`的可选参数，非常人性化。详情可以参考`tutorial.tex`中给出的示例。
 
-:exclamation: 有两点需要提醒:
+:pushpin: 有两点需要提醒:
 1. `\subeqtag[<子公式编号标签>]`的可选参数全文不可重复定义，因为它本质上还是调用的`\label{<编号标签>}`。
 
 2. 尽管`\subeqtag[<子公式编号标签>]`在底层是调用`\label{<编号标签>}`来添加标签，TeXstudio编辑器在使用`\ref{<编号标签>}`或`\eqref{<编号标签>}`时却不会弹出这些标签的选项，需要手动输入；而直接用`\label{<编号标签>}`指定的标签在引用时则会出现在选项提示中，可以直接选择。这是`\subeqtag[<子公式编号标签>]`在接受可选参数后的不便之处，可惜我并不知道该如何解决。 :sob: :sob:
 
 
-### 7.9 排版化学方程式
+### 7.9 排版及微调数学公式
 
-本模板基于[mhchem](https://mirrors.cloud.tencent.com/CTAN/macros/latex/contrib/mhchem/mhchem.pdf)和[chemfig](https://mirrors.bfsu.edu.cn/CTAN/macros/generic/chemfig/chemfig-en.pdf)宏包来排版化学方程式、结构式和键线式等。相关命令的使用可参考宏包的官方文档或[@codesonic](https://www.luogu.com.cn/user/45443)的文章：[用LaTeX写化学方程式](https://www.luogu.com.cn/article/o7mlv3w8)。`tutorial.tex`引用了该文章中的部分示例以做演示，感谢。
+对于不熟悉数学符号与LaTeX源码对应关系的用户，请参考[LaTeX公式手册（全网最全）@樱花赞](https://www.cnblogs.com/1024th/p/11623258.html)，此处不再赘述。
+
+当论文中出现包含公式较多的数学模型或行间公式组，且当页剩余的排版空间又无法完整容纳它们时，用户可以在导言区或文档开头使用`\allowdisplaybreaks[<跨页倾向值>]`来允许跨页排版行间公式组，从而避免该页底部出现大幅空白。该命令的可选参数可取的值有`1,2,3,4`，值越大表示跨页排版的倾向越高。
+
+当某些行间公式过长以致于超出页面边界时，用户可以在`equation`环境中嵌套`aligned`环境将之调整为多行排版。此外，若公式超出页面边界的部分不多，也可以在`equation`环境内通过调整公式中数学符号间的三种间距`\thinmuskip`、`\medmuskip`、`\thickmuskip`来略微压缩公式的排版长度，三者的单位只能是`mu`。`tutorial.tex`中给出了相应的示例。
 
 ### 7.10 在标题中排版数学符号
 
 尽管我不建议在标题中排版数学符号（因为规范甚至不建议在标题中排版英文缩略词），但如果非排版不可，那可使用[hyperref](https://mirrors.tuna.tsinghua.edu.cn/CTAN/macros/latex/contrib/hyperref/doc/hyperref-doc.pdf)宏包（模板已载入该宏包）提供的`\texorpdfstring{<TeXstring>}{<PDFstring>}`命令，该命令的具体用法请参考：[texorpdfstring使用方法](https://blog.csdn.net/qq_42679415/article/details/139592054)。`tutorial.tex`中也有对应的使用示例。
 
+### 7.11 排版化学方程式
 
-### 7.11 引用
+本模板基于[mhchem](https://mirrors.cloud.tencent.com/CTAN/macros/latex/contrib/mhchem/mhchem.pdf)和[chemfig](https://mirrors.bfsu.edu.cn/CTAN/macros/generic/chemfig/chemfig-en.pdf)宏包来排版化学方程式、结构式和键线式等。相关命令的使用可参考宏包的官方文档或[@codesonic](https://www.luogu.com.cn/user/45443)的文章：[用LaTeX写化学方程式](https://www.luogu.com.cn/article/o7mlv3w8)。`tutorial.tex`引用了该文章中的部分示例以做演示，感谢。
+
+
+### 7.12 引用
 
 引用“公式”、“图片”、“表格”、“伪码”、“定义”、“公理”、“定理”、“命题”、“推论”、“引理”、“示例”、“假设”、“证明”等环境的编号直接用`\ref{<编号label>}`即可，其中生成带括号公式编号则使用`\eqref{<公式label>}`。
 
@@ -731,7 +740,7 @@
 
 尽管研究生和学士学位论文对参考文献的排版风格有不同要求，**<font color=#8b0000>用户在开篇通过文档类选项指定学位论文类型后，模板将自动确定并应用相应的`.bst`风格文件</font>**，无需使用`\bibliographystyle{<.bst文件名>}`来显式设置。（2025.03.12）
 
-:sunflower: **补充说明**：
+:pushpin: **补充说明**：
 
 1. 对于某些缺少非必要信息的文献，本模板提供的`.bst`文件依然可以正确处理。比如上图中[3]这篇期刊论文缺少卷号，它仍能仅排版期号，这是符合规范的。再比如，文献[10]比文献[9]少了**出版地**、**出版者**等信息，依然能正常排版；但是注意，[10]已经是这类文献的最简形式，不可再缺信息。
 
@@ -760,7 +769,7 @@
 
 生成**成果章**使用`\achievement`，而后编辑内容即可。其实现原理与`\acknowledgement`一致。
 
-*P.s.：学校官方仅对研究生论文有这部分内容要求，但是好像现在很多本科生成果也很猛，所以模板也为本科生提供了该命令。*
+:pushpin: *学校官方仅对研究生论文有这部分内容要求，但是好像现在很多本科生成果也很猛，所以模板也为本科生提供了该命令。*
 
 ## 12. 外文资料原文（仅本科生）
 

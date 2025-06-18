@@ -550,12 +550,12 @@
 \RequirePackage{color}
 \RequirePackage[dvipsnames, svgnames, x11names]{xcolor}% 该宏包提供了更多预定义颜色，高亮代码块时比较方便
 \RequirePackage{layouts}
-\RequirePackage{zhnumber}
-\RequirePackage{titlesec}
-\RequirePackage{titletoc}  % 调整各级标题需要
+\RequirePackage{zhnumber}  % 将计数器显示成中文
+\RequirePackage{titlesec}  % 修改各级标题样式、目录等
+\RequirePackage{titletoc}  % 调整目录需要
 \RequirePackage[titles]{tocloft} % 调整图目录、表目录需要，titles选项使用LaTex默认命令排版目录标题
-\RequirePackage{fancyhdr}
-\RequirePackage{afterpage}
+\RequirePackage{fancyhdr}  % 设置页眉需要
+% \RequirePackage{afterpage}
 % 生成带编号的书签，并设置书签深度（bookmarksdepth不显示赋值则取tocdepth值），参考hyperref宏包文档
 \RequirePackage[
 	bookmarksnumbered=true,
@@ -585,9 +585,9 @@
 \RequirePackage{booktabs}  % 调整三线表线宽需要
 \RequirePackage{longtable}  % 跨页表格需要
 \RequirePackage{xparse}  % 定义带多个可选参数的命令或环境时需要
-\RequirePackage{centerlastline}  % 设计封面中的标题最后一行居中需要
+% \RequirePackage{centerlastline}  % 设计封面中的标题最后一行居中需要
 \RequirePackage{multirow}  % 表格合并多行单元格需要
-\RequirePackage{extarrows} % 带文字的长等号与箭头需要
+\RequirePackage{extarrows}  % 带文字的长等号与箭头需要
 %%%%%%
 % \let\Zbar\relax% 防止在下方载入newtxmath宏包时报“Command `\Zbar' already defined.”，见：https://github.com/CTeX-org/ctex-kit/issues/454
 % \RequirePackage{newtxmath}  % 调整数学公式字体为times需要，但似乎公式中的数字字体不变，而且z看起来不像times，遂弃用
@@ -603,16 +603,16 @@
 	}
 }
 \ExplSyntaxOff
-\RequirePackage{mathspec}% 设置公式字体为times new roman需要
+\RequirePackage{mathspec}  % 设置公式字体为times new roman需要
 \RenewCommandCopy{\RequirePackage}{\kernelRequirePackage}
 
 \RequirePackage{xintfrac}  % 计算两个长度的比值需要，https://tex.stackexchange.com/questions/200581
 \RequirePackage{pifont}  % 实心五角星符号需要，https://dl.icdst.org/pdfs/files3/1900293ae8829c4c53fe55f2c9f0077c.pdf
 \RequirePackage[absolute,overlay]{textpos}  % 在封面中悬浮保密信息需要
-\RequirePackage{xstring}% 在字符串中搜索子串需要
-\RequirePackage{listings}% 代码块风格化排版需要
-\RequirePackage{zref-user, zref-abspage}% 获取绝对页码需要，用来实现“摘要”和“致谢”超页提醒
-\RequirePackage{mhchem, chemfig}% 排版化学方程式、结构式和键线式需要的两个宏包
+\RequirePackage{xstring}  % 在字符串中搜索子串需要
+\RequirePackage{listings}  % 代码块风格化排版需要
+\RequirePackage{zref-user, zref-abspage}  % 获取绝对页码需要，用来实现“摘要”和“致谢”超页提醒
+\RequirePackage{mhchem, chemfig}  % 排版化学方程式、结构式和键线式需要的两个宏包
 
 % 该命令获取参数标签所在页面的实际绝对页码，可赋值给计数器（来自DeepSeek）
 \newcommand{\rawabspageref}[1]{\zref@extractdefault{#1}{abspage}{0}}
