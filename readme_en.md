@@ -58,7 +58,7 @@
   - [7.6 Definition, Axiom, Theorem, Proposition, Corollary, Lemma, Example, Assumption, Proof](#76-definition-axiom-theorem-proposition-corollary-lemma-example-assumption-proof)
   - [7.7 Footnote](#77-footnote)
   - [7.8 Various Numbers in the Template](#78-various-numbers-in-the-template)
-  - [7.9 Typesetting and fine-tuning mathematical formulas](#79-typesetting-and-fine-tuning-mathematical-formulas)
+  - [7.9 Typesetting and Fine-tuning Mathematical Formulas](#79-typesetting-and-fine-tuning-mathematical-formulas)
   - [7.10 Typesetting Mathematical Symbols in Titles](#710-typesetting-mathematical-symbols-in-titles)
   - [7.11 Typesetting Chemical Equations](#711-typesetting-chemical-equations)
   - [7.12 Cite](#712-cite)
@@ -484,7 +484,7 @@ If you need to refer to a sub-formula number in the text, you can use `\label{<n
 2. Although `\subeqtag[<number label>]` calls `\label{<number label>}` to add labels, the TeXstudio editor does not pop up the options for these labels when using `\ref{<number label>}` or `\eqref{<number label>}`, and they need to be entered manually; while the labels specified directly with `\label{<number label>}` will appear in the option prompt when citing, and can be directly selected. This is the inconvenience of `\subeqtag[<number label>]` after accepting optional parameters, but unfortunately I don't know how to solve it. :sob: :sob:
 
 
-### 7.9 Typesetting and fine-tuning mathematical formulas
+### 7.9 Typesetting and Fine-tuning Mathematical Formulas
 
 For users who are not familiar with the correspondence between mathematical symbols and LaTeX source code, please refer to the [LaTeX Formula Manual @樱花赞](https://www.cnblogs.com/1024th/p/11623258.html), and it will not be elaborated here.
 
