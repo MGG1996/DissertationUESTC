@@ -567,6 +567,7 @@
 \RequirePackage{graphicx}
 \RequirePackage[font=small]{subfig}
 \RequirePackage[numbers,sort&compress]{natbib}  % 排版参考文献和文献引用样式需要
+\RequirePackage{notoccite}  % 防止在section、caption等命令中添加引用时，造成引用首次出现在目录、图表目录中，并致使文献在正文中的编号乱序
 \RequirePackage[nomentbl]{nomencl}
 \RequirePackage{amssymb, amsmath, amsthm}
 \RequirePackage{caption}

@@ -430,6 +430,7 @@
 		\RequirePackage{graphicx}  % 图片排版
 		\RequirePackage[font=small]{subfig}  % 子图排版
 		\RequirePackage[numbers,sort&compress]{natbib}  % 参考文献及其引用样式
+		\RequirePackage{notoccite}  % 防止section、caption等命令中的引用使正文文献乱序
 		\RequirePackage[nomentbl]{nomencl}  % 缩略词表
 		\RequirePackage{amssymb, amsmath, amsthm}  % 公式、数学符号、定理环境
 		\RequirePackage{caption}  % 图、表、伪代码标题
@@ -1650,12 +1651,12 @@
 	\begin{figure}[!h]
 		\centering
 		\includegraphics[width=0.9\linewidth]{TeXstudio_bibtex}
-		\caption{TeXstudio对参考文献缺失可选域的提醒} \label{fig: TeXstudio对参考文献缺失信息的提醒}
+		\caption{TeXstudio对参考文献缺失可选域的提醒\citess{教育部国家语言文字工作委员2018}} \label{fig: TeXstudio对参考文献缺失信息的提醒}
 	\end{figure}
 	\begin{figure}[!h]
 		\centering
 		\includegraphics[width=0.9\linewidth]{VScode_bibtex}
-		\caption{VSCode对参考文献缺失可选域的提醒} \label{fig: VSCode对参考文献缺失信息的提醒}
+		\caption{VSCode对参考文献缺失可选域的提醒\citess{教育部国家语言文字工作委员2018}} \label{fig: VSCode对参考文献缺失信息的提醒}
 	\end{figure}
 	
 	\acknowledgement
