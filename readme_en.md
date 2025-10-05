@@ -328,16 +328,16 @@ Use the corresponding command at the corresponding position in the document:
 
         * :bulb: When using TeXstudio, configure the user command as shown in the figure below: `makeindex %.nlo -s nomencl.ist -o %.nls | txs:///compile | makeindex %.nlo -s nomencl.ist -o %.nls | txs:///compile`, then execute the command in the toolbar (once), and you no longer need to compile the entire document:
           <p align = "center">
-          <img src="fig/TeXstudio-nomenclature1.jpg"  width="700" />
-          <img src="fig/TeXstudio-nomenclature2.jpg"  width="700" />
-          <img src="fig/TeXstudio-nomenclature3.jpg"  width="700" />
+          <img src="fig/TeXstudio-nomenclature1-en.jpg"  width="700" />
+          <img src="fig/TeXstudio-nomenclature2-en.jpg"  width="700" />
+          <img src="fig/TeXstudio-nomenclature3-en.jpg"  width="700" />
           </p>
 
           If the abbreviation table is updated, you only need to execute steps 7, 8, and 9 above again without redefining the command.
         
         * :bulb: When using VSCode, you need to call out to the terminal and type the command: `makeindex %.nlo -s nomencl.ist -o %.nls`, execute (twice), and then compile the entire document:
           <p align = "center">
-          <img src="fig/VSCode-nomenclature.jpg"  width="700" />
+          <img src="fig/VSCode-nomenclature-en.jpg"  width="700" />
           </p>
           
           If the abbreviation list is updated, you need to type the above command in the terminal and execute it again, and then compile the entire document.
