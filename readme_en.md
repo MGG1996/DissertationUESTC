@@ -76,7 +76,7 @@
 ### 1.1 Target Students
 
 This template is developed based on:
-* [研究生学位论文撰写规范（Final revision: 2024.01.17）](https://gr.uestc.edu.cn/xiazai/114/3917)
+* [研究生学位论文撰写规范（Final revision: 2025.09.03）](https://gr.uestc.edu.cn/xiazai/114/3917)
 * [关于启动2021级本科毕业设计（论文）工作的通知（Release date: 2024.10.09）](https://www.sice.uestc.edu.cn/info/1140/14689.htm)
 * [交叉复合型毕业设计（Release date: 2022.03.25）](https://www.jwc.uestc.edu.cn/info/1507170256521551874)
 
