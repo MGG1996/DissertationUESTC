@@ -299,9 +299,11 @@
 
 ## 5. 中英文摘要
 
-生成中文摘要需先使用`\zhabstract`，然后继续追加内容即可，中文关键字用`\zhkeywords{<中文关键字>}`。
+生成中文摘要需先使用`\zhabstract`，然后继续追加内容即可，中文关键词用`\zhkeywords{<中文关键词>}`。
 
-生成英文摘要需先使用`\enabstract`，然后继续追加内容即可，英文关键字用`\enkeywords{<English Keywords>}`。
+生成英文摘要需先使用`\enabstract`，然后继续追加内容即可，英文关键词用`\enkeywords{<English Keywords>}`。
+
+:exclamation: **<font color=#8b0000>2025年09月03日修订的研究生论文撰写规范要求改用“；”分隔关键词；（双学位）学士论文撰写规范尚未调整，仍使用“，”分隔关键词。</font>**
 
 ## 6. 目录、图目录、表目录、主要符号表、缩略词表
 

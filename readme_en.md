@@ -305,6 +305,8 @@ To generate a `Chinese Abstract`, you must first use `\zhabstract`, and then con
 
 To generate a `English Abstract`, you must first use `\enabstract`, and then continue to append content. For `English keywords`, use `\enkeywords{<English keywords>}`.
 
+:exclamation: **<font color=#8b0000>The revised graduate thesis writing standard on September 3, 2025 has changed to use `;` to separate keywords; The writing standards for (double degree) bachelor's theses have not been adjusted, and the keywords are still separated by `,`.</font>**
+
 ## 6. Table of Contents, List of Figures, List of Tables, List of Symbols, Table of Abbreviations
 
 Use the corresponding command at the corresponding position in the document:

@@ -122,11 +122,10 @@
 
 	% 杨过少年时期母亲染病而亡，随后他便过着四处流浪的生活。后来遇到郭靖夫妇，便由他们照看。但之后因杨过与郭芙等人之间的矛盾，郭靖便送其去全真派习武。其后，又从全真派逃出，机缘巧合下于古墓遇见小龙女，之后便跟随小龙女练功。他身边有许多红颜知己钟情于他，而他却一心只爱小龙女，后结为夫妇；
 
-	% 中文关键字
-	\zhkeywords{练武；离经叛道；复仇；抗敌；练武；离经叛道；复仇；抗敌；练武；离经叛道；复仇；抗敌；练武；离经叛道；复仇；抗敌}
+	% 中文关键词
+	\zhkeywords{练武；离经叛道；复仇；抗敌；练武；离经叛道；复仇；抗敌；练武；离经叛道；复仇；抗敌；练武；离经叛道；复仇；抗敌；\textcolor{DarkRed}{注意：2025年09月03日修订的\href{https://gr.uestc.edu.cn/xiazai/114/3917}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{研究生论文撰写规范}}要求改用“；”分隔关键词；（\href{https://www.jwc.uestc.edu.cn/info/1507170256521551874}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{双学位}}）\href{https://www.sice.uestc.edu.cn/info/1140/14689.htm}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{学士论文撰写规范}}尚未调整，仍使用“，”分隔关键词}}
 	
 	
-
 	
 	
 	% 开启英文摘要
@@ -141,7 +140,7 @@
 	% When Yang was a teenager, his mother contracted a disease and died, and he then lived a wandering life. When he met Guo Jing and his wife, they took care of him. However, due to the conflict between Yang and Guo Fu, Guo Jing sent him to learn martial arts in the Quanzhen Sect. Later, he escaped from the Quanzhen Sect and met Xiao Longnian at the ancient tomb, where he practised kung fu with Xiao Longnian. He was surrounded by many confidantes who were in love with him, but he only loved Little Dragon Girl, and later married; he and the Guo family feud, several times due to misunderstanding tension, but always stepped forward to help them, lifting the suspicion, turning the gas into peace; ill-fated, separated from Little Dragon Girl for sixteen years, along with the Divine Eagle who is also a teacher and friend of the chivalrous, punishing the evil and promoting the good. Jianghu people ``divine eagle hero". After the little dragon lady is not to perseverance to jump off the cliff to martyrdom, in the bottom of the valley and the little dragon lady reunited with the defence of Xiangyang City, Yang past a show of its unparalleled martial arts power to defeat the Golden Wheel of the Fa Wang, flying stone to kill the Mongolian Khan, to protect the thirteen years of peace in the Great Song Dynasty. He became the world-famous ``Divine Eagle Couple". After the last Mount Hua sword debate, he and his wife Xiaolongnu went into exile.
 	
 	
-	% 英文关键字
+	% 英文关键词
 	\enkeywords{Martial arts；Apostasy；Revenge；Fighting against the enemy；Martial arts；Apostasy；Revenge；Fighting against the enemy}
 
 	
@@ -331,10 +330,10 @@
 	\begin{enumerate}
 		\item 先使用\shadcmd{printnomenclature[<英文缩写宽度>](<中文全称宽度>)}，第一项可选参数控制\textbf{英文缩写}的列宽，默认为\shad{5em}；第二项可选参数控制\textbf{中文全称}的列宽，默认为\shad{7.5em}。
 		
-		\item 然后在正文中出现缩略词的位置使用命令\\\shadcmd{nomchn[<排序前缀>]\{<缩略词>\}\{<英文全称>\}\{<中文全称>\}}添加该缩略词条目。其中\shad{排序前缀}是可选参数，仅在对特定条目有特殊排序需求时才使用。具体细节参考\href{https://mirrors.hust.edu.cn/CTAN/macros/latex/contrib/nomencl/nomencl.pdf}{\shad{\color{DarkRed}nomencl}}宏包对\shadcmd{nomenclature}命令的参数说明。
+		\item 然后在正文中出现缩略词的位置使用命令\\\shadcmd{nomchn[<排序前缀>]\{<缩略词>\}\{<英文全称>\}\{<中文全称>\}}添加该缩略词条目。其中\shad{排序前缀}是可选参数，仅在对特定条目有特殊排序需求时才使用。具体细节参考\href{https://mirrors.hust.edu.cn/CTAN/macros/latex/contrib/nomencl/nomencl.pdf}{\ttfamily\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{nomencl}}宏包对\shadcmd{nomenclature}命令的参数说明。
 	\end{enumerate}
 	
-	另外，本地用户需要先编译生成缩略词表的辅助文件，再编译完整文档才能获得正确的结果，辅助文件编译教程参见\href{https://zhuanlan.zhihu.com/p/46442713}{\color{DarkRed}编译缩略词表} 或 \href{https://github.com/MGG1996/DissertationUESTC?tab=readme-ov-file#6-%E7%9B%AE%E5%BD%95%E5%9B%BE%E7%9B%AE%E5%BD%95%E8%A1%A8%E7%9B%AE%E5%BD%95%E4%B8%BB%E8%A6%81%E7%AC%A6%E5%8F%B7%E8%A1%A8%E7%BC%A9%E7%95%A5%E8%AF%8D%E8%A1%A8}{\color{DarkRed}项目readme第6节}给出的操作图示，对应本文档中的图\ref{fig: VSCode编译缩略词表}和图\ref{fig: TeXstudio编译缩略词表}。图中用到的命令分别为：
+	另外，本地用户需要先编译生成缩略词表的辅助文件，再编译完整文档才能获得正确的结果，辅助文件编译教程参见\href{https://zhuanlan.zhihu.com/p/46442713}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{编译缩略词表}} 或 \href{https://github.com/MGG1996/DissertationUESTC?tab=readme-ov-file#6-目录图目录表目录主要符号表缩略词表}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{项目readme第6节}}给出的操作图示，对应本文档中的图\ref{fig: VSCode编译缩略词表}和图\ref{fig: TeXstudio编译缩略词表}。图中用到的命令分别为：
 	\begin{itemize}
 		\item \shad{makeindex \%.nlo -s nomencl.ist -o \%.nls}
 		\item \shad{makeindex \%.nlo -s nomencl.ist -o \%.nls | txs:///compile | makeindex \%.nlo -s nomencl.ist -o \%.nls | txs:///compile}
@@ -359,23 +358,30 @@
 	
 
 	\chapter{前言}
+	\section{当前版本编译时间}
+	\noindent%
+	\begin{center}%
+		\zihao{-2}\bfseries\color{DarkRed}%
+		\zhdigits*{\the\year} 年\zhnumber{\the\month} 月\zhnumber{\the\day} 日\;\xxivtime
+	\end{center}
+
 	\section{适用对象}
 	
 	本模板参照以下电子科技大学官方规范编写，适用于学术学位博士、专业学位博士、学术学位硕士、专业学位硕士、普通学士、双学位学士以及来华留学生。
 	\begin{itemize}
-		\item \href{https://gr.uestc.edu.cn/xiazai/114/3917}{\textcolor{DarkRed}{研究生学位论文撰写规范（最后修订：2024.01.17）}}
-		\item \href{https://www.sice.uestc.edu.cn/info/1140/14689.htm}{\color{DarkRed}关于启动2021级本科毕业设计工作的通知（发布时间：2024.10.09）}
-		\item \href{https://www.jwc.uestc.edu.cn/info/1507170256521551874}{\color{DarkRed}交叉复合型毕业设计（发布时间：2022.03.25）}
+		\item \href{https://gr.uestc.edu.cn/xiazai/114/3917}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{研究生学位论文撰写规范（最后修订：2025.09.03）}}
+		\item \href{https://www.sice.uestc.edu.cn/info/1140/14689.htm}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{关于启动2021级本科毕业设计工作的通知（发布时间：2024.10.09）}}
+		\item \href{https://www.jwc.uestc.edu.cn/info/1507170256521551874}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{交叉复合型毕业设计（发布时间：2022.03.25）}}
 	\end{itemize}
 	
 
 	\section{使用环境}
 
-	本模板兼容Windows、MacOS以及Overleaf等主流平台，其开发测试环境为TeXLive2024+TeXstudio，以及TeXLive2024+VSCode。\textbf{请所有本地用户将LaTeX环境更新到\href{https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/texlive/}{\color{DarkRed}TeXLive2024及以上}或\href{https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/mactex/}{\color{DarkRed}MacTeX2024及以上}}，以避免兼容性问题。
+	本模板兼容Windows、MacOS以及Overleaf等主流平台，其开发测试环境为TeXLive2024+TeXstudio，以及TeXLive2024+VSCode。\textbf{请所有本地用户将LaTeX环境更新到\href{https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/texlive/}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{TeXLive2024及以上}}或\href{https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/mactex/}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{MacTeX2024及以上}}}，以避免兼容性问题。
 
 	\begin{itemize}
-		\item \href{https://zhuanlan.zhihu.com/p/389394015}{\color{DarkRed}TeXLive安装教程}、\href{https://blog.csdn.net/ChrisP_333/article/details/82943508}{\color{DarkRed}MacTeX安装教程}
-		\item \href{https://texstudio.sourceforge.net/#download}{\color{DarkRed}TeXstudio下载地址}、\href{https://code.visualstudio.com/Download}{\color{DarkRed}VSCode下载地址}、\href{https://zhuanlan.zhihu.com/p/166523064}{\color{DarkRed}VSCode配置LaTeX环境}
+		\item \href{https://zhuanlan.zhihu.com/p/389394015}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{TeXLive安装教程}}、\href{https://blog.csdn.net/ChrisP_333/article/details/82943508}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{MacTeX安装教程}}
+		\item \href{https://texstudio.sourceforge.net/#download}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{TeXstudio下载地址}}、\href{https://code.visualstudio.com/Download}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{VSCode下载地址}}、\href{https://zhuanlan.zhihu.com/p/166523064}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{VSCode配置LaTeX环境}}
 	\end{itemize}
 	
 	模板需要使用\shad{XeLaTeX}引擎编译：
@@ -391,7 +397,7 @@
 
 	\section{模板更新方法}
 
-	模板的发布地址为：\href{https://github.com/MGG1996/DissertationUESTC}{\color{DarkRed}https://github.com/MGG1996/DissertationUESTC}。
+	模板的发布地址为：\href{https://github.com/MGG1996/DissertationUESTC}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{https://github.com/MGG1996/DissertationUESTC}}。
 	
 	更新模板的正确方式：\textbf{下载最新的完整压缩包，解压后用自己的\shad{.bib}和\shad{.tex}文件以及\shad{fig}目录替换掉模板中原有的同名文件和目录}。
 
@@ -400,12 +406,12 @@
 
 	\section{新手入门}
 
-	使用本模板需要掌握基本的LaTeX排版操作。如果你是纯新手，那可以先看看\href{https://ctan.math.utah.edu/ctan/tex-archive/info/lshort/chinese/lshort-zh-cn.pdf}{\bfseries\color{DarkRed}一份（不太）简短的LaTeX2ε介绍}，它足以帮助你建立起基本概念，进而顺利使用本模板。
+	使用本模板需要掌握基本的LaTeX排版操作。如果你是纯新手，那可以先看看\href{https://ctan.math.utah.edu/ctan/tex-archive/info/lshort/chinese/lshort-zh-cn.pdf}{\bfseries\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{一份（不太）简短的LaTeX2ε介绍}}，它足以帮助你建立起基本概念，进而顺利使用本模板。
 
 
 	\section{本模板已载入的宏包}
 
-	本模板已在\shad{.cls}文件中载入下列宏包，用户应避免重复载入，有特殊需求的用户在载入其他宏包时应留意与现有宏包是否冲突。
+	本模板已在\shad{DissertUESTC.cls}文件中载入下列宏包，用户应避免重复载入，有特殊需求的用户在载入其他宏包时应留意与现有宏包是否冲突。
 
 	\begin{verbatim}
 		\RequirePackage{ifthen}  % 条件判断需要
@@ -456,6 +462,7 @@
 		\RequirePackage{listings}  % 代码块风格化排版需要
 		\RequirePackage{zref-user, zref-abspage}  % 获取绝对页码，实现超页提醒
 		\RequirePackage{mhchem, chemfig}  % 排版化学方程式、结构式和键线式
+		\RequirePackage{datetime}  % 获取当前系统时间需要
 	\end{verbatim}
 	
 
@@ -487,15 +494,15 @@
 			
 			\item \shad{cmmmath} / \shad{timesmathnogreek} / \shad{timesmath}：该选项用于选择渲染公式使用的字体。其中，\shad{cmmmath}即对应LaTeX默认使用的Computer Modern Math，也是此类选项的默认值；\shad{timesmathnogreek}指定使用Times New Roman来渲染公式中的英文字母和数字，但不影响希腊字母、手写体和双线体；\shad{timesmath}则继续将希腊字母也设置成Times New Roman（个人觉得希腊字符用该字体有些违和），手写体和双线体仍保持原样。
 			
-			追求公式字体均为Times New Roman的使用者可采用\shad{timesmath}选项。后两种选项均基于\href{https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf}{\shad{\color{DarkRed}mathspec}}宏包实现，在本人有限的测试实践中，只有它能做到真正意义上的Times New Roman。（2025.01.31）
+			追求公式字体均为Times New Roman的使用者可采用\shad{timesmath}选项。后两种选项均基于\href{https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf}{\ttfamily\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{mathspec}}宏包实现，在本人有限的测试实践中，只有它能做到真正意义上的Times New Roman。（2025.01.31）
 			
 			\textbf{P.s. 1：}需要注意，Times New Roman字体原不支持在公式中排版粗斜体，所以后两种选项将使\shad{$\backslash$boldsymbol\{\}}命令失效。为了解决该问题，模板（仅在后两种选项下）对这条命令进行了粗糙的重定义，使之能像原版那样生成粗斜体符号。但是，由于本人技术水平不足，重定义后的\shad{$\backslash$boldsymbol\{\}}命令需要遵循一条额外的使用规则：\textbf{其输入参数必须是最原始的数学符号}。比如你想排版\shad{$\backslash$boldsymbol\{$\backslash$hat\{$\backslash$alpha\}\}}（这在\shad{cmmmath}下是没有问题的），那此时正确的源码应该是\shad{$\backslash$hat\{$\backslash$boldsymbol\{$\backslash$alpha\}\}}，\textbf{即将\shad{$\backslash$boldsymbol\{\}}置于嵌套的最内层}。如若不然，模板轻则无法渲染出预期的数学符号（在\shad{timesmath}选项下），重则直接报错（在\shad{timesmathnogreek}选项下）。大概是涉及了一些底层问题，我也不懂，无法解决。
 
-			\textbf{P.s. 2：}因为\href{https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf}{\shad{\color{DarkRed}mathspec}}宏包本身的特性，使用Times New Roman作为公式字体需要用户付出更多精力。举个例子，你想排版\shad{\$f\^{}t\$}，那么你会发现\shad{f}和\shad{t}之间的间隔很小，两者发生了重叠，这时候需要你手动用\shad{"}插入空格，变成\shad{\$f\^{}\{"t\}\$}。因此，\shad{timesmathnogreek}和\shad{timesmath}选项均存在类似瑕疵，届时就需要仔细查阅\href{https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf}{\shad{\color{DarkRed}mathspec}}的宏包文档。
+			\textbf{P.s. 2：}因为\href{https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf}{\ttfamily\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{mathspec}}宏包本身的特性，使用Times New Roman作为公式字体需要用户付出更多精力。举个例子，你想排版\shad{\$f\^{}t\$}，那么你会发现\shad{f}和\shad{t}之间的间隔很小，两者发生了重叠，这时候需要你手动用\shad{"}插入空格，变成\shad{\$f\^{}\{"t\}\$}。因此，\shad{timesmathnogreek}和\shad{timesmath}选项均存在类似瑕疵，届时就需要仔细查阅\href{https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf}{\ttfamily\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{mathspec}}的宏包文档。
 
 			\textbf{P.s. 3：}其实，规范并未对公式字体作强制要求，即便审查系统识别到公式字体不是Times New Roman，它也只是抛出提醒而非错误，不会造成格式审查不通过。只是实在有太多人问怎么公式字体不是Times New Roman，既然有部分同学喜欢Times New Roman，那本模板秉承兼容并包的原则，将选择权交给使用者。
 
-			\item 另外，\href{https://mirrors.sustech.edu.cn/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf}{\shad{\color{DarkRed}algorithm2e}}宏包的\shad{vlined}和\shad{boxruled}选项也能通过文档类设置。
+			\item 另外，\href{https://mirrors.sustech.edu.cn/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf}{\ttfamily\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{algorithm2e}}宏包的\shad{vlined}和\shad{boxruled}选项也能通过文档类设置。
 		\end{itemize}
 	\end{itemize}
 	
@@ -515,7 +522,7 @@
 	
 	\section{图片}
 	
-	本模板使用\href{https://mirror.nyist.edu.cn/CTAN/macros/latex/required/graphics/grfguide.pdf}{\color{DarkRed}graphicx}和\href{https://mirrors.bfsu.edu.cn/CTAN/macros/latex/contrib/subfig/subfig.pdf}{\color{DarkRed}subfig}宏包来处理插入的图片及子图，需要将待排版图片文件放入项目目录\shad{./fig/}中。以下给出一些排版图片的例子。
+	本模板使用\href{https://mirror.nyist.edu.cn/CTAN/macros/latex/required/graphics/grfguide.pdf}{\ttfamily\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{graphicx}}和\href{https://mirrors.bfsu.edu.cn/CTAN/macros/latex/contrib/subfig/subfig.pdf}{\ttfamily\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{subfig}}宏包来处理插入的图片及子图，需要将待排版图片文件放入项目目录\shad{./fig/}中。以下给出一些排版图片的例子。
 	
 	需要注意，图\ref{fig: 报仇哪有姑姑重要}中引用子图\ref{fig: 见到姑姑嘻嘻}和本段中引用子图使用的命令分别为\shad{$\backslash$subref\{fig: 见到姑姑嘻嘻\}}和\shad{$\backslash$ref\{fig: 报仇哪有姑姑重要\}}，它们分别生成仅含带括号子图编号和完整子图编号的结果。
 	
@@ -594,7 +601,7 @@
 	
 	普通表格的排版本身无需多言，使用\shad{table}+\shad{tabular}环境即可，但是要注意三线表中的三条线分别需要使用\shad{$\backslash$toprule}、\shad{$\backslash$midrule}、\shad{$\backslash$bottomrule}生成，这样才符合研究生规范中对线粗的要求（\shad{1.5}磅、\shad{0.75}磅、\shad{1.5}磅）。注意不要用\shad{$\backslash$hline}。而对于本科生，学士学位论文规范要求表格中的线粗统一为\shad{0.5}磅。因此，在\shad{bachelor}和\shad{doublebachelor}选项下，\shad{$\backslash$toprule}、\shad{$\backslash$midrule}、\shad{$\backslash$bottomrule}和\shad{$\backslash$cmidrule}的线粗均设置为\shad{0.5}磅（2025.05.01调整）。
 	
-	在需要为表格中的某些单元格添加水平框线时，应使用\newline\shadcmd{cmidrule[<线粗>](<修剪>)\{<起始列-终止列>\}}而非\shadcmd{cline\{<起始列-终止列>\}}。后者似乎无法调整线粗，也无法对框线的端点进行修剪。前者的第一项可选参数允许用户设置框线粗细，其默认值在\shad{bachelor}和\shad{doublebachelor}选项下设置为了\shad{0.5}磅，而在其他论文类型下设置为了\shad{0.75}磅。若非必要，用户无需设置该可选参数；第二项可选参数允许用户对框线的端点进行修剪，该选项可防止同行独立的相邻框线在视觉上连通到一起，参见表\ref{tab: cmidrule示例}中的示例。有关第二项可选参数可取的值，建议用户查阅\href{https://mirrors.sustech.edu.cn/CTAN/macros/latex/contrib/booktabs/booktabs.pdf}{\shad{\color{DarkRed}booktabs}}宏包的官方文档。
+	在需要为表格中的某些单元格添加水平框线时，应使用\newline\shadcmd{cmidrule[<线粗>](<修剪>)\{<起始列-终止列>\}}而非\shadcmd{cline\{<起始列-终止列>\}}。后者似乎无法调整线粗，也无法对框线的端点进行修剪。前者的第一项可选参数允许用户设置框线粗细，其默认值在\shad{bachelor}和\shad{doublebachelor}选项下设置为了\shad{0.5}磅，而在其他论文类型下设置为了\shad{0.75}磅。若非必要，用户无需设置该可选参数；第二项可选参数允许用户对框线的端点进行修剪，该选项可防止同行独立的相邻框线在视觉上连通到一起，参见表\ref{tab: cmidrule示例}中的示例。有关第二项可选参数可取的值，建议用户查阅\href{https://mirrors.sustech.edu.cn/CTAN/macros/latex/contrib/booktabs/booktabs.pdf}{\ttfamily\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{booktabs}}宏包的官方文档。
 	
 	\begin{table}[htp]
 		\caption{$\backslash$cmidrule示例}\label{tab: cmidrule示例}
@@ -706,7 +713,7 @@
 	\clearpage
 	\subsection{跨页表格}
 	
-	原则上，长度不足一页的表格不应跨页。而对于本身超过一页的表格，本模板使用\href{https://mirrors.tuna.tsinghua.edu.cn/CTAN/macros/latex/required/tools/longtable.pdf}{\shad{\color{DarkRed}longtable}}宏包提供的\shad{longtable}环境实现。用户需要了解\shad{longtable}环境的基本使用方法，它与\shad{tabular}环境的最大区别在于需要用户自行定义分页后的表题、表头以及表尾。
+	原则上，长度不足一页的表格不应跨页。而对于本身超过一页的表格，本模板使用\href{https://mirrors.tuna.tsinghua.edu.cn/CTAN/macros/latex/required/tools/longtable.pdf}{\ttfamily\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{longtable}}宏包提供的\shad{longtable}环境实现。用户需要了解\shad{longtable}环境的基本使用方法，它与\shad{tabular}环境的最大区别在于需要用户自行定义分页后的表题、表头以及表尾。
 	
 	本模板提供了命令\shadcmd{CPcaption\{<当前表格总列数>\}\{<跨页表题>\}}来正确排版跨页之后的表题\textcolor{red}{（2025.01.05更新命令使用方式）}。\textbf{务必使用此命令}，否则跨页后的表题将会与表格内容采用相同的行距和段前段后，而非与规范中要求的表题格式保持一致；并且在跨页表题长度超过表宽时，无法产生预期的排版结果。
 	
@@ -882,7 +889,7 @@
 
 	\textcolor{red}{\textbf{注意：}}使用\shadcmd{tablenotetext}命令的前提是对表格首列进行特定设置，用户\textbf{必须}通过\shad{p\{<长度>\}}或\shad{m\{<长度>\}}来人为指定\shad{longtable}的首列宽度，\textcolor{red}{\textbf{切不可}}将之设置为\shad{c}、\shad{r}或\shad{l}。另外，表格中最后一条\shadcmd{tablenotetext}之后不需要\shadcmd{\shadcmd{}}，否则表尾与下方文本的间隔将偏大。
 
-	可能出现一种极端情况：跨页表格恰好在附注开始处发生了分页，此时也会产生另类的排版结果。要解决该问题，用户得手动在表格内容的适当位置使用\href{https://mirrors.tuna.tsinghua.edu.cn/CTAN/macros/latex/required/tools/longtable.pdf}{\shad{\color{DarkRed}longtable}}宏包提供的\shadcmd{pagebreak}命令提前断页，代价是前一页底部可能有更多空白，参考表\ref{tab: 跨页带附注表格恰巧在附注开始处换页示例}中的做法。如果你运气尤其差，附注特别长，而且在附注中间跨页了，那我实在无能为力了。
+	可能出现一种极端情况：跨页表格恰好在附注开始处发生了分页，此时也会产生另类的排版结果。要解决该问题，用户得手动在表格内容的适当位置使用\href{https://mirrors.tuna.tsinghua.edu.cn/CTAN/macros/latex/required/tools/longtable.pdf}{\ttfamily\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{longtable}}宏包提供的\shadcmd{pagebreak}命令提前断页，代价是前一页底部可能有更多空白，参考表\ref{tab: 跨页带附注表格恰巧在附注开始处换页示例}中的做法。如果你运气尤其差，附注特别长，而且在附注中间跨页了，那我实在无能为力了。
 
 	必须要承认，\shadcmd{tablenotetext}命令很不稳定。其参数在不同的表格中需要特调，甚至在同一表格的不同排版设置下都是如此，可谓一表一参。如遇到不得不用的时候，用户必须要投入很多精力。可惜，这已经是我目前所能做到的极限。
 
@@ -1026,9 +1033,9 @@
 	\clearpage
 	\section{伪代码}
 	
-	模板基于\href{https://mirrors.sustech.edu.cn/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf}{\shad{\color{DarkRed}algorithm2e}}宏包提供的\shad{algorithm}环境排版伪代码，默认不添加左右侧框线，且顶部框线和底部框线类比规范对表格的要求进行了加粗，字体大小也调整到了\textbf{五号字}，与表格保持一致。若要恢复伪代码的左右侧框线，可以在载入文档类时使用\shad{boxruled}选项。该环境生成的伪码与正文文本保持相同宽度。
+	模板基于\href{https://mirrors.sustech.edu.cn/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf}{\ttfamily\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{algorithm2e}}宏包提供的\shad{algorithm}环境排版伪代码，默认不添加左右侧框线，且顶部框线和底部框线类比规范对表格的要求进行了加粗，字体大小也调整到了\textbf{五号字}，与表格保持一致。若要恢复伪代码的左右侧框线，可以在载入文档类时使用\shad{boxruled}选项。该环境生成的伪码与正文文本保持相同宽度。
 	
-	除了\href{https://mirrors.sustech.edu.cn/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf}{\shad{\color{DarkRed}algorithm2e}}宏包本身提供的各种条件、循环语句，本模板基于宏包提供的接口，追加了\shad{Do While}和\shad{Loop}循环语句：
+	除了\href{https://mirrors.sustech.edu.cn/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf}{\ttfamily\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{algorithm2e}}宏包本身提供的各种条件、循环语句，本模板基于宏包提供的接口，追加了\shad{Do While}和\shad{Loop}循环语句：
 	\begin{itemize}
 		\item \shadcmd{DoWhile(<紧跟关键字do的文本，可用于添加注释>)\{<循环条件>\}\{<循环体>\}}
 		\item \shadcmd{Loop(<紧跟关键字loop的文本，可用于添加注释>)\{<循环体>\}}
@@ -1315,7 +1322,7 @@
 	
 	在正文中加入脚注直接在需要放置脚注标签的位置使用\shadcmd{footnote\{<脚注内容>\}}即可。
 	
-	在其他环境中，如表格，则需要需要使用\shadcmd{footnotemark}配合\shadcmd{footnotetext\{<脚注文本>\}}。在需要放置脚注标签的位置使用\shadcmd{footnotemark}，然后在环境外使用\shadcmd{footnotetext\{<脚注文本>\}}指明脚注内容\footnote{更详细的使用方法参考\href{https://blog.csdn.net/xovee/article/details/127563209}{\shad{\color{DarkRed}LaTeX脚注}}。冗余文本用于展示脚注内容发生换行后的情况；冗余文本用于展示脚注内容发生换行后的情况；冗余文本用于展示脚注内容发生换行后的情况。}。
+	在其他环境中，如表格，则需要需要使用\shadcmd{footnotemark}配合\shadcmd{footnotetext\{<脚注文本>\}}。在需要放置脚注标签的位置使用\shadcmd{footnotemark}，然后在环境外使用\shadcmd{footnotetext\{<脚注文本>\}}指明脚注内容\footnote{更详细的使用方法参考\href{https://blog.csdn.net/xovee/article/details/127563209}{\ttfamily\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{LaTeX脚注}}。冗余文本用于展示脚注内容发生换行后的情况；冗余文本用于展示脚注内容发生换行后的情况；冗余文本用于展示脚注内容发生换行后的情况。}。
 	
 	
 	\section{模板中的各种编号}
@@ -1378,7 +1385,7 @@
 	
 	\section{排版及微调数学公式}
 
-	对于不熟悉数学符号与LaTeX源码对应关系的用户，请参考\href{https://www.cnblogs.com/1024th/p/11623258.html}{\color{DarkRed}LaTeX公式手册（全网最全）@樱花赞}，此处不再赘述。
+	对于不熟悉数学符号与LaTeX源码对应关系的用户，请参考\href{https://www.cnblogs.com/1024th/p/11623258.html}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{LaTeX公式手册（全网最全）@樱花赞}}，此处不再赘述。
 
 	当出现包含公式较多的数学模型或行间公式组，且当页剩余的排版空间无法完整容纳它们时，用户可以在导言区或文档开头使用\shadcmd{allowdisplaybreaks[<跨页倾向值>]}来允许跨页排版行间公式组，从而避免该页底部出现大幅空白。该命令的可选参数可取的值有\shad{1,2,3,4}，值越大表示跨页排版的倾向越高。
 
@@ -1394,12 +1401,12 @@
 
 	\section{在标题中排版数学符号\texorpdfstring{$\tilde{r}^t_{u,b}, \acute{\alpha}^t_v, \check{\boldsymbol{C}}^t_n$}{示例}}
 
-	尽管我不建议在标题中排版数学符号（因为规范甚至不建议在标题中排版英文缩略词），但如果非排版不可，那可参考本节标题的做法，使用\href{https://mirrors.tuna.tsinghua.edu.cn/CTAN/macros/latex/contrib/hyperref/doc/hyperref-doc.pdf}{\shad{\color{DarkRed}hyperref}}宏包（模板已载入该宏包）提供的\shadcmd{texorpdfstring\{<TeXstring>\}\{<PDFstring>\}}命令，该命令的具体用法参考这个帖子：\href{https://blog.csdn.net/qq_42679415/article/details/139592054}{\shad{\color{DarkRed}texorpdfstring使用方法}}。
+	尽管我不建议在标题中排版数学符号（因为规范甚至不建议在标题中排版英文缩略词），但如果非排版不可，那可参考本节标题的做法，使用\href{https://mirrors.tuna.tsinghua.edu.cn/CTAN/macros/latex/contrib/hyperref/doc/hyperref-doc.pdf}{\ttfamily\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{hyperref}}宏包（模板已载入该宏包）提供的\shadcmd{texorpdfstring\{<TeXstring>\}\{<PDFstring>\}}命令，该命令的具体用法参考这个帖子：\href{https://blog.csdn.net/qq_42679415/article/details/139592054}{\ttfamily\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{texorpdfstring使用方法}}。
 
 	
 	\section{排版化学方程式}
 
-	本模板基于\href{https://mirrors.cloud.tencent.com/CTAN/macros/latex/contrib/mhchem/mhchem.pdf}{\shad{\color{DarkRed}mhchem}}和\href{https://mirrors.bfsu.edu.cn/CTAN/macros/generic/chemfig/chemfig-en.pdf}{\shad{\color{DarkRed}chemfig}}宏包来排版化学方程式、结构式和键线式等。相关命令的使用可参考宏包的官方文档或\href{https://www.luogu.com.cn/user/45443}{\shad{\color{DarkRed}@codesonic}}的文章：\href{https://www.luogu.com.cn/article/o7mlv3w8}{\shad{\color{DarkRed}用LaTeX写化学方程式}}。下方示例取自该文章，感谢。
+	本模板基于\href{https://mirrors.cloud.tencent.com/CTAN/macros/latex/contrib/mhchem/mhchem.pdf}{\ttfamily\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{mhchem}}和\href{https://mirrors.bfsu.edu.cn/CTAN/macros/generic/chemfig/chemfig-en.pdf}{\ttfamily\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{chemfig}}宏包来排版化学方程式、结构式和键线式等。相关命令的使用可参考宏包的官方文档或\href{https://www.luogu.com.cn/user/45443}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{@codesonic}}的文章：\href{https://www.luogu.com.cn/article/o7mlv3w8}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{用LaTeX写化学方程式}}。下方示例取自该文章，感谢。
 
 	\ce{2H2 + O2 ->T[点燃] 2H2O}，\quad \ce{N2 + 3H2 <=>T[高温、加压][催化剂] 2NH3}
 	
@@ -1424,7 +1431,7 @@
 	
 	对参考文献的行内引用直接使用\shadcmd{cite\{<参考文献label>\}}，以上标形式引用则使用\shadcmd{citess\{<参考文献label>\}}。
 	
-	参考文献的引用是基于\href{https://mirrors.zju.edu.cn/CTAN/macros/latex/contrib/natbib/natbib.pdf}{\color{DarkRed}natbib}宏包实现，可单次引用多篇参考文献，届时序号会被自动排序并压缩（如果可以的话）。
+	参考文献的引用是基于\href{https://mirrors.zju.edu.cn/CTAN/macros/latex/contrib/natbib/natbib.pdf}{\ttfamily\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{natbib}}宏包实现，可单次引用多篇参考文献，届时序号会被自动排序并压缩（如果可以的话）。
 
 	另外，研究生论文规范要求正文中引用的公式编号样式采用英文括号，即\shad{(1-1)}；而本科论文规范中则要求是中文括号，即\shad{（1-1）}。在公式右侧的编号中，两者均采用英文括号。此间区别完全由相应的选项（\shad{doctor} / \shad{prodoctor} / \shad{intdoctor} / \shad{ipdoctor} / \shad{master} / \shad{promaster} / \shad{intmaster} / \shad{ipmaster} / \shad{bachelor} / \shad{doublebachelor}）控制，用户无需过问，但一定要确保自己写对了选项。
 	
@@ -1435,7 +1442,7 @@
 	
 	本模板为这些文献类型定义的\shad{.bib}数据库条目\textbf{类型标识}分别为\shad{article}、\shad{inproceedings/conference}、\shad{book}、\shad{mastersthesis/phdthesis}、\shad{news}、\shad{report}、\shad{patent}、\shad{standard}、\shad{digital}。
 	
-	不同文档类型条目包含不同的域，下面列举了一些\href{https://gr.uestc.edu.cn/xiazai/114/3917}{研究生学位论文撰写规范}中用作示例的参考文献对应的\shad{.bib}数据库形式，完全覆盖上述9种文献类型：
+	不同文档类型条目包含不同的域，下面列举了一些\href{https://gr.uestc.edu.cn/xiazai/114/3917}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{研究生学位论文撰写规范}}中用作示例的参考文献对应的\shad{.bib}数据库形式，完全覆盖上述9种文献类型：
 	
 	\begin{verbatim}
 	@book{教育部国家语言文字工作委员2018,
@@ -1592,7 +1599,7 @@
 	}
 	\end{verbatim}
 	
-	这些\shad{.bib}数据依次编译后的结果见本文档中附上的参考文献列表，用户可对应查看。感兴趣的朋友可与\href{https://gr.uestc.edu.cn/xiazai/114/3917}{\shad{\color{DarkRed}研究生学位论文撰写规范}}中给出的结果进行对比，看看是否做到了完全复刻。
+	这些\shad{.bib}数据依次编译后的结果见本文档中附上的参考文献列表，用户可对应查看。感兴趣的朋友可与\href{https://gr.uestc.edu.cn/xiazai/114/3917}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{研究生学位论文撰写规范}}中给出的结果进行对比，看看是否做到了完全复刻。
 
 	另外，\textbf{\textcolor{DarkRed}{学士学位论文在大部分参考文献类型上采用了与研究生学位论文不同的排版风格}}，不过其中大部分只是各项内容的排布顺序和其后的标点符号不同，而这些由模板负责处理。换句话说，上述大多数\shad{bib}条目同样适用于学士学位论文。但是，对\textbf{“专利”}而言，学士学位论文还需要新的域：nation（专利国别）和type（专利种类）。\textcolor{DarkRed}{以下是本科生需要为\textbf{“专利”}维护的\shad{bib}信息}：
 	\begin{verbatim}
@@ -1641,9 +1648,9 @@
 		
 		\item 对电子文献，其类型众多，因此需要用户通过\shad{type=\{\}}域显式指定，如文献\cite{电子文献1}和\cite{电子文献2}；而对其他的文献类型，只要在\shad{@}符号后输入了正确的类型标识，对应的类型标签会自动生成，无需用户手动逐条添加。
 		
-		\item （2025.01.02）需要特别说明的参考文献类型是\shad{mastersthesis/phdthesis}，即学位论文。学校在撰写规范中提到参考文献排版应该遵循国标\href{https://lib.tsinghua.edu.cn/wj/GBT7714-2015.pdf}{\color{DarkRed}GB/T 7714-2015}，在此国标中，对学位论文的引用不需要页码信息。但是，\textbf{学校的规范中又明确为学位论文引用添加了页码信息}。为此，我询问了学位办的相关老师，得到的答复大致是：“\textit{我翻阅了手边信通学院学生的论文，他们是写了页码信息的。但这个要求并没有那么严格，不会说没写就评审不过，历年也没有出现因为这个不过的情况，评审老师也没有严格挑。学位论文的质量并不是通过这个来评判的，不过我们这边还是建议写上}”。
+		\item （2025.01.02）需要特别说明的参考文献类型是\shad{mastersthesis/phdthesis}，即学位论文。学校在撰写规范中提到参考文献排版应该遵循国标\href{https://lib.tsinghua.edu.cn/wj/GBT7714-2015.pdf}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{GB/T 7714-2015}}，在此国标中，对学位论文的引用不需要页码信息。但是，\textbf{学校的规范中又明确为学位论文引用添加了页码信息}。为此，我询问了学位办的相关老师，得到的答复大致是：“\textit{我翻阅了手边信通学院学生的论文，他们是写了页码信息的。但这个要求并没有那么严格，不会说没写就评审不过，历年也没有出现因为这个不过的情况，评审老师也没有严格挑。学位论文的质量并不是通过这个来评判的，不过我们这边还是建议写上}”。
    
-		本模板原本的实现方式是遵循学校的撰写规范，将学位论文的页码信息设置为了强制域。如果缺少该信息，使用VSCode作为编辑器时将报错而无法完成编译；TeXstudio则能跳过这种小问题继续编译，但BibTeX仍会输出错误提醒。GitHub用户\href{https://github.com/zealrussell}{\color{DarkRed}@zealrussell}在使用VSCode撰写论文时，发现不为学位论文这类参考文献添加页码信息将无法顺利编译，遂发起了issue。
+		本模板原本的实现方式是遵循学校的撰写规范，将学位论文的页码信息设置为了强制域。如果缺少该信息，使用VSCode作为编辑器时将报错而无法完成编译；TeXstudio则能跳过这种小问题继续编译，但BibTeX仍会输出错误提醒。GitHub用户\href{https://github.com/zealrussell}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{@zealrussell}}在使用VSCode撰写论文时，发现不为学位论文这类参考文献添加页码信息将无法顺利编译，遂发起了\href{https://github.com/MGG1996/DissertationUESTC/issues/7}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{Issue7}}。
 		
 		经过查阅相关文件，以及向学位办老师求证，本模板调整了此类文献的排版规则。现在，学位论文的“\shad{pages}”域将不再是强制域，缺少该信息不会再中断编译过程，但会输出警告，提醒用户某条参考文献条目缺少页码信息，见参考文献\cite{陈念永2001毫米波细胞生物效应及抗肿瘤研究无页码}。如果你使用TeXstudio，则在编译参考文献辅助文件时BibTeX会发出该警告（图\ref{fig: TeXstudio对参考文献缺失信息的提醒}）；如果你使用VSCode，则需要去检查\shad{problems}窗口输出的信息。它是按文件对警告进行分类的，你需要先定位到\shad{.bib}文件（图\ref{fig: VSCode对参考文献缺失信息的提醒}）。本模板将是否在引用学位论文时添加页码信息的选择权交予用户，但我个人仍建议各位遵循学校的规范。
 	\end{itemize}
