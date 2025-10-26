@@ -1,0 +1,41 @@
+name: 问题上报
+description: 反馈模版无法或未正确完成学校官方论文撰写规范要求的有关事宜
+body:
+  - type: checkboxes
+    attributes: 
+      label: 前提条件
+      options:
+        - label: 已将LaTeX环境更新到[TeXLive2024及以上](https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/texlive/)或[MacTeX2024及以上](https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/mactex/)。
+          required: true
+        - label: 已仔细阅读了[学校官方论文撰写规范](https://github.com/MGG1996/DissertationUESTC?tab=readme-ov-file#11-适用对象)以及模版提供的[使用说明](https://github.com/MGG1996/DissertationUESTC/blob/main/readme.md)和[示例文档](https://github.com/MGG1996/DissertationUESTC/blob/main/tutorial.pdf)，且确定模版不能或未正确完成规范中的某些要求。
+          required: true
+        - label: 已浏览[待解决issue](https://github.com/MGG1996/DissertationUESTC/issues)和[已关闭issue](https://github.com/MGG1996/DissertationUESTC/issues?q=is%3Aissue%20state%3Aclosed)列表，且并未发现类似问题。
+          required: true
+  - type: input
+    attributes:
+      label: 你当前使用的DissertationUESTC版本（发布日期）
+      description: 见所下载压缩包名称末尾的日期或tutorial.pdf中1.1节给出的编译日期。
+    validations: 
+      required: true
+  - type: input
+    attributes:
+      label: 你当前使用的LaTeX编译平台
+      description: Windows、MacOS、Overleaf等。
+    validations: 
+      required: true
+  - type: textarea
+    attributes:
+      label: 遇到了什么问题?
+      description: 请不要在同一个issue下报告多个不相关的问题。
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 出现问题的tex源码、报错信息、不合规的编译结果截图
+      description: 根据报错信息或不符合预期的编译结果，定位对应的源码。
+    validations: 
+      required: true
+  - type: textarea
+    attributes:
+      label: 附加信息
+      description: 如果你还有其他需要提供的信息，可以在这里填写。

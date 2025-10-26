@@ -1,0 +1,25 @@
+name: Feature Request
+description: Request a new feature that does not conflict with official thesis writing standards and enhances template usability or functionality.
+body:
+  - type: checkboxes
+    attributes:
+      label: Prerequisites
+      options:
+        - label: Confirm that you are currently using [the latest template](https://github.com/MGG1996/DissertationUESTC/releases/latest).
+          required: true
+        - label: I have carefully read the [Official Thesis Writing Standards](https://github.com/MGG1996/DissertationUESTC/blob/main/readme_en.md#11-target-students), and ensure that this feature does not violate the specification requirements.
+          required: true
+        - label: I have carefully read the [Instructions](https://github.com/MGG1996/DissertationUESTC/blob/main/readme_en.md) and [Tutorial Document](https://github.com/MGG1996/DissertationUESTC/blob/main/tutorial.pdf)provided by the template, and ensure that the template has not yet provided this feature.
+          required: true
+        - label: I have browsed lists of [Unsolved Issues](https://github.com/MGG1996/DissertationUESTC/issues) and [Closed Issues](https://github.com/MGG1996/DissertationUESTC/issues?q=is%3Aissue%20state%3Aclosed), and no similar requests were found.
+          required: true
+  - type: textarea
+    attributes:
+      label: Describe the feature
+      description: Please do not submit multiple unrelated feature requests under the same issue.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Additional information
+      description: If you have any other information to provide, fill it out here.

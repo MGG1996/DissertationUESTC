@@ -1,0 +1,41 @@
+name: Bug Report
+description: Feedback issues related to the template not being able to or not correctly meeting the UESTC's official thesis writing standards.
+body:
+  - type: checkboxes
+    attributes: 
+      label: Prerequisites
+      options:
+        - label: I have already updated LaTeX environment to [TeXLive2024 and above](https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/texlive/) or [MacTeX2024 and above](https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/mactex/).
+          required: true
+        - label: I have carefully read the [Official Paper Thesis Standards](https://github.com/MGG1996/DissertationUESTC/blob/main/readme_en.md#11-target-students) and the [Instructions](https://github.com/MGG1996/DissertationUESTC/blob/main/readme_en.md) and [Tutorial Document](https://github.com/MGG1996/DissertationUESTC/blob/main/tutorial.pdf)provided by the template, and it is determined that the template cannot or has not correctly completed certain requirements in the specification.
+          required: true
+        - label: I have browsed lists of [Unsolved Issues](https://github.com/MGG1996/DissertationUESTC/issues) and [Closed Issues](https://github.com/MGG1996/DissertationUESTC/issues?q=is%3Aissue%20state%3Aclosed), and no similar issues were found.
+          required: true
+  - type: input
+    attributes:
+      label: The template version (release date) you are currently using.
+      description: See the date at the end of the downloaded zip file name or the compilation date recorded in Section 1.1 of tutorial.pdf.
+    validations: 
+      required: true
+  - type: input
+    attributes:
+      label: The LaTeX compilation platform you are currently using.
+      description: Windows, MacOS, Overleaf, etc.
+    validations: 
+      required: true
+  - type: textarea
+    attributes:
+      label: What problem did you encounter?
+      description: Please do not report multiple unrelated problems under the same issue.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Problematic tex source code, error messages, and screenshots of non compliant compilation results.
+      description: Locate the corresponding tex source code based on error messages or unexpected compilation results.
+    validations: 
+      required: true
+  - type: textarea
+    attributes:
+      label: Additional information
+      description: If you have any other information to provide, fill it out here.
