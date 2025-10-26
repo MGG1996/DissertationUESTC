@@ -7,7 +7,7 @@ body:
       options:
         - label: I have already updated LaTeX environment to [TeXLive2024 and above](https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/texlive/) or [MacTeX2024 and above](https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/mactex/).
           required: true
-        - label: I have carefully read the [Official Paper Thesis Standards](https://github.com/MGG1996/DissertationUESTC/blob/main/readme_en.md#11-target-students) and the [Instructions](https://github.com/MGG1996/DissertationUESTC/blob/main/readme_en.md) and [Tutorial Document](https://github.com/MGG1996/DissertationUESTC/blob/main/tutorial.pdf) provided by the template, and it is determined that the template cannot or has not correctly completed certain requirements in the specification.
+        - label: I have carefully read the [Official Thesis Writing Standards](https://github.com/MGG1996/DissertationUESTC/blob/main/readme_en.md#11-target-students) and the [Instructions](https://github.com/MGG1996/DissertationUESTC/blob/main/readme_en.md) and [Tutorial Document](https://github.com/MGG1996/DissertationUESTC/blob/main/tutorial.pdf) provided by the template, and it is determined that the template cannot or has not correctly completed certain requirements in the specification.
           required: true
         - label: I have browsed lists of [Unsolved Issues](https://github.com/MGG1996/DissertationUESTC/issues) and [Closed Issues](https://github.com/MGG1996/DissertationUESTC/issues?q=is%3Aissue%20state%3Aclosed), and no similar issues were found.
           required: true

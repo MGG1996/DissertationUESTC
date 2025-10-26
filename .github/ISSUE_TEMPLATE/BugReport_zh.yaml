@@ -7,7 +7,7 @@ body:
       options:
         - label: 已将LaTeX环境更新到[TeXLive2024及以上](https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/texlive/)或[MacTeX2024及以上](https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/mactex/)。
           required: true
-        - label: 已仔细阅读了[学校官方论文撰写规范](https://github.com/MGG1996/DissertationUESTC?tab=readme-ov-file#11-适用对象)以及模版提供的[使用说明](https://github.com/MGG1996/DissertationUESTC/blob/main/readme.md)和[示例文档](https://github.com/MGG1996/DissertationUESTC/blob/main/tutorial.pdf)，且确定模版不能或未正确完成规范中的某些要求。
+        - label: 已仔细阅读了[学校官方论文撰写规范](https://github.com/MGG1996/DissertationUESTC?tab=readme-ov-file#11-适用对象)以及模版提供的[使用说明](https://github.com/MGG1996/DissertationUESTC/blob/main/readme.md)和[示例文档](https://github.com/MGG1996/DissertationUESTC/blob/main/tutorial.pdf)，且确定模版无法或未正确完成规范中的某些要求。
           required: true
         - label: 已浏览[待解决issue](https://github.com/MGG1996/DissertationUESTC/issues)和[已关闭issue](https://github.com/MGG1996/DissertationUESTC/issues?q=is%3Aissue%20state%3Aclosed)列表，且并未发现类似问题。
           required: true
