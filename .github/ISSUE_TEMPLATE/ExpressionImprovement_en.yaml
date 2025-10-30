@@ -16,6 +16,8 @@ body:
         - readme.md
         - readme_en.md
         - tutorial.pdf
+    validations:
+      required: true
   - type: textarea
     attributes:
       label: The original content
