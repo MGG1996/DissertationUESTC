@@ -1,0 +1,28 @@
+name: Expression Improvement
+description: Provide improvement suggestions for certain expressions in template instructions or the tutorial document.
+body:
+  - type: checkboxes
+    attributes:
+      label: Prerequisites
+      options:
+        - label: Confirm that you are currently using [the Latest Template](https://github.com/MGG1996/DissertationUESTC/releases/latest).
+          required: true
+        - label: I have browsed lists of [Unsolved Issues](https://github.com/MGG1996/DissertationUESTC/issues) and [Closed Issues](https://github.com/MGG1996/DissertationUESTC/issues?q=is%3Aissue%20state%3Aclosed), and no adjustment suggestions were found for the same content.
+          required: true
+  - type: dropdown
+    attributes:
+      label: The file to which the content to be improved belongs
+      options:
+        - readme.md
+        - readme_en.md
+        - tutorial.pdf
+  - type: textarea
+    attributes:
+      label: The original content
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: The improved wording you suggest
+    validations:
+      required: true
