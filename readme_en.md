@@ -55,7 +55,7 @@
     - [7.4.3 Cross-page Tables](#743-cross-page-tables)
     - [7.4.4 Cross-page Tables with Notes (2025.01.05)](#744-cross-page-tables-with-notes-20250105)
   - [7.5 Pseudocode](#75-pseudocode)
-  - [7.6 Definition, Axiom, Theorem, Proposition, Corollary, Lemma, Example, Assumption, Proof](#76-definition-axiom-theorem-proposition-corollary-lemma-example-assumption-proof)
+  - [7.6 Definition, Axiom, Theorem, Proposition, Corollary, Lemma, Example, Assumption, Annotation, Proof](#76-definition-axiom-theorem-proposition-corollary-lemma-example-assumption-annotation-proof)
   - [7.7 Footnote](#77-footnote)
   - [7.8 Various Numbers in the Template](#78-various-numbers-in-the-template)
   - [7.9 Typesetting and Fine-tuning Mathematical Formulas](#79-typesetting-and-fine-tuning-mathematical-formulas)
@@ -456,9 +456,9 @@ In addition, based on the adjusted `algorithm` environment, the template further
 \end{algo}
 ```
 
-### 7.6 Definition, Axiom, Theorem, Proposition, Corollary, Lemma, Example, Assumption, Proof
+### 7.6 Definition, Axiom, Theorem, Proposition, Corollary, Lemma, Example, Assumption, Annotation, Proof
 
-This template defines the environments for each of the above: `definition`, `axiom`, `theorem`, `proposition`, `corollary`, `lemma`, `example`, `assumption`, and `proof`。
+This template defines the environments for each of the above: `definition`, `axiom`, `theorem`, `proposition`, `corollary`, `lemma`, `example`, `assumption`, `annotation` and `proof`。
 
 ### 7.7 Footnote
 
@@ -472,7 +472,7 @@ This template uses a font that includes circled numbers to replace the circled n
 
 ### 7.8 Various Numbers in the Template
 
-Document elements such as "title", "figure", "table", "algorithm", "equation", "definition", "axiom", "theorem", "proposition", "corollary", "lemma", "example", "assumption", "proof" and "footnote" can all be automatically calculated and numbered without the need for users to worry about it. However, **sub-formula numbers such as (1-1a) cannot be automatically generated**. For this reason, the template provides the `\subeqtag[<number label>]` command.
+Document elements such as "title", "figure", "table", "algorithm", "equation", "definition", "axiom", "theorem", "proposition", "corollary", "lemma", "example", "assumption", "annotation", "proof" and "footnote" can all be automatically calculated and numbered without the need for users to worry about it. However, **sub-formula numbers such as (1-1a) cannot be automatically generated**. For this reason, the template provides the `\subeqtag[<number label>]` command.
 
 When creating numbers for constraints in a mathematical model, a common method is to directly specify the number content with the `\tag{}` command. However, this method is cumbersome to operate, and it is easy to miss some tags when you need to replace or add or delete constraints later, resulting in confusion in the sub-formula numbers, which is prone to be ingored.
 
@@ -507,7 +507,7 @@ This template is based on the [mhchem](https://mirrors.cloud.tencent.com/CTAN/ma
 
 ### 7.12 Cite
 
-To cite numbers of "equation", "figure", "table", "algorithm", "definition", "axiom", "theorem", "proposition", "corollary", "lemma", "example", "assumption", and "proof", you can use `\ref{<label>}` directly. To generate formula numbers with brackets, use `\eqref{<label>}`.
+To cite numbers of "equation", "figure", "table", "algorithm", "definition", "axiom", "theorem", "proposition", "corollary", "lemma", "example", "assumption", "annotation" and "proof", you can use `\ref{<label>}` directly. To generate formula numbers with brackets, use `\eqref{<label>}`.
 
 If you want to fully cite the subfigure caption number, you can use `\ref{<label>}` directly. The `DissertUESTC` document class generates a full number in the form of `1-1(a)` by default, but if the user specifies the `subfigsimple` option of the document class, it will generate a full number in the form of `1-1a` (Note: The dissertation writing specification does not clearly state which format should be used to reference subfigure numbers, but I read a Chinese monograph that uses the `1-1(a)` format, so I set it as the default style). Conversely, if you want to cite the subfigure caption number separately (for example, add the subfigure caption text according to the subfigure number after the main figure title), you need to use `\subref{<label>}`, which will generate a separate number in the form of `(a)`.
 
@@ -525,7 +525,7 @@ To generate an **Acknowledgment** chapter, use `\acknowledgement`, and then edit
 
 This template implements the typesetting styles of 9 document types listed in the specification, including **"journal articles", "conference papers", "monographs", "dissertations", "newspaper articles", "reports", "authorized patents", "standards"**, and **"electronic documents"**.
 
-The `.bib` database **entry identifiers** defined in this template for these document types are `article`、`inproceedings/conference`、`book`、`mastersthesis/phdthesis`、`news`、`report`、`patent`、`standard`、and `digital`, respectivlely.
+The `.bib` database **entry identifiers** defined in this template for these document types are `article`, `inproceedings/conference`, `book`, `mastersthesis/phdthesis`, `news`, `report`, `patent`, `standard`, and `digital`, respectivlely.
 
 Different document type entries contain different fields. The following lists the `.bib` database formats corresponding to some references used as examples in the [writing specifications for graduate degree theses](https://gr.uestc.edu.cn/xiazai/114/3917), covering the above 9 document types:
 
@@ -785,7 +785,7 @@ The headings in this part should be typesetted using the commands encapsulated b
 
 When typeset figures and tables in this part, use `\captionsetup{list=no}` inside the `figure` and `table` environments to prevent the corresponding figure and table captions from appearing in the list of figures and tables.
 
-In this part, the **"definition", "axiom", "theorem", "proposition", "corollary", "lemma", "example"**, and **"assumption"** correspond to the environments with **<font color=#8b0000>capital first letters</font>**: `Definition`、`Axiom`、`Theorem`、`Proposition`、`Corollary`、`Lemma`、`Example`、`Assumption`. The `proof` environment remains unchanged.
+In this part, the **"definition", "axiom", "theorem", "proposition", "corollary", "lemma", "example"**, and **"assumption"** correspond to the environments with **<font color=#8b0000>capital first letters</font>**: `Definition`, `Axiom`, `Theorem`, `Proposition`, `Corollary`, `Lemma`, `Example`, `Assumption`, `Annotation`. The `proof` environment remains unchanged.
 
 For more details, see the `tutorial.tex` example document.
 
@@ -795,7 +795,7 @@ First, use the command `\translatedliterature{<translated title>}{<original auth
 
 The titles of each level in this part still use the commands encapsulated by the template: `\Section{}`, `\Subsection{}`, `\Subsubsection{}`. **<font color=#8b0000>Note that their first letters are capitalized, and do not use any chapter commands</font>**. When typesetting figures and tables, you still need to use `\captionsetup{list=no}` inside the `figure` and `table` environments. The reason is the same as above.
 
-The **"definition", "axiom", "theorem", "proposition", "corollary", "lemma", "example", "assumption"** and **"proof"** in this part correspond to **the same environments as in the main body**, i.e. the version with the first letter in lowercase.
+The **"definition", "axiom", "theorem", "proposition", "corollary", "lemma", "example", "assumption", "annotation"** and **"proof"** in this part correspond to **the same environments as in the main body**, i.e. the version with the first letter in lowercase.
 
 For more details, see the `tutorial.tex` example document.
 

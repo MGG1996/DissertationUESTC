@@ -159,6 +159,7 @@
 \newcommand{\uestclemmaname}{引理}
 \newcommand{\uestcassumptionname}{假设}
 \newcommand{\uestcexamplename}{示例}
+\newcommand{\uestcannotationname}{注}
 \newcommand{\uestcproofname}{证明}
 \newcommand{\uestcalgorithmname}{算法}
 \newcommand{\uestcinputname}{输入}
@@ -203,6 +204,7 @@
 	\renewcommand{\uestclemmaname}{Lemma\,\!}
 	\renewcommand{\uestcassumptionname}{Assumption\,\!}
 	\renewcommand{\uestcexamplename}{Example\,\!}
+	\renewcommand{\uestcannotationname}{Annotation\,\!}
 	\renewcommand{\uestcproofname}{\textit{Proof}}
 	\renewcommand{\uestcalgorithmname}{Algorithm\,\!}
 	\renewcommand{\uestcinputname}{Input}
@@ -249,6 +251,7 @@
 	\renewcommand{\uestclemmaname}{引理}
 	\renewcommand{\uestcassumptionname}{假设}
 	\renewcommand{\uestcexamplename}{示例}
+	\renewcommand{\uestcannotationname}{注}
 	\renewcommand{\uestcproofname}{证明}
 	\renewcommand{\uestcalgorithmname}{算法}
 	\renewcommand{\uestcinputname}{输入}
@@ -1615,7 +1618,7 @@
 % 在\longtable的定义中插入一行命令，以调整跨页长表格内容的字体及行距。参考自longtable宏包
 \newcommand{\longtableprop}{%
 	\zihao{5}\setlength\baselineskip{10.5bp}\selectfont%
-	\addtocontents{lot}{\protect\cftsetpnumwidth{\widthof{\thepage}}}% 调整目录中的页码排版宽度，并写入.lof文件，参考tocloft宏包
+	\addtocontents{lot}{\protect\cftsetpnumwidth{\widthof{\thepage}}}% 调整目录中的页码排版宽度，并写入.lot文件，参考tocloft宏包
 	%	\renewcommand{\arraystretch}{1.1}%
 }
 
@@ -2093,6 +2096,7 @@
 \newtheorem{lemma}{\uestclemmaname}
 \newtheorem{example}{\uestcexamplename}
 \newtheorem{assumption}{\uestcassumptionname}
+\newtheorem{annotation}{\uestcannotationname}
 % 让这些环境随章节重置编号
 \counterwithin{definition}{chapter}
 \counterwithin{axiom}{chapter}
@@ -2102,6 +2106,7 @@
 \counterwithin{lemma}{chapter}
 \counterwithin{example}{chapter}
 \counterwithin{assumption}{chapter}
+\counterwithin{annotation}{chapter}
 
 %\renewenvironment{proof}{{\sffamily 证明：}}{\hfill $\blacksquare$\par}  % https://blog.csdn.net/robert_chen1988/article/details/61204853
 \renewenvironment{proof}[1][\proofname]{\par
@@ -2132,6 +2137,7 @@
 \renewcommand{\thelemma}{\arabic{chapter}.\arabic{lemma}}
 \renewcommand{\theexample}{\arabic{chapter}.\arabic{example}}
 \renewcommand{\theassumption}{\arabic{chapter}.\arabic{assumption}}
+\renewcommand{\theannotation}{\arabic{chapter}.\arabic{annotation}}
 \renewcommand{\qedsymbol}{$\blacksquare$}
 
 
@@ -2145,6 +2151,7 @@
 \newtheorem{Lemma}{\uestclemmaname}
 \newtheorem{Example}{\uestcexamplename}
 \newtheorem{Assumption}{\uestcassumptionname}
+\newtheorem{Annotation}{\uestcannotationname}
 % 让这些环境随章节重置编号
 \counterwithin{Definition}{chapter}
 \counterwithin{Axiom}{chapter}
@@ -2154,6 +2161,7 @@
 \counterwithin{Lemma}{chapter}
 \counterwithin{Example}{chapter}
 \counterwithin{Assumption}{chapter}
+\counterwithin{Annotation}{chapter}
 %%
 \renewcommand{\theDefinition}{\arabic{Definition}}
 \renewcommand{\theAxiom}{\arabic{Axiom}}
@@ -2163,6 +2171,7 @@
 \renewcommand{\theLemma}{\arabic{Lemma}}
 \renewcommand{\theExample}{\arabic{Example}}
 \renewcommand{\theAssumption}{\arabic{Assumption}}
+\renewcommand{\theAnnotation}{\arabic{Annotation}}
 
 % 定义引用样式
 %\renewcommand{\eqref}[1]{（\ref{#1}）}  % amsmath宏包已定义，若需要使用中文括号则取消注释
@@ -2285,6 +2294,7 @@
 	\renewcommand{\thelemma}{\Alph{chapter}.\arabic{lemma}}
 	\renewcommand{\theexample}{\Alph{chapter}.\arabic{example}}
 	\renewcommand{\theassumption}{\Alph{chapter}.\arabic{assumption}}
+	\renewcommand{\theannotation}{\Alph{chapter}.\arabic{annotation}}
 	\renewcommand{\thealgocf}{\Alph{chapter}-\arabic{algocf}}
 	\renewcommand\chaptermarkprefix{\uestcappendixname\Alph{chapter}}
 }
@@ -2401,6 +2411,7 @@
 	\renewcommand{\thelemma}{\arabic{lemma}}
 	\renewcommand{\theexample}{\arabic{example}}
 	\renewcommand{\theassumption}{\arabic{assumption}}
+	\renewcommand{\theannotation}{\arabic{annotation}}
 	\setlength{\inoutsize}{1bp}% 重置伪码“输入”、“输出”标签的宽度，来自algorithm2e.sty源码
 	\SetKwInOut{Input}{\zihao{5}\uestcinputname}
 	\SetKwInOut{Output}{\zihao{5}\uestcoutputname}

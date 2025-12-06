@@ -55,7 +55,7 @@
     - [7.4.3 跨页表格](#743-跨页表格)
     - [7.4.4 跨页带附注表格（2025.01.05）](#744-跨页带附注表格20250105)
   - [7.5 伪代码](#75-伪代码)
-  - [7.6 定义、公理、定理、命题、推论、引理、示例、假设、证明](#76-定义公理定理命题推论引理示例假设证明)
+  - [7.6 定义、公理、定理、命题、推论、引理、示例、假设、注和证明](#76-定义公理定理命题推论引理示例假设注和证明)
   - [7.7 脚注](#77-脚注)
   - [7.8 模板中的各种编号](#78-模板中的各种编号)
   - [7.9 排版及微调数学公式](#79-排版及微调数学公式)
@@ -454,9 +454,9 @@
 \end{algo}
 ```
 
-### 7.6 定义、公理、定理、命题、推论、引理、示例、假设、证明
+### 7.6 定义、公理、定理、命题、推论、引理、示例、假设、注和证明
 
-本模板为上述内容分别定义了环境：`definition`、`axiom`、`theorem`、`proposition`、`corollary`、`lemma`、`example`、`assumption`和`proof`。
+本模板为上述内容分别定义了环境：`definition`、`axiom`、`theorem`、`proposition`、`corollary`、`lemma`、`example`、`assumption`、`annotation`和`proof`。
 
 ### 7.7 脚注
 
@@ -781,7 +781,7 @@
 
 在这部分内容中排版图、表时需要在`figure`、`table`环境内使用`\captionsetup{list=no}`来阻止对应的图题和表题出现在图目录和表目录中。
 
-这部分内容中的“定义”、“公理”、“定理”、“命题”、“推论”、“引理”、“示例”、“假设”对应 **<font color=#8b0000>首字母大写的环境</font>**：`Definition`、`Axiom`、`Theorem`、`Proposition`、`Corollary`、`Lemma`、`Example`、`Assumption`。`proof`环境保持不变。
+这部分内容中的“定义”、“公理”、“定理”、“命题”、“推论”、“引理”、“示例”、“假设”、“注”对应 **<font color=#8b0000>首字母大写的环境</font>**：`Definition`、`Axiom`、`Theorem`、`Proposition`、`Corollary`、`Lemma`、`Example`、`Assumption`、`Annotation`。`proof`环境保持不变。
 
 更多细节可参考`tutorial.tex`示例文档。
 

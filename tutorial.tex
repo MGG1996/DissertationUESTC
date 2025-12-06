@@ -476,7 +476,7 @@
 		\item \shadcmd{documentclass[<选项列表>]\{DissertUESTC\}}：加载名为\shad{DissertUESTC} 的文档类，该文档类基于LaTeX的\shad{book}类编写，可设置\textbf{\shad{八种}}选项：
 
 		\begin{itemize}
-			\item \shad{print} / \shad{nonprint}：该选项控制是否以印刷模式生成文档，印刷模式会自动在论文的前置部分添加必要的空白页，默认为\shad{nonprint}。
+			\item \shad{print} / \shad{nonprint}：该选项控制是否以印刷模式生成文档，印刷模式会按印刷要求自动在论文的前置部分添加必要的空白页，默认为\shad{nonprint}。
 
 			\item \shad{doctor} / \shad{prodoctor} / \shad{intdoctor} / \shad{ipdoctor} / \shad{master} / \shad{promaster} / \shad{intmaster} / \shad{ipmaster} / \shad{bachelor} / \shad{doublebachelor}：该选项设置学位论文类型，分别对应学术学位博士、专业学位博士、International Doctor with Academic Degree、International Doctor with Professional Degree、学术学位硕士、专业学位硕士、International Master with Academic Degree、International Master with Professional Degree、学士学位以及双学士学位。默认为“\shad{doctor}”。
    
@@ -1259,9 +1259,9 @@
 	\end{description}
 	
 	\clearpage
-	\section{定义、公理、定理、命题、推论、引理、示例、假设、证明}
+	\section{定义、公理、定理、命题、推论、引理、示例、假设、注、证明}
 	
-	本模板分别定义了环境：\shad{definition}、\shad{axiom}、\shad{theorem}、\shad{proposition}、\shad{corollary}、\shad{lemma}、\shad{example}、\shad{assumption}和\shad{proof}。示例如下：
+	本模板分别定义了环境：\shad{definition}、\shad{axiom}、\shad{theorem}、\shad{proposition}、\shad{corollary}、\shad{lemma}、\shad{example}、\shad{assumption}、\shad{annotation}和\shad{proof}。示例如下：
 	
 	% 云南大理段氏嫡传的武功，在点穴功夫中位居天下第一，运功后以右手食指点穴，出指可缓可快，缓时潇洒飘逸，快则疾如闪电，但着指之处，分毫不差。当与敌挣搏凶险之际，用此指法既可贴近径点敌人穴道，也可从远处欺近身去，一中即离，一攻而退，实为克敌保身的无上妙术。
 
@@ -1303,6 +1303,10 @@
 	\begin{assumption}[具体名称]
 		云南大理段氏嫡传的武功，在点穴功夫中位居天下第一，运功后以右手食指点穴，出指可缓可快，缓时潇洒飘逸，快则疾如闪电。
 	\end{assumption}
+
+	\begin{annotation}[具体名称]
+		云南大理段氏嫡传的武功，在点穴功夫中位居天下第一，运功后以右手食指点穴，出指可缓可快，缓时潇洒飘逸，快则疾如闪电。
+	\end{annotation}
 	
 	\begin{proof}
 		云南大理段氏嫡传的武功，在点穴功夫中位居天下第一，运功后以右手食指点穴，出指可缓可快，缓时潇洒飘逸，快则疾如闪电。
@@ -1327,7 +1331,7 @@
 	
 	\section{模板中的各种编号}
 	
-	“标题”、“图片”、“表格”、“伪码”、“公式”、“定义”、“定理”、“命题”、“推论”、“引理”、“证明”、“脚注”这些文档元素均可自行计算并生成编号，无需使用者费心。\textbf{但形如(1-1a)的子公式编号不能完全自动生成}，为此，模板提供了\shadcmd{subeqtag[<子公式编号标签>]}命令。
+	“标题”、“图片”、“表格”、“伪码”、“公式”、“定义”、“定理”、“命题”、“推论”、“引理”、“证明”、“脚注”这些文档元素均可自行计算并生成编号，无需使用者费心。\textbf{但形如\textcolor{DodgerBlue}{(1-1a)}的子公式编号不能完全自动生成}，为此，模板提供了\shadcmd{subeqtag[<子公式编号标签>]}命令。
 
 	在为数学模型的约束创建编号时，常见的方式可能是使用\shadcmd{tag\{\}}命令直接指定编号内容。但是，该方式操作繁琐，且在后续需要调换或增删约束时很容易漏改某些tag，导致子公式编号混乱，而又不容易察觉。
 
@@ -1427,13 +1431,13 @@
 	
 	对“公式”、“图片”、“表格”、“伪码”、“定义”、“公理”、“定理”、“命题”、“推论”、“引理”、“示例”、“假设”、“证明”等编号的引用直接用\shadcmd{ref\{<编号label>\}}即可，其中需要带括号公式编号则使用\shadcmd{eqref\{<公式label>\}}。
 	
-	若要对子图题编号进行完整引用直接使用\shadcmd{ref\{<子图题标签>\}}即可，\shad{DissertUESTC}文档类默认生成形如\shad{1-1(a)}的完整编号，但若指定了文档类的\shad{subfigsimple}选项，则会生成形如\shad{1-1a}的完整编号（\textit{注：学位论文撰写规范中并未明确说明引用子图编号应该采用哪种形式，但我翻了本中文专著，里面采用了\shad{1-1(a)}的形式，故而将之设为默认样式}）；反之，若只希望单独引用子图题编号，比如在图题结尾按编号添加子图题文本，则需要使用\shadcmd{subref\{<子图题标签>\}}，它将生成形如\shad{(a)}的单独编号。
+	若要对子图题编号进行完整引用直接使用\shadcmd{ref\{<子图题标签>\}}即可，\shad{DissertUESTC}文档类默认生成形如\textcolor{DodgerBlue}{1-1(a)}的完整编号，但若指定了文档类的\shad{subfigsimple}选项，则会生成形如\textcolor{DodgerBlue}{1-1a}的完整编号（\textit{注：学位论文撰写规范中并未明确说明引用子图编号应该采用哪种形式，但我翻了本中文专著，里面采用了\textcolor{DodgerBlue}{1-1(a)}的形式，故而将之设为默认样式}）；反之，若只希望单独引用子图题编号，比如在图题结尾按编号添加子图题文本，则需要使用\shadcmd{subref\{<子图题标签>\}}，它将生成形如\textcolor{DodgerBlue}{(a)}的单独编号。
 	
 	对参考文献的行内引用直接使用\shadcmd{cite\{<参考文献label>\}}，以上标形式引用则使用\shadcmd{citess\{<参考文献label>\}}。
 	
 	参考文献的引用是基于\href{https://mirrors.zju.edu.cn/CTAN/macros/latex/contrib/natbib/natbib.pdf}{\ttfamily\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{natbib}}宏包实现，可单次引用多篇参考文献，届时序号会被自动排序并压缩（如果可以的话）。
 
-	另外，研究生论文规范要求正文中引用的公式编号样式采用英文括号，即\shad{(1-1)}；而本科论文规范中则要求是中文括号，即\shad{（1-1）}。在公式右侧的编号中，两者均采用英文括号。此间区别完全由相应的选项（\shad{doctor} / \shad{prodoctor} / \shad{intdoctor} / \shad{ipdoctor} / \shad{master} / \shad{promaster} / \shad{intmaster} / \shad{ipmaster} / \shad{bachelor} / \shad{doublebachelor}）控制，用户无需过问，但一定要确保自己写对了选项。
+	另外，研究生论文规范要求正文中引用的公式编号样式采用英文括号，即\textcolor{DodgerBlue}{(1-1)}；而本科论文规范中则要求是中文括号，即\textcolor{DodgerBlue}{（1-1）}。在公式右侧的编号中，两者均采用英文括号。此间区别完全由相应的选项（\shad{doctor} / \shad{prodoctor} / \shad{intdoctor} / \shad{ipdoctor} / \shad{master} / \shad{promaster} / \shad{intmaster} / \shad{ipmaster} / \shad{bachelor} / \shad{doublebachelor}）控制，用户无需过问，但一定要确保自己写对了选项。
 	
 	
 	\section{编译参考文献}
@@ -2057,6 +2061,10 @@
 	\begin{Assumption}[Name]
 		Later, he escaped from the Quanzhen Sect and met Xiao Longnian at the ancient tomb, where he practised kung fu with Xiao Longnian.
 	\end{Assumption}
+
+	\begin{Annotation}[Name]
+		Later, he escaped from the Quanzhen Sect and met Xiao Longnian at the ancient tomb, where he practised kung fu with Xiao Longnian.
+	\end{Annotation}
 	
 	\begin{proof}
 		Later, he escaped from the Quanzhen Sect and met Xiao Longnian at the ancient tomb, where he practised kung fu with Xiao Longnian.
@@ -2126,16 +2134,16 @@
 	
 	\Section{Conclusions}
 
-	\begin{figure}[!htb]
+	\begin{figure}[!b]
 		\centering
-		\includegraphics[width=0.5\linewidth]{洪七公2}
+		\includegraphics[width=0.4\linewidth]{洪七公2}
 		\captionsetup{list=no}% 阻止此图片显示在图目录中
 		\caption{Dare you touch it? Little devil}
 	\end{figure}
 	
-	\begin{figure}[!htb]
+	\begin{figure}[!b]
 		\centering
-		\includegraphics[width=0.5\linewidth]{杨过3}
+		\includegraphics[width=0.4\linewidth]{杨过3}
 		\captionsetup{list=no}% 阻止此图片显示在图目录中
 		\caption{Hard to hold}
 	\end{figure}
@@ -2306,6 +2314,10 @@
 	\begin{assumption}[名称]
 		其后，又从全真派逃出，机缘巧合下于古墓遇见小龙女，之后便跟随小龙女练功。他身边有许多红颜知己钟情于他，而他却一心只爱小龙女。
 	\end{assumption}
+
+	\begin{annotation}[名称]
+		其后，又从全真派逃出，机缘巧合下于古墓遇见小龙女，之后便跟随小龙女练功。他身边有许多红颜知己钟情于他，而他却一心只爱小龙女。
+	\end{annotation}
 	
 	\begin{proof}
 		其后，又从全真派逃出，机缘巧合下于古墓遇见小龙女，之后便跟随小龙女练功。他身边有许多红颜知己钟情于他，而他却一心只爱小龙女。
@@ -2377,14 +2389,14 @@
 
 	\begin{figure}[!htb]
 		\centering
-		\includegraphics[width=0.5\linewidth]{洪七公2}
+		\includegraphics[width=0.45\linewidth]{洪七公2}
 		\captionsetup{list=no}% 阻止此图片显示在图目录中
 		\caption{碰都不敢碰啊？小鬼}
 	\end{figure}
 	
 	\begin{figure}[!htb]
 		\centering
-		\includegraphics[width=0.5\linewidth]{杨过3}
+		\includegraphics[width=0.45\linewidth]{杨过3}
 		\captionsetup{list=no}% 阻止此图片显示在图目录中
 		\caption{难顶}
 	\end{figure}
