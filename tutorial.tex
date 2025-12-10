@@ -335,7 +335,7 @@
 	
 	另外，本地用户需要先编译生成缩略词表的辅助文件，再编译完整文档才能获得正确的结果，辅助文件编译教程参见\href{https://zhuanlan.zhihu.com/p/46442713}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{编译缩略词表}} 或 \href{https://github.com/MGG1996/DissertationUESTC?tab=readme-ov-file#6-目录图目录表目录主要符号表缩略词表}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{项目readme第6节}}给出的操作图示，对应本文档中的图\ref{fig: VSCode编译缩略词表}和图\ref{fig: TeXstudio编译缩略词表}。图中用到的命令分别为：
 	\begin{itemize}
-		\item \shad{makeindex \%.nlo -s nomencl.ist -o \%.nls}
+		\item \shad{makeindex "Tex文件名".nlo -s nomencl.ist -o "Tex文件名".nls}
 		\item \shad{makeindex \%.nlo -s nomencl.ist -o \%.nls | txs:///compile | makeindex \%.nlo -s nomencl.ist -o \%.nls | txs:///compile}
 	\end{itemize}
 	Overleaf用户则可以一键搞定，无需额外操作。

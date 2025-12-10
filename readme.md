@@ -335,7 +335,7 @@
 
           若缩略词表有更新，则只需要再执行上述步骤7、8、9即可，无需再次定义命令。
         
-        * :bulb: 使用VSCode时，需要呼出终端并键入命令：`makeindex %.nlo -s nomencl.ist -o %.nls`，执行（两次），之后还需要编译整个文档：
+        * :bulb: 使用VSCode时，需要呼出终端并键入命令：`makeindex "Tex文件名".nlo -s nomencl.ist -o "Tex文件名".nls`，执行，之后还需要编译整个文档：
           <p align = "center">
           <img src="fig/VSCode-nomenclature.jpg"  width="700" />
           </p>

@@ -337,7 +337,7 @@ Use the corresponding command at the corresponding position in the document:
 
           If the abbreviation table is updated, you only need to execute steps 7, 8, and 9 above again without redefining the command.
         
-        * :bulb: When using VSCode, you need to call out to the terminal and type the command: `makeindex %.nlo -s nomencl.ist -o %.nls`, execute (twice), and then compile the entire document:
+        * :bulb: When using VSCode, you need to call out to the terminal and type the command: `makeindex "Your Tex Filename".nlo -s nomencl.ist -o "Your Tex Filename".nls`, execute the command, and then compile the entire document:
           <p align = "center">
           <img src="fig/VSCode-nomenclature-en.jpg"  width="700" />
           </p>
