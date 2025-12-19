@@ -392,6 +392,10 @@
 
 * 第二项可选参数允许用户对框线的端点进行修剪，当需要在视觉上分割同行的相邻框线时，该选项将很有用。有关第二项可选参数可取的值，建议用户查阅[booktabs](https://mirrors.sustech.edu.cn/CTAN/macros/latex/contrib/booktabs/booktabs.pdf)宏包的官方文档。
 
+若要调整表格中单元格的水平对齐方式，自适应宽度的表格可以直接使用`tabular`环境的`l/c/r`参数；如果同时需要限定单元格宽度，则可使用`p{<宽度值>}`、`p{<宽度值>}<{\centering}`、`p{<宽度值>}<{\raggedleft}`参数。
+
+若要调整具有多行内容的固定列宽单元格的垂直对齐方式，可以使用`tabular`环境的`p{<宽度值>}`、`m{<宽度值>}`、`b{<宽度值>}`参数，**它们分别表示使用对应单元格内容的上线、中线、底线作为垂直对齐时的基准线**，<font color=#8b0000>而非使单元格内容上端对齐、垂直居中对齐、下端对齐</font>。如果这段说明不好理解，那可以参考这个：[p, m and b columns in tables](https://tex.stackexchange.com/questions/35293)。
+
 #### 7.4.2 带附注表格
 
 更需要说明的是该如何生成带附注的表格。本模板采用[threeparttable](https://mirrors.cqu.edu.cn/CTAN/macros/latex/contrib/threeparttable/threeparttable.pdf)宏包提供的`threeparttable`环境实现将表格中的附注内容顶格排版在表格底部：

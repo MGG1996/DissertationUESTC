@@ -601,8 +601,6 @@
 	
 	普通表格的排版本身无需多言，使用\shad{table}+\shad{tabular}环境即可，但是要注意三线表中的三条线分别需要使用\shad{$\backslash$toprule}、\shad{$\backslash$midrule}、\shad{$\backslash$bottomrule}生成，这样才符合研究生规范中对线粗的要求（\shad{1.5}磅、\shad{0.75}磅、\shad{1.5}磅）。注意不要用\shad{$\backslash$hline}。而对于本科生，学士学位论文规范要求表格中的线粗统一为\shad{0.5}磅。因此，在\shad{bachelor}和\shad{doublebachelor}选项下，\shad{$\backslash$toprule}、\shad{$\backslash$midrule}、\shad{$\backslash$bottomrule}和\shad{$\backslash$cmidrule}的线粗均设置为\shad{0.5}磅（2025.05.01调整）。
 	
-	在需要为表格中的某些单元格添加水平框线时，应使用\newline\shadcmd{cmidrule[<线粗>](<修剪>)\{<起始列-终止列>\}}而非\shadcmd{cline\{<起始列-终止列>\}}。后者似乎无法调整线粗，也无法对框线的端点进行修剪。前者的第一项可选参数允许用户设置框线粗细，其默认值在\shad{bachelor}和\shad{doublebachelor}选项下设置为了\shad{0.5}磅，而在其他论文类型下设置为了\shad{0.75}磅。若非必要，用户无需设置该可选参数；第二项可选参数允许用户对框线的端点进行修剪，该选项可防止同行独立的相邻框线在视觉上连通到一起，参见表\ref{tab: cmidrule示例}中的示例。有关第二项可选参数可取的值，建议用户查阅\href{https://mirrors.sustech.edu.cn/CTAN/macros/latex/contrib/booktabs/booktabs.pdf}{\ttfamily\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{booktabs}}宏包的官方文档。
-	
 	\begin{table}[htp]
 		\caption{$\backslash$cmidrule示例}\label{tab: cmidrule示例}
 		\begin{threeparttable}
@@ -625,6 +623,39 @@
 		\end{threeparttable}
 	\end{table}
 
+	在需要为表格中的某些单元格添加水平框线时，应使用\newline\shadcmd{cmidrule[<线粗>](<修剪>)\{<起始列-终止列>\}}而非\shadcmd{cline\{<起始列-终止列>\}}。后者似乎无法调整线粗，也无法对框线的端点进行修剪。前者的第一项可选参数允许用户设置框线粗细，其默认值在\shad{bachelor}和\shad{doublebachelor}选项下设置为了\shad{0.5}磅，而在其他论文类型下设置为了\shad{0.75}磅。若非必要，用户无需设置该可选参数；第二项可选参数允许用户对框线的端点进行修剪，该选项可防止同行独立的相邻框线在视觉上连通到一起，参见表\ref{tab: cmidrule示例}中的示例。有关第二项可选参数可取的值，建议用户查阅\href{https://mirrors.sustech.edu.cn/CTAN/macros/latex/contrib/booktabs/booktabs.pdf}{\ttfamily\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{booktabs}}宏包的官方文档。
+	
+	若要调整表格中单元格的水平对齐方式，自适应宽度的表格可以直接使用\shad{tabular}环境的\shad{l/c/r}参数；如果同时需要限定单元格宽度，则可使用\shad{p\{<宽度值>\}}、\shad{p\{<宽度值>\}<\{$\backslash$centering\}}、\shad{p\{<宽度值>\}<\{$\backslash$raggedleft\}}参数，效果见表\ref{tab: 单元格三种水平对齐方式}。
+
+	\begin{table}[!ht]
+		\caption{\shad{单元格三种水平对齐方式}} \label{tab: 单元格三种水平对齐方式}
+		\begin{tabular}{p{2cm} p{3cm}<{\centering} p{7cm}<{\raggedleft}}
+			\toprule
+			\textbf{姓名} & \textbf{所属势力} & \textbf{武功绝学} \\
+			\midrule
+			郭靖 & 重阳宫 & 降龙十八掌 \\
+			黄蓉 & 丐帮 & 打狗棒法 \\
+			洪七公 & 丐帮 & 降龙十八掌、打狗棒法 \\
+			黄老邪 & 桃花岛 & 弹指神通、落英神剑掌、玉箫剑法 \\
+			老顽童 & 重阳宫 & 左右互博术 \\
+			一灯 & 云南大理 & 一阳指、千里传音 \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+
+	若要调整具有多行内容的固定列宽单元格的垂直对齐方式，可以使用\shad{tabular}环境的\shad{p\{<宽度值>\}}、\shad{m\{<宽度值>\}}、\shad{b\{<宽度值>\}}参数，\textbf{它们分别表示使用对应单元格内容的上线、中线、底线作为垂直对齐时的基准线}，\textcolor{DarkRed}{而非使单元格内容上端对齐、垂直居中对齐、下端对齐}，效果见表\ref{tab: 单元格三种垂直对齐方式}。如果这段说明不好理解，那可以参考这个：\href{https://tex.stackexchange.com/questions/35293}{\ttfamily\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{p, m and b columns in tables}}。
+
+	\begin{table}[!ht]
+		\caption{\shad{单元格三种垂直对齐方式}} \label{tab: 单元格三种垂直对齐方式}
+		\begin{tabular}{p{2cm} b{2cm} m{2cm}}
+			\toprule
+			\textbf{姓名} & \textbf{所属势力} & \textbf{武功绝学} \\
+			\midrule
+			洪七公 & 丐帮 & 降龙十八掌、打狗棒法 \\
+			黄老邪黄老邪黄老邪 & 桃花岛桃花岛桃花岛 & 弹指神通、落英神剑掌、玉箫剑法 \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
 	
 	\newpage
 	\subsection{带附注表格}
@@ -639,7 +670,7 @@
 	\begin{table}[!ht]
 		\caption{江湖势力背调} \label{tab: 江湖势力背调}
 		\begin{threeparttable}
-			\begin{tabular}{p{2cm} p{3cm} p{7cm}}
+			\begin{tabular}{p{2cm} p{3cm}<{\centering} p{7cm}<{\raggedleft}}
 				\toprule
 				\textbf{姓名} & \textbf{所属势力} & \textbf{武功绝学} \\
 				\midrule

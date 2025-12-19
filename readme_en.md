@@ -394,6 +394,10 @@ When you need to add horizontal borders to some cells in a table, you should use
 
 * The second optional parameter allows the user to trim the endpoints of the borders, which is useful when you need to visually separate adjacent borders in the same row. For the possible values ​​of the second optional parameter, it is recommended that users refer to the official documentation of the [booktabs](https://mirrors.sustech.edu.cn/CTAN/macros/latex/contrib/booktabs/booktabs.pdf) macro package.
 
+To adjust the horizontal alignment of cells in a table, the adaptive width table can directly use the `l/c/r` parameters of the 'tabular' environment; If it is necessary to limit the cell width at the same time, the parameters `p{<width value>}`, `p{<width value>}<{\centering}`, and `p{<width value>}<{\raggedleft}` can be used.
+
+To adjust the vertical alignment of a fixed width cell with multiple rows of content, you can use the `p{<width value>}`, `m{<width value>}`, and `b{<width value>}` parameters of the `tabular` environment, which represent using the top, middle, and bottom lines of the corresponding cell content as the baseline for vertical alignment, instead of aligning the top, center, and bottom of the cell content. If this explanation is difficult to understand, you can refer to: [p, m and b columns in tables](https://tex.stackexchange.com/questions/35293).
+
 #### 7.4.2 Tables with Notes
 
 What needs to be explained is how to generate a table with notes. This template uses the `threeparttable` environment provided by [threeparttable](https://mirrors.cqu.edu.cn/CTAN/macros/latex/contrib/threeparttable/threeparttable.pdf) macro package to layout the notes in the table at the bottom of the table:
