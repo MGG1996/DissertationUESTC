@@ -624,6 +624,20 @@
 \newcommand{\rawabspageref}[1]{\zref@extractdefault{#1}{abspage}{0}}
 
 
+% 利用hyperref宏包提供的\UrlBreaks宏，使url更好地换行，
+% https://liam.page/2017/05/17/help-the-url-command-from-hyperref-to-break-at-line-wrapping-point/
+\def\UrlAlphabet{% 记录26个英文字母的大小写
+	\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j%
+	\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+	\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D%
+	\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N%
+	\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
+	\do\Y\do\Z%
+}
+\def\UrlDigits{\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\0}% 记录10个阿拉伯数字
+\g@addto@macro{\UrlBreaks}{\UrlOrds}% \UrlOrds记录了一些特殊符号，如-和_
+\g@addto@macro{\UrlBreaks}{\UrlAlphabet}
+\g@addto@macro{\UrlBreaks}{\UrlDigits}
 
 
 %%----------------- main code -----------------
