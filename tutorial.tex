@@ -103,7 +103,7 @@
 	
 	\declaration[3cm]{2024年08月31日}{authsign}{spvrsign}
 
-	\declaration[3cm]{2024年08月31日}{authsign}[杨过1]{spvrsign}
+	\declaration[3cm]{2024年08月31日}{authsign}[yangguo1]{spvrsign}
 
 	
 	
@@ -338,7 +338,7 @@
 		\item \shad{makeindex "Tex文件名".nlo -s nomencl.ist -o "Tex文件名".nls}
 		\item \shad{makeindex \%.nlo -s nomencl.ist -o \%.nls | txs:///compile | makeindex \%.nlo -s nomencl.ist -o \%.nls | txs:///compile}
 	\end{itemize}
-	Overleaf用户则可以一键搞定，无需额外操作。
+	Overleaf用户则可以一键搞定，无需额外操作。\textbf{\color{DarkRed}注意，Overleaf用户要在网站里选择TeXLive的2024版，亲测Overleaf目前的TeXLive2025版无法正确编译出“主要符号表”和“缩略词表”的页眉。本地用户只要保证TeXLive版本≥ 2024就不会有问题。}
 
 	\begin{figure}[!htb]
 		\centering
@@ -392,7 +392,9 @@
 	\end{itemize}
 	
 
-	为了确保在Windows、MacOS、Overleaf等平台上编译出完全一致的结果，模板内置了所有用到的字体文件，这导致项目大小超出了Overleaf上传压缩包的限制。因此，Overleaf用户需要进行另一番操作：\textbf{先在Overleaf上新建一个空项目，然后解压本模板并拖拽文件和文件夹到新建的项目中即可}。
+	为了确保在Windows、MacOS、Overleaf等平台上编译出完全一致的结果，模板内置了所有用到的字体文件，这导致项目大小超出了Overleaf上传压缩包的限制。因此，Overleaf用户需要进行另一番操作：\textbf{先在Overleaf上新建一个空项目，然后解压本模板并拖拽文件和文件夹到新建的项目中}。\textcolor{DarkRed}{\textbf{切记网站里要选TeXLive2024}，经测试，线上目前的TeXLive2025反而无法编译出正确的“主要符号表”和“缩略词表”页眉，原因不明。}本地2024及以上的TeXLive均无任何问题！
+
+	\textbf{提醒}：\textcolor{DarkRed}{Overleaf近期似乎收紧了普通账号的编译时间限制}，而模版需要完整编译4次才能建立缩略词表、交叉引用等信息，因此普通账号在Overleaf上会编译超时。所以：\textcolor{DarkRed}{1）要么，搭建自己的本地环境，最稳妥；2）要么，升级Overleaf的高级账号；3）要么，用第三方的Overleaf平台}，这里推荐一个：\href{https://www.onlinelatex.com/home/}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{OnlineLaTeX}}。如果你既想用Overleaf，又不想升级高级账号或是用第三方平台，那只能用由网友\href{https://github.com/note286}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{@note286}}提供的方法：\textbf{\color{DarkRed}在模版根目录新建名为\shad{latexmkrc}的文件，内容为\shad{\$max\_repeat = 1;}}。其原理是每次点击编译按钮后，让Overleaf只进行单次XeLaTeX编译，而不是默认的多次编译，这样只要单次编译时长不超过限制即可正常使用。代价是\textcolor{DarkRed}{需要用户手动编译3次生成“缩略词表”，4次建立交叉引用}。自此提醒添加之日起，模版发布将分为常规版和Overleaf特别版，\textbf{后者提供了\shad{latexmkrc}文件，仅针对想使用官方Overleaf又不想升级高级会员的用户}。（2026.01.03）
 
 
 	\section{模板更新方法}
@@ -530,7 +532,7 @@
 
 	\begin{figure}[!h]
 		\centering
-		\includegraphics[width=0.6\linewidth]{黄蓉郭靖1}
+		\includegraphics[width=0.6\linewidth]{huangrongguojing1}
 		\caption{锁定仇人}
 	\end{figure}
 	
@@ -538,12 +540,12 @@
 	\begin{figure}[!h]
 		\centering
 		\subfloat[]{
-			\includegraphics[width=0.4\linewidth]{杨过小龙女3}
+			\includegraphics[width=0.4\linewidth]{yangguoxiaolongnv3}
 			\label{fig: 见到姑姑嘻嘻}
 		}
 		\hfill
 		\subfloat[]{
-			\includegraphics[width=0.4\linewidth]{杨过小龙女6}
+			\includegraphics[width=0.4\linewidth]{yangguoxiaolongnv6}
 			\label{fig: 姑姑见我不嘻嘻}
 		}
 		\caption[报仇哪有姑姑重要]{报仇哪有姑姑重要。\subref{fig: 见到姑姑嘻嘻}见到姑姑我嘻嘻；\subref{fig: 姑姑见我不嘻嘻}姑姑见我不嘻嘻} \label{fig: 报仇哪有姑姑重要}
@@ -552,12 +554,12 @@
 	\begin{figure}[!htb]
 		\centering
 		\subfloat[]{
-			\includegraphics[width=0.4\linewidth]{陆无双2}
+			\includegraphics[width=0.4\linewidth]{luwushuang2}
 			\label{fig: 陆无双2}
 		}
 		\hfill
 		\subfloat[]{
-			\includegraphics[width=0.4\linewidth]{程英3}
+			\includegraphics[width=0.4\linewidth]{chengying3}
 			\label{fig: 程英3}
 		}
 		\caption{找其他红颜知己嘻嘻。\subref{fig: 陆无双2}眼睛像姑姑；\subref{fig: 程英3}举止像姑姑} \label{fig: 红颜知己}
@@ -568,17 +570,17 @@
 	\begin{figure}[!htb]
 		\centering
 		\subfloat[]{
-			\includegraphics[width=0.4\linewidth]{绿萼2}
+			\includegraphics[width=0.4\linewidth]{lve2}
 			\label{fig: 绿萼2}
 		}
 		\hfill
 		\subfloat[]{
-			\includegraphics[width=0.4\linewidth]{杨过绿萼}
+			\includegraphics[width=0.4\linewidth]{yangguolve}
 			\label{fig: 杨过绿萼}
 		}
 		\\
 		\subfloat[]{
-			\includegraphics[width=0.98\linewidth]{陆无双程英}
+			\includegraphics[width=0.98\linewidth]{luwushuangchengying}
 			\label{fig: GG}
 		}
 		\caption{撩妹是我杨过的被动技能。\subref{fig: 绿萼2}好腼腆的姑娘；\subref{fig: 杨过绿萼}你终于肯笑了；\subref{fig: GG}哦吼} \label{fig: 被动技能}
@@ -586,7 +588,7 @@
 	
 	\begin{figure}[!htb]
 		\centering
-		\includegraphics[width=0.98\linewidth]{杨过郭靖}
+		\includegraphics[width=0.98\linewidth]{yangguoguojing}
 		\caption{还是推主线吧，动手动手}
 	\end{figure}
 	
@@ -1679,7 +1681,7 @@
 	\begin{itemize}
 		\item 对于某些缺少非必要信息的文献，本模板提供的\shad{.bst}文件依然可以正确处理。比如\cite{王晓琰2019关于连续出版会议论文著录格式的探讨}这篇期刊论文缺少卷号，它仍能仅排版期号，这是符合规范的。再比如，文献\cite{电子文献2}比文献\cite{电子文献1}少了\textbf{出版地}、\textbf{出版者}等信息，依然能正常排版；但是注意，\cite{电子文献2}已经是这类文献的最简形式，不可再缺信息。
 		
-		\item 对中文参考文献，如果希望将它们的第四顺位及以后的作者显示为\shad{“等”}，则必须要在它们的bib条目中加入\shad{language=\{\}}域，并将值设置为\shad{schinese}。这是文献编译引擎判断该条参考文献是否是中文的唯一依据。类似的，\cite{罗杰斯2011}中的\shad{“等译”}、\shad{“2版”}均靠设置\shad{language=\{schinese\}}实现。我的建议是，虽然\shad{language}域并非是强制添加的，但对于中文文献，最好将其添加进去。
+		\item 对中文参考文献，如果希望将它们的第四顺位及以后的作者显示为\shad{“等”}，则必须要在它们的bib条目中加入\shad{language=\{\}}域，并将值设置为\shad{schinese}。这是文献编译引擎判断该条参考文献是否是中文的唯一依据。类似的，\cite{罗杰斯2011}中的\shad{“等译”}、\shad{“2版”}均靠设置\shad{language=\{schinese\}}实现。\textbf{\textcolor{DarkRed}{我的建议是，虽然\shad{language}域并非强制，但对于中文文献，最好将其添加进去}}。
 		
 		\item 对电子文献，其类型众多，因此需要用户通过\shad{type=\{\}}域显式指定，如文献\cite{电子文献1}和\cite{电子文献2}；而对其他的文献类型，只要在\shad{@}符号后输入了正确的类型标识，对应的类型标签会自动生成，无需用户手动逐条添加。
 		
@@ -2167,14 +2169,14 @@
 
 	\begin{figure}[!b]
 		\centering
-		\includegraphics[width=0.4\linewidth]{洪七公2}
+		\includegraphics[width=0.4\linewidth]{hongqigong2}
 		\captionsetup{list=no}% 阻止此图片显示在图目录中
 		\caption{Dare you touch it? Little devil}
 	\end{figure}
 	
 	\begin{figure}[!b]
 		\centering
-		\includegraphics[width=0.4\linewidth]{杨过3}
+		\includegraphics[width=0.4\linewidth]{yangguo3}
 		\captionsetup{list=no}% 阻止此图片显示在图目录中
 		\caption{Hard to hold}
 	\end{figure}
@@ -2420,14 +2422,14 @@
 
 	\begin{figure}[!htb]
 		\centering
-		\includegraphics[width=0.45\linewidth]{洪七公2}
+		\includegraphics[width=0.45\linewidth]{hongqigong2}
 		\captionsetup{list=no}% 阻止此图片显示在图目录中
 		\caption{碰都不敢碰啊？小鬼}
 	\end{figure}
 	
 	\begin{figure}[!htb]
 		\centering
-		\includegraphics[width=0.45\linewidth]{杨过3}
+		\includegraphics[width=0.45\linewidth]{yangguo3}
 		\captionsetup{list=no}% 阻止此图片显示在图目录中
 		\caption{难顶}
 	\end{figure}
