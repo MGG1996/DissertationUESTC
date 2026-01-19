@@ -618,6 +618,7 @@
 \RequirePackage{zref-user, zref-abspage}  % 获取绝对页码需要，用来实现“摘要”和“致谢”超页提醒
 \RequirePackage{mhchem, chemfig}  % 排版化学方程式、结构式和键线式需要的两个宏包
 \RequirePackage{datetime}  % 获取当前系统时间需要
+\RequirePackage{boxedminipage}  % 用于排版带边框的minipage环境
 
 
 % 该命令获取参数标签所在页面的实际绝对页码，可赋值给计数器（来自DeepSeek）

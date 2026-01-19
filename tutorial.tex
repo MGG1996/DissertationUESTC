@@ -333,18 +333,57 @@
 		\item 然后在正文中出现缩略词的位置使用命令\\\shadcmd{nomchn[<排序前缀>]\{<缩略词>\}\{<英文全称>\}\{<中文全称>\}}添加该缩略词条目。其中\shad{排序前缀}是可选参数，仅在对特定条目有特殊排序需求时才使用。具体细节参考\href{https://mirrors.hust.edu.cn/CTAN/macros/latex/contrib/nomencl/nomencl.pdf}{\ttfamily\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{nomencl}}宏包对\shadcmd{nomenclature}命令的参数说明。
 	\end{enumerate}
 	
-	另外，本地用户需要先编译生成缩略词表的辅助文件，再编译完整文档才能获得正确的结果，辅助文件编译教程参见\href{https://zhuanlan.zhihu.com/p/46442713}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{编译缩略词表}} 或 \href{https://github.com/MGG1996/DissertationUESTC?tab=readme-ov-file#6-目录图目录表目录主要符号表缩略词表}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{项目readme第6节}}给出的操作图示，对应本文档中的图\ref{fig: VSCode编译缩略词表}和图\ref{fig: TeXstudio编译缩略词表}。图中用到的命令分别为：
+	另外，本地用户需要先编译生成缩略词表的辅助文件，再编译完整文档才能获得正确的结果，辅助文件编译教程参见\href{https://zhuanlan.zhihu.com/p/46442713}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{编译缩略词表}} 或 \href{https://github.com/MGG1996/DissertationUESTC?tab=readme-ov-file#6-目录图目录表目录主要符号表缩略词表}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{项目readme第6节}}给出的操作图示。简言之：
 	\begin{itemize}
-		\item \shad{makeindex "Tex文件名".nlo -s nomencl.ist -o "Tex文件名".nls}
-		\item \shad{makeindex \%.nlo -s nomencl.ist -o \%.nls | txs:///compile | makeindex \%.nlo -s nomencl.ist -o \%.nls | txs:///compile}
+		\item TeXstudio用户可直接添加自定义命令，操作步骤见图\ref{fig: TeXstudio编译缩略词表}，图中命令为：\newline
+		\shad{txs:///compile | makeindex \%.nlo -s nomencl.ist -o \%.nls | txs:///compile}
+		\item VSCode用户需要先按照图\ref{fig: VSCode手动编译缩略词表}打开终端，并运行下列命令：\newline
+		\shad{makeindex "TeX文件名".nlo -s nomencl.ist -o "TeX文件名".nls}\newline
+		注意修改命令中的文件名，之后再次编译TeX文件才会生成缩略词表。
+		
+		\textbf{\color{DarkRed}如果不希望每次更新缩略词表时都手动敲命令}，那可以在配置编译工具\verb*|"latex-workshop.latex.tools"|时增加\shad{makeindex}工具（下左），并将其嵌入\verb*|"latex-workshop.latex.recipes"|的某条编译链（下右），后续编译TeX文件时只需使用该编译链即可生成缩略词表。若已经配置了\shad{bibtex}工具，所示编译链也会更新参考文献。\textcolor{DarkRed}{（2026.01.19）}
 	\end{itemize}
-	Overleaf用户则可以一键搞定，无需额外操作。\textbf{\color{DarkRed}注意，Overleaf用户要在网站里选择TeXLive的2024版，亲测Overleaf目前的TeXLive2025版无法正确编译出“主要符号表”和“缩略词表”的页眉。本地用户只要保证TeXLive版本≥ 2024就不会有问题。}
+	\begin{boxedminipage}[t]{0.48\linewidth}
+		\vspace*{5pt}%
+		\begin{verbatim}
+	"latex-workshop.latex.tools": [
+		..., // 其他原有工具
+		{// 增加makeindex工具
+			"name": "makeindex",
+			"command": "makeindex",
+			"args": [
+				"%DOCFILE%.nlo",
+				"-s", "nomencl.ist",
+				"-o", "%DOCFILE%.nls"
+			]
+		},
+	],
+		\end{verbatim}
+	\end{boxedminipage}
+	\begin{boxedminipage}[t]{0.51\linewidth}
+		\vspace*{5pt}
+		\begin{verbatim}
+	"latex-workshop.latex.recipes": [
+		..., // 其他原有编译链
+		{// 增加包含makeindex的编译链
+			"name": "Xe > Bib > Ind > Xe*2",
+			"tools": [
+				"xelatex",
+				"bibtex", // 编译参考文献
+				"makeindex", // 编译缩略词表
+				"xelatex", "xelatex"
+			]
+		},
+	],
+		\end{verbatim}
+	\end{boxedminipage}
+	
+	\null\par
+	\begin{itemize}
+		\item Overleaf用户可以一键搞定，无需额外操作。\textbf{\color{DarkRed}注意，Overleaf用户要在网站里选择TeXLive的2024版，亲测Overleaf目前的TeXLive2025版无法正确编译出“主要符号表”和“缩略词表”的页眉。本地用户只要保证TeXLive版本≥ 2024就不会有问题。}
+	\end{itemize}
+	
 
-	\begin{figure}[!htb]
-		\centering
-		\includegraphics[width=0.95\linewidth]{VSCode-nomenclature}
-		\caption{VSCode编译缩略词表的操作步骤} \label{fig: VSCode编译缩略词表}
-	\end{figure}
 	\begin{figure}[!htb]
 		\centering
 		\includegraphics[width=0.95\linewidth]{TeXstudio-nomenclature1}
@@ -353,6 +392,11 @@
 		\\
 		\includegraphics[width=0.95\linewidth]{TeXstudio-nomenclature3}
 		\caption{TeXstudio编译缩略词表的操作步骤} \label{fig: TeXstudio编译缩略词表}
+	\end{figure}
+	\begin{figure}[!htb]
+		\centering
+		\includegraphics[width=0.95\linewidth]{VSCode-nomenclature}
+		\caption{VSCode手动编译缩略词表的操作步骤} \label{fig: VSCode手动编译缩略词表}
 	\end{figure}
 	
 	
@@ -465,6 +509,7 @@
 		\RequirePackage{zref-user, zref-abspage}  % 获取绝对页码，实现超页提醒
 		\RequirePackage{mhchem, chemfig}  % 排版化学方程式、结构式和键线式
 		\RequirePackage{datetime}  % 获取当前系统时间需要
+		\RequirePackage{boxedminipage}  % 用于排版带边框的minipage环境
 	\end{verbatim}
 	
 

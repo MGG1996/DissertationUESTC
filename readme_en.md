@@ -328,9 +328,9 @@ Use the corresponding command at the corresponding position in the document:
    
    * Then, use the command `\nomchn[<sort prefix>]{<abbreviation>}{<English full name>}{<Chinese full name>}` to add the abbreviation entry at the location where the abbreviation appears in the text. It only needs to be added once. The `sort prefix` is ​​only used when there is a special sorting requirement for a specific entry. For details, refer to the parameter description of the `\nomenclature` command in the [nomencl](https://mirrors.hust.edu.cn/CTAN/macros/latex/contrib/nomencl/nomencl.pdf) macro package.
 
-   * In addition, local users need to compile the auxiliary file that generates the abbreviation table first, and then compile the full document to get the expected results. For tutorials, see [Compiling the Acronym Table](https://zhuanlan.zhihu.com/p/46442713) or the **operation screenshot** below :point_down:. Overleaf users can do it with one click without additional operations. :warning: Please note, **<font color=#8b0000>Overleaf users should select the 2024 version of TeXLive on the website</font>**. I have personally tested that the TeXLive 2025 version on Overleaf cannot correctly compile the headers for the `List of Symbols` and `Table of Abbreviations` at present. Local users should only ensure that their TeXLive version is at least 2024, and there should be no issues.
+   * In addition, local users need to compile the auxiliary file that generates the abbreviation table first, and then compile the full document to get the expected results. For tutorials, see [Compiling the Acronym Table](https://zhuanlan.zhihu.com/p/46442713) or the **operation screenshot** below :point_down:.
 
-        * :bulb: When using TeXstudio, configure the user command as shown in the figure below: `makeindex %.nlo -s nomencl.ist -o %.nls | txs:///compile | makeindex %.nlo -s nomencl.ist -o %.nls | txs:///compile`, then execute the command in the toolbar (once), and you no longer need to compile the entire document:
+        * :bulb: When using TeXstudio, configure the user command as shown in the figure below: `txs:///compile | makeindex %.nlo -s nomencl.ist -o %.nls | txs:///compile`, then execute the command in the toolbar (once), and you no longer need to compile the entire document:
           <p align = "center">
           <img src="fig/TeXstudio-nomenclature1-en.jpg"  width="700" />
           <img src="fig/TeXstudio-nomenclature2-en.jpg"  width="700" />
@@ -345,6 +345,40 @@ Use the corresponding command at the corresponding position in the document:
           </p>
           
           If the abbreviation list is updated, you need to type the above command in the terminal and execute it again, and then compile the entire document.
+
+          :four_leaf_clover: **If you don't want to manually enter the command every time you need to update Abbreviations**, you can add the `makeindex` tool (below 1) when configuring the compilation tools in `"latex-workshop.latex.tools"` and embed it into a certain compilation chain (below 2) in `"latex-workshop.latex.recipes"`. In subsequent compilations of your TeX file, you can simply use this compilation chain to generate Abbreviations. <font color=#8b0000>(2026.01.19)</font>
+
+          ```json
+          "latex-workshop.latex.tools": [
+            ..., // Other existing tools
+            {// Add the 'makeindex' tool
+              "name": "makeindex",
+              "command": "makeindex",
+              "args": [
+                "%DOCFILE%.nlo",
+                "-s", "nomencl.ist",
+                "-o", "%DOCFILE%.nls"
+              ]
+            },
+          ],
+          ```
+
+          ```json
+          "latex-workshop.latex.recipes": [
+            ..., // other existing compilation chains
+            {// Add the compilation chain that includes 'makeindex'
+              "name": "Xe > Bib > Ind > Xe*2",
+              "tools": [
+                "xelatex",
+                "bibtex", // compile References
+                "makeindex", // compile Abbreviations
+                "xelatex", "xelatex"
+              ]
+            },
+          ],
+          ```
+
+        * :bulb: Overleaf users can do it with one click without additional operations. :warning: Please note, **<font color=#8b0000>Overleaf users should select the 2024 version of TeXLive on the website</font>**. I have personally tested that the TeXLive 2025 version on Overleaf cannot correctly compile the headers for the `List of Symbols` and `Table of Abbreviations` at present. Local users should only ensure that their TeXLive version is at least 2024, and there should be no issues.
 
 
 ## 7. Main Body of the Thesis

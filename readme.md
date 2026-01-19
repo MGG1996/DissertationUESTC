@@ -326,9 +326,9 @@
    
    * 然后在正文中出现缩略词的位置使用命令`\nomchn[<排序前缀>]{<缩略词>}{<英文全称>}{<中文全称>}`添加该缩略词条目。只需要添加一次。其中，`排序前缀`仅在对特定条目有特殊排序需求时才使用。具体细节参考[nomencl](https://mirrors.hust.edu.cn/CTAN/macros/latex/contrib/nomencl/nomencl.pdf)宏包对`\nomenclature`命令的参数说明。
 
-   * 另外，本地用户需要先编译生成缩略词表的辅助文件，再编译完整文档才能获得预期的结果，教程参见[编译缩略词表](https://zhuanlan.zhihu.com/p/46442713 "本地缩略词表编译教程")或**下方操作截图** :point_down:。Overleaf用户则可以一键搞定，无需额外操作。:warning: 注意，**<font color=#8b0000>Overleaf用户要在网站里选择TeXLive的2024版</font>**，亲测目前Overleaf的TeXLive2025版无法正确编译出`主要符号表`和`缩略词表`的页眉。本地用户只要保证TeXLive版本不低于2024就不会有问题。
+   * 另外，本地用户需要先编译生成缩略词表的辅助文件，再编译完整文档才能获得预期的结果，教程参见[编译缩略词表](https://zhuanlan.zhihu.com/p/46442713 "本地缩略词表编译教程")或**下方操作截图** :point_down:。
 
-        * :bulb: 使用TeXstudio时，按下图中步骤配置用户命令：`makeindex %.nlo -s nomencl.ist -o %.nls | txs:///compile | makeindex %.nlo -s nomencl.ist -o %.nls | txs:///compile`，然后在工具栏执行该命令（一次），后续不再需要编译整个文档：
+        * :bulb: 使用TeXstudio时，按下图中步骤配置用户命令：`txs:///compile | makeindex %.nlo -s nomencl.ist -o %.nls | txs:///compile`，然后在工具栏执行该命令（一次），后续不再需要编译整个文档：
           <p align = "center">
           <img src="fig/TeXstudio-nomenclature1.jpg"  width="700" />
           <img src="fig/TeXstudio-nomenclature2.jpg"  width="700" />
@@ -337,12 +337,46 @@
 
           若缩略词表有更新，则只需要再执行上述步骤7、8、9即可，无需再次定义命令。
         
-        * :bulb: 使用VSCode时，需要呼出终端并键入命令：`makeindex "Tex文件名".nlo -s nomencl.ist -o "Tex文件名".nls`，执行，之后还需要编译整个文档：
+        * :bulb: 使用VSCode时，需要呼出终端并键入命令：`makeindex "TeX文件名".nlo -s nomencl.ist -o "TeX文件名".nls`，执行，之后还需要编译整个文档：
           <p align = "center">
           <img src="fig/VSCode-nomenclature.jpg"  width="700" />
           </p>
           
           若缩略词表有更新，则要再次在终端中键入上述命令并执行，接着再次编译整个文档。
+
+          :four_leaf_clover: **如果不想每次更新缩略词表都手动敲命令**，那可在配置编译工具`"latex-workshop.latex.tools"`时增加`makeindex`工具（下1），并将其嵌入`"latex-workshop.latex.recipes"`的某条编译链（下2），后续编译TeX文件时只需使用该编译链即可生成缩略词表。<font color=#8b0000>（2026.01.19）</font>
+
+          ```json
+          "latex-workshop.latex.tools": [
+            ..., // 其他原有工具
+            {// 增加makeindex工具
+              "name": "makeindex",
+              "command": "makeindex",
+              "args": [
+                "%DOCFILE%.nlo",
+                "-s", "nomencl.ist",
+                "-o", "%DOCFILE%.nls"
+              ]
+            },
+          ],
+          ```
+
+          ```json
+          "latex-workshop.latex.recipes": [
+            ..., // 其他原有编译链
+            {// 增加包含makeindex的编译链
+              "name": "Xe > Bib > Ind > Xe*2",
+              "tools": [
+                "xelatex",
+                "bibtex", // 编译参考文献
+                "makeindex", // 编译缩略词表
+                "xelatex", "xelatex"
+              ]
+            },
+          ],
+          ```
+
+        * :bulb: Overleaf用户可以一键搞定，无需额外操作。:warning: 注意，**<font color=#8b0000>Overleaf用户要在网站里选择TeXLive的2024版</font>**，亲测目前Overleaf的TeXLive2025版无法正确编译出`主要符号表`和`缩略词表`的页眉。本地用户只要保证TeXLive版本不低于2024就不会有问题。
 
 
 ## 7. 论文主体部分
