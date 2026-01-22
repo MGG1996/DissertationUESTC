@@ -188,16 +188,16 @@
    2. `doctor`/`prodoctor`/`intdoctor`/`ipdoctor`/`master`/`promaster`/`intmaster`/`ipmaster`/`bachelor`/`doublebachelor`：该选项设置学位论文类型，对应关系如下，默认为`doctor`。
       |选项|对应学位类型|
       |---|---|
-      |`doctor`|学术学位博士|
-      |`prodoctor`|专业学位博士|
+      |`doctor`|学术博士学位|
+      |`prodoctor`|专业博士学位|
       |`intdoctor`|International Doctor with Academic Degree|
       |`ipdoctor`|International Doctor with Professional Degree|
-      |`master`|学术学位硕士|
-      |`promaster`|专业学位硕士|
+      |`master`|学术硕士学位|
+      |`promaster`|专业硕士学位|
       |`intmaster`|International Master with Academic Degree|
       |`ipmaster`|International Master with Professional Degree|
-      |`bachelor`|学士|
-      |`doublebachelor`|双学位学士|
+      |`bachelor`|学士学位|
+      |`doublebachelor`|双学士学位|
    
    3. [**新增**]`subfigsimple`/`subfigparens`：该选项用于调整正文中对子图标签进行引用生成的编号样式，`subfigsimple`对应样式为`1-1a`，`subfigparens`对应样式为`1-1(a)`，默认为`subfigparens`。
    

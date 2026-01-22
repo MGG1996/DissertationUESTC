@@ -520,26 +520,47 @@
 	\begin{itemize}
 		\item \shad{\% !TEX Program = xelatex}：在Texstudio中，这表示指定使用\shad{XeLaTeX}引擎编译该文档；在其他编辑器中，需要手动设置编译引擎为\shad{XeLaTeX}。
 
-		\item \shadcmd{documentclass[<选项列表>]\{DissertUESTC\}}：加载名为\shad{DissertUESTC} 的文档类，该文档类基于LaTeX的\shad{book}类编写，可设置\textbf{\shad{八种}}选项：
+		\item \shadcmd{documentclass[<选项列表>]\{DissertUESTC\}}：加载名为\shad{DissertUESTC} 的文档类，该文档类基于LaTeX的\shad{book}类编写，可设置\textbf{\textcolor{DarkRed}{八种}}选项：
 
 		\begin{itemize}
-			\item \shad{print} / \shad{nonprint}：该选项控制是否以印刷模式生成文档，印刷模式会按印刷要求自动在论文的前置部分添加必要的空白页，默认为\shad{nonprint}。
+			\item \shad{print} / \shad{nonprint}\textcolor{DarkRed}{〔默认〕}：该选项控制是否以印刷模式生成文档，印刷模式会按印刷要求自动在论文的前置部分添加必要的空白页。
 
-			\item \shad{doctor} / \shad{prodoctor} / \shad{intdoctor} / \shad{ipdoctor} / \shad{master} / \shad{promaster} / \shad{intmaster} / \shad{ipmaster} / \shad{bachelor} / \shad{doublebachelor}：该选项设置学位论文类型，分别对应学术学位博士、专业学位博士、International Doctor with Academic Degree、International Doctor with Professional Degree、学术学位硕士、专业学位硕士、International Master with Academic Degree、International Master with Professional Degree、学士学位以及双学士学位。默认为“\shad{doctor}”。
+			\item \shad{doctor}\textcolor{DarkRed}{〔默认〕} / \shad{prodoctor} / \shad{intdoctor} / \shad{ipdoctor} / \shad{master} / \shad{promaster} / \shad{intmaster} / \shad{ipmaster} / \shad{bachelor} / \shad{doublebachelor}：该选项设置学位论文类型，其与学位的对应关系如下：
+			
+			\begin{table}[!htb]
+				\centering\hspace*{1.5cm}
+				% \caption{各学位论文类型对应的选项设置} \label{tab: 学位论文类型选项}
+				\begin{tabular}{p{9em} p{20em}}
+					\toprule
+					\textbf{选项值} & \textbf{对应学位类型} \\
+					\midrule
+					\shad{doctor} & 学术博士学位 \\
+					\shad{prodoctor} & 专业博士学位 \\
+					\shad{intdoctor} & International Doctor with Academic Degree \\
+					\shad{ipdoctor} & International Doctor with Professional Degree \\
+					\shad{master} & 学术硕士学位 \\
+					\shad{promaster} & 专业硕士学位 \\
+					\shad{intmaster} & International Master with Academic Degree \\
+					\shad{ipmaster} & International Master with Professional Degree \\
+					\shad{bachelor} & 学士学位 \\
+					\shad{doublebachelor} & 双学士学位 \\
+					\bottomrule
+				\end{tabular}
+			\end{table}
    
-			\item \shad{subfigsimple} / \shad{subfigparens}：该选项用于调整正文中对子图标签进行引用时生成的编号样式，\shad{subfigsimple}对应样式\shad{1-1a}；\shad{subfigparens}对应样式\shad{1-1(a)}，默认为\shad{subfigparens}。
+			\item \shad{subfigsimple} / \shad{subfigparens}\textcolor{DarkRed}{〔默认〕}：该选项用于调整正文中对子图标签进行引用时生成的编号样式，\shad{subfigsimple}对应样式\textcolor{DodgerBlue}{1-1a}；\shad{subfigparens}对应样式\textcolor{DodgerBlue}{1-1(a)}。
    
 			\item \shad{draftfig}：LaTeX标准文档类提供的\shad{draft}选项在排版草稿时不会生成交叉引用链接、超链接、书签，图片也会被替换为尺寸与之相同的外框+文本，并且会在超出表格、页面边界的位置标注粗框线。\shad{draftfig}选项则仅将图片替换为\fbox{外框+文本}，而不修改标准\shad{draft}选项涉及的其他内容。主要用于自行查重时隐去实验结果数据，且不改变论文的整体排版。
 			
 			\item \shad{review}：该选项将以评审模式排版论文的“封面”及“中英文扉页”，届时所有有关个人身份的信息都将被隐去，包括导师信息以及独创性声明中的签名和日期。当然，也可以通过设置空参数来隐去对应信息，但\shad{review}选项能在不调整命令参数内容的情况下实现同样的效果。
 			
-			另外，模板支持将\shad{review}的作用范围扩展到其他内容。例如，送审前需要抹除“致谢”和“成果”中的个人身份信息，使用者可将相应内容置于\shadcmd{ifreview[<替换文本>]\{<原内容>\}}命令。若未指定该命令的第一项可选参数，\shad{review}选项将以两字宽的水平空白替换原内容；否则，\shad{review}选项将以指定的参数替换原内容。用户可对比以下两句话在\shad{review}选项下的区别。（2025.03.06）
+			另外，\textcolor{DarkRed}{模板支持将\shad{review}的作用范围扩展到其他内容}。例如，送审前需要抹除“致谢”和“成果”中的个人身份信息，使用者可将相应内容置于\shadcmd{ifreview[<替换文本>]\{<原内容>\}}命令。若未指定该命令的第一项可选参数，\shad{review}选项将以两字宽的水平空白替换原内容；否则，\shad{review}选项将以指定的参数替换原内容。用户可对比以下两句话在\shad{review}选项下的区别。（2025.03.06）
 
 			\textbf{示例}：杨过的师傅是\ifreview[XXX]{小龙女}；杨过不承认师傅是\ifreview{赵志敬}。
 			
 			\item \shad{noreminder}：默认情况下，当\textbf{“中文摘要”}和\textbf{“致谢”}的篇幅超出规范的最大页数限制时，模板（\textbf{经过两次编译后}）将在对应内容的结尾显式打印提醒信息。若使用者在知悉这些内容的长度超出规范限制后仍希望保持原样，则可使用\shad{noreminder}选项禁用提醒信息。（2025.02.22）
 			
-			\item \shad{cmmmath} / \shad{timesmathnogreek} / \shad{timesmath}：该选项用于选择渲染公式使用的字体。其中，\shad{cmmmath}即对应LaTeX默认使用的Computer Modern Math，也是此类选项的默认值；\shad{timesmathnogreek}指定使用Times New Roman来渲染公式中的英文字母和数字，但不影响希腊字母、手写体和双线体；\shad{timesmath}则继续将希腊字母也设置成Times New Roman（个人觉得希腊字符用该字体有些违和），手写体和双线体仍保持原样。
+			\item \shad{cmmmath}\textcolor{DarkRed}{〔默认〕} / \shad{timesmathnogreek} / \shad{timesmath}：该选项用于选择渲染公式使用的字体。其中，\shad{cmmmath}即对应LaTeX默认使用的Computer Modern Math，也是此类选项的默认值；\shad{timesmathnogreek}指定使用Times New Roman来渲染公式中的英文字母和数字，但不影响希腊字母、手写体和双线体；\shad{timesmath}则继续将希腊字母也设置成Times New Roman（个人觉得希腊字符用该字体有些违和），手写体和双线体仍保持原样。
 			
 			追求公式字体均为Times New Roman的使用者可采用\shad{timesmath}选项。后两种选项均基于\href{https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf}{\ttfamily\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{mathspec}}宏包实现，在本人有限的测试实践中，只有它能做到真正意义上的Times New Roman。（2025.01.31）
 			
@@ -571,7 +592,7 @@
 	
 	本模板使用\href{https://mirror.nyist.edu.cn/CTAN/macros/latex/required/graphics/grfguide.pdf}{\ttfamily\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{graphicx}}和\href{https://mirrors.bfsu.edu.cn/CTAN/macros/latex/contrib/subfig/subfig.pdf}{\ttfamily\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{subfig}}宏包来处理插入的图片及子图，需要将待排版图片文件放入项目目录\shad{./fig/}中。以下给出一些排版图片的例子。
 	
-	需要注意，图\ref{fig: 报仇哪有姑姑重要}中引用子图\ref{fig: 见到姑姑嘻嘻}和本段中引用子图使用的命令分别为\shad{$\backslash$subref\{fig: 见到姑姑嘻嘻\}}和\shad{$\backslash$ref\{fig: 报仇哪有姑姑重要\}}，它们分别生成仅含带括号子图编号和完整子图编号的结果。
+	需要注意，在图\ref{fig: 报仇哪有姑姑重要}的图题中引用子图\ref{fig: 见到姑姑嘻嘻}的编号和在本段中引用子图编号使用的命令分别为\shad{$\backslash$subref\{fig: 见到姑姑嘻嘻\}}和\shad{$\backslash$ref\{fig: 见到姑姑嘻嘻\}}，它们分别生成仅含带括号子图编号和完整子图编号的结果，即\subref{fig: 见到姑姑嘻嘻}和\ref{fig: 见到姑姑嘻嘻}。
 	
 	另外，图\ref{fig: 报仇哪有姑姑重要}的图题包含了子图题文本，但生成的图目录中却只有主图题文本，其实现方式为在主图题命令中使用可选参数单独指定图目录中的显示文本：\shad{$\backslash$caption[报仇哪有姑姑重要]\{<实际图题>\}}
 

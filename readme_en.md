@@ -190,16 +190,16 @@ The template's preamble area has only two lines:
    2. `doctor`/`prodoctor`/`intdoctor`/`ipdoctor`/`master`/`promaster`/`intmaster`/`ipmaster`/`bachelor`/`doublebachelor`: This option sets the type of thesis, and the corresponding relationships are shown below. The default value is `doctor`.
       |Option|Corresponding Degree Type|
       |---|---|
-      |`doctor`|Academic Doctor|
-      |`prodoctor`|Professional Doctor|
+      |`doctor`|Academic Doctoral Degree|
+      |`prodoctor`|Professional Doctoral Degree|
       |`intdoctor`|International Doctor with Academic Degree|
       |`ipdoctor`|International Doctor with Professional Degree|
-      |`master`|Academic Master|
-      |`promaster`|Professional Master|
+      |`master`|Academic Master's Degree|
+      |`promaster`|Professional Master's Degree|
       |`intmaster`|International Master with Academic Degree|
       |`ipmaster`|International Master with Professional Degree|
-      |`bachelor`|Bachelor|
-      |`doublebachelor`|Double Degree Bachelor|
+      |`bachelor`|Bachelor's Degree|
+      |`doublebachelor`|Double Bachelor's Degree|
    
    3. [**Added**]`subfigsimple`/`subfigparens`: This option is used to adjust the numbering style generated for subfigure labels. The corresponding style for `subfigsimple` is `1-1a`, and the corresponding style for `subfigparens` is `1-1(a)`. The default is `subfigparens`.
    
@@ -346,7 +346,7 @@ Use the corresponding command at the corresponding position in the document:
           
           If the abbreviation list is updated, you need to type the above command in the terminal and execute it again, and then compile the entire document.
 
-          :four_leaf_clover: **If you don't want to manually enter the command every time you need to update Abbreviations**, you can add the `makeindex` tool (below 1) when configuring the compilation tools in `"latex-workshop.latex.tools"` and embed it into a certain compilation chain (below 2) in `"latex-workshop.latex.recipes"`. In subsequent compilations of your TeX file, you can simply use this compilation chain to generate Abbreviations. <font color=#8b0000>(2026.01.19)</font>
+          :four_leaf_clover: **If you don't want to manually enter the command every time you need to update Abbreviations**, you can add the `makeindex` tool  when configuring the compilation tools in `"latex-workshop.latex.tools"` (the 1st below) and embed it into a certain compilation chain in `"latex-workshop.latex.recipes"` (the 2nd below). In subsequent compilations of your TeX file, you can simply use this compilation chain to generate Abbreviations. <font color=#8b0000>(2026.01.19)</font>
 
           ```json
           "latex-workshop.latex.tools": [
