@@ -144,13 +144,13 @@ More importantly, this template hopes to provide :sparkles: **more complete cont
 
 3. This template provides a duplicate checking mode. This mode will replace all figures in the compiled document with rectangular frames of equal size to ensure data security as much as possible when checking for duplicates.
 
-4. This template can explicitly remind users of page exceedings. The specification sets limits on the length of the "Chinese Abstract" and "Acknowledgments". When these contents exceed the corresponding length limits, the template will print a message to remind users.
+4. This template can explicitly remind users of page exceedings. The specification sets limits on the length of the **`Chinese Abstract`** and **`Acknowledgments`**. When these contents exceed the corresponding length limits, the template will print a message to remind users.
 
-5. In the "Cover" and "English Title Page", this template can automatically determine the number of underlines to be generated based on the actual length of the input content, and is highly flexible and adaptable.
+5. In the **`Cover`** and **`English Title Page`**, this template can automatically determine the number of underlines to be generated based on the actual length of the input content, and is highly flexible and adaptable.
 
-6. In addition to necessary pre-content such as "Chinese and English Abstract" and "Table of Contents", this template also provides complete optional pre-content such as "List of Figures", "List of Tables", "List of Main Symbols", and "List of Abbreviations".
+6. In addition to necessary pre-content such as **`Chinese and English Abstract`** and **`Table of Contents`**, this template also provides complete optional pre-content such as **`List of Figures`**, **`List of Tables`**, **`List of Main Symbols`**, and **`List of Abbreviations`**.
 
-7.  This template provides more powerful table typesetting capabilities and supports typesetting "cross-page tables with notes". The template encapsulates an additional pseudocode environment, allowing users to flexibly adjust the left and right indents of the pseudocode area according to actual conditions.
+7.  This template provides more powerful table typesetting capabilities and supports typesetting **`cross-page tables with notes`**. The template encapsulates an additional pseudocode environment, allowing users to flexibly adjust the left and right indents of the pseudocode area according to actual conditions.
 
 8. This template supports semi-automatic generation of increasing sub-formula numbers such as `(1-1a)`. This number is common in the constraints of mathematical models. Although the `\tag{}` command can be used to display the number of a specified constraint, this method is cumbersome to operate and it is easy to miss the tag when replacing or adding or deleting constraints, resulting in confusion in the sub-formula numbers. This template can completely avoid this situation.
 
@@ -205,17 +205,15 @@ The template's preamble area has only two lines:
    
    4. [**Added**]`draftfig`: The `draft` option provided by the LaTeX standard document class will not generate cross-reference links, hyperlinks, or bookmarks when typesetting the draft. Images will also be replaced with boxes + text of the same size, and thick borders will be marked where they exceed the table and page boundaries. The `draftfig` option only replaces images with boxes + text, without modifying other content involved in the standard `draft` option. The purpose of this option is to hide important experimental results data when checking for plagiarism, while not changing the overall layout of the paper.
    
-   5. [**Added**]`review`: This option will typeset the "Cover" and "Chinese and English title page" in review mode, and all personal identifying information will be hidden, including supervisor information and the signature and date in the originality declaration. Of course, you can also hide the corresponding information by setting an empty parameter, but the `review` option can achieve the same effect without adjusting the command parameter content.
+   5. [**Added**]`review`: This option will typeset the **`Cover`** and **`Chinese and English title page`** in review mode, and all personal identifying information will be hidden, including supervisor information and the signature and date in the originality declaration. Of course, you can also hide the corresponding information by setting an empty parameter, but the `review` option can achieve the same effect without adjusting the command parameter content.
    
-      In addition, the template supports extending the scope of `review` to other content. For example, if you need to erase personal identity information in "Acknowledgements" and "Achievements" before submitting for review, you can put the corresponding content in the `\ifreview[<replacement text>]{<original content>}` command. If the first optional parameter of the command is not specified, the `review` option will replace the original content with a two-word horizontal space; otherwise, the `review` option will replace the original content with the replacement text. (2025.03.06)
+      In addition, the template supports extending the scope of `review` to other content. For example, if you need to erase personal identity information in **`Acknowledgements`** and **`Achievements`** before submitting for review, you can put the corresponding content in the `\ifreview[<replacement text>]{<original content>}` command. If the first optional parameter of the command is not specified, the `review` option will replace the original content with a two-word horizontal space; otherwise, the `review` option will replace the original content with the replacement text. (2025.03.06)
    
-   6. [**Added**]`noreminder`: By default, when the length of the "Chinese Abstract" and "Acknowledgements" exceeds the maximum page limit of the specification, the template (after two compilations) will explicitly print a reminder message at the end of the corresponding content. If the user still wants to keep these contents after they are informed that the length exceeds the specification limit, the `noreminder` option can be used to disable the reminder message. (2025.02.22)
+   6. [**Added**]`noreminder`: By default, when the length of the **`Chinese Abstract`** and **`Acknowledgements`** exceeds the maximum page limit of the specification, the template (after two compilations) will explicitly print a reminder message at the end of the corresponding content. If the user still wants to keep these contents after they are informed that the length exceeds the specification limit, the `noreminder` option can be used to disable the reminder message. (2025.02.22)
    
    7. [**Added**]`cmmmath`/`timesmathnogreek`/`timesmath`: This option is used to select the font used to render formulas. `cmmmath` corresponds to Computer Modern Math, which is the default font used by LaTeX and is also the default value for this type of option; `timesmathnogreek` specifies the use of Times New Roman to render English letters and numbers in formulas, but does not affect Greek letters, handwriting, and double-line fonts; `timesmath` continues to set Greek letters to Times New Roman (I personally feel that this font is a bit inconsistent with Greek characters), and handwriting and double-line fonts remain the same.
      
       Users who want to use Times New Roman fonts for all formulas can use the `timesmath` option. The latter two options are based on the [mathspec](https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf) macro package. In my limited testing practice, only it can achieve Times New Roman in the true sense. (2025.01.31)
-
-      :exclamation: It should be noted that Times New Roman font does not support bold italic typesetting in formulas, so the last two options will invalidate the `\boldsymbol{}` command. To solve this problem, the template (only under the last two options) roughly redefines this command so that it can generate bold italic symbols like the original version. However, due to my lack of technical skills, the redefined `\boldsymbol{}` command needs to follow an additional usage rule: **its input parameter must be the most original mathematical symbol**. For example, if you want to typeset `\boldsymbol{\hat{\alpha}}`, which is no problem under `cmmmath`, then the correct source code should be `\hat{\boldsymbol{\alpha}}`, that is, put `\boldsymbol{}` in the innermost nesting. Otherwise, the template will either fail to render the expected mathematical symbols (under the `timesmath` option) or directly report the error `! Internal error: bad native font flag in 'map_char_to_glyph'` (under the `timesmathnogreek` option). It may involve some underlying problems, which I don't understand and cannot solve.
      
       :exclamation: Because of the characteristics of the [mathspec](https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf) macro package itself, using Times New Roman as the formula font requires more effort. For example, if you want to typeset `$f^t$`, you will find that the space between `f` and `t` is very small and the two overlap. At this time, you need to manually insert a space with `"`, that is, `$f^{"t}$`. Therefore, both the `timesmathnogreek` and `timesmath` options have similar flaws. Please carefully read the [mathspec](https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf) macro package documentation.
      
@@ -265,7 +263,7 @@ To generate a thesis cover for the Double Degree Bachelor, use: `\uestccover{<th
 
 ### 3.3 Chinese Title Page (Graduate Students only)
 
-There is too much content to fill in the `Chinese Title Page`, which exceeds the limit of 9 parameters supported by LaTeX commands, so you need to set various macros first:
+There is too much content to fill in the **`Chinese Title Page`**, which exceeds the limit of 9 parameters supported by LaTeX commands, so you need to set various macros first:
 
 1. `\ClsNum{<classification number>}`;
 2. `\ClsLv{<classification level>}`;
@@ -283,11 +281,11 @@ There is too much content to fill in the `Chinese Title Page`, which exceeds the
 
 Then use `\uestczhtitlepage` to generate the `Chinese Title Page`.
 
-The `\uestczhtitlepage` command can accept an optional parameter `[compress]`. By default (that is, the optional parameter is not specified, or is specified as other content), if you encounter an extra-long `Supervisor Title`, such as "教授级高级工程师", this template will typeset it with its actual length, while keeping the other content in its column aligned to the left. This means that the actual length of the `Supervisor Title` must exceed the `3.25cm` set by the official specification. Although I personally think there is nothing wrong with doing so, I am not sure whether it is compliant. For this reason, the template provides the `[compress]` optional parameter for the `\uestczhtitlepage` command. After setting this parameter, supervisor titles longer than `3.25cm` will be automatically compressed to strictly adapt to the length reserved by UESTC for the content. For the actual effect, see the compilation result of `tutorial.tex`. It's up to you to choose. (2025.03.04)
+The `\uestczhtitlepage` command can accept an optional parameter `[compress]`. By default (that is, the optional parameter is not specified, or is specified as other content), if you encounter an extra-long `Supervisor Title`, such as **`教授级高级工程师`**, this template will typeset it with its actual length, while keeping the other content in its column aligned to the left. This means that the actual length of the `Supervisor Title` must exceed the `3.25cm` set by the official specification. Although I personally think there is nothing wrong with doing so, I am not sure whether it is compliant. For this reason, the template provides the `[compress]` optional parameter for the `\uestczhtitlepage` command. After setting this parameter, supervisor titles longer than `3.25cm` will be automatically compressed to strictly adapt to the length reserved by UESTC for the content. For the actual effect, see the compilation result of `tutorial.tex`. It's up to you to choose. (2025.03.04)
 
 ### 3.4 English Title Page (Graduate Students only)
 
-To generate an `English Title Page`, use the command: `\uestcentitlepage{<theiss title>}{<major>}{<student number>}{<author>}{<supervisor>}{<associate supervisor>}{<school>}`. If there is no associate supervisor, leave the `<associate supervisor>` parameter as blank `{}`.
+To generate an **`English Title Page`**, use the command: `\uestcentitlepage{<theiss title>}{<major>}{<student number>}{<author>}{<supervisor>}{<associate supervisor>}{<school>}`. If there is no associate supervisor, leave the `<associate supervisor>` parameter as blank `{}`.
 
 
 ## 4. Declaration of Originality (Graduate Students only)
@@ -303,9 +301,9 @@ The original intention of this command is to allow users to use electronic signa
 
 ## 5. Chinese and English Abstracts
 
-To generate a `Chinese Abstract`, you must first use `\zhabstract`, and then continue to append content. For `Chinese keywords`, use `\zhkeywords{<Chinese keywords>}`.
+To generate a **`Chinese Abstract`**, you must first use `\zhabstract`, and then continue to append content. For **`Chinese keywords`**, use `\zhkeywords{<Chinese keywords>}`.
 
-To generate a `English Abstract`, you must first use `\enabstract`, and then continue to append content. For `English keywords`, use `\enkeywords{<English keywords>}`.
+To generate a **`English Abstract`**, you must first use `\enabstract`, and then continue to append content. For **`English keywords`**, use `\enkeywords{<English keywords>}`.
 
 :exclamation: **<font color=#8b0000>The revised graduate thesis writing standard on September 3, 2025 has changed to use `;` to separate keywords; The writing standards for (double degree) bachelor's theses have not been adjusted, and the keywords are still separated by `,`.</font>**
 
@@ -324,7 +322,7 @@ Use the corresponding command at the corresponding position in the document:
 
     The optional parameters of the `symbtable` environment should not be specified unless necessary. However, for the sake of typographical aesthetics, the width of the columns of the symbol table can be adjusted appropriately. :warning: Note that according to the examples in the thesis writing guidelines, **<font color=#8b0000>the symbol table has and only has three columns</font>**. Therefore, do not set a different number of columns for the second optional parameter.
 5. Typesetting abbreviations is more complicated:
-   * First use `\printnomenclature[<English abbreviation width>](<Chinese full name width>)`. The first optional parameter controls the column width of the **English Abbreviation**, which defaults to `5em`; the second optional parameter controls the column width of the **Chinese Full Name**, which defaults to `7.5em`.
+   * First use `\printnomenclature[<English abbreviation width>](<Chinese full name width>)`. The first optional parameter controls the column width of the **`English Abbreviation`**, which defaults to `5em`; the second optional parameter controls the column width of the **`Chinese Full Name`**, which defaults to `7.5em`.
    
    * Then, use the command `\nomchn[<sort prefix>]{<abbreviation>}{<English full name>}{<Chinese full name>}` to add the abbreviation entry at the location where the abbreviation appears in the text. It only needs to be added once. The `sort prefix` is ​​only used when there is a special sorting requirement for a specific entry. For details, refer to the parameter description of the `\nomenclature` command in the [nomencl](https://mirrors.hust.edu.cn/CTAN/macros/latex/contrib/nomencl/nomencl.pdf) macro package.
 
@@ -346,7 +344,7 @@ Use the corresponding command at the corresponding position in the document:
           
           If the abbreviation list is updated, you need to type the above command in the terminal and execute it again, and then compile the entire document.
 
-          :four_leaf_clover: **If you don't want to manually enter the command every time you need to update Abbreviations**, you can add the `makeindex` tool  when configuring the compilation tools in `"latex-workshop.latex.tools"` (the 1st below) and embed it into a certain compilation chain in `"latex-workshop.latex.recipes"` (the 2nd below). In subsequent compilations of your TeX file, you can simply use this compilation chain to generate Abbreviations. <font color=#8b0000>(2026.01.19)</font>
+          :four_leaf_clover: **If you don't want to manually enter the command every time you need to update `Abbreviations`**, you can add the `makeindex` tool  when configuring the compilation tools in `"latex-workshop.latex.tools"` (the 1st below) and embed it into a certain compilation chain in `"latex-workshop.latex.recipes"` (the 2nd below). In subsequent compilations of your TeX file, you can simply use this compilation chain to generate Abbreviations. <font color=#8b0000>(2026.01.19)</font>
 
           ```json
           "latex-workshop.latex.tools": [
@@ -378,7 +376,7 @@ Use the corresponding command at the corresponding position in the document:
           ],
           ```
 
-        * :bulb: Overleaf users can do it with one click without additional operations. :warning: Please note, **<font color=#8b0000>Overleaf users should select the 2024 version of TeXLive on the website</font>**. I have personally tested that the TeXLive 2025 version on Overleaf cannot correctly compile the headers for the `List of Symbols` and `Table of Abbreviations` at present. Local users should only ensure that their TeXLive version is at least 2024, and there should be no issues.
+        * :bulb: Overleaf users can do it with one click without additional operations. :warning: Please note, **<font color=#8b0000>Overleaf users should select the 2024 version of TeXLive on the website</font>**. I have personally tested that the TeXLive 2025 version on Overleaf cannot correctly compile the headers for the **`List of Symbols`** and **`Table of Abbreviations`** at present. Local users should only ensure that their TeXLive version is at least 2024, and there should be no issues.
 
 
 ## 7. Main Body of the Thesis
@@ -498,7 +496,7 @@ In addition, based on the adjusted `algorithm` environment, the template further
 
 ### 7.6 Definition, Axiom, Theorem, Proposition, Corollary, Lemma, Example, Assumption, Annotation, Proof
 
-This template defines the environments for each of the above: `definition`, `axiom`, `theorem`, `proposition`, `corollary`, `lemma`, `example`, `assumption`, `annotation` and `proof`。
+This template defines the environments for each of the above: **`definition`, `axiom`, `theorem`, `proposition`, `corollary`, `lemma`, `example`, `assumption`, `annotation`** and **`proof`**。
 
 ### 7.7 Footnote
 
@@ -512,7 +510,7 @@ This template uses a font that includes circled numbers to replace the circled n
 
 ### 7.8 Various Numbers in the Template
 
-Document elements such as "title", "figure", "table", "algorithm", "equation", "definition", "axiom", "theorem", "proposition", "corollary", "lemma", "example", "assumption", "annotation", "proof" and "footnote" can all be automatically calculated and numbered without the need for users to worry about it. However, **sub-formula numbers such as (1-1a) cannot be automatically generated**. For this reason, the template provides the `\subeqtag[<number label>]` command.
+Document elements such as **`title`, `figure`, `table`, `algorithm`, `equation`, `definition`, `axiom`, `theorem`, `proposition`, `corollary`, `lemma`, `example`, `assumption`, `annotation`, `proof`** and **`footnote`** can all be automatically calculated and numbered without the need for users to worry about it. However, **sub-formula numbers such as (1-1a) cannot be automatically generated**. For this reason, the template provides the `\subeqtag[<number label>]` command.
 
 When creating numbers for constraints in a mathematical model, a common method is to directly specify the number content with the `\tag{}` command. However, this method is cumbersome to operate, and it is easy to miss some tags when you need to replace or add or delete constraints later, resulting in confusion in the sub-formula numbers, which is prone to be ingored.
 
@@ -547,7 +545,7 @@ This template is based on the [mhchem](https://mirrors.cloud.tencent.com/CTAN/ma
 
 ### 7.12 Cite
 
-To cite numbers of "equation", "figure", "table", "algorithm", "definition", "axiom", "theorem", "proposition", "corollary", "lemma", "example", "assumption", "annotation" and "proof", you can use `\ref{<label>}` directly. To generate formula numbers with brackets, use `\eqref{<label>}`.
+To cite numbers of **`equation`, `figure`, `table`, `algorithm`, `definition`, `axiom`, `theorem`, `proposition`, `corollary`, `lemma`, `example`, `assumption`, `annotation`** and **`proof`**, you can use `\ref{<label>}` directly. To generate formula numbers with brackets, use `\eqref{<label>}`.
 
 If you want to fully cite the subfigure caption number, you can use `\ref{<label>}` directly. The `DissertUESTC` document class generates a full number in the form of `1-1(a)` by default, but if the user specifies the `subfigsimple` option of the document class, it will generate a full number in the form of `1-1a` (Note: The dissertation writing specification does not clearly state which format should be used to reference subfigure numbers, but I read a Chinese monograph that uses the `1-1(a)` format, so I set it as the default style). Conversely, if you want to cite the subfigure caption number separately (for example, add the subfigure caption text according to the subfigure number after the main figure title), you need to use `\subref{<label>}`, which will generate a separate number in the form of `(a)`.
 
@@ -559,11 +557,11 @@ In addition, the graduate thesis specification requires that the formula numberi
 
 ## 8. Acknowledgement
 
-To generate an **Acknowledgment** chapter, use `\acknowledgement`, and then edit the content. This command is essentially a wrapper for `\chapter*{}`, supplemented with operations such as generating a ToC entry, a bookmark entry, and modifying the header.
+To generate an **`Acknowledgment`** chapter, use `\acknowledgement`, and then edit the content. This command is essentially a wrapper for `\chapter*{}`, supplemented with operations such as generating a ToC entry, a bookmark entry, and modifying the header.
 
 ## 9. References
 
-This template implements the typesetting styles of 9 document types listed in the specification, including **"journal articles", "conference papers", "monographs", "dissertations", "newspaper articles", "reports", "authorized patents", "standards"**, and **"electronic documents"**.
+This template implements the typesetting styles of 9 document types listed in the specification, including **`journal articles`, `conference papers`, `monographs`, `dissertations`, `newspaper articles`, `reports`, `authorized patents`, `standards`**, and **`electronic documents`**.
 
 The `.bib` database **entry identifiers** defined in this template for these document types are `article`, `inproceedings/conference`, `book`, `mastersthesis/phdthesis`, `news`, `report`, `patent`, `standard`, and `digital`, respectivlely.
 
@@ -825,7 +823,7 @@ The headings in this part should be typesetted using the commands encapsulated b
 
 When typeset figures and tables in this part, use `\captionsetup{list=no}` inside the `figure` and `table` environments to prevent the corresponding figure and table captions from appearing in the list of figures and tables.
 
-In this part, the **"definition", "axiom", "theorem", "proposition", "corollary", "lemma", "example"**, and **"assumption"** correspond to the environments with **<font color=#8b0000>capital first letters</font>**: `Definition`, `Axiom`, `Theorem`, `Proposition`, `Corollary`, `Lemma`, `Example`, `Assumption`, `Annotation`. The `proof` environment remains unchanged.
+In this part, the **`definition`, `axiom`, `theorem`, `proposition`, `corollary`, `lemma`, `example`**, and **`assumption`** correspond to the environments with **<font color=#8b0000>capital first letters</font>**: `Definition`, `Axiom`, `Theorem`, `Proposition`, `Corollary`, `Lemma`, `Example`, `Assumption`, `Annotation`. The `proof` environment remains unchanged.
 
 For more details, see the `tutorial.tex` example document.
 
@@ -835,7 +833,7 @@ First, use the command `\translatedliterature{<translated title>}{<original auth
 
 The titles of each level in this part still use the commands encapsulated by the template: `\Section{}`, `\Subsection{}`, `\Subsubsection{}`. **<font color=#8b0000>Note that their first letters are capitalized, and do not use any chapter commands</font>**. When typesetting figures and tables, you still need to use `\captionsetup{list=no}` inside the `figure` and `table` environments. The reason is the same as above.
 
-The **"definition", "axiom", "theorem", "proposition", "corollary", "lemma", "example", "assumption", "annotation"** and **"proof"** in this part correspond to **the same environments as in the main body**, i.e. the version with the first letter in lowercase.
+The **`definition`, `axiom`, `theorem`, `proposition`, `corollary`, `lemma`, `example`, `assumption`, `annotation`** and **`proof`** in this part correspond to **the same environments as in the main body**, i.e. the version with the first letter in lowercase.
 
 For more details, see the `tutorial.tex` example document.
 

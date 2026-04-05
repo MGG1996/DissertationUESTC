@@ -576,7 +576,7 @@
 \RequirePackage{caption}
 \RequirePackage[algochapter, linesnumbered, ruled]{algorithm2e}
 \RequirePackage{appendix}
-\RequirePackage{xunicode-addon}
+\RequirePackage{xunicode-addon}  % 脚注编号使用带圈数字需要
 \RequirePackage{xpatch}
 \RequirePackage{scrextend}  % 调整脚注的缩进设置
 % 脚注序号每页重置
@@ -593,7 +593,7 @@
 \RequirePackage{multirow}  % 表格合并多行单元格需要
 \RequirePackage{extarrows}  % 带文字的长等号与箭头需要
 %%%%%%
-% \let\Zbar\relax% 防止在下方载入newtxmath宏包时报“Command `\Zbar' already defined.”，见：https://github.com/CTeX-org/ctex-kit/issues/454
+% \let\Zbar\relax% 防止在下方载入newtxmath宏包时（与xunicode宏包冲突）报“Command `\Zbar' already defined.”，见：https://github.com/CTeX-org/ctex-kit/issues/454
 % \RequirePackage{newtxmath}  % 调整数学公式字体为times需要，但似乎公式中的数字字体不变，而且z看起来不像times，遂弃用
 %%%%%%
 % \RequirePackage{unicode-math}  % 也可调整公式字体，但仅能使用特定的Unicode数学字体，https://mirrors.ustc.edu.cn/CTAN/info/lshort/chinese/lshort-zh-cn.pdf。效果看起来偏粗，times的希腊字母有点丑，手写体很夸张，双线体也有点怪，遂弃用
@@ -695,7 +695,7 @@
 	AutoFakeBold=2,
 	AutoFakeSlant=0.3,
 	Path = ./font/,
-] % 设置华文行楷字族使用的字体文件和字形等属性
+] % 设置华文中宋字族使用的字体文件和字形等属性
 
 \newCJKfontfamily\hwxk{HuaWenXingKai}  % 为本科封面添加需要的华文行楷字族
 \setCJKfamilyfont{hwxk}{STXINGKA}[
@@ -718,6 +718,24 @@
 					BoldItalicFont=timesbi,
 					Path=font/
 				]{times}% 设置公式中的所有字体均为times new roman，包括希腊字母
+				%%% 重定义pmb命令的公式模式，绘制更多偏移，但减小单次偏移量，以避免重影
+				\def\pmb@#1#2{\setbox8\hbox{$\m@th#1{#2}$}%原始定义在amsmath宏包的amsbsy.sty中
+					\setboxz@h{$\m@th#1\mkern.15mu$}\pmbraise@\wdz@
+					\binrel@{#2}%
+					\dimen@-\wd8 %
+					\binrel@@{%
+						\mkern-.05mu\copy8 %
+						\kern\dimen@\mkern-.1mu\copy8 %
+						\kern\dimen@\mkern-.15mu\copy8 %
+						\kern\dimen@\raise\pmbraise@\copy8 %
+						\kern\dimen@\mkern-.04mu\raise.67\pmbraise@\copy8 %
+						\kern\dimen@\mkern-.08mu\raise.33\pmbraise@\copy8 %
+						\kern\dimen@\mkern.04mu\raise.67\pmbraise@\copy8 %
+						\kern\dimen@\mkern.08mu\raise.33\pmbraise@\copy8 %
+						\kern\dimen@\mkern.05mu\copy8 %
+						\kern\dimen@\mkern.1mu\copy8 %
+						\kern\dimen@\mkern.15mu\box8 }%
+				}
 			}%
 			{%
 				\setprimaryfont[
@@ -726,10 +744,27 @@
 					BoldItalicFont=timesbi,
 					Path=font/
 				]{times}% 仅设置公式中的普通字母和数字为times new roman，希腊字母则保持默认字体，它们用times new roman着实不好看，参考mathspec宏包文档
+				%%% 重定义pmb命令的公式模式，绘制更多偏移，但减小单次偏移量，以避免重影
+				\def\pmb@#1#2{\setbox8\hbox{$\m@th#1{#2}$}%原始定义在amsmath宏包的amsbsy.sty中
+					\setboxz@h{$\m@th#1\mkern.15mu$}\pmbraise@\wdz@
+					\binrel@{#2}%
+					\dimen@-\wd8 %
+					\binrel@@{%
+						\mkern-.07mu\copy8 %
+						\kern\dimen@\mkern-.14mu\copy8 %
+						\kern\dimen@\mkern-.21mu\copy8 %
+						\kern\dimen@\raise\pmbraise@\copy8 %
+						\kern\dimen@\mkern-.08mu\raise.67\pmbraise@\copy8 %
+						\kern\dimen@\mkern-.16mu\raise.33\pmbraise@\copy8 %
+						\kern\dimen@\mkern.08mu\raise.67\pmbraise@\copy8 %
+						\kern\dimen@\mkern.16mu\raise.33\pmbraise@\copy8 %
+						\kern\dimen@\mkern.07mu\copy8 %
+						\kern\dimen@\mkern.14mu\copy8 %
+						\kern\dimen@\mkern.21mu\box8 }%
+				}
 			}%
 		\setminwhitespace[3000]% 调整mathspec宏包提供的“"”插入的空格大小，用于解决部分数学字符间距离过小的问题，比如：$f^t$。参考mathspec宏包
-		\let\oldboldsymbol\boldsymbol
-		\renewcommand{\boldsymbol}[1]{\oldboldsymbol{\mathit{#1}}}% mathspec宏包未定义bold字系，只能重定义\boldsymbol命令，曲线救国
+		\renewcommand{\boldsymbol}[1]{\pmb{#1}}% mathspec宏包未定义bold字系，只能重定义\boldsymbol命令，曲线救国
 	}%
 
 % %% 基于unicode-math宏包
@@ -2475,8 +2510,8 @@
 }
 \renewcommand{\footnotesize}{\uestcfootnotesize}
 
-% 调整脚注序号为带圈数字，https://zhuanlan.zhihu.com/p/74515148
-\AtBeginUTFCommand[\textcircled]{\begingroup\EnclosedNumbers}
+% 调整脚注序号为带圈数字，https://stone-zeng.site/2019-02-09-circled-numbers，https://zhuanlan.zhihu.com/p/74515148
+\AtBeginUTFCommand[\textcircled]{\begingroup\EnclosedNumbers}% 放置钩子，只让带圈字符更换字体
 \AtEndUTFCommand[\textcircled]{\endgroup}
 \xeCJKDeclareCharClass{Default}{"24EA, "2460->"2473, "3251->"32BF}
 \newfontfamily\EnclosedNumbers[Path=./font/,]{Source Han Serif SC}
