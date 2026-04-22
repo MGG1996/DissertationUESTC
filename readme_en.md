@@ -761,7 +761,7 @@ In addition, :warning: Bachelor theses use a different layout style for most ref
 }
 ```
 
-Similarly, when citing "electronic documents" in bachelor's degree theses, **only one of `the place of publication` and `the address of acquisition` can be used, and only one of `the publication update date` and `the citation date` can be used**. Undergraduate students only need to use the `address` field to provide `the place of publication` or `the address of acquisition`; and use the `modifydate` field to provide `the publication update date` or `the citation date`. As shown below (2025.03.12):
+Similarly, when citing "electronic documents" in bachelor's degree theses, **only one of `the place of publication` and `the address of acquisition` can be used, and only one of `the publication update date` and `the citation date` can be used**. Undergraduate students only need to use the `address` field to provide `the place of publication` or use the `url` field to provide `the website of acquisition`; and use the `modifydate` field to provide `the publication update date` or `the citation date`. As shown below (2025.03.12):
 ```tex
 @digital{电子文献1,
     author={Deverell, W and gler, D},
@@ -787,6 +787,7 @@ Although graduate and bachelor theses have different requirements for the typese
 :pushpin: **Additional Notes**: 
 
 1. For some references that lack non-essential information, the `.bst` file provided by this template can still be processed correctly. For example, the journal article [3] in the figure above lacks the volume information, but it can still only typeset the number information, which is in compliance with the standard. For another example, reference [10] lacks information such as **the place of publication** and **publisher** compared to reference [9], but it can still be typeset normally; but please note that [10] is already the simplest form of this type of reference and no more information can be missing.
+The original `bib` data exported from the website is prone to missing certain mandatory fields. The template will highlight these fields in the compiled reference list. **Please be sure to supplement the necessary bib information according to the highlighted results**. (2026.04.22)
 
 2. For Chinese references, if you want to display the fourth and subsequent authors as `“等”`, you must add the `language={}` field to their bib entries and set the value to `schinese`. This is the only basis for the compilation engine to determine whether the reference is in Chinese. Similarly, `“等译”` and `“2版”` in [7] above are both achieved by setting `language={schinese}`. My suggestion is that although the `language` field is not mandatory, it is best to add it for Chinese references.
 

@@ -662,13 +662,13 @@
 	BoldFont=timesbd,
 	ItalicFont=timesi,
 	BoldItalicFont=timesbi,
-	Path=font/
+	Path=./font/,
 ]  % 英文正文罗马字体
 \setsansfont{times}[
 	BoldFont=timesbd,
 	ItalicFont=timesi,
 	BoldItalicFont=timesbi,
-	Path=font/
+	Path=./font/,
 ]  % 英文正文无衬线字体
 % \setmonofont{Times New Roman}  % 英文正文等宽字体
 \setCJKmainfont{SimSun}[
@@ -716,7 +716,7 @@
 					BoldFont=timesbd,
 					ItalicFont=timesi,
 					BoldItalicFont=timesbi,
-					Path=font/
+					Path=./font/,
 				]{times}% 设置公式中的所有字体均为times new roman，包括希腊字母
 				%%% 重定义pmb命令的公式模式，绘制更多偏移，但减小单次偏移量，以避免重影
 				\def\pmb@#1#2{\setbox8\hbox{$\m@th#1{#2}$}%原始定义在amsmath宏包的amsbsy.sty中
@@ -742,7 +742,7 @@
 					BoldFont=timesbd,
 					ItalicFont=timesi,
 					BoldItalicFont=timesbi,
-					Path=font/
+					Path=./font/,
 				]{times}% 仅设置公式中的普通字母和数字为times new roman，希腊字母则保持默认字体，它们用times new roman着实不好看，参考mathspec宏包文档
 				%%% 重定义pmb命令的公式模式，绘制更多偏移，但减小单次偏移量，以避免重影
 				\def\pmb@#1#2{\setbox8\hbox{$\m@th#1{#2}$}%原始定义在amsmath宏包的amsbsy.sty中

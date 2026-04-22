@@ -1472,7 +1472,7 @@
 
 	$x^2 + \boldsymbol{x}^2 + y^2 + \mathrm{y}^2 + z^2 + \mathcal{B}^2 + \mathcal{M}^2 + \mathbb{I}^2 + v^2 + g^2 + m^2 + k^2$
 	
-	$\check{\boldsymbol{C}}^t_n + \hat{p}^j_{n, s} + \tilde{r}^t_{u,b} + \overline{i}^t_{x, y} + \acute{\alpha}^t_v + \acute{\boldsymbol{\alpha}}^t + \hat{\boldsymbol{\alpha}}^t + f^t_j + f^{"t}_j + l^t_j + l^{"t}_j + \boldsymbol{\acute{\beta}}^t + \boldsymbol{\hat{\beta}}^t$
+	$\check{\boldsymbol{C}}^{"t}_n + \hat{p}^{"j}_{n, s} + \tilde{r}^{"t}_{u,b} + \overline{i}^t_{x, y} + \acute{\alpha}^t_v + \acute{\boldsymbol{\alpha}}^t + \hat{\boldsymbol{\alpha}}^t + f^t_j + "f^t_j + l^t_j + l^{"t}_j + \boldsymbol{\acute{\beta}}^t + \boldsymbol{\hat{\beta}}^t$
 
 	$\xlongequal{uvw}, \cdot, \cdots, \xLeftrightarrow{xyz}, \mathcal{N} \triangleq \left\{1, \dots, N\right\}, \times, \partial, \emptyset, \in, \subseteq, \leftarrow, \rightarrow, \leq, \geq$
 
@@ -1723,7 +1723,7 @@
 	}
 	\end{verbatim}
 
-	类似的，学士学位论文在引用\textbf{“电子文献”}时，“出版地”和“获取地址”只取其一、“发表更新日期”和“引用日期”同样只取其一，所以本科生只需要用\shad{address}域为之提供“出版地”\textcolor{DarkRed}{或}“获取地址”；用\shad{modifydate}域为之提供“发表更新日期”\textcolor{DarkRed}{或}“引用日期”即可。如下所示：
+	类似的，学士学位论文在引用\textbf{“电子文献”}时，“出版地”和“获取地址”只取其一、“发表更新日期”和“引用日期”同样只取其一，所以本科生只需要用\shad{address}域为之提供“出版地”\textcolor{DarkRed}{或}用\shad{url}域为之提供“获取地址”；用\shad{modifydate}域为之提供“发表更新日期”\textcolor{DarkRed}{或}“引用日期”即可。如下所示：
 	\begin{verbatim}
 	@digital{电子文献1,
 	    author={Deverell, W and gler, D},
@@ -1752,7 +1752,9 @@
 	\begin{itemize}
 		\item 对于某些缺少非必要信息的文献，本模板提供的\shad{.bst}文件依然可以正确处理。比如\cite{王晓琰2019关于连续出版会议论文著录格式的探讨}这篇期刊论文缺少卷号，它仍能仅排版期号，这是符合规范的。再比如，文献\cite{电子文献2}比文献\cite{电子文献1}少了\textbf{出版地}、\textbf{出版者}等信息，依然能正常排版；但是注意，\cite{电子文献2}已经是这类文献的最简形式，不可再缺信息。
 		
-		\item 对中文参考文献，如果希望将它们的第四顺位及以后的作者显示为\shad{“等”}，则必须要在它们的bib条目中加入\shad{language=\{\}}域，并将值设置为\shad{schinese}。这是文献编译引擎判断该条参考文献是否是中文的唯一依据。类似的，\cite{罗杰斯2011}中的\shad{“等译”}、\shad{“2版”}均靠设置\shad{language=\{schinese\}}实现。\textbf{\textcolor{DarkRed}{我的建议是，虽然\shad{language}域并非强制，但对于中文文献，最好将其添加进去}}。
+		从网站导出的原始bib数据可能缺失某些强制域，本模版会在编译后的参考文献列表中进行高亮提示，\textcolor{DarkRed}{请务必按照标注补充必要的bib信息}。（2026.04.22）
+		
+		\item 对中文参考文献，如果希望将它们的第四顺位及以后的作者显示为\shad{“等”}，则必须要在它们的bib条目中加入\shad{language=\{\}}域，并将值设置为\shad{schinese}。这是文献编译引擎判断该条参考文献是否是中文的唯一依据。类似的，\cite{罗杰斯2011}中的\shad{“等译”}、\shad{“2版”}、学士学位论文中某些文献类型日期中的“年月日”字样，均靠设置\shad{language=\{schinese\}}实现。\textbf{\textcolor{DarkRed}{我的建议是，虽然\shad{language}域并非强制，但对于中文文献，最好将其添加进去}}。
 		
 		\item 对电子文献，其类型众多，因此需要用户通过\shad{type=\{\}}域显式指定，如文献\cite{电子文献1}和\cite{电子文献2}；而对其他的文献类型，只要在\shad{@}符号后输入了正确的类型标识，对应的类型标签会自动生成，无需用户手动逐条添加。
 		
@@ -1796,7 +1798,7 @@
 
 	
 	%% 参考文献部分
-	% \nocite{*}% 为了便于在示例文档中展示参考文献而设，正式撰写时需要注释掉
+	\nocite{*}% 为了便于在示例文档中展示参考文献而设，正式撰写时需要注释掉
 	% \bibliographystyle{DissertUESTC}% 自v25.03.12版本后，参考文献风格文件由用户设定的论文类型选项自动确定，无需在此手动设置
 	\bibliography{ref}
 	

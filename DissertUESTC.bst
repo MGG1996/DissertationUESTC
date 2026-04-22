@@ -170,16 +170,21 @@ FUNCTION {date.block}
   add.blank
 }
 
+%%% 对栈顶元素取反，将结果压入栈顶
 FUNCTION {not}
 {   { #0 }
     { #1 }
   if$
 }
+
+%%% 对栈顶两元素做与运算，将结果压入栈顶
 FUNCTION {and}
 {   'skip$
     { pop$ #0 }
   if$
 }
+
+%%% 对栈顶两元素做或运算，将结果压入栈顶
 FUNCTION {or}
 {   { pop$ #1 }
     'skip$
@@ -423,6 +428,8 @@ MACRO {toois} {"ACM Transactions on Office Information Systems"}
 MACRO {toplas} {"ACM Transactions on Programming Languages and Systems"}
 
 MACRO {tcs} {"Theoretical Computer Science"}
+
+%%% 检查栈顶的域是否存在，若不存在则将栈顶换成空串，否则保持原样
 FUNCTION {bibinfo.check}
 { swap$
   duplicate$ missing$
@@ -449,12 +456,12 @@ FUNCTION {bibinfo.warn}
 { swap$
   duplicate$ missing$
     {
-      swap$ "missing " swap$ * " in " * cite$ * warning$ pop$
+      swap$ "[Reminder] missing " swap$ * " in " * cite$ * warning$ pop$
       ""
     }
     { duplicate$ empty$
         {
-          swap$ "empty " swap$ * " in " * cite$ * warning$
+          swap$ "[Reminder] empty " swap$ * " in " * cite$ * warning$
         }
         { swap$
           pop$
@@ -486,6 +493,18 @@ FUNCTION {format.url}
     { "\url{" swap$ * "}" * }
   if$
 }
+FUNCTION {remind.format.url}
+{
+  doi empty$
+    { url }
+    { "http://dx.doi.org/" doi * }
+  if$
+  duplicate$ empty$
+    { pop$ "\textcolor{DarkRed}{[缺链接信息| url域]}" }
+    { "\url{" swap$ * "}" * }
+  if$
+}
+
 
 INTEGERS { nameptr namesleft numnames }
 
@@ -732,47 +751,44 @@ FUNCTION {format.date}
     }
   if$
 }
-FUNCTION {full.date}
+FUNCTION {remind.full.date}
 {
-  year duplicate$ empty$
+  year empty$
     { "there's no year in " cite$ * warning$
-      pop$
-      "XXXX-"
+      "\textcolor{DarkRed}{[缺年份信息| year域]}-"
     }
-    { "-" * }
+    { year "-" * }
   if$
-  month duplicate$ empty$
-    { "there's no month in " cite$ * warning$
-      pop$
-      "Xx-" *
+  month empty$
+    { "there's no month in " cite$ * warning$ 
+      "\textcolor{DarkRed}{[缺月份信息| month域]}-" *
     }
-    { * "-" * }
+    { month * "-" * }
   if$
-  day duplicate$ empty$
+  day empty$
     { "there's no day in " cite$ * warning$
-      pop$
-      "xx" *
+      "\textcolor{DarkRed}{[缺日期信息| day域]}" *
     }
-    { * }
+    { day * }
   if$
 }
-FUNCTION {format.full.date}
+FUNCTION {remind.format.full.date}
 {
   year "year" bibinfo.check duplicate$ empty$
     { "there's no year in " cite$ * warning$
-      "XXXX-" *
+      "\textcolor{DarkRed}{[缺年份信息| year域]}-" *
     }
     { "-" * }
   if$
   month "month" bibinfo.check duplicate$ empty$
     { "there's no month in " cite$ * warning$ 
-      * "Xx-" *
+      * "\textcolor{DarkRed}{[缺月份信息| month域]}-" *
     }
     { * "-" * }
   if$
   day "day" bibinfo.check duplicate$ empty$
     { "there's no day in " cite$ * warning$
-      * "xx" *
+      * "\textcolor{DarkRed}{[缺日期信息| day域]}" *
     }
     { * }
   if$
@@ -931,18 +947,29 @@ FUNCTION {format.pages}
     }
   if$
 }
-FUNCTION {format.journal.pages}
-{ pages duplicate$ empty$ 'pop$
-    { swap$ duplicate$ empty$
-        { pop$ pop$ format.pages }
+FUNCTION {remind.format.pages}
+{
+  pages duplicate$ empty$
+    { pop$ "\textcolor{DarkRed}{[缺页码信息| pages域]}" }
+    { duplicate$ multi.page.check
         {
-          ": " *
-          swap$
           n.dashify
-          "pages" bibinfo.check
-          *
+        }
+        {
         }
       if$
+      "pages" bibinfo.check
+    }
+  if$
+}
+FUNCTION {format.journal.pages}
+{ 
+  remind.format.pages
+  swap$ duplicate$ empty$ 'pop$
+    {
+      ": " *
+      swap$
+      *
     }
   if$
 }
@@ -968,7 +995,7 @@ FUNCTION {format.vol.num.pages}
   number "number" bibinfo.check duplicate$ empty$ 'skip$
     {
       swap$ duplicate$ empty$
-        { "there's a number but no volume in " cite$ * warning$ }
+        { "[Reminder] there's a number but no volume in " cite$ * warning$ }
         'skip$
       if$
       swap$
@@ -1153,13 +1180,26 @@ FUNCTION {format.org.or.pub}
     }
   if$
 }
+FUNCTION {remind.publisher}
+{ publisher duplicate$ empty$
+    { pop$ "\textcolor{DarkRed}{[缺出版者信息| publisher域]}" }
+    'skip$
+  if$
+}
 FUNCTION {format.publisher.address}
-{ publisher "publisher" bibinfo.warn format.org.or.pub
+{ remind.publisher "publisher" bibinfo.warn format.org.or.pub
 }
 
-FUNCTION {format.organization.address}
-{ organization "organization" bibinfo.check format.org.or.pub
+FUNCTION {remind.organization}
+{ organization duplicate$ empty$
+    { pop$ "\textcolor{DarkRed}{[缺城市和国家信息| organization域]}" }
+    'skip$
+  if$
 }
+FUNCTION {format.organization.address}
+{ remind.organization "organization" bibinfo.check format.org.or.pub
+}
+
 
 FUNCTION {article}
 { output.bibitem
@@ -1365,7 +1405,7 @@ FUNCTION {inproceedings}
     { format.incoll.inproc.crossref output.nonnull
     }
   if$
-  year ": " * format.pages * "pages" output.check
+  year ": " * remind.format.pages * "pages" output.check
   new.block
   % format.url output
   % new.block
@@ -1511,9 +1551,13 @@ FUNCTION {news}
   new.block
   format.title "[N]" * "title" output.check
   new.block
-  publisher "publisher" bibinfo.warn output
-  full.date "date" bibinfo.warn output write$
-  " (" number * ")" *
+  remind.publisher "publisher" bibinfo.warn output
+  remind.full.date "date" bibinfo.warn output write$
+  number duplicate$ empty$
+    { pop$ "\textcolor{DarkRed}{[缺版号信息| number域]}" }
+    'skip$
+  if$
+  " (" swap$ * ")" *
   new.block
   format.url output
   new.block
@@ -1532,7 +1576,7 @@ FUNCTION {report}
   %format.tr.number output.nonnull
   address "address" bibinfo.warn output
   ": " *  write$
-  publisher "publisher" bibinfo.warn
+  remind.publisher "publisher" bibinfo.warn
   year "year" output.check
   new.block
   format.url output
@@ -1567,7 +1611,7 @@ FUNCTION {patent}
       %journal
       %"journal" bibinfo.check
       %"journal" output.check
-      format.full.date "fulldate" output.check
+      remind.full.date "fulldate" output.check
     }
     { format.article.crossref output.nonnull
     }
@@ -1584,6 +1628,12 @@ FUNCTION {patent}
   fin.entry
 }
 
+FUNCTION {remind.year}
+{ year duplicate$ empty$
+   { pop$ "\textcolor{DarkRed}{[缺年份信息| year域]}" }
+   'skip$
+  if$
+}
 FUNCTION {standard}
 { output.bibitem
   format.authors "author" output.check
@@ -1592,8 +1642,8 @@ FUNCTION {standard}
   new.block
   address "address" bibinfo.warn output
   ": " * write$
-  publisher "publisher" bibinfo.warn
-  year ": " * format.pages * "year" output.check
+  remind.publisher "publisher" bibinfo.warn
+  remind.year ": " * remind.format.pages * "year" output.check
   new.block
   format.url output
   new.block
@@ -1602,7 +1652,18 @@ FUNCTION {standard}
   fin.entry
 }
 
-
+FUNCTION {remind.modifydate}
+{ modifydate duplicate$ empty$
+   { pop$ "\textcolor{DarkRed}{[缺修改日期信息| modifydate域]}" }
+   'skip$
+  if$
+}
+FUNCTION {remind.citedate}
+{ citedate duplicate$ empty$
+   { pop$ "\textcolor{DarkRed}{[缺引用日期信息| citedate域]}" }
+   'skip$
+  if$
+}
 FUNCTION {digital}
 { output.bibitem
   format.authors "author" output.check
@@ -1610,22 +1671,22 @@ FUNCTION {digital}
   format.title "[" * type * "]" * "title" output.check
   new.block
   address missing$
-    { modifydate "modifydate" bibinfo.warn output }
+    { remind.modifydate "modifydate" bibinfo.warn output }
     {
       address "address" bibinfo.warn output
       ": " * write$
-      publisher "publisher" bibinfo.warn
+      remind.publisher "publisher" bibinfo.warn
       year "year" bibinfo.warn output
       ": " * write$
-      format.pages "pages" bibinfo.warn write$
-      modifydate "modifydate" bibinfo.warn
+      remind.format.pages "pages" bibinfo.warn write$
+      remind.modifydate "modifydate" bibinfo.warn
       " (" swap$ * ")" * write$
-      citedate "citedate" bibinfo.warn
+      remind.citedate "citedate" bibinfo.warn
       " [" swap$ * "]" *
       new.block
     }
   if$
-  format.url output
+  remind.format.url output
   fin.entry
 }
 
