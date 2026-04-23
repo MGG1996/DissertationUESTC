@@ -6,7 +6,7 @@
 %%
 %% merlin.mbs  (with options: `seq-no,nm-rv,ed-rev,jnrlst,nmlm,x3,m3,dt-jnl,yr-com,dtrev,yrp-col,jttl-rm,thtit-a,volp-sp,pp-last,num-xser,btit-rm,bt-rm,bkpg-x,add-pub,pre-pub,url-doi,edparc,bkedcap,ppx,ed,abr,ednx,ord,xand,eprint,url,url-blk,em-x,nfss,')
 %% ----------------------------------------
-%% *** Dissertation style for UESTC in 2024 ***
+%% *** Dissertation style for UESTC since 2024 ***
 %% 
 %% Copyright 1994-2011 Patrick W Daly
  % ===============================================================
@@ -500,7 +500,7 @@ FUNCTION {remind.format.url}
     { "http://dx.doi.org/" doi * }
   if$
   duplicate$ empty$
-    { pop$ "\textcolor{DarkRed}{[缺链接信息| url域]}" }
+    { pop$ "\textcolor{DarkRed}{[缺‘链接’信息| url域]}" }
     { "\url{" swap$ * "}" * }
   if$
 }
@@ -755,49 +755,21 @@ FUNCTION {remind.full.date}
 {
   year empty$
     { "there's no year in " cite$ * warning$
-      "\textcolor{DarkRed}{[缺年份信息| year域]}-"
+      "\textcolor{DarkRed}{[缺‘年份’信息| year域]}-"
     }
     { year "-" * }
   if$
   month empty$
     { "there's no month in " cite$ * warning$ 
-      "\textcolor{DarkRed}{[缺月份信息| month域]}-" *
+      "\textcolor{DarkRed}{[缺‘月份’信息| month域]}-" *
     }
     { month * "-" * }
   if$
   day empty$
     { "there's no day in " cite$ * warning$
-      "\textcolor{DarkRed}{[缺日期信息| day域]}" *
+      "\textcolor{DarkRed}{[缺‘日期’信息| day域]}" *
     }
     { day * }
-  if$
-}
-FUNCTION {remind.format.full.date}
-{
-  year "year" bibinfo.check duplicate$ empty$
-    { "there's no year in " cite$ * warning$
-      "\textcolor{DarkRed}{[缺年份信息| year域]}-" *
-    }
-    { "-" * }
-  if$
-  month "month" bibinfo.check duplicate$ empty$
-    { "there's no month in " cite$ * warning$ 
-      * "\textcolor{DarkRed}{[缺月份信息| month域]}-" *
-    }
-    { * "-" * }
-  if$
-  day "day" bibinfo.check duplicate$ empty$
-    { "there's no day in " cite$ * warning$
-      * "\textcolor{DarkRed}{[缺日期信息| day域]}" *
-    }
-    { * }
-  if$
-  duplicate$ empty$
-    'skip$
-    {
-      before.all 'output.state :=
-    ". " swap$ *
-    }
   if$
 }
 FUNCTION {format.btitle}
@@ -950,7 +922,7 @@ FUNCTION {format.pages}
 FUNCTION {remind.format.pages}
 {
   pages duplicate$ empty$
-    { pop$ "\textcolor{DarkRed}{[缺页码信息| pages域]}" }
+    { pop$ "\textcolor{DarkRed}{[缺‘页码’信息| pages域]}" }
     { duplicate$ multi.page.check
         {
           n.dashify
@@ -1182,7 +1154,7 @@ FUNCTION {format.org.or.pub}
 }
 FUNCTION {remind.publisher}
 { publisher duplicate$ empty$
-    { pop$ "\textcolor{DarkRed}{[缺出版者信息| publisher域]}" }
+    { pop$ "\textcolor{DarkRed}{[缺‘出版者’信息| publisher域]}" }
     'skip$
   if$
 }
@@ -1192,7 +1164,7 @@ FUNCTION {format.publisher.address}
 
 FUNCTION {remind.organization}
 { organization duplicate$ empty$
-    { pop$ "\textcolor{DarkRed}{[缺城市和国家信息| organization域]}" }
+    { pop$ "\textcolor{DarkRed}{[缺‘城市, 国家’信息| organization域]}" }
     'skip$
   if$
 }
@@ -1232,8 +1204,6 @@ FUNCTION {article}
     { format.journal.eid }
   if$
   new.block
-  % format.url output
-  % new.block
   format.note output
   format.eprint output
   fin.entry
@@ -1261,7 +1231,6 @@ FUNCTION {book}
       new.block
     }
   if$
-  %format.edition output
   edition missing$
     {skip$}
     {
@@ -1392,13 +1361,7 @@ FUNCTION {inproceedings}
   new.block
   crossref missing$
     { format.in.ed.booktitle "booktitle" output.check
-      %new.sentence
-      publisher empty$
-        { format.organization.address output }
-        { organization "organization" bibinfo.check output
-          format.publisher.address output
-        }
-      if$
+      format.organization.address output
       format.bvolume output
       format.number.series output
     }
@@ -1407,8 +1370,6 @@ FUNCTION {inproceedings}
   if$
   year ": " * remind.format.pages * "pages" output.check
   new.block
-  % format.url output
-  % new.block
   format.note output
   format.eprint output
   fin.entry
@@ -1459,7 +1420,6 @@ FUNCTION {mastersthesis}
   new.block
   format.title "[D]" * "title" output.check
   new.block
-  %bbl.mthesis format.thesis.type output.nonnull
   address "address" bibinfo.warn output
   ": " * write$
   school "school" bibinfo.warn
@@ -1485,7 +1445,6 @@ FUNCTION {phdthesis}
   format.title "[D]" *
   "title" output.check
   new.block
-  %bbl.phdthesis format.thesis.type output.nonnull
   address "address" bibinfo.warn output
   ": " * write$
   school "school" bibinfo.warn
@@ -1538,8 +1497,6 @@ FUNCTION {proceedings}
   if$
       year "year" output.check
   new.block
-  % format.url output
-  % new.block
   format.note output
   format.eprint output
   fin.entry
@@ -1554,7 +1511,7 @@ FUNCTION {news}
   remind.publisher "publisher" bibinfo.warn output
   remind.full.date "date" bibinfo.warn output write$
   number duplicate$ empty$
-    { pop$ "\textcolor{DarkRed}{[缺版号信息| number域]}" }
+    { pop$ "\textcolor{DarkRed}{[缺‘版号’信息| number域]}" }
     'skip$
   if$
   " (" swap$ * ")" *
@@ -1573,7 +1530,6 @@ FUNCTION {report}
   format.title "[R]" *
   "title" output.check
   new.block
-  %format.tr.number output.nonnull
   address "address" bibinfo.warn output
   ": " *  write$
   remind.publisher "publisher" bibinfo.warn
@@ -1607,19 +1563,9 @@ FUNCTION {patent}
   format.title ": " * number * "[P]" * "title" output.check
   new.block
   crossref missing$
-    {
-      %journal
-      %"journal" bibinfo.check
-      %"journal" output.check
-      remind.full.date "fulldate" output.check
-    }
-    { format.article.crossref output.nonnull
-    }
+    { remind.full.date "fulldate" output.check }
+    { format.article.crossref output.nonnull }
   if$
-  %eid empty$
-  %  { format.journal.pages }
-  %  { format.journal.eid }
-  %if$
   new.block
   format.url output
   new.block
@@ -1630,7 +1576,7 @@ FUNCTION {patent}
 
 FUNCTION {remind.year}
 { year duplicate$ empty$
-   { pop$ "\textcolor{DarkRed}{[缺年份信息| year域]}" }
+   { pop$ "\textcolor{DarkRed}{[缺‘年份’信息| year域]}" }
    'skip$
   if$
 }
@@ -1654,13 +1600,13 @@ FUNCTION {standard}
 
 FUNCTION {remind.modifydate}
 { modifydate duplicate$ empty$
-   { pop$ "\textcolor{DarkRed}{[缺修改日期信息| modifydate域]}" }
+   { pop$ "\textcolor{DarkRed}{[缺‘修改日期’信息| modifydate域]}" }
    'skip$
   if$
 }
 FUNCTION {remind.citedate}
 { citedate duplicate$ empty$
-   { pop$ "\textcolor{DarkRed}{[缺引用日期信息| citedate域]}" }
+   { pop$ "\textcolor{DarkRed}{[缺‘引用日期’信息| citedate域]}" }
    'skip$
   if$
 }
