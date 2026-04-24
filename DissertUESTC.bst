@@ -1610,11 +1610,17 @@ FUNCTION {remind.citedate}
    'skip$
   if$
 }
+FUNCTION {remind.type}
+{ type duplicate$ empty$
+   { pop$ "\textcolor{DarkRed}{[缺‘类型’信息| type域]}" }
+   'skip$
+  if$
+}
 FUNCTION {digital}
 { output.bibitem
   format.authors "author" output.check
   new.block
-  format.title "[" * type * "]" * "title" output.check
+  format.title "[" * remind.type * "]" * "title" output.check
   new.block
   address missing$
     { remind.modifydate "modifydate" bibinfo.warn output }

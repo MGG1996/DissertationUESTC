@@ -1666,7 +1666,6 @@ FUNCTION {standard}
   fin.entry
 }
 
-
 FUNCTION {remind.modifydate}
 { modifydate duplicate$ empty$
    { pop$ "\textcolor{DarkRed}{[缺‘修改日期’信息| modifydate域]}" }
@@ -1677,7 +1676,7 @@ FUNCTION {digital}
 { output.bibitem
   format.authors "author" output.check
   new.block
-  format.title "[" * type * "]" * "title" output.check
+  format.title "[" * remind.type * "]" * "title" output.check
   new.block
   address empty$
     { url empty$
