@@ -124,6 +124,9 @@
 \newboolean{reviewflag}
 \setboolean{reviewflag}{false}
 
+\newboolean{revisionflag}
+\setboolean{revisionflag}{false}
+
 %% 用来控制是否打印违反规范时的提醒信息
 \newboolean{usereminder}
 \setboolean{usereminder}{true}
@@ -298,6 +301,23 @@
 }
 
 
+\newcommand{\revise}[1]{%
+	\ifthenelse{\boolean{revisionflag}}%
+		{\textcolor{red}{#1}}%
+		{#1}%
+}
+
+
+
+\newenvironment{revision}{%
+	\ifthenelse{\boolean{revisionflag}}%
+		{\begingroup\color{red}}%
+		{\begingroup}%
+}{%
+	\endgroup%
+}
+
+
 \newcommand{\uestcheavyrulewidth}{1.5bp}  % 用于设置\toprule、\bottomrule默认线粗，本科0.5bp，研究生1.5bp
 \newcommand{\uestclightrulewidth}{0.75bp}  % 用于设置\midrule默认线粗，本科0.5bp，研究生0.75bp
 
@@ -316,6 +336,10 @@
 
 \DeclareOption{review}{%
 	\setboolean{reviewflag}{true}%
+}%
+
+\DeclareOption{revision}{%
+	\setboolean{revisionflag}{true}%
 }%
 
 \DeclareOption{print}{

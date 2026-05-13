@@ -520,7 +520,7 @@
 	\begin{itemize}
 		\item \shad{\% !TEX Program = xelatex}：在Texstudio中，这表示指定使用\shad{XeLaTeX}引擎编译该文档；在其他编辑器中，需要手动设置编译引擎为\shad{XeLaTeX}。
 
-		\item \shadcmd{documentclass[<选项列表>]\{DissertUESTC\}}：加载名为\shad{DissertUESTC} 的文档类，该文档类基于LaTeX的\shad{book}类编写，可设置\textbf{\textcolor{DarkRed}{八种}}选项：
+		\item \shadcmd{documentclass[<选项列表>]\{DissertUESTC\}}：加载名为\shad{DissertUESTC} 的文档类，该文档类基于LaTeX的\shad{book}类编写，可设置\textbf{\textcolor{DarkRed}{九种}}选项：
 
 		\begin{itemize}
 			\item \shad{print} / \shad{nonprint}\textcolor{DarkRed}{〔默认〕}：该选项控制是否以印刷模式生成文档，印刷模式会按印刷要求自动在论文的前置部分添加必要的空白页。
@@ -557,6 +557,15 @@
 			另外，\textcolor{DarkRed}{模板支持将\shad{review}的作用范围扩展到其他内容}。例如，送审前需要抹除“致谢”和“成果”中的个人身份信息，使用者可将相应内容置于\shadcmd{ifreview[<替换文本>]\{<原内容>\}}命令。若未指定该命令的第一项可选参数，\shad{review}选项将以两字宽的水平空白替换原内容；否则，\shad{review}选项将以指定的参数替换原内容。用户可对比以下两句话在\shad{review}选项下的区别。（2025.03.06）
 
 			\textbf{示例}：杨过的师傅是\ifreview[XXX]{小龙女}；杨过不承认师傅是\ifreview{赵志敬}。
+
+			\item \shad{revision}：该选项用于排版评审意见返回后的论文修改标注稿。启用该选项后，置于`\shadcmd{ifreview\{<修改内容>\}}`命令中的行内内容，以及置于\shad{revision}环境中的段落、节、公式等块级内容，将以红色显示；未启用该选项时，上述内容将保持正常排版。图题、表题、算法、交叉引用等内容不能通过此方式标红。该选项独立于用于盲审匿名化处理的\shad{review}选项，适合在保留作者、导师等正常论文信息的同时标出修改内容。用户可对比以下文字与公式在\shad{revision}选项下的区别。（2026.05.13）
+
+            \textbf{示例}：
+            
+			\begin{revision}
+                杨过与小龙女重逢后，心情喜悦，掌法威力有限；后来陷入生死关头，想到要与小龙女永诀，哀痛欲绝，威力才重新出现。
+                \[\text{战斗力}_{黯然销魂掌} \sim  e^{相思之苦}\]
+            \end{revision}
 			
 			\item \shad{noreminder}：默认情况下，当\textbf{“中文摘要”}和\textbf{“致谢”}的篇幅超出规范的最大页数限制时，模板（\textbf{经过两次编译后}）将在对应内容的结尾显式打印提醒信息。若使用者在知悉这些内容的长度超出规范限制后仍希望保持原样，则可使用\shad{noreminder}选项禁用提醒信息。（2025.02.22）
 			

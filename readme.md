@@ -181,7 +181,7 @@
 模板的导言区只有两行：
 1. `% !TEX Program = xelatex`在TeXstudio编辑器中表示指定使用`XeLaTeX`引擎编译该文档，对其他编辑器，可能需要手动设置编译引擎。
 
-2. `\documentclass[<选项列表>]{DissertUESTC}`表示加载名为`DissertUESTC`的文档类，该文档类基于LaTeX的`book`类编写。此文档类可设置**八种**选项：
+2. `\documentclass[<选项列表>]{DissertUESTC}`表示加载名为`DissertUESTC`的文档类，该文档类基于LaTeX的`book`类编写。此文档类可设置**九种**选项：
 
    1. `print`/`nonprint`：该选项控制是否以印刷模式生成文档，印刷模式会自动在论文的前置部分添加必要的空白页，默认为`nonprint`。
 
@@ -218,6 +218,8 @@
       :four_leaf_clover: 其实，规范并未对公式字体作强制要求，即便审查系统识别到公式字体不是Times New Roman，它也只是抛出提醒而非错误，不会造成格式审查不通过。只是实在有太多人问怎么公式字体不是Times New Roman，既然有部分同学喜欢Times New Roman，那本模板秉承兼容并包的原则，将选择权交给使用者。
 
    8. 另外，[algorithm2e](https://mirrors.sustech.edu.cn/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf)宏包的`vlined`和`boxruled`选项也可以在加载文档类时设置。
+
+   9. [**新增**]`revision`：该选项用于排版评审意见返回后的论文修改标注稿。启用该选项后，置于`\revise{<修改内容>}`命令中的行内内容，以及置于`revision`环境中的段落、节、公式等块级内容，将以红色显示；未启用该选项时，上述内容将保持正常排版。图题、表题、算法、交叉引用等内容不能通过此方式标红。该选项独立于用于盲审匿名化处理的`review`选项，适合在保留作者、导师等正常论文信息的同时标出修改内容。
 
 ## 3. 论文封面及扉页
 
