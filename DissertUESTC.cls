@@ -2357,10 +2357,12 @@
 	\addcontentsline{toc}{chapter}{\achievementtext}
 	% 调整成果章的itemize环境缩进、enumerate环境缩进及编号样式
 	\setlist[itemize,1]{
+		before=\bibfont,% 让成果清单的字号行距与参考文献保持一致
 		leftmargin=2em,
 		label=$\bullet$,
 	}
 	\setlist[enumerate,1]{
+		before=\bibfont,% 让成果清单的字号行距与参考文献保持一致
 		leftmargin=2em,
 		labelsep=0.3em,
 		label=[\arabic*],

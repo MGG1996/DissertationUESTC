@@ -1762,7 +1762,7 @@
    
 		本模板原本的实现方式是遵循学校的撰写规范，将学位论文的页码信息设置为了强制域。如果缺少该信息，使用VSCode作为编辑器时将报错而无法完成编译；TeXstudio则能跳过这种小问题继续编译，但BibTeX仍会输出错误提醒。GitHub用户\href{https://github.com/zealrussell}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{@zealrussell}}在使用VSCode撰写论文时，发现不为学位论文这类参考文献添加页码信息将无法顺利编译，遂发起了\href{https://github.com/MGG1996/DissertationUESTC/issues/7}{\color{DarkRed}\CJKunderline*[thickness=0.5bp, format=\color{DarkRed}]{Issue7}}。
 		
-		经过查阅相关文件，以及向学位办老师求证，本模板调整了此类文献的排版规则。现在，学位论文的“\shad{pages}”域将不再是强制域，缺少该信息不会再中断编译过程，但会输出警告，提醒用户某条参考文献条目缺少页码信息，见参考文献\cite{陈念永2001毫米波细胞生物效应及抗肿瘤研究无页码}。如果你使用TeXstudio，则在编译参考文献辅助文件时BibTeX会发出该警告（图\ref{fig: TeXstudio对参考文献缺失信息的提醒}）；如果你使用VSCode，则需要去检查\shad{problems}窗口输出的信息。它是按文件对警告进行分类的，你需要先定位到\shad{.bib}文件（图\ref{fig: VSCode对参考文献缺失信息的提醒}）。本模板将是否在引用学位论文时添加页码信息的选择权交予用户，但我个人仍建议各位遵循学校的规范。
+		经过查阅相关文件，以及向学位办老师求证，本模板调整了此类文献的排版规则。现在，学位论文的“\shad{pages}”域将不再是强制域，缺少该信息不会再中断编译过程，但会输出警告，提醒用户某条参考文献条目缺少页码信息，见参考文献\cite{陈念永2001毫米波细胞生物效应及抗肿瘤研究NoPages}。如果你使用TeXstudio，则在编译参考文献辅助文件时BibTeX会发出该警告（图\ref{fig: TeXstudio对参考文献缺失信息的提醒}）；如果你使用VSCode，则需要去检查\shad{problems}窗口输出的信息。它是按文件对警告进行分类的，你需要先定位到\shad{.bib}文件（图\ref{fig: VSCode对参考文献缺失信息的提醒}）。本模板将是否在引用学位论文时添加页码信息的选择权交予用户，但我个人仍建议各位遵循学校的规范。
 	\end{itemize}
 	
 	\begin{figure}[!h]
@@ -1979,6 +1979,7 @@
 	\section*{发表论文：}
 	
 	\begin{enumerate}
+		
 	    \item \textbf{作者1}, 作者2*, 作者3, 作者4. Domain decomposition method based on integral equation for solution of scattering from very thin, conducting cavity. \emph{IEEE Transactions on Antennas and Propagation}, 2014, 62(10): 5344--5348. (\textbf{CCF评级}, \underline{中科院分区}, IF: 98.8)
 	    
 		\setcounter{enumi}{98}
