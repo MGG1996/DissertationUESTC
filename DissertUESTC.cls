@@ -1834,7 +1834,7 @@
 % 重定义\chapter，支持带星号和不带星号
 \renewcommand{\chapter}{\@ifstar{\oldstarchapter}{%
 	\ifthenelse{\equal{\value{chapter}}{0} \and \equal{\value{pagereset}}{0}}%
-		{\newpage\insertevenblankpage}{}%
+		{\clearpage\newpage\insertevenblankpage}{}%
 	\@dblarg{\oldnormalchapter}% \@dblarg{\cmd} 会检查是否有可选参数：如果有（如\chapter[Short]{Long}），则调用\cmd[Short]{Long}。如果没有（如\chapter{Long}），则调用\cmd[Long]{Long}，即用必选参数填充可选参数。来自DeepSeek
 }}
 
@@ -1856,6 +1856,7 @@
 \renewcommand\sectionmark[1]{}
 
 \newcommand{\zhabstract}{%
+	\clearpage% 防止前一部分内容有未排版的浮动体，影响页码奇偶判断
 	\newpage% 这里是为了让书签能够准确定位到“摘要”所在的行
 	\insertevenblankpage% 检查“中文摘要”的前序内容是否需要补充偶数空白页
 	\pagenumbering{Roman}%
@@ -1867,6 +1868,7 @@
 	\setcounter{chineseabstractstartpage}{\rawabspageref{page: zhabstract begin}}%
 }
 \newcommand{\enabstract}{%
+	\clearpage% 防止前一部分内容有未排版的浮动体，影响页码奇偶判断
 	\newpage% 首先是为了分页以便准确判断奇偶页，再者为了让书签能够准确定位
 	\insertevenblankpage% 检查“英文摘要”的前序内容是否需要补充偶数空白页
 	\pdfbookmark[0]{ABSTRACT}{bookmarkabstract\thepage}%
@@ -1925,6 +1927,7 @@
 
 \let\oldtableofcontents\tableofcontents
 \renewcommand{\tableofcontents}{%
+	\clearpage% 防止前一部分内容有未排版的浮动体，影响页码奇偶判断
 	\newpage% 首先是为了分页以便准确判断奇偶页，再者为了让书签能够准确定位
 	\insertevenblankpage% 检查“目录”的前序内容是否需要补充偶数空白页
 	\pdfbookmark[0]{\uestctocname}{bookmarktoc\thepage}%
@@ -1942,6 +1945,7 @@
 	\setlength{\cftfigindent}{0em}% 取消图目录条目左边距
 	\addtolength{\cftfignumwidth}{\uestclofnumwidth}% 调整图目录条目悬挂缩进量
 	\renewcommand{\cftdotsep}{0.8}% 调整页码前导航线的疏密
+	\clearpage% 防止前一部分内容有未排版的浮动体，影响页码奇偶判断
 	\newpage% 首先是为了分页以便准确判断奇偶页，再者为了让书签能够准确定位
 	\insertevenblankpage% 检查“图目录”的前序内容是否需要补充偶数空白页
 	\pdfbookmark[0]{\uestclofname}{bookmarklof\thepage}%
@@ -1956,6 +1960,7 @@
 	\setlength{\cfttabindent}{0em}  % 取消表目录条目左边距，参考tocloft宏包文档
 	\addtolength{\cfttabnumwidth}{\uestclotnumwidth}% 调整表目录条目悬挂缩进量
 	\renewcommand{\cftdotsep}{0.8}% 调整页码前导航线的疏密
+	\clearpage% 防止前一部分内容有未排版的浮动体，影响页码奇偶判断
 	\newpage% 首先是为了分页以便准确判断奇偶页，再者为了让书签能够准确定位
 	\insertevenblankpage%
 	\pdfbookmark[0]{\uestclotname}{bookmarklot\thepage}%
@@ -1966,6 +1971,7 @@
 
 %%%%%% 主要符号表
 \newcommand{\listofsymbs}{%
+	\clearpage% 防止前一部分内容有未排版的浮动体，影响页码奇偶判断
 	\newpage% 首先是为了分页以便准确判断奇偶页，再者为了让书签能够准确定位
 	\insertevenblankpage% 检查“主要符号表”的前序内容是否需要补充偶数空白页
 	\pdfbookmark[0]{\uestclosname}{bookmarklistofsymbs\thepage}%
@@ -2001,6 +2007,7 @@
 %%% 重定义缩略词表打印命令，加入书签，并设置单面印刷
 \let\oldprintnomenclature\printnomenclature
 \RenewDocumentCommand{\printnomenclature}{O{5em} D(){7.5em}}{{% 多加一层{}限制\longtableprop的作用域
+	\clearpage% 防止前一部分内容有未排版的浮动体，影响页码奇偶判断
 	\newpage% 首先是为了分页以便准确判断奇偶页，再者为了让书签能够准确定位
 	\insertevenblankpage% 检查“缩略词表”的前序内容是否需要补充偶数空白页
 	\markboth{\uestcloaname}{\uestcloaname}%
