@@ -80,7 +80,8 @@ This template is developed based on:
 * [关于启动2021级本科毕业设计（论文）工作的通知（Release date: 2024.10.09）](https://www.sice.uestc.edu.cn/info/1140/14689.htm)
 * [交叉复合型毕业设计（Release date: 2022.03.25）](https://www.jwc.uestc.edu.cn/info/1507170256521551874)
 
-and is targeted for: 
+and is targeted for:
+> [!NOTE]
 > :white_check_mark: Academic Doctor :mortar_board: , Professional Doctor :mortar_board:
 > 
 > :white_check_mark: Academic Master :mortar_board: , Professional Master :mortar_board:
@@ -90,6 +91,9 @@ and is targeted for:
 > :white_check_mark: **International Students（2025.01.07 added）** :mortar_board:
 
 Users should possess basic LaTeX typesetting skills to work with this template. This document does not cover the usage of common LaTeX commands and environments. For complete beginners, I recommend first reviewing [The Not So Short Introduction to LATEX2ε](https://ctan.math.utah.edu/ctan/tex-archive/info/lshort/english/lshort.pdf)，which will give you the basic understanding needed to comfortably work with the template.
+
+> [!TIP]
+> **Video introduction:** https://www.bilibili.com/video/BV18MEx6BEnv
 
 Additionally, sections explicitly labeled as "**Bachelor only**", "**Graduate Students only**", or "**Professional Degree Students only**" in this document and the `tutorial.tex` example file should be used exclusively by the respective students. You must comment out or delete any content that does not apply to your specific degree.
 
@@ -108,9 +112,26 @@ The development and testing environment for this template is `TeXLive2024 + TeXs
 * If using the TeXstudio editor, no additional settings are required: the `tutorial.tex` file has set `% !TEX Program = xelatex` on the first line, which specifies that the document is compiled using the `XeLaTeX` engine.
 * The above command is not recognized by the VSCode editor and Overleaf, so you need to set the compilation engine to `XeLaTeX` yourself.
 
-In order to ensure that it compiles exactly the same on Windows, macOS, Overleaf, etc., the template has all the font files used built-in, which results in a project size that exceeds Overleaf's limit for uploading zip archives. Therefore, Overleaf users need to do another operation: :bulb: **First, create a new empty project on Overleaf, then unzip this template and drag and drop files and folders into the newly created project**. :exclamation: **<font color=#8b0000>Remember to select TeXLive 2024 in the website**; after testing, it was found that the online TeXLive 2025 cannot generate the correct headers for `List of Symbols` and `Table of Abbreviations` at present, with the reason remaining unknown</font>. However, local TeXLive versions 2024 and above do not have any issues!
+In order to ensure that it compiles exactly the same on Windows, macOS, Overleaf, etc., the template has all the font files used built-in, which results in a project size that exceeds Overleaf's limit for uploading zip archives. Therefore, Overleaf users need to do another operation: :bulb: **First, create a new empty project on Overleaf, then unzip this template and drag and drop files and folders into the newly created project**.
 
-**Reminder**: **<font color=#8b0000>Overleaf seems to have recently tightened the compilation time limit for regular accounts</font>**, and the template requires 4 complete compilations to establish acronyms and cross-references. Therefore, regular accounts may experience compilation timeouts on Overleaf. So: <font color=#8b0000>1) Either, set up your own local environment, which is the most reliable. 2) Alternatively, upgrade to an Overleaf premium account. 3) Or, use a third-party Overleaf platform</font>, and here is one recommended: [OnlineLaTeX](https://www.onlinelatex.com/home/). If you want to use Overleaf but neither want to upgrade to a premium account nor use a third-party platform, you can only use the method provided by [@note286](https://github.com/note286): **<font color=#8b0000>Create a new file named `latexmkrc` in the template root directory, with the content `$max_repeat = 1;`</font>**. The principle is to allow Overleaf to perform only a single XeLaTeX compilation after each compilation button click, instead of the default multiple compilations. As long as the duration of a single compilation does not exceed the limit, it will be used normally. The cost is that <font color=#8b0000>users need to manually compile 3 times to generate the `Abbreviations` and 4 times to establish cross-references</font>. From the date of adding this reminder, template releases will be divided into regular and Overleaf special versions, **the latter providing the `latexmkrc` file, specifically for users who want to use the official Overleaf without upgrading to a premium account**. （2026.01.03）
+> [!IMPORTANT]
+> **<font color=#8b0000>Remember to select TeXLive 2024 in the website**; after testing, it was found that the online TeXLive 2025 cannot generate the correct headers for `List of Symbols` and `Table of Abbreviations` at present, with the reason remaining unknown</font>.
+> 
+> Local TeXLive versions 2024 and above do not have any issues!
+
+> [!NOTE]
+> **<font color=#8b0000>Overleaf seems to have recently tightened the compilation time limit for regular accounts</font>**, and the template requires 4 complete compilations to establish acronyms and cross-references. Therefore, regular accounts may experience compilation timeouts on Overleaf. So:
+> * Either, set up your own local environment, which is the most reliable.
+> * Alternatively, upgrade to an Overleaf premium account.
+> * Or, use a third-party Overleaf platform</font>, and here is one recommended: [OnlineLaTeX](https://www.onlinelatex.com/home/).
+> 
+> If you want to use Overleaf but neither want to upgrade to a premium account nor use a third-party platform, you can only use the method provided by [@note286](https://github.com/note286): **<font color=#8b0000>Create a new file named `latexmkrc` in the template root directory, with the content `$max_repeat = 1;`</font>**.
+> 
+> The principle is to allow Overleaf to perform only a single XeLaTeX compilation after each compilation button click, instead of the default multiple compilations. As long as the duration of a single compilation does not exceed the limit, it will be used normally.
+> 
+> The cost is that <font color=#8b0000>users need to manually compile 3 times to generate the `Abbreviations` and 4 times to establish cross-references</font>.
+> 
+> From the date of adding this reminder, template releases will be divided into regular and Overleaf special versions, **the latter providing the `latexmkrc` file, specifically for users who want to use the official Overleaf without upgrading to a premium account**. （2026.01.03）
 
 
 
@@ -129,7 +150,9 @@ In addition, it cannot be ruled out that there may be some omissions in the deta
 
 :bulb: The correct way to update your template is to download the latest complete `.zip` file, extract it, and replace the original files and directories with your own `.bib` and `.tex` files, as well as the `fig` directory in the template.
 
-:+1: The more recommended update method is: **<font color=#8b0000>when using this template for the first time, modify the file names of the `.tex` and `.bib` files (don't forget the `.bib` file name set by `\bibliography{}` in the `.tex` file). Subsequently, just download the latest template and copy all its contents to the directory where your thesis is located to replace it</font>**.
+>[!TIP]
+> **The more recommended update method is:**
+> **<font color=#8b0000>when using this template for the first time, modify the file names of the `.tex` and `.bib` files (don't forget the `.bib` file name set by `\bibliography{}` in the `.tex` file). Subsequently, just download the latest template and copy all its contents to the directory where your thesis is located to replace it</font>**.
 
 
 ### 1.5 Reasons for Developing this Template
@@ -215,9 +238,17 @@ The template's preamble area has only two lines:
      
       Users who want to use Times New Roman fonts for all formulas can use the `timesmath` option. The latter two options are based on the [mathspec](https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf) macro package. In my limited testing practice, only it can achieve Times New Roman in the true sense. (2025.01.31)
      
-      :exclamation: Because of the characteristics of the [mathspec](https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf) macro package itself, using Times New Roman as the formula font requires more effort. For example, if you want to typeset `$f^t$`, you will find that the space between `f` and `t` is very small and the two overlap. At this time, you need to manually insert a space with `"`, that is, `$f^{"t}$`. Therefore, both the `timesmathnogreek` and `timesmath` options have similar flaws. Please carefully read the [mathspec](https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf) macro package documentation.
+      > [!CAUTION]
+      > Because of the characteristics of the [mathspec](https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf) macro package itself, using Times New Roman as the formula font requires more effort.
+      > 
+      > For example, if you want to typeset `$f^t$`, you will find that the space between `f` and `t` is very small and the two overlap. At this time, you need to manually insert a space with `"`, that is, `$f^{"t}$`.
+      >
+      > Both the `timesmathnogreek` and `timesmath` options have similar flaws. Please carefully read the [mathspec](https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf) macro package documentation.
      
-      :four_leaf_clover: In fact, the specification does not impose mandatory requirements on the font of formulas. Even if the format review system recognizes that the font of the formula is not Times New Roman, it will only throw a reminder instead of an error, and will not cause the format review to fail. It’s just that too many people ask why the font of the formula is not Times New Roman. Since some students like Times New Roman, this template adheres to the principle of inclusiveness and gives the user the right to choose.
+      > [!NOTE]
+      > In fact, the specification does not impose mandatory requirements on the font of formulas. Even if the format review system recognizes that the font of the formula is not Times New Roman, it will only throw a reminder instead of an error, and will not cause the format review to fail.
+      > 
+      > It’s just that too many people ask why the font of the formula is not Times New Roman. Since some students like Times New Roman, this template adheres to the principle of inclusiveness and gives the user the right to choose.
 
    8. Alternatively, the `vlined` and `boxruled` options of the [algorithm2e](https://mirrors.sustech.edu.cn/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf) package can be set when loading the document class.
 
@@ -225,7 +256,10 @@ The template's preamble area has only two lines:
 
 This part mainly fills in the content of the thesis cover and title page through the various commands provided by the template.
 
-When submitting for review, you only need to leave the corresponding command parameters in this section blank to generate a cover and title page with empty positions. :warning: **<font color=#8b0000>Note that leaving the parameters blank means `{}`, not completely deleting them</font>**.
+When submitting for review, you only need to leave the corresponding command parameters in this section blank to generate a cover and title page with empty positions.
+
+> [!CAUTION]
+> **<font color=#8b0000>Note that leaving the parameters blank means `{}`, not completely deleting them</font>**.
 
 Of course, **a more convenient way is to use the `review` option of the document class**, which can hide personal identity information without adjusting the command parameter settings. If you want to hide other information, you need to leave the corresponding parameter blank. (2024.12.15)
 
@@ -235,11 +269,12 @@ For confidential thesis, you can use the `\setconfidential(<the distance between
 
 This command provides two optional parameters to adjust the placement and font format of this information when necessary. The default values ​​are `18cm,2cm` and `\zihao{4}\bfseries`. This command must be used before the `\uestccover` command to take effect.
 
-:warning: **<font color=#8b0000>Use confidentiality labels with caution!!! Students should not arbitrarily classify their theses as confidential</font>**, and they must obtain relevant approval.
+> [!WARNING]
+> **<font color=#8b0000>Use confidentiality labels with caution!!! Students should not arbitrarily classify their theses as confidential</font>**, and they must obtain relevant approval.
 
 ### 3.2 Cover
 
-To generate a correct thesis cover, you must first specify the corresponding `doctor`/`prodoctor`/`intdoctor`/`ipdoctor`/`master`/`promaster`/`intmaster`/`ipmaster`/`bachelor`/`doublebachelor` options correctly in the document class.
+To generate a correct thesis cover, you must first specify the corresponding `doctor` / `prodoctor` / `intdoctor` / `ipdoctor` / `master` / `promaster` / `intmaster` / `ipmaster` / `bachelor` / `doublebachelor` options correctly in the document class.
 
 #### 3.2.1 Cover of Thesis Other Than "Double Degree Bachelor"
 
@@ -253,13 +288,17 @@ According to feedback, the full names of some schools are too long, which will c
 
 Remember, :warning: **only supports two lines at most**. If there are really schools with names longer than two lines in UESTC, I'm sorry, this template cannot generate a perfect cover for you. Especially for bachelor theses, school names with three or more lines will definitely overlap with the content below; and for graduate theses, although there is no problem of overlapping with the text below, the last line of the school name will definitely break through the page boundary, causing the entire page to look inconsistent from top to bottom. For such users, if you are willing to use this template to write other content, you can finally use the official Word document provided by UESTC to generate the thesis cover, and then replace it. Apart from this, I can't think of any other more convenient and less error-prone solutions. (2024.12.10)
 
-:exclamation: Note: **The order of the parameters in the `\uestccover` command is designed based on the cover page of a graduate thesis. The content layout of a bachelor thesis cover page is different**. **<font color=#8b0000>Bachelors must fill in the order required by the command, rather than looking at the cover page sample pdf</font>**.
+> [!CAUTION]
+> **The order of the parameters in the `\uestccover` command is designed based on the cover page of a graduate thesis. The content layout of a bachelor thesis cover page is different**.
+> 
+> **<font color=#8b0000>Bachelors must fill in the order required by the command, rather than looking at the cover page sample pdf</font>**.
 
 #### 3.2.2 Cover of "Double Degree Bachelor" Thesis
 
 To generate a thesis cover for the Double Degree Bachelor, use: `\uestccover{<thesis title>}{<school>}{<first major>}{<second major>}{<student number>}{<author name>}{<first supervisor and title>}{<second supervisor and title>}`. (2025.04.21)
 
-:exclamation: **Note that the above command is different from the definition used by other paper types. <font color=#8b0000>There are 8 mandatory parameters, no optional parameters, and the order and meaning of the parameters are also different</font>.** Please use it carefully.
+> [!CAUTION]
+> **Note that the above command is different from the definition used by other paper types. <font color=#8b0000>There are 8 mandatory parameters, no optional parameters, and the order and meaning of the parameters are also different</font>.** Please use it carefully.
 
 ### 3.3 Chinese Title Page (Graduate Students only)
 
@@ -297,7 +336,10 @@ To generate a declaration of originality, use the command: `\declaration[<signat
 
 All signature images need to be placed in the `./fig/` subdirectory of the project directory.
 
-The original intention of this command is to allow users to use electronic signatures on the originality declaration page to avoid the page being crooked after being scanned and replaced in the electronic file, which affects the appearance. :exclamation: However, I heard that theses uploaded to the database must be signed by hand, but I don’t know if it is really so strict. If so, just leave all mandatory parameters blank `{}` to generate the original originality declaration page.
+The original intention of this command is to allow users to use electronic signatures on the originality declaration page to avoid the page being crooked after being scanned and replaced in the electronic file, which affects the appearance.
+
+> [!NOTE]
+> I heard that theses uploaded to the database must be signed by hand, but I don’t know if it is really so strict. If so, just leave all mandatory parameters blank `{}` to generate the original originality declaration page.
 
 ## 5. Chinese and English Abstracts
 
@@ -305,7 +347,9 @@ To generate a **`Chinese Abstract`**, you must first use `\zhabstract`, and then
 
 To generate a **`English Abstract`**, you must first use `\enabstract`, and then continue to append content. For **`English keywords`**, use `\enkeywords{<English keywords>}`.
 
-:exclamation: **<font color=#8b0000>The revised graduate thesis writing standard on September 3, 2025 has changed to use `;` to separate keywords; The writing standards for (double degree) bachelor's theses have not been adjusted, and the keywords are still separated by `,`.</font>**
+> [!NOTE]
+> **<font color=#8b0000>The revised graduate thesis writing standard on September 3, 2025 has changed to use `;` to separate keywords; 
+> The writing standards for (double degree) bachelor's theses have not been adjusted, and the keywords are still separated by `,`.</font>**
 
 ## 6. Table of Contents, List of Figures, List of Tables, List of Symbols, Table of Abbreviations
 
@@ -376,7 +420,11 @@ Use the corresponding command at the corresponding position in the document:
           ],
           ```
 
-        * :bulb: Overleaf users can do it with one click without additional operations. :warning: Please note, **<font color=#8b0000>Overleaf users should select the 2024 version of TeXLive on the website</font>**. I have personally tested that the TeXLive 2025 version on Overleaf cannot correctly compile the headers for the **`List of Symbols`** and **`Table of Abbreviations`** at present. Local users should only ensure that their TeXLive version is at least 2024, and there should be no issues.
+        * :bulb: Overleaf users can do it with one click without additional operations.
+          > [!CAUTION]
+          > **<font color=#8b0000>Overleaf users should select the 2024 version of TeXLive on the website</font>**. I have personally tested that the TeXLive 2025 version on Overleaf cannot correctly compile the headers for the **`List of Symbols`** and **`Table of Abbreviations`** at present.
+          >
+          > Local users should only ensure that their TeXLive version is at least 2024, and there should be no issues.
 
 
 ## 7. Main Body of the Thesis
@@ -414,13 +462,21 @@ The figure files to be typeset need to be placed in the project directory `./fig
 
 ### 7.4 Tables
 
-**Note**: Due to some implementation issues, for any table that is **determined to be non-bottom layout**, when the user specifies the optional layout mode through the table environment options, :warning: **<font color=#8b0000>do not provide the `b` mode</font>**, otherwise the top spacing of the table will be too narrow; conversely, for the first table **determined to be bottom layout** on a page, the user needs to :warning: **<font color=#8b0000>explicitly specify `b` or `!b` in the options</font>**, otherwise the top spacing of the table will be too wide.
+> [!CAUTION]
+> Due to some implementation issues, for any table that is **determined to be non-bottom layout**, when the user specifies the optional layout mode through the table environment options, :warning: **<font color=#8b0000>do not provide the `b` mode</font>**, otherwise the top spacing of the table will be too narrow;
+> 
+> Conversely, for the first table **determined to be bottom layout** on a page, the user needs to :warning: **<font color=#8b0000>explicitly specify `b` or `!b` in the options</font>**, otherwise the top spacing of the table will be too wide.
 
 If unexpected situations occur, users can adjust the upper and lower spacing by inserting `\vspace*{<length>}` after the start and before the end of the `table` environment to make it look coordinated.
 
 #### 7.4.1 Ordinary Tables
 
-There is no need to explain the layout of ordinary tables. You can use the `table` + `tabular` environment, but please note: the three lines in the three-line table need to use `\toprule`, `\midrule`, and `\bottomrule` respectively, so as to meet the requirements of the graduate standard for line thickness (`1.5` pounds, `0.75` pounds, and `1.5` pounds). Be careful **not to use `\hline`**. For undergraduates, the bachelor's degree thesis standard requires that the line thickness in the table be unified to `0.5` pounds. Therefore, under the bachelor and doublebachelor options, the line thickness of `\toprule`, `\midrule`, `\bottomrule`, and `\cmidrule` are all set to `0.5` pounds. (2025.05.01)
+There is no need to explain the layout of ordinary tables. You can use the `table` + `tabular` environment.
+
+> [!CAUTION]
+> The three lines in the three-line table need to use `\toprule`, `\midrule`, and `\bottomrule` respectively, so as to meet the requirements of the graduate standard for line thickness (`1.5` pounds, `0.75` pounds, and `1.5` pounds), **not to use `\hline`**.
+>
+> For undergraduates, the bachelor's degree thesis standard requires that the line thickness in the table be unified to `0.5` pounds. Therefore, under the bachelor and doublebachelor options, the line thickness of `\toprule`, `\midrule`, `\bottomrule`, and `\cmidrule` are all set to `0.5` pounds. (2025.05.01)
 
 When you need to add horizontal borders to some cells in a table, you should use `\cmidrule[<line thickness>](<trim>){<start column-end column>}` <font color=#8b0000>instead of</font> `\cline{<start column-end column>}`. The latter does not seem to be able to adjust the line thickness or trim the endpoints of the border.
 
@@ -439,13 +495,14 @@ What needs to be explained is how to generate a table with notes. This template 
 1. Use `\tnote{<label>}` to insert superscript numbers in a table;
 2. Use the `tablenotes` environment to typeset notes at the bottom of a table. This environment provides the option `online` for changing the numbering style before the note text from the default superscript style to the inline style.
 
-:four_leaf_clover: The annotated table typesetted with the above method cannot jump to the corresponding note by clicking the number in the table. To this end, this template provides the commands `\puttablenotelabel{<label>}` and `\tablenoteref{<label>}` to achieve this operation (2025.01.05):
-
-* First replace the manually set number in the `tablenotes` environment with `\puttablenotelabel{<label>}`;
-
-* Then use `\tablenoteref{<label>}` at the corresponding position of the table content. The number will be automatically generated and incremented in the order of using `\puttablenotelabel`.
-
-This method requires cross-references, so you usually have to compile twice. Remember, :warning: **<font color=#8b0000>labels must be unique throughout the document</font>**.
+> [!TIP]
+> The annotated table typesetted with the above method cannot jump to the corresponding note by clicking the number in the table. To this end, this template provides the commands `\puttablenotelabel{<label>}` and `\tablenoteref{<label>}` to achieve this operation (2025.01.05):
+>
+> * First replace the manually set number in the `tablenotes` environment with `\puttablenotelabel{<label>}`;
+>
+> * Then use `\tablenoteref{<label>}` at the corresponding position of the table content. The number will be automatically generated and incremented in the order of using `\puttablenotelabel`.
+>
+> This method requires cross-references, so you usually have to compile twice. Remember, :warning: **<font color=#8b0000>labels must be unique throughout the document</font>**.
 
 #### 7.4.3 Cross-page Tables
 
@@ -453,7 +510,8 @@ In principle, tables that are less than one page long should not span across pag
 
 This template provides the command `\CPcaption{<total number of table columns>}{<table title>}` to correctly typeset the table title after page acrossing. **Please be sure to use this command**, otherwise the table title after page acrossing will use the same line and paragraph spacings as the table content, rather than being consistent with the format required by the specification; and when the length of the table title exceeds the table width, the expected typesetting result cannot be produced. (2025.01.05)
 
-In addition, :warning: **<font color=#8b0000>The `longtable` environment should not be nested in a floating environment such as `table`</font>**, otherwise the long table will not span across pages normally.
+> [!CAUTION]
+> **<font color=#8b0000>The `longtable` environment should not be nested in a floating environment such as `table`</font>**, otherwise the long table will not span across pages normally.
 
 For more details, refer to the corresponding source code in `tutorial.tex`.
 
@@ -472,7 +530,10 @@ The idea is to use the table footer customization function provided by `longtabl
 * The fifth mandatory parameter is responsible for setting the label corresponding to the note number so that it can be referenced in the table using `\tablenoteref{}` later. <font color=#8b0000>The label also needs to be unique throughout the document</font>;
 * The sixth mandatory parameter corresponds to the actual content of the note.
 
-:warning: Note: The prerequisite for using the `\tablenotetext` command is to set the first column of the table specifically. The user **<font color=#8b0000>must manually set the width of the first column of the `longtable` through `p{<length>}` or `m{<length>}`, instead of `c`, `r`, or `l`</font>**. In addition, the last `\tablenotetext` in the table does not need `\\` followed, otherwise the space between the end of the table and the text below will be too large.
+> [!CAUTION]
+> The prerequisite for using the `\tablenotetext` command is to set the first column of the table specifically. The user **<font color=#8b0000>must manually set the width of the first column of the `longtable` through `p{<length>}` or `m{<length>}`, instead of `c`, `r`, or `l`</font>**.
+> 
+> In addition, the last `\tablenotetext` in the table does not need `\\` followed, otherwise the space between the end of the table and the text below will be too large.
 
 There may be an extreme case: a page break occurs at the beginning of a note when the table spans across pages, which will produce an unwanted typesetting result. To solve this problem, the user has to manually use the `\pagebreak` command provided by the [longtable](https://mirrors.tuna.tsinghua.edu.cn/CTAN/macros/latex/required/tools/longtable.pdf) macro package to break the page in advance at the appropriate position of the table content, at the cost of more blank space at the bottom of the previous page. If you are particularly unlucky, the note is particularly long, and a page break occurs in the middle of the note, then I really can't do anything. :scream: :scream: 。
 
@@ -518,10 +579,12 @@ The `\subeqtag[<number label>]` command provided by this template completely avo
 
 If you need to refer to a sub-formula number in the text, you can use `\label{<number label>}` after `\subeqtag` as usual, or you can directly specify the optional parameter `\subeqtag[<sub-formula number label>]`, which is very user-friendly. For details, please refer to the examples given in `tutorial.tex`.
 
-:pushpin: There are two points to remind you:
-1. The optional parameter of `\subeqtag[<number label>]` cannot be dumplicated as it is essentially a call to `\label{<number label>}`.
-
-2. Although `\subeqtag[<number label>]` calls `\label{<number label>}` to add labels, the TeXstudio editor does not pop up the options for these labels when using `\ref{<number label>}` or `\eqref{<number label>}`, and they need to be entered manually; while the labels specified directly with `\label{<number label>}` will appear in the option prompt when citing, and can be directly selected. This is the inconvenience of `\subeqtag[<number label>]` after accepting optional parameters, but unfortunately I don't know how to solve it. :sob: :sob:
+> [!IMPORTANT]
+> **Two reminders:**
+> 1. The optional parameter of `\subeqtag[<number label>]` cannot be dumplicated as it is essentially a call to `\label{<number label>}`.
+>
+> 2. Although `\subeqtag[<number label>]` calls `\label{<number label>}` to add labels, the TeXstudio editor does not pop up the options for these labels when using `\ref{<number label>}` or `\eqref{<number label>}`, and they need to be entered manually; while the labels specified directly with `\label{<number label>}` will appear in the option prompt when citing, and can be directly selected.
+> This is the inconvenience of `\subeqtag[<number label>]` after accepting optional parameters, but unfortunately I don't know how to solve it. :sob: :sob:
 
 
 ### 7.9 Typesetting and Fine-tuning Mathematical Formulas
@@ -780,7 +843,8 @@ The most labor-intensive part of generating a bibliography is maintaining the co
 \bibliography{<.bib file name, defaults to "ref">}
 ```
 
-:warning: **Important reminder: <font color=#8b0000>The sample document uses the command `\nocite{*}` before the above command, which is used to list all references winthin the `.bib` database in the reference list for use as an example. Therefore, when you write your thesis, you must make sure that this command is commented out! ! !</font>**
+> [!IMPORTANT]
+> **<font color=#8b0000>The sample document uses the command `\nocite{*}` before the above command, which is used to list all references winthin the `.bib` database in the reference list for use as an example. Therefore, when you write your thesis, you must make sure that this command is commented out! ! !</font>**
 
 Although graduate and bachelor theses have different requirements for the typesetting style of references, **<font color=#8b0000>once the user specifies the thesis type through the document class option at the beginning, the template will automatically determine and apply the corresponding `.bst` style file</font>**, without the need to use `\bibliographystyle{<.bst file name>}` to explicitly set it. (2025.03.12)
 
@@ -789,11 +853,11 @@ Although graduate and bachelor theses have different requirements for the typese
 1. For some references that lack non-essential information, the `.bst` file provided by this template can still be processed correctly. For example, the journal article [3] in the figure above lacks the volume information, but it can still only typeset the number information, which is in compliance with the standard. For another example, reference [10] lacks information such as **the place of publication** and **publisher** compared to reference [9], but it can still be typeset normally; but please note that [10] is already the simplest form of this type of reference and no more information can be missing.
 The original `bib` data exported from the website is prone to missing certain mandatory fields. The template will highlight these fields in the compiled reference list. **Please be sure to supplement the necessary bib information according to the highlighted results**. (2026.04.22)
 
-2. For Chinese references, if you want to display the fourth and subsequent authors as `“等”`, you must add the `language={}` field to their bib entries and set the value to `schinese`. This is the only basis for the compilation engine to determine whether the reference is in Chinese. Similarly, `“等译”` and `“2版”` in [7] above are both achieved by setting `language={schinese}`. My suggestion is that although the `language` field is not mandatory, it is best to add it for Chinese references.
+1. For Chinese references, if you want to display the fourth and subsequent authors as `“等”`, you must add the `language={}` field to their bib entries and set the value to `schinese`. This is the only basis for the compilation engine to determine whether the reference is in Chinese. Similarly, `“等译”` and `“2版”` in [7] above are both achieved by setting `language={schinese}`. My suggestion is that although the `language` field is not mandatory, it is best to add it for Chinese references.
 
-3. There are many types of electronic documents, so users need to explicitly specify their specific types through the `type={}` field, such as [9] and [10] in the figure above; for other document types, as long as the correct type identifier is entered after the `@` symbol, the corresponding type label will be automatically generated without the need to add them manually one by one.
+2. There are many types of electronic documents, so users need to explicitly specify their specific types through the `type={}` field, such as [9] and [10] in the figure above; for other document types, as long as the correct type identifier is entered after the `@` symbol, the corresponding type label will be automatically generated without the need to add them manually one by one.
 
-4. The reference type that needs special explanation is `mastersthesis/phdthesis`, that is, thesis. The specifications state that the reference typesetting should follow the national standard [GB/T 7714-2015](https://lib.tsinghua.edu.cn/wj/GBT7714-2015.pdf). In this national standard, page number information is not required for citations to degree thesis. However, **the specifications of UESTC clearly add page number information for citations to degree thesis**. For this reason, I asked the relevant teachers in the degree office, and the answer I got was roughly: "I looked through the theses of students from the School of Information and Communication at hand, and they wrote page number information. But this requirement is not so strict. It will not mean that you will not be able to pass the review if you don't write it. There has been no situation in the past years where the reviewers are strict with this. The quality of the degree thesis is not judged by this, but we still recommend writing it here."（2025.01.02）
+3. The reference type that needs special explanation is `mastersthesis/phdthesis`, that is, thesis. The specifications state that the reference typesetting should follow the national standard [GB/T 7714-2015](https://lib.tsinghua.edu.cn/wj/GBT7714-2015.pdf). In this national standard, page number information is not required for citations to degree thesis. However, **the specifications of UESTC clearly add page number information for citations to degree thesis**. For this reason, I asked the relevant teachers in the degree office, and the answer I got was roughly: "I looked through the theses of students from the School of Information and Communication at hand, and they wrote page number information. But this requirement is not so strict. It will not mean that you will not be able to pass the review if you don't write it. There has been no situation in the past years where the reviewers are strict with this. The quality of the degree thesis is not judged by this, but we still recommend writing it here."（2025.01.02）
    
    The original implementation of this template was to follow the writing standards and set the page number information of the thesis as a mandatory field. If this information is missing, an error will be reported when using VSCode as an editor and the compilation will not be completed; TeXstudio can skip this minor problem and continue compiling, but BibTeX will still output an error reminder. GitHub user [@zealrussell](https://github.com/zealrussell) found that if he did not add page number information for thesis references, the compilation would not proceed when writing the thesis using VSCode, so he initiated an issue.
    
@@ -820,11 +884,16 @@ To generate an **Achievement** chapter, use `\achievement`, and then edit the co
 
 First, use the command `\originalliterature{<foreign title>}{<foreign author>}` to generate the beginning of this part.
 
-The headings in this part should be typesetted using the commands encapsulated by the template: `\Section{}`, `\Subsection{}`, `\Subsubsection{}`. Note that their first letters are capitalized; in addition, **<font color=#8b0000>do not use any chapter commands</font>**. These new commands will generate automatically numbered headings, and will not be inserted into the table of contents or bookmarks. If you use the native LaTeX commands with lowercase first letters, the corresponding content will appear in the table of contents and bookmarks.
+> [!IMPORTANT]
+> The headings in this part should be typesetted using the commands encapsulated by the template: `\Section{}`, `\Subsection{}`, `\Subsubsection{}`. Note that their first letters are capitalized; in addition, **<font color=#8b0000>do not use any chapter commands</font>**.
 
-When typeset figures and tables in this part, use `\captionsetup{list=no}` inside the `figure` and `table` environments to prevent the corresponding figure and table captions from appearing in the list of figures and tables.
+These new commands will generate automatically numbered headings, and will not be inserted into the table of contents or bookmarks. If you use the native LaTeX commands with lowercase first letters, the corresponding content will appear in the table of contents and bookmarks.
 
-In this part, the **`definition`, `axiom`, `theorem`, `proposition`, `corollary`, `lemma`, `example`**, and **`assumption`** correspond to the environments with **<font color=#8b0000>capital first letters</font>**: `Definition`, `Axiom`, `Theorem`, `Proposition`, `Corollary`, `Lemma`, `Example`, `Assumption`, `Annotation`. The `proof` environment remains unchanged.
+> [!IMPORTANT]
+> When typeset figures and tables in this part, use `\captionsetup{list=no}` inside the `figure` and `table` environments to prevent the corresponding figure and table captions from appearing in the list of figures and tables.
+
+> [!IMPORTANT]
+> In this part, the **`definition`, `axiom`, `theorem`, `proposition`, `corollary`, `lemma`, `example`**, and **`assumption`** correspond to the environments with **<font color=#8b0000>capital first letters</font>**: `Definition`, `Axiom`, `Theorem`, `Proposition`, `Corollary`, `Lemma`, `Example`, `Assumption`, `Annotation`. The `proof` environment remains unchanged.
 
 For more details, see the `tutorial.tex` example document.
 

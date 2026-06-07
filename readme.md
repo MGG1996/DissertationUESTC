@@ -82,6 +82,7 @@
 * [交叉复合型毕业设计（发布时间：2022.03.25）](https://www.jwc.uestc.edu.cn/info/1507170256521551874)
 
 适用对象包括：
+> [!NOTE]
 > :white_check_mark: 学术学位博士 :mortar_board: 、专业学位博士 :mortar_board:
 > 
 > :white_check_mark: 学术学位硕士 :mortar_board: 、专业学位硕士 :mortar_board:
@@ -92,25 +93,44 @@
 
 使用本模板需要掌握基本的LaTeX排版操作，本文档不会阐述如何使用常见的LaTeX命令和环境。如果你是纯新手，那可以先看看[一份（不太）简短的LaTeX2ε介绍](https://ctan.math.utah.edu/ctan/tex-archive/info/lshort/chinese/lshort-zh-cn.pdf)，它足以帮助你建立起基本概念，进而顺利使用本模板。
 
+> [!TIP]
+> 模版视频介绍：https://www.bilibili.com/video/BV18MEx6BEnv
+
 另外，本文档及`tutorial.tex`示例文档中**明确标注了`仅学士`、`仅研究生`或`仅专业学位`的内容只能由相应的同学使用，其他人应该注释或删除与自己无关的内容**。
 
 ### 1.2 使用环境
 
 本模板的开发测试环境是`TeXLive2024 + TeXstudio`以及`TeXLive2024 + VSCode`，**兼容Windows、MacOS以及Overleaf等主流平台** :clap:。
 
-:warning: 本地用户请务必将LaTeX环境更新到[TeXLive2024及以上](https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/texlive/)或[MacTeX2024及以上](https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/mactex/)，以避免兼容性问题。
+> [!IMPORTANT]
+> :warning: 本地用户请务必将LaTeX环境更新到[TeXLive2024及以上](https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/texlive/)或[MacTeX2024及以上](https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/mactex/)，以避免兼容性问题。
+>
+> * [:link: TeXLive安装教程](https://zhuanlan.zhihu.com/p/389394015)、[:link: MacTeX安装教程](https://blog.csdn.net/ChrisP_333/article/details/82943508)
+> * [:link: TeXstudio下载地址](https://texstudio.sourceforge.net/#download)、[:link: VSCode下载地址](https://code.visualstudio.com/Download)、[:link: VSCode配置LaTeX环境](https://zhuanlan.zhihu.com/p/166523064)
+>
+> :warning: 模板需要使用`XeLaTeX`引擎进行编译：
+>
+> * 若使用TeXstudio编辑器，则不需要进行额外设置：`tutorial.tex`文件在首行设置了`% !TEX Program = xelatex`，该指令指定使用`XeLaTeX`引擎编译该文档；
+> * VSCode编辑器和Overleaf无法识别上述命令，需要自行将编译引擎设置为`XeLaTeX`。
 
-* [:link: TeXLive安装教程](https://zhuanlan.zhihu.com/p/389394015)、[:link: MacTeX安装教程](https://blog.csdn.net/ChrisP_333/article/details/82943508)
-* [:link: TeXstudio下载地址](https://texstudio.sourceforge.net/#download)、[:link: VSCode下载地址](https://code.visualstudio.com/Download)、[:link: VSCode配置LaTeX环境](https://zhuanlan.zhihu.com/p/166523064)
+为了确保在Windows、MacOS、Overleaf等平台上编译出完全一致的结果，模板内置了所有用到的字体文件，这导致项目大小超出了Overleaf上传压缩包的限制。因此，Overleaf用户需要进行另一番操作： :bulb: **先在Overleaf上新建一个空项目，然后解压本模板并拖拽文件和文件夹到新建的项目中即可**。
 
-:warning: 模板需要使用`XeLaTeX`引擎进行编译：
+> [!IMPORTANT]
+> **<font color=#8b0000>切记网站里要选TeXLive2024**，经测试，目前线上的TeXLive2025反而无法编译出正确的`主要符号表`和`缩略词表`页眉，原因不明</font>。
+> 
+> 本地2024及以上的TeXLive均无任何问题！
 
-* 若使用TeXstudio编辑器，则不需要进行额外设置：`tutorial.tex`文件在首行设置了`% !TEX Program = xelatex`，该指令指定使用`XeLaTeX`引擎编译该文档；
-* VSCode编辑器和Overleaf无法识别上述命令，需要自行将编译引擎设置为`XeLaTeX`。
-
-为了确保在Windows、MacOS、Overleaf等平台上编译出完全一致的结果，模板内置了所有用到的字体文件，这导致项目大小超出了Overleaf上传压缩包的限制。因此，Overleaf用户需要进行另一番操作： :bulb: **先在Overleaf上新建一个空项目，然后解压本模板并拖拽文件和文件夹到新建的项目中即可**。 :exclamation: **<font color=#8b0000>切记网站里要选TeXLive2024**，经测试，目前线上的TeXLive2025反而无法编译出正确的`主要符号表`和`缩略词表`页眉，原因不明</font>。本地2024及以上的TeXLive均无任何问题！
-
-**提醒**：**<font color=#8b0000>Overleaf近期似乎收紧了普通账号的编译时间限制</font>**，而模版需要完整编译4次才能建立缩略词表、交叉引用等信息，因此普通账号在Overleaf上会编译超时。所以：<font color=#8b0000>1）要么，搭建自己的本地环境，最稳妥；2）要么，升级Overleaf的高级账号；3）要么，用第三方的Overleaf平台</font>，这里推荐一个：[OnlineLaTeX](https://www.onlinelatex.com/home/)。如果你既想用Overleaf，又不想升级高级账号或是用第三方平台，那只能用由网友[@note286](https://github.com/note286)提供的方法：**<font color=#8b0000>在模版根目录新建名为`latexmkrc`的文件，内容为`$max_repeat = 1;`</font>**。其原理是每次点击编译按钮后，让Overleaf只进行单次XeLaTeX编译，而不是默认的多次编译，这样只要单次编译时长不超过限制即可正常使用。代价是<font color=#8b0000>需要用户手动编译3次生成`缩略词表`，4次建立交叉引用</font>。自此提醒添加之日起，模版发布将分为常规版和Overleaf特别版，**后者提供了`latexmkrc`文件，仅针对想使用官方Overleaf又不想升级高级会员的用户**。（2026.01.03）
+> [!NOTE]
+> **<font color=#8b0000>Overleaf近期似乎收紧了普通账号的编译时间限制</font>**，而模版需要完整编译4次才能建立缩略词表、交叉引用等信息，因此普通账号在Overleaf上会编译超时。所以：
+> * 要么，搭建自己的本地环境，最稳妥；
+> * 要么，升级Overleaf的高级账号；
+> * 要么，用第三方的Overleaf平台，这里推荐一个：[OnlineLaTeX](https://www.onlinelatex.com/home/)。
+> 
+> 如果你既想用Overleaf，又不想升级高级账号或是用第三方平台，那只能用由网友[@note286](https://github.com/note286)提供的方法：**<font color=#8b0000>在模版根目录新建名为`latexmkrc`的文件，内容为`$max_repeat = 1;`</font>**。
+> 
+> 其原理是每次点击编译按钮后，让Overleaf只进行单次XeLaTeX编译，而不是默认的多次编译，这样只要单次编译时长不超过限制即可正常使用。代价是<font color=#8b0000>需要用户手动编译3次生成`缩略词表`，4次建立交叉引用</font>。
+> 
+> 自此提醒添加之日起，模版发布将分为常规版和Overleaf特别版，**后者提供了`latexmkrc`文件，仅针对想使用官方Overleaf又不想升级高级会员的用户**。（2026.01.03）
 
 
 
@@ -128,7 +148,10 @@
 
 :bulb: 更新模板的正确方式：**下载最新的完整压缩包，解压后用自己的`.bib`和`.tex`文件以及`fig`目录替换掉模板中原有的同名文件和目录**。
 
-:+1: 更建议的更新方式：**<font color=#8b0000>在初次使用本模板时，修改`.tex`和`.bib`文件的文件名（别忘了`.tex`文件内通过`\bibliography{}`设置的`.bib`文件名），后续只需下载最新的模板，并将其内容全部复制到论文所在的目录进行替换</font>**。
+> [!TIP]
+> **更建议的更新方式：**
+> 
+> **<font color=#8b0000>在初次使用本模板时，修改`.tex`和`.bib`文件的文件名（别忘了`.tex`文件内通过`\bibliography{}`设置的`.bib`文件名），后续只需下载最新的模板，并将其内容全部复制到论文所在的目录进行替换</font>**。
 
 ### 1.5 开发该模板的原因
 
@@ -213,9 +236,16 @@
      
       追求公式字体均为Times New Roman的使用者可采用`timesmath`选项。后两种选项均基于[mathspec](https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf)宏包实现，在本人有限的测试实践中，只有它能做到真正意义上的Times New Roman。（2025.01.31）
      
-      :exclamation: 因为[mathspec](https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf)宏包本身的特性，使用Times New Roman作为公式字体需要付出更多精力。举个例子，你想排版`$f^t$`，那么你会发现`f`和`t`之间的间隔很小，两者发生了重叠。此时需要手动用`"`插入空格，即`$f^{"t}$`。因此，`timesmathnogreek`和`timesmath`选项均存在类似瑕疵，届时请仔细查阅[mathspec](https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf)的宏包文档。
+      > [!CAUTION]
+      > 因为[mathspec](https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf)宏包本身的特性，使用Times New Roman作为公式字体需要付出更多精力。
+      > 
+      > 举个例子，你想排版`$f^t$`，那么你会发现`f`和`t`之间的间隔很小，两者发生了重叠。此时需要手动用`"`插入空格，即`$f^{"t}$`。
+      > `timesmathnogreek`和`timesmath`选项均存在类似瑕疵，届时请仔细查阅[mathspec](https://mirrors.pku.edu.cn/ctan/macros/xetex/latex/mathspec/mathspec.pdf)的宏包文档。
      
-      :four_leaf_clover: 其实，规范并未对公式字体作强制要求，即便审查系统识别到公式字体不是Times New Roman，它也只是抛出提醒而非错误，不会造成格式审查不通过。只是实在有太多人问怎么公式字体不是Times New Roman，既然有部分同学喜欢Times New Roman，那本模板秉承兼容并包的原则，将选择权交给使用者。
+      > [!NOTE]
+      > 其实，规范并未对公式字体作强制要求，即便审查系统识别到公式字体不是Times New Roman，它也只是抛出提醒而非错误，不会造成格式审查不通过。
+      >
+      > 只是实在有太多人问怎么公式字体不是Times New Roman，既然有部分同学喜欢Times New Roman，那本模板秉承兼容并包的原则，将选择权交给使用者。
 
    8. 另外，[algorithm2e](https://mirrors.sustech.edu.cn/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf)宏包的`vlined`和`boxruled`选项也可以在加载文档类时设置。
 
@@ -223,7 +253,10 @@
 
 这部分主要通过模板提供的各项命令来填充论文封面和扉页中的内容。
 
-送审时，只需将本小节涉及的相应命令参数留空，即可生成对应位置为空的封面和扉页。 :warning: 注意，**<font color=#8b0000>参数留空表示`{}`，而非彻底删除</font>**。
+送审时，只需将本小节涉及的相应命令参数留空，即可生成对应位置为空的封面和扉页。
+
+> [!CAUTION]
+> **<font color=#8b0000>参数留空表示`{}`，而非彻底删除</font>**
 
 当然，**更便捷的方法是使用文档类的`review`选项，无需调整命令参数设置即可隐去与个人身份有关的信息**。若要隐去其他信息，则需要将对应参数留空（2024.12.15）。
 
@@ -231,13 +264,14 @@
 
 对涉密论文，可使用模板提供的`\setconfidential(<信息右上角与纸张左、上边界的距离，以逗号分隔>)[<字体格式>]{<密级>}{<保密期限>}`命令生成封面中的保密信息。
 
-该命令提供了两项可选参数以在必要时调整此信息的`摆放位置`和`字体格式`，默认值分别为`18cm,2cm`和`\zihao{4}\bfseries`。该命令必须先于`\uestccover`命令使用才有效。
+该命令提供了两项可选参数以在必要时调整此信息的`摆放位置`和`字体格式`，默认值分别为`18cm,2cm` 和 `\zihao{4}\bfseries`。该命令必须先于`\uestccover`命令使用才有效。
 
-:warning: **<font color=#8b0000>慎用保密标识！！！学生个人不应随意将论文定性为涉密</font>**，需经过相应审批。
+> [!WARNING]
+> **<font color=#8b0000>慎用保密标识！！！学生个人不应随意将论文定性为涉密</font>**，需经过相应审批。
 
 ### 3.2 封面
 
-要生成正确的论文封面，首先必须要在文档类中指定与之对应的`doctor`/`prodoctor`/`intdoctor`/`ipdoctor`/`master`/`promaster`/`intmaster`/`ipmaster`/`bachelor`/`doublebachelor`选项。
+要生成正确的论文封面，首先必须要在文档类中指定与之对应的`doctor` / `prodoctor` / `intdoctor` / `ipdoctor` / `master` / `promaster` / `intmaster` / `ipmaster` / `bachelor` / `doublebachelor`选项。
 
 #### 3.2.1 “双学位学士”以外的论文封面
 
@@ -251,13 +285,15 @@
 
 切记， :warning: **最多完美支持两行**。如果电子科大真的存在名称超过两行的学院，那很抱歉，本模板实在无法为你生成完美的封面。尤其是学士学位论文，三行及以上的`学院名称`肯定会跟下方内容发生重叠；而对研究生学位论文，虽然不存在与下方文字重叠的问题，但学院名称的尾行也一定会突破页面边界，导致整个页面看起来上下很不协调。对这类用户，如果你们还愿意使用本模板撰写其他内容，最后可以使用学校官方提供的Word文档生成论文封面，然后替换。除此之外，我没有想到其他更方便、更不容易出错的方案。（2024.12.10）
 
-:exclamation: **注意：`\uestccover`命令的参数顺序是根据研究生学位论文封面而设计的，学士学位论文封面的内容排布与之不同。<font color=#8b0000>本科生务必按照命令要求的顺序填写，而不是看着封面示例pdf填写</font>。**
+> [!CAUTION]
+> **`\uestccover`命令的参数顺序是根据研究生学位论文封面而设计的，学士学位论文封面的内容排布与之不同。<font color=#8b0000>本科生务必按照命令要求的顺序填写，而不是看着封面示例pdf填写</font>。**
 
 #### 3.2.2 “双学位学士”论文封面
 
 生成双学位学士论文封面使用：`\uestccover{<论文题目>}{<学院>}{<第一专业>}{<第二专业>}{<学号>}{<作者姓名>}{<第一导师及职称>}{<第二导师及职称>}`。（2025.04.21）
 
-:exclamation: **注意，上述命令与其他论文类型所采用的定义不同，<font color=#8b0000>共有8项强制参数，无可选参数，且参数顺序和意义也有变化</font>。用时务必仔细。**
+> [!CAUTION]
+> **注意，上述命令与其他论文类型所采用的定义不同，<font color=#8b0000>共有8项强制参数，无可选参数，且参数顺序和意义也有变化</font>。用时务必仔细。**
 
 ### 3.3 中文扉页（仅研究生）
 
@@ -295,7 +331,10 @@
 
 所有签名图片需要放置在项目目录的`./fig/`子目录下。
 
-该命令的设计初衷是允许强迫症用户在独创性声明页使用电子签，避免此页在印刷后扫描出来歪歪扭扭，替换到电子档里影响观感。 :exclamation: 不过，听说上传数据库的论文必须要手签，不知是否真如此严格。果真如此的话，只需要将全部强制参数留空`{}`，即可产生原始的独创性声明页。
+该命令的设计初衷是允许强迫症用户在独创性声明页使用电子签，避免此页在印刷后扫描出来歪歪扭扭，替换到电子档里影响观感。
+
+> [!NOTE]
+> 听说上传数据库的论文必须要手签，不知是否真如此严格。果真如此的话，只需要将全部强制参数留空`{}`，即可产生原始的独创性声明页。
 
 ## 5. 中英文摘要
 
@@ -303,7 +342,9 @@
 
 生成英文摘要需先使用`\enabstract`，然后继续追加内容即可，英文关键词用`\enkeywords{<English Keywords>}`。
 
-:exclamation: **<font color=#8b0000>2025年09月03日修订的研究生论文撰写规范要求改用`；`分隔关键词；（双学位）学士论文撰写规范尚未调整，仍使用`，`分隔关键词。</font>**
+> [!NOTE]
+> * **<font color=#8b0000>2025年09月03日修订的研究生论文撰写规范要求改用`；`分隔关键词；</font>**
+> * **<font color=#8b0000>学士论文、双学位学士论文撰写规范尚未调整，仍使用`，`分隔关键词。</font>**
 
 ## 6. 目录，图目录，表目录，主要符号表，缩略词表
 
@@ -374,7 +415,10 @@
           ],
           ```
 
-        * :bulb: Overleaf用户可以一键搞定，无需额外操作。:warning: 注意，**<font color=#8b0000>Overleaf用户要在网站里选择TeXLive的2024版</font>**，亲测目前Overleaf的TeXLive2025版无法正确编译出`主要符号表`和`缩略词表`的页眉。本地用户只要保证TeXLive版本不低于2024就不会有问题。
+        * :bulb: Overleaf用户可以一键搞定，无需额外操作。
+          > [!CAUTION]
+          > **<font color=#8b0000>Overleaf用户要在网站里选择TeXLive的2024版</font>**
+          > 亲测目前Overleaf的TeXLive2025版无法正确编译出`主要符号表`和`缩略词表`的页眉。本地用户只要保证TeXLive版本不低于2024就不会有问题。
 
 
 ## 7. 论文主体部分
@@ -412,13 +456,21 @@
 
 ### 7.4 表格
 
-**写在最开始**：由于一些实现上的问题，对于**确定非置底排版**的任何表格，用户在通过`table`环境的选项指定可选择的排版模式时， :warning: **<font color=#8b0000>不可提供`b`模式</font>**，否则表格的上间距将过窄；反之，对于一页内**确定置底排版**的第一个表格，用户需要 :warning: **<font color=#8b0000>显式在选项中指定`b`或`!b`</font>**，否则表格上间距将过宽。
+> [!CAUTION]
+> 由于一些实现上的问题，对于**确定非置底排版**的任何表格，用户在通过`table`环境的选项指定可选择的排版模式时， :warning: **<font color=#8b0000>不可提供`b`模式</font>**，否则表格的上间距将过窄；
+> 
+> 反之，对于一页内**确定置底排版**的第一个表格，用户需要 :warning: **<font color=#8b0000>显式在选项中指定`b`或`!b`</font>**，否则表格上间距将过宽。
 
 若出现意料之外的情况，用户可以通过在`table`环境开始后和结束前的位置插入`\vspace*{<距离长度>}`来调整其上下间距，使之看起来协调。
 
 #### 7.4.1 普通表格
 
-排版普通表格本身无需多言，使用`table`+`tabular`环境即可，但是要注意：生成三线表中的三条线分别需要使用`\toprule`、`\midrule`、`\bottomrule`，这样才符合研究生规范中对线粗的要求（`1.5`磅、`0.75`磅、`1.5`磅）。注意不要用`\hline`。而对于本科生，学士学位论文规范要求表格中的线粗统一为`0.5`磅。因此，在`bachelor`和`doublebachelor`选项下，`\toprule`、`\midrule`、`\bottomrule`和`\cmidrule`的线粗均设置为`0.5`磅 **（2025.05.01调整）**。
+排版普通表格本身无需多言，使用`table`+`tabular`环境即可。
+
+> [!CAUTION]
+> 生成三线表中的三条线分别需要使用 `\toprule`、 `\midrule`、 `\bottomrule`，这样才符合研究生规范中对线粗的要求（`1.5`磅、`0.75`磅、`1.5`磅），注意不要用 `\hline`。
+> 
+> 对于本科生，学士学位论文规范要求表格中的线粗统一为`0.5`磅。因此，在 `bachelor` 和 `doublebachelor`选项下，`\toprule`、 `\midrule`、 `\bottomrule` 和`\cmidrule` 的线粗均设置为`0.5`磅。 **（2025.05.01调整）**
 
 在需要为表格中的某些单元格添加水平框线时，应使用`\cmidrule[<线粗>](<修剪>){<起始列-终止列>}`而<font color=#8b0000>非</font>`\cline{<起始列-终止列>}`。后者似乎无法调整线粗，也无法对框线的端点进行修剪。
 
@@ -426,7 +478,7 @@
 
 * 第二项可选参数允许用户对框线的端点进行修剪，当需要在视觉上分割同行的相邻框线时，该选项将很有用。有关第二项可选参数可取的值，建议用户查阅[booktabs](https://mirrors.sustech.edu.cn/CTAN/macros/latex/contrib/booktabs/booktabs.pdf)宏包的官方文档。
 
-若要调整表格中单元格的水平对齐方式，自适应宽度的表格可以直接使用`tabular`环境的`l/c/r`参数；如果同时需要限定单元格宽度，则可使用`p{<宽度值>}`、`p{<宽度值>}<{\centering}`、`p{<宽度值>}<{\raggedleft}`参数。
+若要调整表格中单元格的水平对齐方式，自适应宽度的表格可以直接使用`tabular`环境的`l/c/r`参数；如果同时需要限定单元格宽度，则可使用`p{<宽度值>}`、 `p{<宽度值>}<{\centering}`、 `p{<宽度值>}<{\raggedleft}` 参数。
 
 若要调整具有多行内容的固定列宽单元格的垂直对齐方式，可以使用`tabular`环境的`p{<宽度值>}`、`m{<宽度值>}`、`b{<宽度值>}`参数，**它们分别表示使用对应单元格内容的上线、中线、底线作为垂直对齐时的基准线**，<font color=#8b0000>而非使单元格内容上端对齐、垂直居中对齐、下端对齐</font>。如果这段说明不好理解，那可以参考这个：[p, m and b columns in tables](https://tex.stackexchange.com/questions/35293)。
 
@@ -437,13 +489,15 @@
 1. 使用`\tnote{<label>}`在表格中插入上标编号；
 2. 使用`tablenotes`环境在表格底部排版附注。该环境提供选项`online`用于将附注文本前的标号从默认的上标样式更改为同行样式。
 
-:four_leaf_clover: 上述方式排版的带附注表格无法通过点击表格中的编号跳转到对应附注。为此，本模板提供命令`\puttablenotelabel{<标签>}`和`\tablenoteref{<标签>}`来实现该操作 **（2025.01.05新增）**：
-
-* 首先将`tablenotes`环境中手动设置的编号替换为`\puttablenotelabel{<标签>}`；
-
-* 然后在表格内容的对应位置使用`\tablenoteref{<标签>}`即可。编号将自动生成，并按照使用`\puttablenotelabel`的顺序递加。
-
-这种方式需要建立交叉引用，故而通常得编译两次。切记， :warning: **<font color=#8b0000>标签必须全文唯一</font>**。
+> [!TIP]
+> 上述方式排版的带附注表格无法通过点击表格中的编号跳转到对应附注。
+> 
+> 为此，本模板提供命令`\puttablenotelabel{<标签>}`和`\tablenoteref{<标签>}`来实现该操作 **（2025.01.05新增）**：
+>
+> * 首先将`tablenotes`环境中手动设置的编号替换为`\puttablenotelabel{<标签>}`；
+> * 然后在表格内容的对应位置使用`\tablenoteref{<标签>}`即可。编号将自动生成，并按照使用`\puttablenotelabel`的顺序递加。
+>
+> 这种方式需要建立交叉引用，故而通常得编译两次。切记， :warning: **<font color=#8b0000>标签必须全文唯一</font>**。
 
 #### 7.4.3 跨页表格
 
@@ -451,7 +505,8 @@
 
 本模板提供了命令`\CPcaption{<当前表格总列数>}{<跨页表题>}`来正确排版跨页之后的表题。**各位请务必使用此命令**，否则跨页后的表题将会与表格内容采用相同的行距和段前段后，而非与规范中要求的跨页表题格式保持一致；并且在跨页表题长度超过表宽时，无法产生预期的排版结果。**（2025.01.05更新）**
 
-此外， :warning: **<font color=#8b0000>不应将`longtable`环境嵌套在`table`等浮动环境中</font>**，否则长表格将无法正常跨页。
+> [!CAUTION]
+> **<font color=#8b0000>不应将`longtable`环境嵌套在`table`等浮动环境中</font>**，否则长表格将无法正常跨页。
 
 更多细节参考`tutorial.tex`中的相应源码。
 
@@ -470,7 +525,10 @@
 * 第五项强制参数负责设置附注编号对应的标签，以便后续在表格中使用`\tablenoteref{}`进行引用，<font color=#8b0000>标签同样需要全文唯一</font>；
 * 第六项强制参数对应附注的实际内容。
 
-:warning: **注意**：使用`\tablenotetext`命令的前提是对表格首列进行特定设置，<font color=#8b0000>用户 **<font color=#8b0000>必须</font>** 通过`p{<长度>}`或`m{<长度>}`来人为设定`longtable`的首列宽度，**<font color=#8b0000>切不可</font>** 将之设置为`c`、`r`或`l`</font>。另外，表格中最后一条`\tablenotetext`之后不需要`\\`，否则表尾与下方文本的间隔将偏大。
+> [!CAUTION]
+> 使用`\tablenotetext`命令的前提是对表格首列进行特定设置，<font color=#8b0000>用户 **<font color=#8b0000>必须</font>** 通过`p{<长度>}`或`m{<长度>}`来人为设定`longtable`的首列宽度，**<font color=#8b0000>切不可</font>** 将之设置为`c`、`r`或`l`</font>。
+> 
+> 另外，表格中最后一条`\tablenotetext`之后不需要`\\`，否则表尾与下方文本的间隔将偏大。
 
 可能出现一种极端情况：跨页表格恰好在附注开始处发生了分页，此时也会产生另类的排版结果。要解决该问题，用户得手动在表格内容的适当位置使用[longtable](https://mirrors.tuna.tsinghua.edu.cn/CTAN/macros/latex/required/tools/longtable.pdf)宏包提供的`\pagebreak`命令提前断页，代价是前一页底部可能有更多空白。如果你运气尤其差，附注特别长，而且在附注中间发生了跨页，那我属实无能为力了 :scream: :scream: 。
 
@@ -494,7 +552,7 @@
 
 ### 7.6 定义，公理，定理，命题，推论，引理，示例，假设，注和证明
 
-本模板为上述内容分别定义了环境：`definition`、`axiom`、`theorem`、`proposition`、`corollary`、`lemma`、`example`、`assumption`、`annotation`和`proof`。
+本模板为上述内容分别定义了环境：`definition`、 `axiom`、 `theorem`、 `proposition`、 `corollary`、 `lemma`、 `example`、 `assumption`、 `annotation`和`proof`。
 
 ### 7.7 脚注
 
@@ -516,10 +574,11 @@
 
 如果需要在正文中引用某个子公式编号，既可以像往常一样在`\subeqtag`之后使用`\label{<编号标签>}`，也可以直接指定`\subeqtag[<子公式编号标签>]`的可选参数，非常人性化。详情可以参考`tutorial.tex`中给出的示例。
 
-:pushpin: 有两点需要提醒:
-1. `\subeqtag[<子公式编号标签>]`的可选参数全文不可重复定义，因为它本质上还是调用的`\label{<编号标签>}`。
-
-2. 尽管`\subeqtag[<子公式编号标签>]`在底层是调用`\label{<编号标签>}`来添加标签，TeXstudio编辑器在使用`\ref{<编号标签>}`或`\eqref{<编号标签>}`时却不会弹出这些标签的选项，需要手动输入；而直接用`\label{<编号标签>}`指定的标签在引用时则会出现在选项提示中，可以直接选择。这是`\subeqtag[<子公式编号标签>]`在接受可选参数后的不便之处，可惜我并不知道该如何解决。 :sob: :sob:
+> [!IMPORTANT]
+> **两点提醒：**
+> 1. `\subeqtag[<子公式编号标签>]`的可选参数全文不可重复定义，因为它本质上还是调用的`\label{<编号标签>}`。
+> 2. 尽管`\subeqtag[<子公式编号标签>]`在底层是调用`\label{<编号标签>}`来添加标签，TeXstudio编辑器在使用`\ref{<编号标签>}`或`\eqref{<编号标签>}`时却不会弹出这些标签的选项，需要手动输入；而直接用`\label{<编号标签>}`指定的标签在引用时则会出现在选项提示中，可以直接选择。
+> 这是`\subeqtag[<子公式编号标签>]`在接受可选参数后的不便之处，可惜我并不知道该如何解决。 :sob: :sob:
 
 
 ### 7.9 排版及微调数学公式
@@ -549,7 +608,7 @@
 
 引用参考文献是基于[natbib](https://mirrors.zju.edu.cn/CTAN/macros/latex/contrib/natbib/natbib.pdf)宏包实现，可单次引用多篇参考文献（即`\cite{<参考文献label1, 参考文献label2, 参考文献label3>}`或`\citess{<参考文献label1, 参考文献label2, 参考文献label3>}`），届时序号会被排序并压缩（如果可以的话）。
 
-另外，研究生论文规范要求正文中引用的公式编号样式采用英文括号，即`(1-1)`，而本科论文规范中则要求是中文括号，即`（1-1）`。在公式右侧的编号中，两者均采用英文括号。此间差异完全由相应的选项（`doctor`/`prodoctor`/`intdoctor`/`ipdoctor`/`master`/`promaster`/`intmaster`/`ipmaster`/`bachelor`/`doublebachelor`）控制，所以一定要确保设置了正确的选项。
+另外，研究生论文规范要求正文中引用的公式编号样式采用英文括号，即`(1-1)`，而本科论文规范中则要求是中文括号，即`（1-1）`。在公式右侧的编号中，两者均采用英文括号。此间差异完全由相应的选项（`doctor` / `prodoctor` / `intdoctor` / `ipdoctor` / `master` / `promaster` / `intmaster` / `ipmaster` / `bachelor` / `doublebachelor`）控制，所以一定要确保设置了正确的选项。
 
 ## 8. 致谢
 
@@ -559,7 +618,7 @@
 
 本模板实现了规范中列举的`期刊论文`、`会议论文`、`专著`、`学位论文`、`报纸文章`、`报告`、`授权专利`、`标准`、`电子文献`，共计9种文献类型的排版风格。
 
-本模板为这些文献类型定义的`.bib`数据库条目**类型标识**分别为`article`、`inproceedings/conference`、`book`、`mastersthesis/phdthesis`、`news`、`report`、`patent`、`standard`、`digital`。
+本模板为这些文献类型定义的`.bib`数据库条目**类型标识**分别为`article`、 `inproceedings/conference`、 `book`、 `mastersthesis/phdthesis`、 `news`、 `report`、 `patent`、 `standard`、 `digital`。
 
 不同文档类型条目包含不同的域，下面列举了一些[研究生学位论文撰写规范](https://gr.uestc.edu.cn/xiazai/114/3917)中用作示例的参考文献对应的`.bib`数据库形式，覆盖了上述9种文献类型：
 
@@ -776,7 +835,8 @@
 \bibliography{<.bib文件名称，模板默认为ref>}
 ```
 
-:warning: **<font color=#8b0000>重要提醒：示例文档在上述命令之前使用了命令`\nocite{*}`，其作用是在参考文献列表中列出`.bib`数据库中的所有参考文献条目，以便用作示例。因此，各位在正式撰写论文时一定要确保该条命令处于被注释状态！！！</font>**
+> [!IMPORTANT]
+> **<font color=#8b0000>示例文档在上述命令之前使用了命令`\nocite{*}`，其作用是在参考文献列表中列出`.bib`数据库中的所有参考文献条目，以便用作示例。因此，各位在正式撰写论文时一定要确保该条命令处于被注释状态！！！</font>**
 
 尽管研究生和学士学位论文对参考文献的排版风格有不同要求，**<font color=#8b0000>用户在开篇通过文档类选项指定学位论文类型后，模板将自动确定并应用相应的`.bst`风格文件</font>**，无需使用`\bibliographystyle{<.bst文件名>}`来显式设置。（2025.03.12）
 
@@ -816,11 +876,18 @@
 
 首先使用命令`\originalliterature{<外文标题>}{<外文作者>}`生成这部分的开头。
 
-这部分内容中的各级标题使用模板封装的命令：`\Section{}`、`\Subsection{}`、`\Subsubsection{}`。**<font color=#8b0000>注意它们的首字母是大写的；另外，不要使用任何chapter命令</font>**。这些新命令能生成自动编号的标题，且不会将之插入到论文目录或书签。如果你使用了LaTeX原生的首字母小写的命令，那对应内容就会出现在目录和书签中。
+> [!IMPORTANT]
+> 这部分内容中的各级标题使用模板封装的命令：`\Section{}`、`\Subsection{}`、`\Subsubsection{}`。**<font color=#8b0000>注意它们的首字母是大写的；另外，不要使用任何chapter命令</font>**。
 
-在这部分内容中排版图、表时需要在`figure`、`table`环境内使用`\captionsetup{list=no}`来阻止对应的图题和表题出现在图目录和表目录中。
+这些新命令能生成自动编号的标题，且不会将之插入到论文目录或书签。如果你使用了LaTeX原生的首字母小写的命令，那对应内容就会出现在目录和书签中。
 
-这部分内容中的`定义`、`公理`、`定理`、`命题`、`推论`、`引理`、`示例`、`假设`、`注`对应 **<font color=#8b0000>首字母大写的环境</font>**：`Definition`、`Axiom`、`Theorem`、`Proposition`、`Corollary`、`Lemma`、`Example`、`Assumption`、`Annotation`。`proof`环境保持不变。
+> [!IMPORTANT]
+> 在这部分内容中排版图、表时需要在`figure`、`table`环境内使用`\captionsetup{list=no}`来阻止对应的图题和表题出现在图目录和表目录中。
+
+> [!IMPORTANT]
+> 这部分内容中的`定义`、`公理`、`定理`、`命题`、`推论`、`引理`、`示例`、`假设`、`注`对应 **<font color=#8b0000>首字母大写的环境</font>**：`Definition`、 `Axiom`、 `Theorem`、 `Proposition`、 `Corollary`、 `Lemma`、 `Example`、 `Assumption`、 `Annotation`
+> 
+> `proof`环境保持不变
 
 更多细节可参考`tutorial.tex`示例文档。
 
