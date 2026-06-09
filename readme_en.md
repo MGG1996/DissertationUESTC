@@ -22,6 +22,9 @@
   <a href="https://github.com/MGG1996/DissertationUESTC/releases/latest">
     <img src="https://img.shields.io/github/v/release/MGG1996/DissertationUESTC?style=for-the-badge&logo=github&label=Release&logoColor=white&color=1a67af" alt="GitHub latest release">
   </a>
+  <a href="https://www.bilibili.com/video/BV18MEx6BEnv">
+    <img src="https://img.shields.io/badge/Video-BV18MEx6BEnv-violet?style=for-the-badge&logo=bilibili&label=Video&logoColor=white&color=f65d8e" alt="Video">
+  </a>
 </div>
 
 
