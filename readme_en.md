@@ -42,7 +42,7 @@
   - [3.1 Confidentiality Mark (2025.01.07)](#31-confidentiality-mark-20250107)
   - [3.2 Cover](#32-cover)
     - [3.2.1 Cover of Thesis Other Than "Double Degree Bachelor"](#321-cover-of-thesis-other-than-double-degree-bachelor)
-    - [3.2.2 Cover of "Double Degree Bachelor" Thesis](#322-cover-of-double-degree-bachelor-thesis)
+    - [3.2.2 Cover of "Double Degree Bachelor" Thesis (2025.04.21)](#322-cover-of-double-degree-bachelor-thesis-20250421)
   - [3.3 Chinese Title Page (Graduate Students only)](#33-chinese-title-page-graduate-students-only)
   - [3.4 English Title Page (Graduate Students only)](#34-english-title-page-graduate-students-only)
 - [4. Declaration of Originality (Graduate Students only)](#4-declaration-of-originality-graduate-students-only)
@@ -107,15 +107,16 @@ Additionally, sections explicitly labeled as "**Bachelor only**", "**Graduate St
 
 The development and testing environment for this template is `TeXLive2024 + TeXstudio` and `TeXLive2024 + VSCode`, **compatible with mainstream platforms such as Windows, MacOS, and Overleaf.** :clap:
 
-:warning: Local users must update their LaTeX environment to [TeXLive2024 or above](https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/texlive/) or [MacTeX2024 or above](https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/mactex/) to avoid compatibility issues.
-
-* [:link: TeXLive installation tutorial](https://zhuanlan.zhihu.com/p/389394015), [:link: MacTeX installation tutorial](https://blog.csdn.net/ChrisP_333/article/details/82943508)
-* [:link: TeXstudio download](https://texstudio.sourceforge.net/#download), [:link: VSCode download](https://code.visualstudio.com/Download), [:link: VSCode configurations for LaTeX](https://zhuanlan.zhihu.com/p/166523064)
-
-:warning: The template needs to be compiled using the `XeLaTeX` engine:
-
-* If using the TeXstudio editor, no additional settings are required: the `tutorial.tex` file has set `% !TEX Program = xelatex` on the first line, which specifies that the document is compiled using the `XeLaTeX` engine.
-* The above command is not recognized by the VSCode editor and Overleaf, so you need to set the compilation engine to `XeLaTeX` yourself.
+> [!IMPORTANT]
+> :warning: Local users must update their LaTeX environment to [TeXLive2024 or above](https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/texlive/) or [MacTeX2024 or above](https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/mactex/) to avoid compatibility issues.
+>
+> * [:link: TeXLive installation tutorial](https://zhuanlan.zhihu.com/p/389394015), [:link: MacTeX installation tutorial](https://blog.csdn.net/ChrisP_333/article/details/82943508)
+> * [:link: TeXstudio download](https://texstudio.sourceforge.net/#download), [:link: VSCode download](https://code.visualstudio.com/Download), [:link: VSCode configurations for LaTeX](https://zhuanlan.zhihu.com/p/166523064)
+>
+> :warning: The template needs to be compiled using the `XeLaTeX` engine:
+>
+> * If using the TeXstudio editor, no additional settings are required: the `tutorial.tex` file has set `% !TEX Program = xelatex` on the first line, which specifies that the document is compiled using the `XeLaTeX` engine.
+> * The above command is not recognized by the VSCode editor and Overleaf, so you need to set the compilation engine to `XeLaTeX` yourself.
 
 In order to ensure that it compiles exactly the same on Windows, macOS, Overleaf, etc., the template has all the font files used built-in, which results in a project size that exceeds Overleaf's limit for uploading zip archives. Therefore, Overleaf users need to do another operation: :bulb: **First, create a new empty project on Overleaf, then unzip this template and drag and drop files and folders into the newly created project**.
 
@@ -161,7 +162,8 @@ In addition, it cannot be ruled out that there may be some omissions in the deta
 >
 > **The more recommended update method is:**
 > 
-> **<font color=#8b0000>when using this template for the first time, modify the file names of the `.tex` and `.bib` files (don't forget the `.bib` file name set by `\bibliography{}` in the `.tex` file). Subsequently, just download the latest template and copy all its contents to the directory where your thesis is located to replace it</font>**.
+> * <font color=#8b0000>when using this template for the first time, modify the file names of the `.tex` and `.bib` files (don't forget the `.bib` file name set by `\bibliography{}` in the `.tex` file).</font>
+> * <font color=#8b0000>Subsequently, just download the latest template and copy all its contents to the directory where your thesis is located to replace it</font>.
 
 
 ### 1.5 Reasons for Developing this Template
@@ -219,7 +221,7 @@ The template's preamble area has only two lines:
 
    1. `print`/`nonprint`: This option controls whether to generate the document in printing mode. Printing mode will automatically add necessary blank pages to the front of the thesis. The default is `nonprint`.
 
-   2. `doctor`/`prodoctor`/`intdoctor`/`ipdoctor`/`master`/`promaster`/`intmaster`/`ipmaster`/`bachelor`/`doublebachelor`: This option sets the type of thesis, and the corresponding relationships are shown below. The default value is `doctor`.
+   2. `doctor` / `prodoctor` / `intdoctor ` / `ipdoctor` / `master` / `promaster` / `intmaster` / `ipmaster` / `bachelor` / `doublebachelor`: This option sets the type of thesis, and the corresponding relationships are shown below. The default value is `doctor`.
       |Option|Corresponding Degree Type|
       |---|---|
       |`doctor`|Academic Doctoral Degree|
@@ -277,7 +279,11 @@ Of course, **a more convenient way is to use the `review` option of the document
 
 ### 3.1 Confidentiality Mark (2025.01.07)
 
-For confidential thesis, you can use the `\setconfidential(<the distance between the upper right corner of the information and the left and upper borders of the page, separated by commas>)[<font format>]{<classification level>}{<confidentiality period>}` command provided by the template to generate confidential information on the cover.
+For confidential thesis, you can use the command below provided by the template to generate confidential information on the cover:
+
+```tex
+\setconfidential(<the distance between the upper right corner of the information and the left and upper borders of the page, separated by commas>)[<font format>]{<classification level>}{<confidentiality period>}
+```
 
 This command provides two optional parameters to adjust the placement and font format of this information when necessary. The default values ​​are `18cm,2cm` and `\zihao{4}\bfseries`. This command must be used before the `\uestccover` command to take effect.
 
@@ -291,7 +297,11 @@ To generate a correct thesis cover, you must first specify the corresponding `do
 
 #### 3.2.1 Cover of Thesis Other Than "Double Degree Bachelor"
 
-The command used to generate these thesis covers is: `\uestccover[<school name layout style>]{<thesis title>}{<discipline>}{<student number>}{<author name>}{<supervisor>}{<teacher title>}{<school>}`.
+The command used to generate these thesis covers is:
+
+```tex
+\uestccover[<school name layout style>]{<thesis title>}{<discipline>}{<student number>}{<author name>}{<supervisor>}{<teacher title>}{<school>}
+```
 
 According to feedback, the full names of some schools are too long, which will cause the `School Name` on the cover to overlap with the wording in front. In response to this problem, this template has readjusted the part of the `School Name` in `\uestccover` (2024.12.10). Currently, the command scales the **overly long** school names to fit the corresponding underscores by default. In addition, the command adds an optional parameter `<school name layout style>`, and the parameter value can only be set to `par`. At this time, the command will no longer scale the school name but let it automatically wrap:
 
@@ -307,9 +317,13 @@ Remember, :warning: **only supports two lines at most**. If there are really sch
 > 
 > **<font color=#8b0000>Bachelors must fill in the order required by the command, rather than looking at the cover page sample pdf</font>**.
 
-#### 3.2.2 Cover of "Double Degree Bachelor" Thesis
+#### 3.2.2 Cover of "Double Degree Bachelor" Thesis (2025.04.21)
 
-To generate a thesis cover for the Double Degree Bachelor, use: `\uestccover{<thesis title>}{<school>}{<first major>}{<second major>}{<student number>}{<author name>}{<first supervisor and title>}{<second supervisor and title>}`. (2025.04.21)
+To generate a thesis cover for the Double Degree Bachelor, use:
+
+```tex
+\uestccover{<thesis title>}{<school>}{<first major>}{<second major>}{<student number>}{<author name>}{<first supervisor and title>}{<second supervisor and title>}
+```
 
 > [!CAUTION]
 > 
@@ -319,32 +333,46 @@ To generate a thesis cover for the Double Degree Bachelor, use: `\uestccover{<th
 
 There is too much content to fill in the **`Chinese Title Page`**, which exceeds the limit of 9 parameters supported by LaTeX commands, so you need to set various macros first:
 
-1. `\ClsNum{<classification number>}`;
-2. `\ClsLv{<classification level>}`;
-3. `\UDC{<UDC number>}`;
-4. `\DissertationTitle{<thesis title>}`;
-5. `\Author{<author name>}`;
-6. `\Supervisor{<supervisor>}{<title>}{<institution>}{<address>}`;
-7. `\AssociateSupervisor{<associate supervisor>}{<title>}{<institution>}{<address>}`: Set the associate supervisor information, if there is none, just comment;
-8. `\DegLv{<degree level>}`: This information is automatically determined by the document class options and is used when the default content needs to be modified, otherwise it can be commented out;
-9. `\Major{<discipline>}`;
-10. `\Profield{<professional degree field code>}`: <font color=#8b0000>This is unique to professional degrees</font>, and academic degree users can just comment it;
-11. `\Date{<submission date>}{<defense date>}`;
-12. `\Grant{<degree-granting institution>}{<degree-granting date>}`;
-13. `\Reviewer{<chairman of the defense committee>}{<reviewers>}`;
-
-Then use `\uestczhtitlepage` to generate the `Chinese Title Page`.
+> [!NOTE]
+> 1. `\ClsNum{<classification number>}`
+> 2. `\ClsLv{<classification level>}`
+> 3. `\UDC{<UDC number>}`
+> 4. `\DissertationTitle{<thesis title>}`
+> 5. `\Author{<author name>}`
+> 6. `\Supervisor{<supervisor>}{<title>}{<institution>}{<address>}`
+> 7. `\AssociateSupervisor{<associate supervisor>}{<title>}{<institution>}{<address>}`
+> It sets the associate supervisor information, if there is none, just comment it.
+> 8. `\DegLv{<degree level>}`
+> This information is automatically determined by the document class options and is used when the default content needs to be modified, otherwise it can be commented out.
+> 9. `\Major{<discipline>}`
+> 10. `\Profield{<professional degree field code>}`
+> <font color=#8b0000>This is unique to professional degrees</font>, and academic degree users can just comment it.
+> 11. `\Date{<submission date>}{<defense date>}`
+> 12. `\Grant{<degree-granting institution>}{<degree-granting date>}`
+> 13. `\Reviewer{<chairman of the defense committee>}{<reviewers>}`
+> 
+> **Then use `\uestczhtitlepage` to generate the `Chinese Title Page`.**
 
 The `\uestczhtitlepage` command can accept an optional parameter `[compress]`. By default (that is, the optional parameter is not specified, or is specified as other content), if you encounter an extra-long `Supervisor Title`, such as **`教授级高级工程师`**, this template will typeset it with its actual length, while keeping the other content in its column aligned to the left. This means that the actual length of the `Supervisor Title` must exceed the `3.25cm` set by the official specification. Although I personally think there is nothing wrong with doing so, I am not sure whether it is compliant. For this reason, the template provides the `[compress]` optional parameter for the `\uestczhtitlepage` command. After setting this parameter, supervisor titles longer than `3.25cm` will be automatically compressed to strictly adapt to the length reserved by UESTC for the content. For the actual effect, see the compilation result of `tutorial.tex`. It's up to you to choose. (2025.03.04)
 
 ### 3.4 English Title Page (Graduate Students only)
 
-To generate an **`English Title Page`**, use the command: `\uestcentitlepage{<theiss title>}{<major>}{<student number>}{<author>}{<supervisor>}{<associate supervisor>}{<school>}`. If there is no associate supervisor, leave the `<associate supervisor>` parameter as blank `{}`.
+To generate an **`English Title Page`**, use the command:
+
+```tex
+\uestcentitlepage{<theiss title>}{<major>}{<student number>}{<author>}{<supervisor>}{<associate supervisor>}{<school>}
+```
+
+If there is no associate supervisor, leave the `<associate supervisor>` parameter as blank `{}`.
 
 
 ## 4. Declaration of Originality (Graduate Students only)
 
-To generate a declaration of originality, use the command: `\declaration[<signature width>]{<date>}{<author signature image 1 file name>}[<author signature image 2 file name>]{<supervisor signature image file name>}`. 
+To generate a declaration of originality, use the command:
+
+```tex
+\declaration[<signature width>]{<date>}{<author signature image 1 file name>}[<author signature image 2 file name>]{<supervisor signature image file name>}
+```
 
 * The optional parameter `<signature width>` can adjust the display width of the signature image;
 * The optional parameter `<author signature image 2 file name>` is used to set an independent signature image for the second author's signature in the originality declaration, which is distinguished from the first signature in handwriting, thereby simulating the effect of a handwritten signature. If this optional parameter is not specified, its value is taken as `<author signature image 1 file name>`.
@@ -544,7 +572,9 @@ To my limited knowledge, LaTeX does not seem to provide a macro package to imple
 
 The idea is to use the table footer customization function provided by `longtable` environment to insert notes, that is, the user needs to modify the settings of the table footer before `\endlastfoot` in `longtable`. To this end, the template provides the following commands:
 
-`\tablenotetext(online)(<note number hanging distance>)[<vertical space above note>]{<total note width>}{<note label>}{<note content>}`
+```tex
+\tablenotetext(online)(<note number hanging distance>)[<vertical space above note>]{<total note width>}{<note label>}{<note content>}
+```
 
 * The first optional parameter is marked with `()`, which only accepts the parameter `online`. It is used to change the note number from the default superscript form to the inline form, that is, to imitate the option of the `tablenotes` environment;
 * The second optional parameter is only valid when the first optional parameter is set to `online`. It is used to adjust the hanging indent distance of the note number. The default is `1em`. When there are too many notes in the table, you can manually adjust this optional parameter to avoid overlapping of the long number with the following text;
@@ -568,8 +598,11 @@ There may be an extreme case: a page break occurs at the beginning of a note whe
 The template typesets pseudocode based on the `algorithm` environment of the [algorithm2e](https://mirrors.sustech.edu.cn/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf) macro package. By default, the left and right borders are not added. The top and bottom borders are bolded according to the `table` requirements in the specification. The font size is set to 5, which is consistent with the table. :bulb: To restore the left and right borders of the pseudocode, you can use the `boxruled` option when loading the document class. The pseudocode generated by this environment has the same width as the body text.
 
 In addition to the various conditions and loop statements provided by the [algorithm2e](https://mirrors.sustech.edu.cn/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf) macro package itself, this template adds `Do While` and `Loop` statements based on the interface provided by the macro package:
-- `\DoWhile(<Text following the keyword 'do', it can be used to add comments>){<loop condition>}{<loop body>}`
-- `\Loop(<Text following the keyword 'loop', it can be used to add comments>){<loop body>}`
+
+```tex
+\DoWhile(<Text following the keyword 'do', it can be used to add comments>){<loop condition>}{<loop body>}
+\Loop(<Text following the keyword 'loop', it can be used to add comments>){<loop body>}
+```
 
 In addition, based on the adjusted `algorithm` environment, the template further encapsulates the `algo` environment, which will generate a **narrower** pseudocode floating area than the `algorithm` environment. In addition to accepting the floating optional parameter `[htbp]`, the `algo` environment also supports another optional parameter `(<total distance of pseudocode from the text boundary>)`: This parameter controls the total distance of the floating body from the text boundary, the default is `4em`, that is, `2em` on one side, aligned with the first line of text below. The two optional parameters can be used separately or simultaneously, and **the order when used simultaneously must be consistent with the example below**.
 
@@ -642,7 +675,7 @@ For inline citations of references, use `\cite{<label>}` directly, and for super
 
 References are cited based on the [natbib](https://mirrors.zju.edu.cn/CTAN/macros/latex/contrib/natbib/natbib.pdf) macro package, and multiple references can be cited at one time (i.e. `\cite{<label1, label2, label3>}` or `\citess{<label1, label2, label3>}`). These numbers will be sorted and compressed (if possible).
 
-In addition, the graduate thesis specification requires that the formula numbering style used in citations should be in English brackets, i.e. `(1-1)`, while the undergraduate thesis specification requires that it be in Chinese brackets, i.e. `（1-1）`. As for the numbers on the right side of formulas, both use English brackets. This difference is completely controlled by the corresponding options (`doctor`/`prodoctor`/`intdoctor`/`ipdoctor`/`master`/`promaster`/`intmaster`/`ipmaster`/`bachelor`/`doublebachelor`), so be sure to set the correct options.
+In addition, the graduate thesis specification requires that the formula numbering style used in citations should be in English brackets, i.e. `(1-1)`, while the undergraduate thesis specification requires that it be in Chinese brackets, i.e. `（1-1）`. As for the numbers on the right side of formulas, both use English brackets. This difference is completely controlled by the corresponding options (`doctor` / `prodoctor` / `intdoctor` / `ipdoctor` / `master` / `promaster` / `intmaster` / `ipmaster` / `bachelor` / `doublebachelor`), so be sure to set the correct options.
 
 ## 8. Acknowledgement
 
