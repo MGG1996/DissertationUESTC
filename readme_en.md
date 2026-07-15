@@ -1,6 +1,6 @@
 [简体中文](./readme.md) | **English**
 
-<h1 align="center"> A LaTeX Template for Dissertation Writing at the University of Electronic Science and Technology of China Since 2024 </h1>
+<h1 align="center"> A LaTeX Template for Dissertation Writing at the University of Electronic Science and Technology of China </h1>
 <div align="center">
   <a href="https://www.latex-project.org/lppl/">
     <img src="https://img.shields.io/badge/license-LPPL-blue?style=for-the-badge&logo=latex&label=License&logoColor=white&color=008080" alt="License">
@@ -209,7 +209,7 @@ In addition, I would like to thank all the netizens for sharing their LaTeX know
 
 ### 1.8 Statistics
 
-[![Star History Chart](https://api.star-history.com/svg?repos=MGG1996/DissertationUESTC,bdebye/thesisuestc,shifujun/UESTCthesis&type=Date)](https://www.star-history.com/#MGG1996/DissertationUESTC&bdebye/thesisuestc&shifujun/UESTCthesis&Date)
+[![RepoStars](https://repostars.dev/api/embed?repo=MGG1996%2FDissertationUESTC&theme=light)](https://www.repostars.dev/?theme=light&repos=MGG1996/DissertationUESTC,bdebye/thesisuestc,shifujun/UESTCthesis#compare)
 
 
 ## 2. Preamble of the Template
@@ -870,7 +870,7 @@ The compilation results of these `.bib` data are shown in the following figure, 
 ![示例参考文献编译结果](./fig/refsample.png "示例参考文献编译结果")
 
 In addition, :warning: Bachelor theses use a different layout style for most reference types than graduate theses, but most of them are just different in the order of the content and the punctuation after it, which is handled by the template. In other words, most of the above `bib` entries also apply to bachelor's degree theses. However, for **`patent`**, bachelor's degree theses also require new fields: `nation` (patent country) and `type` (patent type). The following is the `bib` information that undergraduates need to maintain for **`patent`**:
-```tex
+```bib
 @patent{肖珍新2012,
     author={肖珍新},
     title={一种新型排渣阀调节降温装置},
@@ -884,7 +884,7 @@ In addition, :warning: Bachelor theses use a different layout style for most ref
 ```
 
 Similarly, when citing "electronic documents" in bachelor's degree theses, **only one of `the place of publication` and `the address of acquisition` can be used, and only one of `the publication update date` and `the citation date` can be used**. Undergraduate students only need to use the `address` field to provide `the place of publication` or use the `url` field to provide `the website of acquisition`; and use the `modifydate` field to provide `the publication update date` or `the citation date`. As shown below (2025.03.12):
-```tex
+```bib
 @digital{电子文献1,
     author={Deverell, W and gler, D},
     title={A companion to California history},

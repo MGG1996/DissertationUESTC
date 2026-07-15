@@ -1,6 +1,6 @@
 **简体中文** | [English](./readme_en.md)
 
-<h1 align="center"> 电子科技大学学位论文模板2024 </h1>
+<h1 align="center"> 电子科技大学学位论文模板 </h1>
 <div align="center">
   <a href="https://www.latex-project.org/lppl/">
     <img src="https://img.shields.io/badge/license-LPPL-blue?style=for-the-badge&logo=latex&label=License&logoColor=white&color=008080" alt="License">
@@ -206,8 +206,7 @@
 
 ### 1.8 项目统计
 
-[![Star History Chart](https://api.star-history.com/svg?repos=MGG1996/DissertationUESTC,bdebye/thesisuestc,shifujun/UESTCthesis&type=Date)](https://www.star-history.com/#MGG1996/DissertationUESTC&bdebye/thesisuestc&shifujun/UESTCthesis&Date)
-
+[![RepoStars](https://repostars.dev/api/embed?repo=MGG1996%2FDissertationUESTC&theme=light)](https://www.repostars.dev/?theme=light&repos=MGG1996/DissertationUESTC,bdebye/thesisuestc,shifujun/UESTCthesis#compare)
 
 ## 2. 导言区
 
@@ -852,7 +851,7 @@
 ![示例参考文献编译结果](./fig/refsample.png "示例参考文献编译结果")
 
 另外， :warning: **<font color=#8b0000>学士学位论文在大部分参考文献类型上采用了与研究生学位论文不同的排版风格</font>**，不过其中大部分只是各项内容的排布顺序和其后的标点符号不同，而这些由模板负责处理。换句话说，上述大多数`bib`条目同样适用于学士学位论文。但是，<font color=#8b0000>对`专利`而言，学士学位论文还需要新的域：`nation`（专利国别）和`type`（专利种类）</font>。以下是本科生需要为`专利`维护的`bib`信息：
-```tex
+```bib
 @patent{肖珍新2012,
     author={肖珍新},
     title={一种新型排渣阀调节降温装置},
@@ -866,7 +865,7 @@
 ```
 
 类似的，<font color=#8b0000>学士学位论文在引用“**<font color=#8b0000>电子文献</font>**”时，`出版地`和`获取地址`只取其一、`发表更新日期`和`引用日期`同样只取其一</font>。本科生只需要用`address`域为之提供`出版地`**或**用`url`域为之提供`获取地址`；用`modifydate`域为之提供`发表更新日期`**或**`引用日期`即可。如下所示（2025.03.12）：
-```tex
+```bib
 @digital{电子文献1,
     author={Deverell, W and gler, D},
     title={A companion to California history},
